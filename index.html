@@ -14,210 +14,265 @@
 <title>The Rootstock — Word Power</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;0,900;1,500&family=Spectral:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
   :root{
-    --ink:#141a24; --ink-soft:#33404f;
-    --parch:#f2ead9; --parch-deep:#e7dcc4;
-    --ox:#7c2231; --ox-bright:#9c3142;
-    --gild:#a9852f; --moss:#3f5b4c;
-    --line:#c9bb9c; --shadow:rgba(20,26,36,.14);
+    --ink:#1b2230; --ink-soft:#5b6472;
+    --parch:#f6f4ef; --parch-deep:#ece9e1;
+    --surface:#ffffff; --surface-2:#faf9f5;
+    --ox:#9a3442; --ox-bright:#b0404f;
+    --gild:#9a7a34; --moss:#3f5b4c;
+    --line:#e6e2d8; --shadow:rgba(27,34,48,.10);
+    --radius:18px; --radius-sm:12px;
+    --sh-sm:0 1px 2px rgba(27,34,48,.04),0 3px 10px rgba(27,34,48,.05);
+    --sh-md:0 2px 6px rgba(27,34,48,.05),0 14px 34px rgba(27,34,48,.09);
+    --sh-lg:0 24px 60px rgba(27,34,48,.16);
+    --ui:'Hanken Grotesk',-apple-system,system-ui,sans-serif;
+    --serif:'Newsreader',Georgia,serif;
+    --mono:'IBM Plex Mono',ui-monospace,monospace;
   }
   *{box-sizing:border-box;margin:0;padding:0}
   html{-webkit-text-size-adjust:100%}
-  body{background:radial-gradient(120% 90% at 50% -10%, #f6f0e2 0%, var(--parch) 42%, var(--parch-deep) 100%);
-    color:var(--ink);font-family:'Spectral',Georgia,serif;line-height:1.55;min-height:100vh;
-    padding:clamp(14px,4vw,40px);}
-  .wrap{max-width:680px;margin:0 auto}
-  header.mast{text-align:center;padding:8px 0 20px;border-bottom:2px solid var(--ink);position:relative}
-  header.mast::after{content:"";position:absolute;left:0;right:0;bottom:-6px;height:1px;background:var(--ink)}
-  .eyebrow{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.42em;text-transform:uppercase;color:var(--ox);margin-bottom:10px;padding-left:.42em}
-  .mast h1{font-family:'Playfair Display',serif;font-weight:900;font-size:clamp(38px,10vw,64px);line-height:.92;letter-spacing:-.01em}
-  .mast h1 em{font-style:italic;font-weight:500;color:var(--ox)}
-  .mast .sub{font-style:italic;color:var(--ink-soft);margin-top:10px;font-size:clamp(14px,3.4vw,17px)}
+  body{background:var(--parch);color:var(--ink);font-family:var(--ui);line-height:1.55;min-height:100vh}
+  .wrap{max-width:560px;margin:0 auto;padding:0 clamp(14px,4.5vw,26px) 40px}
 
-  .index{margin-top:28px}
-  .index-head{display:flex;justify-content:space-between;align-items:baseline;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:12px}
-  .lvl-card{display:flex;align-items:center;gap:16px;width:100%;text-align:left;background:rgba(255,255,255,.34);
-    border:1px solid var(--line);border-left:4px solid var(--ox);padding:16px 18px;margin-bottom:12px;cursor:pointer;
-    font-family:inherit;color:inherit;transition:transform .12s,box-shadow .12s,background .12s}
-  .lvl-card:hover:not(:disabled){transform:translateY(-2px);box-shadow:0 8px 22px var(--shadow);background:rgba(255,255,255,.6)}
-  .lvl-card:disabled{opacity:.5;cursor:not-allowed;border-left-color:var(--line)}
-  .lvl-card.bar-card{border-left-color:var(--gild)}
-  .lvl-num{font-family:'Playfair Display',serif;font-size:24px;font-weight:700;color:var(--ox);min-width:58px;text-align:center;font-style:italic}
-  .lvl-body{flex:1}
-  .lvl-body h3{font-family:'Playfair Display',serif;font-weight:700;font-size:20px;line-height:1.1}
-  .lvl-body p{font-size:14px;color:var(--ink-soft);margin-top:3px}
-  .lvl-seal{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--gild);white-space:nowrap;text-align:right}
-  .lvl-seal.done{color:var(--moss)} .lvl-seal.locked{color:var(--ink-soft)}
-  /* the lexicon: permanent thin bar, deliberately quiet */
-  .lex-bar{display:flex;align-items:center;justify-content:space-between;width:100%;background:none;border:none;
-    border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:8px 4px;margin:0 0 16px;cursor:pointer;
-    font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-soft)}
-  .lex-bar .ct{letter-spacing:.06em;text-transform:none}
-  .lex-bar:hover{color:var(--ink)}
-  /* sealed gates: collapsed, receded, stamped */
-  .lvl-card.sealed{padding:8px 16px;opacity:.68;background:rgba(255,255,255,.16);gap:12px}
+  /* ---- top bar ---- */
+  .topbar{position:sticky;top:0;z-index:20;display:flex;align-items:center;justify-content:space-between;
+    padding:16px 2px 13px;margin-bottom:2px;
+    background:linear-gradient(var(--parch),var(--parch) 66%,rgba(246,244,239,0));backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
+  .brand{display:flex;align-items:center;gap:9px;font-family:var(--serif);font-weight:600;font-size:20px;letter-spacing:-.015em}
+  .brand-mark{display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:9px;
+    background:var(--ink);color:var(--parch);font-size:16px;font-family:var(--serif);font-style:italic;font-weight:600}
+  .brand-tag{font-family:var(--mono);font-size:9px;letter-spacing:.26em;text-transform:uppercase;color:var(--ink-soft)}
+
+  /* ---- dashboard ---- */
+  .dash{margin:6px 0 22px}
+  .dash-greet{margin:2px 2px 14px}
+  .dash-hello{font-family:var(--serif);font-weight:500;font-size:27px;letter-spacing:-.02em;line-height:1.08}
+  .dash-sub{font-size:13.5px;color:var(--ink-soft);margin-top:4px}
+  .session{display:block;width:100%;text-align:left;cursor:pointer;border:none;font-family:var(--ui);
+    background:var(--ink);color:var(--parch);border-radius:var(--radius);padding:20px 20px 22px;
+    box-shadow:var(--sh-md);position:relative;overflow:hidden;transition:transform .16s ease,box-shadow .16s ease}
+  .session::after{content:"";position:absolute;right:-46px;top:-46px;width:190px;height:190px;border-radius:50%;
+    background:radial-gradient(circle,rgba(176,64,79,.30),rgba(176,64,79,0) 70%);pointer-events:none}
+  .session:hover:not(:disabled){transform:translateY(-2px);box-shadow:var(--sh-lg)}
+  .session:active:not(:disabled){transform:translateY(0)}
+  .session:disabled{cursor:default;opacity:.92}
+  .session-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:13px;position:relative}
+  .session-kicker{font-family:var(--mono);font-size:10px;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:rgba(246,244,239,.6)}
+  .session-arrow{width:34px;height:34px;border-radius:50%;background:rgba(246,244,239,.13);
+    display:flex;align-items:center;justify-content:center;font-size:17px;color:var(--parch)}
+  .session-title{font-family:var(--serif);font-weight:600;font-size:23px;line-height:1.12;letter-spacing:-.015em;margin-bottom:5px;position:relative}
+  .session-meta{font-size:13.5px;color:rgba(246,244,239,.66);max-width:40ch;position:relative;line-height:1.4}
+  .session-bar{height:5px;border-radius:3px;background:rgba(246,244,239,.16);overflow:hidden;margin-top:16px;position:relative}
+  .session-bar>i{display:block;height:100%;background:var(--parch);border-radius:3px;transition:width .5s ease}
+  .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:9px;margin-top:12px}
+  .stat{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius-sm);padding:12px 8px 11px;text-align:center;box-shadow:var(--sh-sm)}
+  .stat-n{font-family:var(--serif);font-weight:600;font-size:22px;line-height:1;color:var(--ink)}
+  .stat-n span{font-size:12px;color:var(--ink-soft);font-weight:500}
+  .stat-l{font-size:10px;color:var(--ink-soft);margin-top:6px;letter-spacing:.01em;line-height:1.2}
+  .stat.due .stat-n{color:var(--ox)}
+  button.stat{width:100%;display:block;font:inherit;transition:transform .12s,box-shadow .12s,border-color .12s}
+  button.stat:not(:disabled):hover{transform:translateY(-2px);box-shadow:var(--sh-md);border-color:var(--ox)}
+  button.stat:disabled{opacity:1}
+
+  /* ---- the curriculum ---- */
+  .index{margin-top:6px}
+  .index-head{display:flex;justify-content:space-between;align-items:baseline;font-family:var(--mono);
+    font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-soft);margin:6px 2px 12px}
+  .lvl-card{display:flex;align-items:center;gap:14px;width:100%;text-align:left;background:var(--surface);
+    border:1px solid var(--line);border-radius:var(--radius-sm);padding:14px 16px;margin-bottom:10px;cursor:pointer;
+    font-family:var(--ui);color:inherit;box-shadow:var(--sh-sm);transition:transform .12s,box-shadow .12s}
+  .lvl-card:hover:not(:disabled){transform:translateY(-2px);box-shadow:var(--sh-md)}
+  .lvl-card:disabled{opacity:.55;cursor:not-allowed;box-shadow:none;background:var(--surface-2)}
+  .lvl-card.bar-card{background:linear-gradient(180deg,#fffdf7,#fbf6ea);border-color:#e8dcbe}
+  .lvl-num{font-family:var(--serif);font-style:italic;font-weight:600;font-size:17px;color:var(--ox);
+    flex:none;width:44px;height:44px;border-radius:12px;background:rgba(154,52,66,.08);
+    display:flex;align-items:center;justify-content:center}
+  .lvl-body{flex:1;min-width:0}
+  .lvl-body h3{font-family:var(--serif);font-weight:600;font-size:18px;line-height:1.15;letter-spacing:-.01em}
+  .lvl-body p{font-size:12.5px;color:var(--ink-soft);margin-top:2px;line-height:1.4;
+    display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+  .lvl-seal{font-family:var(--mono);font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--gild);
+    white-space:nowrap;text-align:right;flex:none}
+  .lvl-seal.done{color:var(--moss)} .lvl-seal.locked{color:var(--ink-soft);opacity:.85}
+  .lvl-card.sealed{padding:11px 16px;background:var(--surface-2);gap:12px}
   .lvl-card.sealed .lvl-body p{display:none}
-  .lvl-card.sealed .lvl-body h3{font-size:15px}
-  .lvl-card.sealed .lvl-num{font-size:15px;min-width:42px}
-  .lvl-card.sealed:hover:not(:disabled){transform:none;box-shadow:none;background:rgba(255,255,255,.3);opacity:.92}
-  .stamp{font-family:'IBM Plex Mono',monospace;font-size:11px;font-weight:700;letter-spacing:.24em;text-transform:uppercase;
-    color:var(--ox);border:2px double var(--ox);padding:4px 10px 3px;transform:rotate(-7deg);opacity:.55;white-space:nowrap}
+  .lvl-card.sealed .lvl-body h3{font-size:15px;color:var(--ink-soft)}
+  .lvl-card.sealed .lvl-num{width:38px;height:38px;font-size:14px;background:rgba(63,91,76,.10);color:var(--moss)}
+  .lvl-card.sealed:hover:not(:disabled){transform:none;box-shadow:var(--sh-sm)}
+  .stamp{font-family:var(--mono);font-size:9px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--moss);border:1px solid rgba(63,91,76,.4);border-radius:20px;padding:4px 10px 3px;white-space:nowrap}
 
-  .queue-meta{display:flex;justify-content:space-between;font-family:'IBM Plex Mono',monospace;font-size:11px;
-    letter-spacing:.12em;text-transform:uppercase;color:var(--ink-soft);margin:0 2px 14px}
+  .lex-bar{display:flex;align-items:center;justify-content:space-between;width:100%;background:var(--surface);
+    border:1px solid var(--line);border-radius:var(--radius-sm);padding:12px 16px;margin:0 0 10px;cursor:pointer;
+    font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft);
+    box-shadow:var(--sh-sm);transition:transform .12s,box-shadow .12s,color .12s}
+  .lex-bar .ct{letter-spacing:.01em;text-transform:none;font-family:var(--ui);font-size:12px}
+  .lex-bar:hover:not(:disabled){transform:translateY(-1px);box-shadow:var(--sh-md);color:var(--ink)}
+  .lex-bar:disabled{cursor:default;opacity:.7;box-shadow:none;background:var(--surface-2)}
+
+  .queue-meta{display:flex;justify-content:space-between;font-family:var(--mono);font-size:10.5px;
+    letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft);margin:0 2px 14px}
   .queue-meta .debt{color:var(--ox)}
 
-  .panel{margin-top:8px}
-  .back{background:none;border:none;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-soft);cursor:pointer;padding:6px 0;margin-bottom:6px}
-  .back:hover{color:var(--ox)}
-  .stage-label{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:var(--ox);text-align:center;margin-bottom:4px}
-  .stage-title{font-family:'Playfair Display',serif;font-weight:700;font-size:clamp(24px,6vw,32px);text-align:center;line-height:1.06;margin-bottom:18px}
-  .theme{text-align:center;font-style:italic;color:var(--ink-soft);max-width:44ch;margin:0 auto 22px;font-size:16px}
+  /* ---- panel / stage ---- */
+  .panel{margin-top:2px;animation:panel-in .34s cubic-bezier(.2,.7,.2,1)}
+  @keyframes panel-in{from{opacity:0;transform:translateY(9px)}to{opacity:1;transform:none}}
+  .back{background:var(--surface);border:1px solid var(--line);border-radius:20px;font-family:var(--ui);
+    font-size:12.5px;font-weight:500;color:var(--ink-soft);cursor:pointer;padding:7px 15px;margin-bottom:16px;
+    box-shadow:var(--sh-sm);transition:color .12s,transform .12s}
+  .back:hover{color:var(--ox);transform:translateX(-2px)}
+  .stage-label{font-family:var(--mono);font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--ox);text-align:center;margin-bottom:4px}
+  .stage-title{font-family:var(--serif);font-weight:600;font-size:clamp(24px,6.5vw,32px);text-align:center;line-height:1.05;letter-spacing:-.02em;margin-bottom:16px}
+  .theme{text-align:center;font-family:var(--serif);font-style:italic;color:var(--ink-soft);max-width:44ch;margin:0 auto 22px;font-size:16px;line-height:1.5}
 
-  .root-row{display:grid;grid-template-columns:auto 1fr;gap:14px;align-items:baseline;padding:13px 4px;border-bottom:1px solid var(--line)}
+  .root-row{display:grid;grid-template-columns:auto 1fr;gap:14px;align-items:baseline;padding:13px 6px;border-bottom:1px solid var(--line)}
   .root-row:first-of-type{border-top:1px solid var(--line)}
-  .root-key{font-family:'IBM Plex Mono',monospace;font-weight:500;font-size:16px;color:var(--ox)}
-  .root-lang{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--gild);display:block;margin-top:2px}
-  .root-gloss{font-size:16px}
-  .root-gloss::before{content:"“"} .root-gloss::after{content:"”"}
+  .root-key{font-family:var(--mono);font-weight:500;font-size:16px;color:var(--ox)}
+  .root-lang{font-family:var(--mono);font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--gild);display:block;margin-top:3px}
+  .root-gloss{font-family:var(--serif);font-size:16.5px}
+  .root-gloss::before{content:"\201C"} .root-gloss::after{content:"\201D"}
 
-  .card{background:rgba(255,255,255,.4);border:1px solid var(--line);box-shadow:0 6px 20px var(--shadow);padding:clamp(20px,5vw,32px);text-align:center}
-  .headword{font-family:'Playfair Display',serif;font-weight:900;font-size:clamp(34px,9vw,52px);line-height:1;letter-spacing:-.01em}
-  .pron{font-family:'IBM Plex Mono',monospace;font-size:13px;color:var(--ink-soft);margin-top:8px;letter-spacing:.04em}
-  .morph{display:flex;flex-wrap:wrap;justify-content:center;gap:6px;margin:20px 0}
-  .seg{position:relative;padding:9px 12px 22px;border-radius:3px;background:var(--parch-deep);border:1px solid var(--line);min-width:44px}
-  .seg .sy{font-family:'IBM Plex Mono',monospace;font-weight:500;font-size:17px;color:var(--ink)}
-  .seg .mn{position:absolute;left:0;right:0;bottom:5px;font-size:10px;font-family:'IBM Plex Mono',monospace;color:var(--ox);text-transform:lowercase}
+  /* ---- word card ---- */
+  .card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);
+    box-shadow:var(--sh-md);padding:clamp(22px,6vw,32px);text-align:center}
+  .headword{font-family:var(--serif);font-weight:600;font-size:clamp(34px,9.5vw,50px);line-height:1;letter-spacing:-.025em}
+  .pron{font-family:var(--mono);font-size:12.5px;color:var(--ink-soft);margin-top:9px;letter-spacing:.02em}
+  .morph{display:flex;flex-wrap:wrap;justify-content:center;gap:7px;margin:22px 0}
+  .seg{position:relative;padding:10px 13px 23px;border-radius:10px;background:var(--surface-2);border:1px solid var(--line);min-width:46px}
+  .seg .sy{font-family:var(--mono);font-weight:500;font-size:17px;color:var(--ink)}
+  .seg .mn{position:absolute;left:0;right:0;bottom:6px;font-size:9.5px;font-family:var(--mono);color:var(--ox);text-transform:lowercase;letter-spacing:.02em}
   .seg.empty{opacity:.4}
-  .plus{align-self:center;color:var(--gild);font-family:'Playfair Display',serif;font-size:18px}
-  .def{font-size:19px;margin:6px auto 4px;max-width:40ch}
-  .exline{font-style:italic;color:var(--ink-soft);max-width:44ch;margin:14px auto 0;padding-top:14px;border-top:1px solid var(--line);font-size:16px}
-  .near{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.06em;color:var(--gild);margin-top:14px;text-transform:uppercase}
+  .plus{align-self:center;color:var(--gild);font-family:var(--serif);font-size:18px}
+  .def{font-family:var(--serif);font-size:19px;margin:8px auto 4px;max-width:40ch;line-height:1.45}
+  .exline{font-family:var(--serif);font-style:italic;color:var(--ink-soft);max-width:44ch;margin:16px auto 0;padding-top:16px;border-top:1px solid var(--line);font-size:16px;line-height:1.55}
+  .near{font-family:var(--mono);font-size:10.5px;letter-spacing:.04em;color:var(--gild);margin-top:16px;text-transform:uppercase}
 
-  .btn{display:inline-block;font-family:'IBM Plex Mono',monospace;font-size:13px;letter-spacing:.14em;text-transform:uppercase;cursor:pointer;
-    padding:13px 26px;border:1.5px solid var(--ink);background:var(--ink);color:var(--parch);transition:background .12s,color .12s,transform .1s}
-  .btn:hover{background:var(--ox);border-color:var(--ox);transform:translateY(-1px)}
-  .btn.ghost{background:transparent;color:var(--ink)}
-  .btn.ghost:hover{background:var(--ink);color:var(--parch)}
-  .btn:disabled{opacity:.4;cursor:default;transform:none;background:var(--ink)}
+  /* ---- buttons ---- */
+  .btn{display:inline-block;font-family:var(--ui);font-size:14px;font-weight:600;letter-spacing:.01em;cursor:pointer;
+    padding:13px 26px;border:1.5px solid var(--ink);border-radius:26px;background:var(--ink);color:var(--parch);
+    box-shadow:var(--sh-sm);transition:background .14s,color .14s,transform .12s,box-shadow .14s}
+  .btn:hover{background:var(--ox);border-color:var(--ox);transform:translateY(-2px);box-shadow:var(--sh-md)}
+  .btn.ghost{background:transparent;color:var(--ink);box-shadow:none;border-color:var(--line)}
+  .btn.ghost:hover{background:var(--surface);color:var(--ox);border-color:var(--ox)}
+  .btn:disabled{opacity:.4;cursor:default;transform:none;background:var(--ink);box-shadow:none}
   .actions{display:flex;gap:12px;justify-content:center;margin-top:26px;flex-wrap:wrap}
 
+  /* ---- prompt / quiz ---- */
   .prompt{text-align:center;margin-bottom:8px}
-  .prompt .q-word{font-family:'Playfair Display',serif;font-weight:900;font-size:clamp(28px,7vw,42px)}
-  .prompt .q-def{font-size:19px;max-width:42ch;margin:4px auto 0}
-  .prompt .q-sentence{font-size:18px;font-style:italic;max-width:46ch;margin:4px auto 0}
-  .prompt .q-sentence b{font-style:normal;letter-spacing:.12em;color:var(--ox)}
-  .prompt .q-ask{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--ox);margin-bottom:8px}
-  .prompt .review-tag{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--gild);margin-bottom:4px}
-  .choices{display:flex;flex-direction:column;gap:10px;margin-top:20px}
-  .choice{text-align:left;font-family:inherit;font-size:16px;color:var(--ink);background:rgba(255,255,255,.4);border:1px solid var(--line);
-    padding:14px 16px;cursor:pointer;transition:background .12s,border-color .12s;display:flex;gap:12px;align-items:flex-start}
-  .choice:hover:not(.locked){border-color:var(--ox);background:rgba(255,255,255,.7)}
-  .choice .mark{font-family:'IBM Plex Mono',monospace;color:var(--ox);font-weight:500;flex-shrink:0}
-  .choice.correct{background:rgba(63,91,76,.14);border-color:var(--moss)}
+  .prompt .q-word{font-family:var(--serif);font-weight:600;font-size:clamp(28px,7.5vw,42px);letter-spacing:-.02em}
+  .prompt .q-def{font-family:var(--serif);font-size:19px;max-width:42ch;margin:4px auto 0;line-height:1.4}
+  .prompt .q-sentence{font-family:var(--serif);font-size:18px;font-style:italic;max-width:46ch;margin:4px auto 0;line-height:1.5}
+  .prompt .q-sentence b{font-style:normal;letter-spacing:.1em;color:var(--ox)}
+  .prompt .q-ask{font-family:var(--mono);font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--ox);margin-bottom:10px}
+  .prompt .review-tag{font-family:var(--mono);font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--gild);margin-bottom:6px}
+  .cue{font-family:var(--mono);font-size:15px;letter-spacing:.3em;color:var(--ox);margin-top:12px}
+  .card .ety{font-family:var(--serif);font-size:13.5px;font-style:italic;color:var(--ox);margin-top:10px;line-height:1.55;border-top:1px solid rgba(20,20,20,.09);padding-top:9px}
+  .verdict .fb-line{display:block;margin-top:7px;font-size:13px;line-height:1.5;font-weight:400}
+  .verdict .fb-ety,.verdict .fb-scene{font-style:italic;opacity:.88}
+  .choices{display:flex;flex-direction:column;gap:9px;margin-top:20px}
+  .choice{text-align:left;font-family:var(--serif);font-size:16px;color:var(--ink);background:var(--surface);
+    border:1px solid var(--line);border-radius:12px;padding:14px 16px;cursor:pointer;box-shadow:var(--sh-sm);
+    transition:border-color .12s,background .12s,transform .1s,box-shadow .12s;display:flex;gap:12px;align-items:flex-start}
+  .choice:hover:not(.locked){border-color:var(--ox);transform:translateY(-1px);box-shadow:var(--sh-md)}
+  .choice .mark{font-family:var(--mono);color:var(--ox);font-weight:500;flex-shrink:0}
+  .choice.correct{background:rgba(63,91,76,.10);border-color:var(--moss)}
   .choice.correct .mark{color:var(--moss)}
-  .choice.wrong{background:rgba(124,34,49,.1);border-color:var(--ox)}
+  .choice.wrong{background:rgba(154,52,66,.09);border-color:var(--ox)}
   .choice.locked{cursor:default}
   .typebox{display:flex;gap:10px;justify-content:center;margin-top:22px;flex-wrap:wrap}
-  .typebox input{font-family:'IBM Plex Mono',monospace;font-size:18px;padding:12px 16px;border:1.5px solid var(--ink);
-    background:rgba(255,255,255,.7);color:var(--ink);width:min(340px,100%);letter-spacing:.04em}
-  .typebox input:focus{outline:2px solid var(--ox);outline-offset:1px}
-  .typebox input.ok{border-color:var(--moss);background:rgba(63,91,76,.1)}
-  .typebox input.bad{border-color:var(--ox);background:rgba(124,34,49,.08)}
-  .verdict{text-align:center;margin-top:18px;min-height:26px;font-style:italic}
+  .typebox input{font-family:var(--mono);font-size:17px;padding:13px 16px;border:1.5px solid var(--line);border-radius:12px;
+    background:var(--surface);color:var(--ink);width:min(340px,100%);letter-spacing:.02em;box-shadow:var(--sh-sm)}
+  .typebox input:focus{outline:none;border-color:var(--ox);box-shadow:0 0 0 3px rgba(154,52,66,.14)}
+  .typebox input.ok{border-color:var(--moss);background:rgba(63,91,76,.08)}
+  .typebox input.bad{border-color:var(--ox);background:rgba(154,52,66,.07)}
+  .verdict{text-align:center;margin-top:18px;min-height:26px;font-family:var(--serif);font-style:italic;font-size:16px}
   .verdict.right{color:var(--moss)} .verdict.wrong{color:var(--ox)}
-  .verdict .root-hint{font-style:normal;font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--ink-soft);display:block;margin-top:4px}
+  .verdict .root-hint{font-style:normal;font-family:var(--mono);font-size:11.5px;color:var(--ink-soft);display:block;margin-top:5px}
 
-  .seal-wrap{text-align:center;padding:20px 0}
-  .wax{width:120px;height:120px;margin:0 auto 22px;border-radius:50%;
-    background:radial-gradient(circle at 38% 32%, var(--ox-bright), var(--ox) 55%, #5c1622 100%);
+  /* ---- seal / graduation ---- */
+  .seal-wrap{text-align:center;padding:22px 0}
+  .wax{width:112px;height:112px;margin:0 auto 22px;border-radius:50%;
+    background:radial-gradient(circle at 38% 32%,var(--ox-bright),var(--ox) 58%,#6d222c 100%);
     display:flex;align-items:center;justify-content:center;
-    box-shadow:0 8px 22px rgba(92,22,34,.4), inset 0 2px 8px rgba(255,255,255,.2);position:relative}
-  .wax::before{content:"";position:absolute;inset:9px;border:1.5px dashed rgba(242,234,217,.5);border-radius:50%}
-  .wax.gold{background:radial-gradient(circle at 38% 32%, #c9a54a, var(--gild) 55%, #7a5e1d 100%);box-shadow:0 8px 22px rgba(122,94,29,.4), inset 0 2px 8px rgba(255,255,255,.25)}
-  .wax span{font-family:'Playfair Display',serif;font-style:italic;font-weight:700;font-size:30px;color:var(--parch)}
-  .grad-score{font-family:'IBM Plex Mono',monospace;letter-spacing:.1em;color:var(--ink-soft);text-transform:uppercase;font-size:12px;margin-bottom:6px}
-  .grad-title{font-family:'Playfair Display',serif;font-weight:700;font-size:clamp(24px,6vw,32px);margin-bottom:8px}
-  .grad-note{font-style:italic;color:var(--ink-soft);max-width:38ch;margin:0 auto 8px}
-  .temper-clock{font-family:'IBM Plex Mono',monospace;font-size:26px;letter-spacing:.08em;color:var(--ox);margin:10px 0 4px}
+    box-shadow:0 14px 34px rgba(154,52,66,.32),inset 0 2px 10px rgba(255,255,255,.22);position:relative}
+  .wax::before{content:"";position:absolute;inset:9px;border:1.5px solid rgba(246,244,239,.45);border-radius:50%}
+  .wax.gold{background:radial-gradient(circle at 38% 32%,#c6a24a,var(--gild) 58%,#6f561f 100%);box-shadow:0 14px 34px rgba(154,122,52,.34),inset 0 2px 10px rgba(255,255,255,.28)}
+  .wax span{font-family:var(--serif);font-style:italic;font-weight:600;font-size:30px;color:var(--parch)}
+  .grad-score{font-family:var(--mono);letter-spacing:.08em;color:var(--ink-soft);text-transform:uppercase;font-size:11px;margin-bottom:8px}
+  .grad-title{font-family:var(--serif);font-weight:600;font-size:clamp(24px,6.5vw,32px);letter-spacing:-.015em;margin-bottom:9px}
+  .grad-note{font-family:var(--serif);font-style:italic;color:var(--ink-soft);max-width:38ch;margin:0 auto 8px;font-size:16px;line-height:1.55}
+  .temper-clock{font-family:var(--mono);font-size:26px;letter-spacing:.06em;color:var(--ox);margin:12px 0 6px}
 
-  .fine{text-align:center;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft);margin-top:34px;opacity:.7}
-
-  /* in-stage progress bar */
-  .sbar{height:6px;background:var(--parch-deep);border:1px solid var(--line);border-radius:2px;overflow:hidden;margin:2px 2px 14px}
-  .sfill{height:100%;background:var(--ox);transition:width .3s ease}
-
-  /* restore link */
+  .fine{text-align:center;font-family:var(--mono);font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft);margin-top:34px;opacity:.6}
+  .sbar{height:6px;background:var(--parch-deep);border-radius:100px;overflow:hidden;margin:2px 2px 14px}
+  .sfill{height:100%;background:var(--ox);border-radius:100px;transition:width .3s ease}
   .restore-link{display:block;width:100%;text-align:center;background:none;border:none;cursor:pointer;
-    font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.16em;text-transform:uppercase;
-    color:var(--ink-soft);opacity:.55;margin-top:26px;padding:8px;transition:opacity .15s,color .15s}
+    font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft);
+    opacity:.6;margin-top:12px;padding:8px;transition:opacity .15s,color .15s}
   .restore-link:hover{opacity:1;color:var(--ox)}
 
-  /* lexicon + forge */
-  .lex-list{display:flex;flex-direction:column;gap:6px}
-  .lex-row{display:flex;align-items:baseline;gap:10px;text-align:left;background:none;border:none;border-bottom:1px solid var(--line);
-    padding:9px 4px;cursor:pointer;font-family:'Spectral',serif;color:var(--ink)}
-  .lex-row:hover{background:rgba(20,26,36,.04)}
+  /* ---- lexicon ---- */
+  .lex-list{display:flex;flex-direction:column;gap:5px}
+  .lex-row{display:flex;align-items:baseline;gap:10px;text-align:left;background:none;border:none;border-radius:10px;
+    border-bottom:1px solid var(--line);padding:11px 8px;cursor:pointer;font-family:var(--serif);color:var(--ink)}
+  .lex-row:hover{background:var(--surface)}
   .lex-w{font-weight:600;font-size:16px;white-space:nowrap}
   .lex-d{font-size:13px;color:var(--ink-soft);font-style:italic;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;flex:1}
-  .lex-led{font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--moss)}
+  .lex-led{font-family:var(--mono);font-size:10.5px;color:var(--moss)}
   .lex-led.bad{color:var(--ox)}
-  #lexq{width:100%;font-family:'Spectral',serif;font-size:15px;padding:9px 12px;border:1px solid var(--line);background:rgba(255,255,255,.55);color:var(--ink)}
+  #lexq{width:100%;font-family:var(--serif);font-size:15px;padding:11px 14px;border:1px solid var(--line);border-radius:12px;background:var(--surface);color:var(--ink);box-shadow:var(--sh-sm)}
+  #lexq:focus{outline:none;border-color:var(--ox)}
 
-  /* ghost glosses */
-  .ghost{background:none;border:none;padding:0;cursor:pointer;font:inherit;color:inherit;
-    border-bottom:1px dotted var(--gild)}
-  .ghost:hover{color:var(--ox)}
-  .ghost-note{font-family:'IBM Plex Mono',monospace;font-size:11.5px;font-style:normal;color:var(--ink-soft);
-    margin-top:8px;padding-top:6px;border-top:1px dotted var(--gild)}
+  /* ---- ghost glosses (inline, not buttons) ---- */
+  .ghost:not(.btn){background:none;border:none;padding:0;cursor:pointer;font:inherit;color:inherit;border-bottom:1px dotted var(--gild)}
+  .ghost:not(.btn):hover{color:var(--ox)}
+  .ghost-note{font-family:var(--mono);font-size:11px;font-style:normal;color:var(--ink-soft);margin-top:9px;padding-top:7px;border-top:1px dotted var(--gild)}
 
-  /* prediction veil */
+  /* ---- prediction veil ---- */
   .veiled{filter:blur(7px);pointer-events:none;user-select:none;transition:filter .18s}
-  .veil-prompt{display:flex;align-items:center;justify-content:center;gap:7px;margin:10px auto 0;
-    cursor:pointer;font-family:'IBM Plex Mono',monospace;font-size:9.5px;font-weight:700;
-    letter-spacing:.14em;text-transform:uppercase;color:#000;padding:6px;width:fit-content}
-  .veil-prompt input[type=checkbox]{width:13px;height:13px;accent-color:#000;cursor:pointer;margin:0}
-  .veil-prompt:hover{opacity:.8}
+  .veil-prompt{display:flex;align-items:center;justify-content:center;gap:8px;margin:10px auto 0;cursor:pointer;
+    font-family:var(--mono);font-size:9.5px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--ink);padding:8px;width:fit-content}
+  .veil-prompt input[type=checkbox]{width:14px;height:14px;accent-color:var(--ox);cursor:pointer;margin:0}
+  .veil-prompt:hover{opacity:.75}
 
-  /* compose chips */
-  .built{min-height:38px;display:flex;justify-content:center;align-items:center;gap:2px;flex-wrap:wrap;
-    border:1px dashed var(--line);padding:6px 10px;margin:14px 0 4px;font-family:'IBM Plex Mono',monospace;font-size:17px}
+  /* ---- compose chips ---- */
+  .built{min-height:40px;display:flex;justify-content:center;align-items:center;gap:2px;flex-wrap:wrap;
+    border:1.5px dashed var(--line);border-radius:12px;padding:8px 12px;margin:14px 0 4px;font-family:var(--mono);font-size:17px}
   .built.ok{border-color:var(--moss);background:rgba(63,91,76,.08)}
-  .built.bad{border-color:var(--ox);background:rgba(124,34,49,.07)}
+  .built.bad{border-color:var(--ox);background:rgba(154,52,66,.07)}
   .bseg{padding:2px 3px}
   .chipbank{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin:12px 0 4px}
-  .chip{font-family:'IBM Plex Mono',monospace;font-size:15px;padding:8px 14px;background:var(--parch-deep);
-    border:1px solid var(--ink);cursor:pointer;color:var(--ink);transition:all .12s}
-  .chip:hover:not(:disabled){background:var(--ink);color:var(--parch)}
-  .chip:disabled{opacity:.28;cursor:default}
+  .chip{font-family:var(--mono);font-size:15px;padding:9px 15px;background:var(--surface);border:1.5px solid var(--ink);
+    border-radius:10px;cursor:pointer;color:var(--ink);box-shadow:var(--sh-sm);transition:all .12s}
+  .chip:hover:not(:disabled){background:var(--ink);color:var(--parch);transform:translateY(-1px)}
+  .chip:disabled{opacity:.3;cursor:default;box-shadow:none}
 
-  /* modal */
-  .modal-scrim{position:fixed;inset:0;background:rgba(20,26,36,.55);display:flex;align-items:center;justify-content:center;padding:20px;z-index:50}
-  .modal{background:var(--parch);border:1px solid var(--ink);box-shadow:0 18px 50px rgba(20,26,36,.4);max-width:440px;width:100%;padding:clamp(22px,5vw,32px);text-align:center}
-  .modal h3{font-family:'Playfair Display',serif;font-weight:700;font-size:26px;margin-bottom:6px}
-  .modal p{font-style:italic;color:var(--ink-soft);font-size:15px;margin:0 auto 16px;max-width:34ch}
-  .modal textarea{width:100%;height:84px;font-family:'IBM Plex Mono',monospace;font-size:11px;padding:10px;
-    border:1px solid var(--line);background:rgba(255,255,255,.7);color:var(--ink);resize:none;margin-bottom:14px;word-break:break-all}
+  /* ---- modal ---- */
+  .modal-scrim{position:fixed;inset:0;background:rgba(27,34,48,.5);backdrop-filter:blur(3px);-webkit-backdrop-filter:blur(3px);display:flex;align-items:center;justify-content:center;padding:20px;z-index:50;animation:panel-in .2s ease}
+  .modal{background:var(--surface);border-radius:var(--radius);box-shadow:var(--sh-lg);max-width:440px;width:100%;padding:clamp(22px,5vw,30px);text-align:center}
+  .modal h3{font-family:var(--serif);font-weight:600;font-size:25px;letter-spacing:-.015em;margin-bottom:7px}
+  .modal p{font-family:var(--serif);font-style:italic;color:var(--ink-soft);font-size:15px;margin:0 auto 16px;max-width:34ch;line-height:1.5}
+  .modal textarea{width:100%;height:84px;font-family:var(--mono);font-size:11px;padding:11px;border:1px solid var(--line);border-radius:12px;background:var(--surface-2);color:var(--ink);resize:none;margin-bottom:14px;word-break:break-all}
   .modal .actions{margin-top:4px}
-  .modal .msg{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;min-height:18px;margin-top:10px}
+  .modal .msg{font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;min-height:18px;margin-top:10px}
   .modal .msg.ok{color:var(--moss)} .modal .msg.bad{color:var(--ox)}
-  @media (prefers-reduced-motion: reduce){*{transition:none!important}}
+  @media (prefers-reduced-motion: reduce){*{transition:none!important;animation:none!important}}
   :focus-visible{outline:2px solid var(--ox);outline-offset:2px}
 </style>
 </head>
 <body>
 <div class="wrap">
-  <header class="mast">
-    <div class="eyebrow">A Vocabulary by its Roots</div>
-    <h1>The <em>Rootstock</em></h1>
-    <div class="sub">Learn the root once, and inherit the whole family of words.</div>
+  <header class="topbar">
+    <div class="brand"><span class="brand-mark">R</span>Rootstock</div>
+    <div class="brand-tag">Word Power</div>
   </header>
   <main id="app"></main>
   <div class="fine">After the method of Norman Lewis · twenty-four gates and the Bar</div>
 </div>
 
+<script src="depth.js"></script>
 <script>
 const GATES_A = [
 { id:1, title:"Personalities", theme:"How the self turns — inward, outward, toward others, or against them.",
@@ -857,6 +912,11 @@ function shuffle(a){ a=a.slice(); for(let i=a.length-1;i>0;i--){const j=Math.flo
 function esc(s){ return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/"/g,'&quot;'); }
 function rootHint(w){ return w.parts.filter(p=>p[1]).map(p=>p[0]+'='+p[1]).join('  ·  '); }
 function blank(w){ const re=new RegExp(w.word.replace(/[.*+?^${}()|[\]\\]/g,'\\$&'),'i'); return esc(w.sentence).replace(re,'<b>＿＿＿＿</b>'); }
+function depthOf(w){ return (window.DEPTH && window.DEPTH[w.word]) || {}; }
+function vigOf(w){ return depthOf(w).v || ''; }
+function etyOf(w){ return depthOf(w).e || ''; }
+function defOfWord(name){ for(const l of LEVELS){ const x=l.words.find(t=>t.word===name); if(x) return x.def; } return ''; }
+function letterCue(word){ return word[0] + word.slice(1).replace(/[^ ]/g,'·'); }
 function allSealed(){ return LEVELS.every(l=>G(l.id).sealed); }
 function fmtDur(ms){ const h=Math.floor(ms/3600000),m=Math.floor((ms%3600000)/60000),s=Math.floor((ms%60000)/1000); return String(h).padStart(2,'0')+':'+String(m).padStart(2,'0')+':'+String(s).padStart(2,'0'); }
 function fmtDays(ms){ const d=ms/DAY; return d>=1 ? Math.round(d)+'d' : fmtDur(ms); }
@@ -903,7 +963,7 @@ function itemOut(it){ const o={m:it.m};
   if(it.pair){ o.pi=CONFUSABLES.indexOf(it.pair); }
   if(it.inf){ o.fw=it.inf.word; }
   return o; }
-function itemIn(o){ const it={m:o.m};
+function itemIn(o){ const it={m:o.m==='BLANK'?'VIG':o.m};
   if(o.gi!==undefined){ it.gi=o.gi; it.wi=o.wi; }
   if(o.pi!==undefined){ it.pair=CONFUSABLES[o.pi]; if(!it.pair) return null; }
   if(o.fw){ it.inf=INFER_POOL.find(f=>f.word===o.fw); if(!it.inf) return null; }
@@ -931,6 +991,42 @@ function resumeMark(mk,idx){
   S={idx, kind:mk.kind, queue, debt:mk.debt||0, done:mk.done||0,
      sit: mk.sit||{cleared:0,ahead:0}, studyLeft:0, missed: mk.missed||[]};
   return trialItem(); }
+
+/* ---- daily streak (device-local) ---- */
+function touchStreak(){
+  const today=new Date(); today.setHours(0,0,0,0); const t0=today.getTime();
+  if(P.lastActive===undefined||P.lastActive===null){ P.streak=1; P.lastActive=t0; save(); return; }
+  if(P.lastActive===t0) return;
+  const diff=Math.round((t0-P.lastActive)/DAY);
+  if(diff===1) P.streak=(P.streak||0)+1;
+  else if(diff>1) P.streak=1;
+  P.lastActive=t0; save();
+}
+
+/* ---- the one next thing: drives the home session card ---- */
+function primaryAction(due, debtBlocks){
+  const mk=P.mark;
+  if(mk && markFresh(mk) && LEVELS[mk.idx]){ const g=G(LEVELS[mk.idx].id);
+    if(!g.sealed && markUsable(mk,g))
+      return {kicker:'Resume', label:'Gate '+rom(LEVELS[mk.idx].id)+' \u00b7 '+LEVELS[mk.idx].title, sub:'Pick up where you left off', fn:()=>enterGate(mk.idx)};
+  }
+  if(due>0) return {kicker:'Review', label:'The Review Docket', sub:due+' word'+(due>1?'s':'')+' ready for recall', fn:startReview};
+  for(let idx=0; idx<LEVELS.length; idx++){
+    const g=G(LEVELS[idx].id); if(g.sealed) continue;
+    const prevSealed = idx===0 || G(LEVELS[idx-1].id).sealed;
+    if(!prevSealed) break;
+    if(g.t1){ const left=temperUnlock(g.t1)-Date.now();
+      if(left>0) return {kicker:'Tempering', label:'Gate '+rom(LEVELS[idx].id)+' is setting', sub:'Trial II opens in '+fmtDur(left), fn:null};
+      return {kicker:'Trial II', label:'Gate '+rom(LEVELS[idx].id)+' \u00b7 '+LEVELS[idx].title, sub:'Typed production \u2014 seal the gate', fn:()=>enterGate(idx)};
+    }
+    if(debtBlocks) return {kicker:'Review', label:'Clear the Docket first', sub:'Due words gate the next opening', fn:startReview};
+    return {kicker: idx===0?'Begin':'Next Gate', label:'Gate '+rom(LEVELS[idx].id)+' \u00b7 '+LEVELS[idx].title, sub:LEVELS[idx].theme, fn:()=>enterGate(idx)};
+  }
+  if(P.bar.passed) return {kicker:'Admitted \u2726', label:'The method is yours', sub:'Revisit the Forge or your Lexicon anytime', fn:null};
+  if(debtBlocks) return {kicker:'Review', label:'The Review Docket', sub:'Clear the docket, then the Bar sits open', fn:startReview};
+  if(P.bar.lockedUntil>Date.now()) return {kicker:'The Bar', label:'Doors locked', sub:'Reopens in '+fmtDur(P.bar.lockedUntil-Date.now()), fn:null};
+  return {kicker:'The Bar', label:'The Bar sits open', sub:'Fifty items \u00b7 '+BAR_PASS+' to pass \u00b7 one attempt', fn:startBar};
+}
 
 /* ================= HOME ================= */
 function home(){
@@ -985,9 +1081,31 @@ function home(){
     <div class="lvl-num" style="color:var(--gild)">☙</div>
     <div class="lvl-body"><h3>The Bar</h3><p>Fifty items: forty produced from memory, five confusable pairs, five words you have never seen — meanings built from roots alone. ${BAR_PASS} to pass; one attempt, then an eight-hour lock.</p></div>${barSeal}</button>`;
 
-  app.innerHTML = `<section class="index">
+  touchStreak();
+  const lexCount = lexEntries().length;
+  const pa = primaryAction(due, debtBlocks);
+  const hr = new Date().getHours();
+  const greeting = hr<5?'Burning the midnight oil':hr<12?'Good morning':hr<17?'Good afternoon':'Good evening';
+  const sealPct = Math.round(sealedCt/LEVELS.length*100);
+  const dashHtml = `<section class="dash">
+    <div class="dash-greet"><div class="dash-hello">${greeting}.</div>
+      <div class="dash-sub">${sealedCt?sealedCt+' of '+LEVELS.length+' gates sealed':'Twenty-five gates await their first root.'}</div></div>
+    <button class="session" id="cta" ${pa.fn?'':'disabled'}>
+      <div class="session-top"><span class="session-kicker">${pa.kicker}</span><span class="session-arrow">→</span></div>
+      <div class="session-title">${pa.label}</div>
+      <div class="session-meta">${pa.sub}</div>
+      <div class="session-bar"><i style="width:${sealPct}%"></i></div>
+    </button>
+    <div class="stats">
+      <div class="stat"><div class="stat-n">${sealedCt}<span>/${LEVELS.length}</span></div><div class="stat-l">Sealed</div></div>
+      <div class="stat"><div class="stat-n">${P.streak||0}</div><div class="stat-l">Day streak</div></div>
+      <button class="stat" id="lex-stat"${lexCount?'':' disabled'} style="font-family:var(--ui);cursor:${lexCount?'pointer':'default'}"><div class="stat-n">${lexCount}</div><div class="stat-l">Lexicon</div></button>
+      <div class="stat${due>0?' due':''}"><div class="stat-n">${due}</div><div class="stat-l">Due</div></div>
+    </div></section>`;
+
+  app.innerHTML = `${dashHtml}<section class="index">
     <div class="index-head"><span>The Gates</span><span>${sealedCt} / ${LEVELS.length} sealed</span></div>
-    ${lexiconBar()}${docket}${forgeCard()}${cards}
+    ${docket}${forgeCard()}${cards}
     <button class="restore-link" id="predict-toggle">Prediction veil: ${P.predict?'on':'off'}</button>
     <button class="restore-link" id="backup" style="margin-top:2px">⛃ Get a backup code for your progress</button>
     <button class="restore-link" id="restore" style="margin-top:2px">⟲ Restore progress from a saved code</button>
@@ -999,8 +1117,9 @@ function home(){
   document.getElementById('restore').onclick=restoreModal;
   document.getElementById('backup').onclick=backupModal;
   document.getElementById('predict-toggle').onclick=()=>{ P.predict=!P.predict; save(); home(); };
-  const lx=document.getElementById('lex-btn'); if(lx) lx.onclick=()=>lexicon('');
+  const lx=document.getElementById('lex-stat'); if(lx && lexCount) lx.onclick=()=>lexicon('');
   const fg=document.getElementById('forge-btn'); if(fg) fg.onclick=startForge;
+  const cta=document.getElementById('cta'); if(cta && pa.fn) cta.onclick=pa.fn;
 
   if(LEVELS.some(l=>{const g=G(l.id);return g.t1&&!g.sealed;}) || barLocked){
     clockTimer=setInterval(()=>{ if(!S) home(); },1000);
@@ -1026,7 +1145,7 @@ function reviewItem(){
   }
   const it=S.queue[0], w=wordAt(it.gi,it.wi);
   // retrieval depth escalates with the Leitner box: recognize → spell in context → produce → assemble
-  const MODES=['REC','BLANK','PROD','COMPOSE'];
+  const MODES=['REC','VIG','VIGT','COMPOSE'];
   it.m = MODES[Math.min(P.review[it.k].box, MODES.length-1)];
   renderTrialPrompt({
     label:'The Review Docket', gateLabel:'Gate '+rom(LEVELS[it.gi].id)+' · box '+(P.review[it.k].box+1), it, w,
@@ -1117,7 +1236,7 @@ function cardHtml(word){
   const kin=word.kin?`<div class="near">kin: ${word.kin.join(' · ')}</div>`:'';
   return `<div class="card"><div class="headword">${word.word}</div><div class="pron">/ ${word.pron} /</div>
     <div class="morph">${morph}</div><div class="def">${word.def}</div>
-    <div class="exline">“${ghostify(word)}”<div class="ghost-note" style="display:none"></div></div>${kin}</div>`;
+    <div class="exline">“${ghostify(word)}”<div class="ghost-note" style="display:none"></div></div>${etyOf(word)?`<div class="ety">${etyOf(word)}</div>`:''}${kin}</div>`;
 }
 // Wrap earlier-gate headwords found in the sentence: tap to see their definition again.
 function ghostify(word){
@@ -1189,7 +1308,7 @@ function studyScreen(idx,w){
 /* ================= TRIALS ================= */
 function startTrial1(idx){
   const lv=LEVELS[idx];
-  let items=[]; lv.words.forEach((_,wi)=>{items.push({gi:idx,wi,m:'REC'},{gi:idx,wi,m:'REV'},{gi:idx,wi,m:'BLANK'});});
+  let items=[]; lv.words.forEach((_,wi)=>{items.push({gi:idx,wi,m:'REC'},{gi:idx,wi,m:'REV'},{gi:idx,wi,m:'VIG'});});
   if(idx>=3) inferPick(idx,1).forEach(f=>items.push({m:'INFER',inf:f}));
   const sit = (S&&S.sit)?S.sit:{cleared:0,ahead:0};
   sit.ahead=0; sit.studyEntered=true;                 // trial I is the last stage of sitting 1
@@ -1205,7 +1324,7 @@ function startTrial2(idx){
   const cur=gateRootKeys(idx);
   pool.map(r=>{ let s=0; gateRootKeys(r.gi).forEach(t=>{ if(cur.has(t)) s++; }); return {r,s:s+Math.random()*0.5}; })
       .sort((a,b)=>b.s-a.s).slice(0,4)
-      .forEach(x=>items.push({...x.r, m:Math.random()<.5?'PROD':'BLANK'}));
+      .forEach(x=>items.push({...x.r, m:Math.random()<.5?'PROD':'VIGT'}));
   if(idx>=3) inferPick(idx,2).forEach(f=>items.push({m:'INFER',inf:f}));
   // confusable pairs: both members taught by now
   const pairs = shuffle(CONFUSABLES.filter(p=>pairEligible(p,idx))).slice(0,3);
@@ -1273,10 +1392,17 @@ function renderTrialPrompt({label,gateLabel,it,w,onResolve,onNext,oneShot}){
       <div class="chipbank">${bank.map((s,i)=>`<button class="chip" data-seg="${esc(s)}">${s}</button>`).join('')}</div>
       <div class="typebox" style="justify-content:center"><button class="btn ghost" id="clr">Clear</button></div>`;
     it._compose = { segs, target: src.word };
-  } else { // BLANK or PROD — typed exact
+  } else if(it.m==='VIG'){
+    const gate=LEVELS[it.gi];
+    const scene=vigOf(w)||w.def;
+    promptHtml=`<div class="q-ask">Read the scene — which word does it call for?</div><div class="q-sentence">“${esc(scene)}”</div>`;
+    const others=shuffle(gate.words.filter(x=>x.word!==w.word)).slice(0,3).map(x=>x.word);
+    const opts=shuffle([{t:w.word,ok:true},...others.map(t=>({t,ok:false}))]);
+    bodyHtml=`<div class="choices">${opts.map((o,i)=>`<button class="choice" data-ok="${o.ok}"><span class="mark">${L[i]}</span><span style="font-family:'IBM Plex Mono',monospace">${o.t}</span></button>`).join('')}</div>`;
+  } else { // VIGT or PROD — typed exact
     typed=true;
-    promptHtml = it.m==='BLANK'
-      ? `<div class="q-ask">Type the missing word — exact spelling</div><div class="q-sentence">“${blank(w)}”</div>`
+    promptHtml = it.m==='VIGT' && vigOf(w)
+      ? `<div class="q-ask">Name the word the scene calls for — exact spelling</div><div class="q-sentence">“${esc(vigOf(w))}”</div><div class="cue">${letterCue(w.word)}</div>`
       : `<div class="q-ask">Type the word — exact spelling</div><div class="q-def">“${w.def}”</div>`;
     bodyHtml=`<div class="typebox"><input id="ans" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="the word…"><button class="btn" id="sub">Submit</button></div>`;
   }
@@ -1291,7 +1417,7 @@ function renderTrialPrompt({label,gateLabel,it,w,onResolve,onNext,oneShot}){
     <div class="verdict" id="v"></div><div class="actions" id="a"></div></section>`;
   document.getElementById('home').onclick=home;
 
-  const finish = ok=>{
+  const finish = (ok,picked)=>{
     const extra = onResolve(ok);
     const v=document.getElementById('v');
     let hint='';
@@ -1304,8 +1430,15 @@ function renderTrialPrompt({label,gateLabel,it,w,onResolve,onNext,oneShot}){
       const sess=S; setTimeout(()=>{ if(S===sess) onNext(); },350); }
     else {
       const answer = it.m==='PAIR'?it.pair.ans : it.m==='INFER'?it.inf.def : it.m==='COMPOSE'?(it.inf||w).word : w.word;
+      let deep='';
+      if(w){
+        const pd = picked && picked!==w.word ? defOfWord(picked) : '';
+        if(pd) deep+=`<span class="fb-line fb-contrast">not <b>${picked}</b> — ${pd.toLowerCase()}</span>`;
+        if(etyOf(w)) deep+=`<span class="fb-line fb-ety">${etyOf(w)}</span>`;
+        if(vigOf(w) && it.m!=='VIG' && it.m!=='VIGT') deep+=`<span class="fb-line fb-scene">“${esc(vigOf(w))}”</span>`;
+      }
       v.className='verdict wrong';
-      v.innerHTML=`<b>${answer}</b>${extra?' — '+extra:''}.${hint}`;
+      v.innerHTML=`<b>${answer}</b>${extra?' — '+extra:''}.${hint}${deep}`;
       document.getElementById('a').innerHTML=`<button class="btn" id="n">${(S.queue.length&&!oneShot)||(oneShot&&S.pos<S.queue.length)?'Next →':'Finish →'}</button>`;
       document.getElementById('n').onclick=onNext;
       document.getElementById('n').focus(); }
@@ -1360,7 +1493,8 @@ function wireChoices(resolve){
     const ok=c.dataset.ok==='true';
     c.classList.add(ok?'correct':'wrong');
     if(!ok) cs.find(x=>x.dataset.ok==='true').classList.add('correct');
-    resolve(ok); };});
+    const pickedSpans=c.querySelectorAll('span');
+    resolve(ok, pickedSpans[1]?pickedSpans[1].textContent:''); };});
 }
 
 function trialDone(){
@@ -1429,7 +1563,7 @@ function studyReview(idx){
 function startBar(){
   stopClock();
   const pool=[]; LEVELS.forEach((lv,gi)=>lv.words.forEach((_,wi)=>pool.push({gi,wi})));
-  const prod = shuffle(pool).slice(0,35).map(r=>({...r,m:Math.random()<.6?'PROD':'BLANK'}));
+  const prod = shuffle(pool).slice(0,35).map(r=>({...r,m:Math.random()<.6?'PROD':'VIGT'}));
   const pairs = shuffle(CONFUSABLES).slice(0,5).map(p=>({m:'PAIR',pair:p}));
   const inf10 = inferPick(LEVELS.length-1,10);
   const infers = inf10.slice(0,5).map(f=>({m:'INFER',inf:f}));
