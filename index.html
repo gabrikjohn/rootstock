@@ -14,7 +14,7 @@
 <title>The Rootstock — Word Power</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&family=IBM+Plex+Mono:wght@400;500&family=IM+Fell+English:ital@0;1&family=IM+Fell+English+SC&display=swap" rel="stylesheet">
 <style>
   :root{
     --ink:#1b2230; --ink-soft:#5b6472;
@@ -29,6 +29,7 @@
     --sh-lg:0 24px 60px rgba(27,34,48,.16);
     --ui:'Hanken Grotesk',-apple-system,system-ui,sans-serif;
     --serif:'Newsreader',Georgia,serif;
+    --display:'Newsreader',Georgia,serif;
     --mono:'IBM Plex Mono',ui-monospace,monospace;
   }
   *{box-sizing:border-box;margin:0;padding:0}
@@ -40,15 +41,15 @@
   .topbar{position:sticky;top:0;z-index:20;display:flex;align-items:center;justify-content:space-between;
     padding:16px 2px 13px;margin-bottom:2px;
     background:linear-gradient(var(--parch),var(--parch) 66%,rgba(246,244,239,0));backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
-  .brand{display:flex;align-items:center;gap:9px;font-family:var(--serif);font-weight:600;font-size:20px;letter-spacing:-.015em}
+  .brand{display:flex;align-items:center;gap:9px;font-family:var(--display);font-weight:600;font-size:20px;letter-spacing:-.015em}
   .brand-mark{display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:9px;
-    background:var(--ink);color:var(--parch);font-size:16px;font-family:var(--serif);font-style:italic;font-weight:600}
+    background:var(--ink);color:var(--parch);font-size:16px;font-family:var(--display);font-style:italic;font-weight:600}
   .brand-tag{font-family:var(--mono);font-size:9px;letter-spacing:.26em;text-transform:uppercase;color:var(--ink-soft)}
 
   /* ---- dashboard ---- */
   .dash{margin:6px 0 22px}
   .dash-greet{margin:2px 2px 14px}
-  .dash-hello{font-family:var(--serif);font-weight:500;font-size:27px;letter-spacing:-.02em;line-height:1.08}
+  .dash-hello{font-family:var(--display);font-weight:500;font-size:27px;letter-spacing:-.02em;line-height:1.08}
   .dash-sub{font-size:13.5px;color:var(--ink-soft);margin-top:4px}
   .session{display:block;width:100%;text-align:left;cursor:pointer;border:none;font-family:var(--ui);
     background:var(--ink);color:var(--parch);border-radius:var(--radius);padding:20px 20px 22px;
@@ -62,13 +63,13 @@
   .session-kicker{font-family:var(--mono);font-size:10px;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:rgba(246,244,239,.6)}
   .session-arrow{width:34px;height:34px;border-radius:50%;background:rgba(246,244,239,.13);
     display:flex;align-items:center;justify-content:center;font-size:17px;color:var(--parch)}
-  .session-title{font-family:var(--serif);font-weight:600;font-size:23px;line-height:1.12;letter-spacing:-.015em;margin-bottom:5px;position:relative}
+  .session-title{font-family:var(--display);font-weight:600;font-size:23px;line-height:1.12;letter-spacing:-.015em;margin-bottom:5px;position:relative}
   .session-meta{font-size:13.5px;color:rgba(246,244,239,.66);max-width:40ch;position:relative;line-height:1.4}
   .session-bar{height:5px;border-radius:3px;background:rgba(246,244,239,.16);overflow:hidden;margin-top:16px;position:relative}
-  .session-bar>i{display:block;height:100%;background:var(--parch);border-radius:3px;transition:width .5s ease}
-  .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:9px;margin-top:12px}
+  .session-bar>i{display:block;height:100%;background:linear-gradient(90deg,#b98f3d,#d9b563);border-radius:3px;transition:width .5s ease}
+  .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;margin-top:12px}
   .stat{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius-sm);padding:12px 8px 11px;text-align:center;box-shadow:var(--sh-sm)}
-  .stat-n{font-family:var(--serif);font-weight:600;font-size:22px;line-height:1;color:var(--ink)}
+  .stat-n{font-family:var(--display);font-weight:600;font-size:22px;line-height:1;color:var(--ink)}
   .stat-n span{font-size:12px;color:var(--ink-soft);font-weight:500}
   .stat-l{font-size:10px;color:var(--ink-soft);margin-top:6px;letter-spacing:.01em;line-height:1.2}
   .stat.due .stat-n{color:var(--ox)}
@@ -86,11 +87,16 @@
   .lvl-card:hover:not(:disabled){transform:translateY(-2px);box-shadow:var(--sh-md)}
   .lvl-card:disabled{opacity:.55;cursor:not-allowed;box-shadow:none;background:var(--surface-2)}
   .lvl-card.bar-card{background:linear-gradient(180deg,#fffdf7,#fbf6ea);border-color:#e8dcbe}
-  .lvl-num{font-family:var(--serif);font-style:italic;font-weight:600;font-size:17px;color:var(--ox);
+  .lvl-card.drill-card{padding:9px 14px;gap:11px;background:linear-gradient(168deg,#efe0b4,#e4d296);border-color:#c8ab6e;color:#43310f;box-shadow:var(--sh-sm)}
+  .lvl-card.drill-card:hover:not(:disabled){box-shadow:var(--sh-md)}
+  .lvl-card.drill-card .lvl-num{width:32px;height:32px;font-size:15px;border-radius:9px;background:rgba(138,104,32,.14);color:#8a6820}
+  .lvl-card.drill-card .lvl-body h3{font-size:15px;color:#3c2b0d}
+  .lvl-card.drill-card .lvl-seal{color:var(--gild)}
+  .lvl-num{font-family:var(--display);font-style:italic;font-weight:600;font-size:17px;color:var(--ox);
     flex:none;width:44px;height:44px;border-radius:12px;background:rgba(154,52,66,.08);
     display:flex;align-items:center;justify-content:center}
   .lvl-body{flex:1;min-width:0}
-  .lvl-body h3{font-family:var(--serif);font-weight:600;font-size:18px;line-height:1.15;letter-spacing:-.01em}
+  .lvl-body h3{font-family:var(--display);font-weight:600;font-size:18px;line-height:1.15;letter-spacing:-.01em}
   .lvl-body p{font-size:12.5px;color:var(--ink-soft);margin-top:2px;line-height:1.4;
     display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
   .lvl-seal{font-family:var(--mono);font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--gild);
@@ -101,8 +107,30 @@
   .lvl-card.sealed .lvl-body h3{font-size:15px;color:var(--ink-soft)}
   .lvl-card.sealed .lvl-num{width:38px;height:38px;font-size:14px;background:rgba(63,91,76,.10);color:var(--moss)}
   .lvl-card.sealed:hover:not(:disabled){transform:none;box-shadow:var(--sh-sm)}
+  /* current (frontier) gate — burnt-parchment highlight so it stands out */
+  .lvl-card.current{
+    background:
+      radial-gradient(140% 120% at 12% -12%, rgba(58,26,6,.42), rgba(58,26,6,0) 44%),
+      radial-gradient(150% 130% at 92% 112%, rgba(58,26,6,.5), rgba(58,26,6,0) 48%),
+      linear-gradient(168deg,#e0c286 0%,#c9a458 54%,#b88d3b 100%);
+    border-color:#7a4f1e;color:#3a2a12;
+    box-shadow:0 6px 20px rgba(80,44,8,.30),inset 0 0 34px rgba(70,36,6,.32),inset 0 0 0 1px rgba(58,28,6,.22)}
+  .lvl-card.current:hover:not(:disabled){box-shadow:0 9px 26px rgba(80,44,8,.38),inset 0 0 34px rgba(70,36,6,.32),inset 0 0 0 1px rgba(58,28,6,.22)}
+  .lvl-card.current .lvl-body h3{color:#2f2110}
+  .lvl-card.current .lvl-body p{color:#5a4222}
+  .lvl-card.current .lvl-num{background:rgba(58,28,6,.16);color:#7c2f1b}
+  .lvl-card.current .lvl-seal{color:#6f4a1c}
   .stamp{font-family:var(--mono);font-size:9px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;
     color:var(--moss);border:1px solid rgba(63,91,76,.4);border-radius:20px;padding:4px 10px 3px;white-space:nowrap}
+  .sealed-group{margin-bottom:10px}
+  .sealed-toggle{cursor:pointer;margin-bottom:0}
+  .sealed-toggle .lvl-num{background:rgba(63,91,76,.12);color:var(--moss)}
+  .sealed-toggle .lvl-seal.done{display:inline-flex;align-items:center;gap:6px}
+  .sealed-toggle .chev{display:inline-block;font-size:11px;transition:transform .18s ease}
+  .sealed-toggle.open .chev{transform:rotate(90deg)}
+  .sealed-list{margin-top:10px;padding-left:12px;border-left:2px solid rgba(63,91,76,.20)}
+  .sealed-list[hidden]{display:none}
+  html.parchment .sealed-list{border-left-color:rgba(90,66,26,.30)}
 
   .lex-bar{display:flex;align-items:center;justify-content:space-between;width:100%;background:var(--surface);
     border:1px solid var(--line);border-radius:var(--radius-sm);padding:12px 16px;margin:0 0 10px;cursor:pointer;
@@ -124,7 +152,7 @@
     box-shadow:var(--sh-sm);transition:color .12s,transform .12s}
   .back:hover{color:var(--ox);transform:translateX(-2px)}
   .stage-label{font-family:var(--mono);font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--ox);text-align:center;margin-bottom:4px}
-  .stage-title{font-family:var(--serif);font-weight:600;font-size:clamp(24px,6.5vw,32px);text-align:center;line-height:1.05;letter-spacing:-.02em;margin-bottom:16px}
+  .stage-title{font-family:var(--display);font-weight:600;font-size:clamp(24px,6.5vw,32px);text-align:center;line-height:1.05;letter-spacing:-.02em;margin-bottom:16px}
   .theme{text-align:center;font-family:var(--serif);font-style:italic;color:var(--ink-soft);max-width:44ch;margin:0 auto 22px;font-size:16px;line-height:1.5}
 
   .root-row{display:grid;grid-template-columns:auto 1fr;gap:14px;align-items:baseline;padding:13px 6px;border-bottom:1px solid var(--line)}
@@ -133,11 +161,12 @@
   .root-lang{font-family:var(--mono);font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--gild);display:block;margin-top:3px}
   .root-gloss{font-family:var(--serif);font-size:16.5px}
   .root-gloss::before{content:"\201C"} .root-gloss::after{content:"\201D"}
+  .root-etym{font-family:var(--serif);font-style:italic;font-size:13.5px;line-height:1.5;color:var(--ink-soft);margin-top:7px;max-width:52ch}
 
   /* ---- word card ---- */
   .card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);
     box-shadow:var(--sh-md);padding:clamp(22px,6vw,32px);text-align:center}
-  .headword{font-family:var(--serif);font-weight:600;font-size:clamp(34px,9.5vw,50px);line-height:1;letter-spacing:-.025em}
+  .headword{font-family:var(--display);font-weight:600;font-size:clamp(34px,9.5vw,50px);line-height:1;letter-spacing:-.025em}
   .pron{font-family:var(--mono);font-size:12.5px;color:var(--ink-soft);margin-top:9px;letter-spacing:.02em}
   .morph{display:flex;flex-wrap:wrap;justify-content:center;gap:7px;margin:22px 0}
   .seg{position:relative;padding:10px 13px 23px;border-radius:10px;background:var(--surface-2);border:1px solid var(--line);min-width:46px}
@@ -161,7 +190,7 @@
 
   /* ---- prompt / quiz ---- */
   .prompt{text-align:center;margin-bottom:8px}
-  .prompt .q-word{font-family:var(--serif);font-weight:600;font-size:clamp(28px,7.5vw,42px);letter-spacing:-.02em}
+  .prompt .q-word{font-family:var(--display);font-weight:600;font-size:clamp(28px,7.5vw,42px);letter-spacing:-.02em}
   .prompt .q-def{font-family:var(--serif);font-size:19px;max-width:42ch;margin:4px auto 0;line-height:1.4}
   .prompt .q-sentence{font-family:var(--serif);font-size:18px;font-style:italic;max-width:46ch;margin:4px auto 0;line-height:1.5}
   .prompt .q-sentence b{font-style:normal;letter-spacing:.1em;color:var(--ox)}
@@ -169,7 +198,7 @@
   .prompt .review-tag{font-family:var(--mono);font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--gild);margin-bottom:6px}
   .cue{font-family:var(--mono);font-size:15px;letter-spacing:.3em;color:var(--ox);margin-top:12px}
   .card .ety{font-family:var(--serif);font-size:13.5px;font-style:italic;color:var(--ox);margin-top:10px;line-height:1.55;border-top:1px solid rgba(20,20,20,.09);padding-top:9px}
-  .verdict .fb-line{display:block;margin-top:7px;font-size:13px;line-height:1.5;font-weight:400}
+  .verdict .fb-line{display:block;margin-top:7px;font-size:16px;line-height:1.5;font-weight:400}
   .verdict .fb-ety,.verdict .fb-scene{font-style:italic;opacity:.88}
   .choices{display:flex;flex-direction:column;gap:9px;margin-top:20px}
   .choice{text-align:left;font-family:var(--serif);font-size:16px;color:var(--ink);background:var(--surface);
@@ -187,9 +216,9 @@
   .typebox input:focus{outline:none;border-color:var(--ox);box-shadow:0 0 0 3px rgba(154,52,66,.14)}
   .typebox input.ok{border-color:var(--moss);background:rgba(63,91,76,.08)}
   .typebox input.bad{border-color:var(--ox);background:rgba(154,52,66,.07)}
-  .verdict{text-align:center;margin-top:18px;min-height:26px;font-family:var(--serif);font-style:italic;font-size:16px}
+  .verdict{text-align:center;margin-top:18px;min-height:26px;font-family:var(--serif);font-style:italic;font-size:18px}
   .verdict.right{color:var(--moss)} .verdict.wrong{color:var(--ox)}
-  .verdict .root-hint{font-style:normal;font-family:var(--mono);font-size:11.5px;color:var(--ink-soft);display:block;margin-top:5px}
+  .verdict .root-hint{font-style:normal;font-family:var(--mono);font-size:16px;color:var(--ink-soft);display:block;margin-top:5px}
 
   /* ---- seal / graduation ---- */
   .seal-wrap{text-align:center;padding:22px 0}
@@ -199,9 +228,9 @@
     box-shadow:0 14px 34px rgba(154,52,66,.32),inset 0 2px 10px rgba(255,255,255,.22);position:relative}
   .wax::before{content:"";position:absolute;inset:9px;border:1.5px solid rgba(246,244,239,.45);border-radius:50%}
   .wax.gold{background:radial-gradient(circle at 38% 32%,#c6a24a,var(--gild) 58%,#6f561f 100%);box-shadow:0 14px 34px rgba(154,122,52,.34),inset 0 2px 10px rgba(255,255,255,.28)}
-  .wax span{font-family:var(--serif);font-style:italic;font-weight:600;font-size:30px;color:var(--parch)}
+  .wax span{font-family:var(--display);font-style:italic;font-weight:600;font-size:30px;color:var(--parch)}
   .grad-score{font-family:var(--mono);letter-spacing:.08em;color:var(--ink-soft);text-transform:uppercase;font-size:11px;margin-bottom:8px}
-  .grad-title{font-family:var(--serif);font-weight:600;font-size:clamp(24px,6.5vw,32px);letter-spacing:-.015em;margin-bottom:9px}
+  .grad-title{font-family:var(--display);font-weight:600;font-size:clamp(24px,6.5vw,32px);letter-spacing:-.015em;margin-bottom:9px}
   .grad-note{font-family:var(--serif);font-style:italic;color:var(--ink-soft);max-width:38ch;margin:0 auto 8px;font-size:16px;line-height:1.55}
   .temper-clock{font-family:var(--mono);font-size:26px;letter-spacing:.06em;color:var(--ox);margin:12px 0 6px}
 
@@ -252,15 +281,79 @@
   /* ---- modal ---- */
   .modal-scrim{position:fixed;inset:0;background:rgba(27,34,48,.5);backdrop-filter:blur(3px);-webkit-backdrop-filter:blur(3px);display:flex;align-items:center;justify-content:center;padding:20px;z-index:50;animation:panel-in .2s ease}
   .modal{background:var(--surface);border-radius:var(--radius);box-shadow:var(--sh-lg);max-width:440px;width:100%;padding:clamp(22px,5vw,30px);text-align:center}
-  .modal h3{font-family:var(--serif);font-weight:600;font-size:25px;letter-spacing:-.015em;margin-bottom:7px}
+  .modal h3{font-family:var(--display);font-weight:600;font-size:25px;letter-spacing:-.015em;margin-bottom:7px}
   .modal p{font-family:var(--serif);font-style:italic;color:var(--ink-soft);font-size:15px;margin:0 auto 16px;max-width:34ch;line-height:1.5}
   .modal textarea{width:100%;height:84px;font-family:var(--mono);font-size:11px;padding:11px;border:1px solid var(--line);border-radius:12px;background:var(--surface-2);color:var(--ink);resize:none;margin-bottom:14px;word-break:break-all}
   .modal .actions{margin-top:4px}
   .modal .msg{font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;min-height:18px;margin-top:10px}
   .modal .msg.ok{color:var(--moss)} .modal .msg.bad{color:var(--ox)}
+  /* ==== ancient parchment theme (?theme=parchment) ==== */
+  html.parchment{
+    --ink:#402f18; --ink-soft:#7f663c;
+    --parch:#e9d9b0; --parch-deep:#dcc78f;
+    --surface:#f3e7c3; --surface-2:#eaddb4;
+    --ox:#8c2f1b; --ox-bright:#a63d22;
+    --gild:#8a6820; --moss:#55602c;
+    --line:#c8ab6e; --shadow:rgba(74,55,22,.18);
+    --radius:9px; --radius-sm:6px;
+    --sh-sm:0 1px 2px rgba(74,55,22,.07),0 3px 9px rgba(74,55,22,.08);
+    --sh-md:0 2px 6px rgba(74,55,22,.10),0 12px 28px rgba(74,55,22,.15);
+    --sh-lg:0 22px 54px rgba(74,55,22,.28);
+    --ui:'Newsreader',Georgia,serif;
+    --serif:'Newsreader',Georgia,serif;
+    --display:'IM Fell English',Georgia,serif;
+    --mono:'IM Fell English SC',Georgia,serif;
+  }
+  html.parchment body{
+    background-color:var(--parch);
+    background-image:
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='260' height='260'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .42 0 0 0 0 .33 0 0 0 0 .16 0 0 0 .05 0'/%3E%3C/filter%3E%3Crect width='260' height='260' filter='url(%23n)'/%3E%3C/svg%3E"),
+      radial-gradient(120% 80% at 6% 0%,rgba(140,98,40,.14),rgba(140,98,40,0) 55%),
+      radial-gradient(140% 110% at 100% 104%,rgba(112,72,26,.20),rgba(112,72,26,0) 62%),
+      radial-gradient(55% 38% at 88% 12%,rgba(140,98,40,.10),rgba(140,98,40,0) 70%);
+  }
+  html.parchment .topbar{background:linear-gradient(var(--parch),var(--parch) 66%,rgba(233,217,176,0))}
+  html.parchment .brand-mark{background:radial-gradient(circle at 38% 32%,var(--ox-bright),var(--ox) 60%,#5e1e10 100%);border-radius:50%;box-shadow:0 2px 6px rgba(94,30,16,.4),inset 0 1px 3px rgba(255,240,210,.35)}
+  html.parchment .dash-hello,html.parchment .stage-title,html.parchment .headword,html.parchment .grad-title,html.parchment .session-title,html.parchment .modal h3{letter-spacing:0}
+  html.parchment .card,html.parchment .modal{background:linear-gradient(175deg,#f6ebc9,#eedcae);border:1px solid #b6975a;box-shadow:var(--sh-md),inset 0 0 28px rgba(139,106,48,.14)}
+  html.parchment .stat,html.parchment .lvl-card,html.parchment .lex-bar,html.parchment .choice,html.parchment .chip{box-shadow:var(--sh-sm),inset 0 0 16px rgba(139,106,48,.08)}
+  html.parchment .lvl-card.bar-card{background:linear-gradient(180deg,#f2e2ae,#e9d18f);border-color:#b6975a}
+  html.parchment .lvl-card.current{
+    background:
+      radial-gradient(140% 120% at 12% -12%, rgba(52,22,4,.55), rgba(52,22,4,0) 42%),
+      radial-gradient(150% 130% at 92% 112%, rgba(52,22,4,.62), rgba(52,22,4,0) 46%),
+      linear-gradient(168deg,#dcbd82 0%,#c9a04f 52%,#b3872f 100%);
+    border-color:#6f4a1c;
+    box-shadow:0 6px 20px rgba(72,40,6,.34),inset 0 0 36px rgba(64,32,4,.38),inset 0 0 0 1px rgba(52,26,4,.26)}
+  html.parchment .session{background:linear-gradient(165deg,#5b3d1a 0%,#452c11 58%,#33200b 100%);box-shadow:var(--sh-md),inset 0 1px 0 rgba(240,218,160,.16)}
+  html.parchment .session::after{background:radial-gradient(circle,rgba(150,110,36,.40),rgba(150,110,36,0) 70%)}
+  html.parchment .btn,html.parchment .back{border-radius:8px}
+  html.parchment .choice.correct{background:rgba(85,96,44,.14)}
+  html.parchment .choice.wrong{background:rgba(140,47,27,.10)}
+  html.parchment .built.ok{background:rgba(85,96,44,.12)}
+  html.parchment .built.bad{background:rgba(140,47,27,.09)}
+  html.parchment .typebox input.ok{background:rgba(85,96,44,.12)}
+  html.parchment .typebox input.bad{background:rgba(140,47,27,.08)}
+  html.parchment .seg{background:#eedcae}
+  html.parchment .modal-scrim{background:rgba(56,38,14,.55)}
+  html.parchment ::selection{background:rgba(140,47,27,.25)}
+
   @media (prefers-reduced-motion: reduce){*{transition:none!important;animation:none!important}}
   :focus-visible{outline:2px solid var(--ox);outline-offset:2px}
 </style>
+<script>
+(function(){
+  var q = new URLSearchParams(location.search);
+  // Parchment theme and etymology notes are the app's defaults; ?theme=plain / ?etym=0 opt out.
+  if(q.get('theme') !== 'plain') document.documentElement.classList.add('parchment');
+  window.RS_ETYM = q.get('etym') !== '0';
+  window.RS_BURNT = q.get('burnt') !== '0';
+  window.addEventListener('message', function(e){
+    if(e.data && typeof e.data.rsTheme === 'string')
+      document.documentElement.classList.toggle('parchment', e.data.rsTheme === 'parchment');
+  });
+})();
+</script>
 </head>
 <body>
 <div class="wrap">
@@ -273,6 +366,7 @@
 </div>
 
 <script src="depth.js"></script>
+<script src="drill.js"></script>
 <script>
 const GATES_A = [
 { id:1, title:"Personalities", theme:"How the self turns — inward, outward, toward others, or against them.",
@@ -742,6 +836,224 @@ const GATES_E = [
 
 const LEVELS = [...GATES_A, ...GATES_B, ...GATES_C, ...GATES_D, ...GATES_E];
 
+// Brief etymological notes, keyed by root form — shown beneath each root when the
+// "Etymology notes" tweak is on. Each traces the root's origin and anchors it to a
+// familiar English descendant, to deepen understanding and aid retention.
+const ETYM = {
+"ego":"Latin for 'I', the ordinary first-person pronoun; Freud later borrowed it for the conscious self.",
+"alter":"Latin 'the other (of two)'; gives us alternate, alter ego, and altruism.",
+"verto / versus":"Latin vertere 'to turn'; its past participle versus underlies convert, reverse, and version.",
+"intro-":"Latin adverb 'to the inside'; the inward-facing prefix in introvert and introduce.",
+"extra-":"Latin 'outside, beyond'; the outward prefix in extrovert, extraordinary, and external.",
+"ambi-":"Latin 'both, around'; the ambidextrous use both hands, the ambivalent feel both ways.",
+"misein":"Greek 'to hate'; the mis- of misanthrope and misogyny.",
+"anthropos":"Greek 'human being'; anthropology studies it, the misanthrope hates it.",
+"asketes":"Greek 'one who trains', from askein 'to exercise'; the ascetic disciplines the body.",
+"internus":"Latin 'inward', from inter 'between'; internal and internist descend from it.",
+"obstetrix":"Latin 'one who stands before (the birth)', from ob- + stare; source of obstetrics.",
+"pais, paidos":"Greek 'child'; the ped- of pediatrics and the -pedia of encyclopedia.",
+"derma":"Greek 'skin'; dermatology and epidermis keep it.",
+"ophthalmos":"Greek 'eye'; the ophthalmologist treats it.",
+"orthos":"Greek 'straight, correct'; orthodox belief and orthopedics both aim to straighten.",
+"kardia":"Greek 'heart'; cardiac and cardiology come from it.",
+"neuron":"Greek 'sinew, nerve'; neurology and the neuron itself.",
+"psyche":"Greek 'breath, soul', personified as a maiden; psychology and psyche.",
+"iatreia":"Greek 'healing', from iatros 'physician'; the -iatry of psychiatry and podiatry.",
+"odontos":"Greek 'tooth'; orthodontist and mastodon (named for its teeth) share it.",
+"opsis / optikos":"Greek 'sight'; optic, optometry, and autopsy (a seeing for oneself).",
+"metron":"Greek 'measure'; metre, thermometer, and geometry.",
+"osteon":"Greek 'bone'; osteopath and osteoporosis.",
+"cheir":"Greek 'hand'; the chiropractor and chiropodist both work by hand.",
+"pous, podos":"Greek 'foot'; podiatry, tripod, and octopus (eight-foot).",
+"graphein":"Greek 'to scratch, write'; graph, biography, and photograph.",
+"geron":"Greek 'old man'; gerontology and geriatric.",
+"analyein":"Greek 'to loosen up', ana- 'up' + lyein 'to loosen'; source of analysis.",
+"astron":"Greek 'star'; astronomy, astronaut, and disaster (a 'bad star').",
+"nomos":"Greek 'law, custom', from nemein 'to distribute'; the -nomy of astronomy and economy.",
+"ge":"Greek 'earth' (the goddess Gaia); geography, geology, geometry.",
+"bios":"Greek 'life'; biology, biography, antibiotic.",
+"botane":"Greek 'pasture, herb', from boskein 'to feed'; source of botany.",
+"zoion":"Greek 'living creature'; zoo, zoology, protozoa.",
+"entomon":"Greek 'notched (creature)', for the insect's segmented body; source of entomology.",
+"etymon":"Greek 'the true sense of a word'; the origin of etymology itself.",
+"socius":"Latin 'ally, companion'; society, social, associate.",
+"logos":"Greek 'word, reason, account'; the -logy ending and the word logic.",
+"noscere / notus":"Latin 'to get to know'; notorious, notice, and note.",
+"summa":"Latin 'highest, topmost'; summit, sum, and summary.",
+"corrigere":"Latin com- + regere 'to straighten out'; correct and incorrigible.",
+"vetus":"Latin 'old'; veteran and inveterate (grown old in a habit).",
+"genitus":"Latin, past participle of gignere 'to beget'; congenital and genitive.",
+"chronos":"Greek 'time' (the god Chronos); chronic, chronology, synchronize.",
+"pathos":"Greek 'suffering, feeling'; pathology, sympathy, and the many -path words.",
+"scire":"Latin 'to know'; science, conscience, and prescient.",
+"grex, gregis":"Latin 'flock, herd'; gregarious, congregation, segregate.",
+"par":"Latin 'equal'; par, parity, compare, disparage.",
+"aequus + vox":"Latin aequus 'equal' + vox 'voice' \u2014 to speak on both sides at once: equivocate.",
+"placare":"Latin 'to calm, appease'; placate, placid, and implacable.",
+"scribere":"Latin 'to write'; scribe, describe, manuscript.",
+"via":"Latin 'road, way'; via, deviate (off the road), obvious (in the way).",
+"miles, militis":"Latin 'soldier'; military and militant.",
+"malus":"Latin 'bad, evil'; malice, malady, malign.",
+"condonare":"Latin com- + donare 'to give up (a claim)'; the source of condone.",
+"adulari":"Latin 'to fawn like a dog'; gives us adulation.",
+"vacillare":"Latin 'to sway, totter'; source of vacillate.",
+"tacere":"Latin 'to be silent'; tacit and taciturn.",
+"Lakonia":"The region of Sparta, whose people were famed for terse speech; hence laconic.",
+"garrire":"Latin 'to chatter'; source of garrulous.",
+"volvere":"Latin 'to roll, turn'; revolve, volume, and voluble (rolling on in talk).",
+"verbum":"Latin 'word'; verb, verbal, verbatim, verbose.",
+"cogere":"Latin com- + agere 'to drive together'; cogent and cogency.",
+"vox + ferre":"Latin vox 'voice' + ferre 'to carry' \u2014 a carrying voice: vociferous.",
+"sententia":"Latin 'opinion, judgment', from sentire 'to feel'; sentence and sententious.",
+"tergere":"Latin 'to wipe'; the -terge of detergent, and terse (wiped clean, polished).",
+"Martinet":"From Jean Martinet, Louis XIV's strict drillmaster; his name became the word.",
+"sykon + phainein":"Greek sykon 'fig' + phainein 'to show' \u2014 an informer's old gesture: sycophant.",
+"dilettare":"Italian 'to delight', from Latin delectare; a dilettante dabbles for pleasure.",
+"vir":"Latin 'man, hero'; virile, virtue, and triumvirate.",
+"Chauvin":"From Nicolas Chauvin, a fanatically devoted soldier of Napoleon; hence chauvinism.",
+"eikon + klaein":"Greek eikon 'image' + klaein 'to break' \u2014 an iconoclast smashes idols.",
+"hypochondria":"Greek 'the soft parts below the ribs', once thought the seat of melancholy.",
+"ciarlare":"Italian 'to chatter'; source of charlatan, the babbling quack.",
+"Philistine":"The biblical enemies of Israel; later, anyone hostile or indifferent to culture.",
+"monos + mania":"Greek monos 'one' + mania 'madness' \u2014 a single fixed obsession: monomania.",
+"vivere":"Latin 'to live'; vivid, survive, vivacious.",
+"fatigare":"Latin 'to weary'; fatigue and indefatigable (untiring).",
+"ingenuus":"Latin 'native, freeborn', hence frank and honest; source of ingenuous.",
+"magnus + animus":"Latin magnus 'great' + animus 'spirit' \u2014 greatness of soul: magnanimous.",
+"vertere":"Latin 'to turn'; convert, versatile, adversity.",
+"Stoa":"The painted porch (stoa) in Athens where Zeno taught; hence stoic.",
+"trepidus":"Latin 'agitated, alarmed'; trepidation and intrepid (not alarmed).",
+"scintilla":"Latin 'spark'; scintillate and scintillating wit.",
+"urbs":"Latin 'city'; urban, suburb, and urbane (polished by city life).",
+"gamos":"Greek 'marriage'; monogamy, polygamy, bigamy.",
+"monos":"Greek 'single, alone'; monopoly, monologue, monotony.",
+"bi-":"Latin 'two, twice'; bicycle, bilingual, biennial.",
+"polys":"Greek 'many'; polygon, polyglot, polygamy.",
+"aner, andros":"Greek 'man, male'; android, misandry, polyandry.",
+"agora":"Greek 'assembly, marketplace'; agoraphobia is the fear of open public spaces.",
+"claustrum":"Latin 'a lock, enclosure'; cloister and claustrophobia.",
+"xenos":"Greek 'stranger, guest'; xenophobia and the gas xenon.",
+"akros":"Greek 'topmost'; acrobat (walking high), acropolis, acrophobia.",
+"kleptein":"Greek 'to steal'; kleptomania and kleptocracy.",
+"kratos / -cracy":"Greek 'strength, rule'; the -cracy of democracy and aristocracy.",
+"archein / -archy":"Greek 'to rule, be first'; monarchy, anarchy, and the arch- of archbishop.",
+"autos":"Greek 'self'; automatic, autonomy, autograph.",
+"oligos":"Greek 'few'; oligarchy is rule by the few.",
+"ploutos":"Greek 'wealth' (the god Plutus); plutocracy is rule by the rich.",
+"theos":"Greek 'god'; theology, atheist, monotheism.",
+"mater":"Latin 'mother'; maternal, matron, matriarchy, matrix.",
+"pater":"Latin 'father'; paternal, patriarch, patriot.",
+"hieros":"Greek 'holy, sacred'; hierarchy ('rule of the sacred') and hieroglyph.",
+"demos + agogos":"Greek demos 'people' + agogos 'leader' \u2014 the demagogue leads the mob.",
+"loqui / locutus":"Latin 'to speak'; eloquent, loquacious, circumlocution.",
+"dicere / dictus":"Latin 'to say'; dictate, verdict, contradict.",
+"solus":"Latin 'alone'; solo, solitary, soliloquy.",
+"circum":"Latin 'around'; circle, circumference, circumnavigate.",
+"grandis":"Latin 'full-grown, great'; grand, grandiose, aggrandize.",
+"e / ex":"Latin 'out of'; exit, emit, evoke.",
+"bene":"Latin 'well, good'; benefit, benevolent, benediction.",
+"male":"Latin 'badly'; malediction, malevolent, malfunction.",
+"com / col":"Latin 'with, together'; combine, collect, collaborate.",
+"jus, juris":"Latin 'law, right'; justice, jury, jurisdiction.",
+"judex, judicis":"Latin jus 'law' + dicere 'to say' \u2014 the judge; source of judicial and prejudice.",
+"lis, litis":"Latin 'lawsuit, dispute'; litigate and litigious.",
+"jurare":"Latin 'to swear an oath'; jury, perjury, abjure.",
+"verus":"Latin 'true'; verify, verdict, veracity.",
+"culpa":"Latin 'fault, blame'; culprit, culpable, exculpate (to clear of blame).",
+"crimen":"Latin 'charge, accusation'; crime, incriminate, recriminate.",
+"prudentia":"Latin, contracted from providentia 'foresight'; prudent and jurisprudence.",
+"dik\u0113":"Greek 'justice, right'; the -dicy of theodicy.",
+"in-":"Latin 'in, into, against'; invade and incur \u2014 and the negating in- of invalid.",
+"tele-":"Greek 'far off'; telephone, television, telepathy.",
+"soma":"Greek 'body'; psychosomatic and chromosome.",
+"megas / megalo-":"Greek 'great, large'; megaphone, megalomania, megalith.",
+"pyr":"Greek 'fire'; pyre, pyromania, pyrotechnics.",
+"dipsa":"Greek 'thirst'; dipsomania is a craving for drink.",
+"biblion":"Greek 'book' (from Byblos, source of papyrus); Bible and bibliography.",
+"mania":"Greek 'madness, frenzy'; maniac and the -mania suffix.",
+"a- / an-":"Greek negating prefix 'without'; atheist, anonymous, apathy.",
+"tempus / tempor-":"Latin 'time'; temporary, contemporary, tempo.",
+"ana-":"Greek 'up, back, again'; anachronism, analysis, anatomy.",
+"syn-":"Greek 'with, together'; synthesis, synonym, synchronize.",
+"dia-":"Greek 'through, across'; diameter, dialogue, diagnosis.",
+"ex-":"Latin 'out'; exit, extract, exclude.",
+"con-":"Latin 'with, together'; connect, concur, conspire.",
+"similis":"Latin 'like'; similar, simile, assimilate, verisimilitude.",
+"fallere":"Latin 'to deceive'; false, fallacy, infallible.",
+"mendax":"Latin 'given to lying', from mentiri; source of mendacious.",
+"duo / duplex":"Latin 'two / twofold'; duo, duplicate, duplicity, double.",
+"simulare":"Latin 'to make like', from similis; simulate and dissimulate.",
+"varicare":"Latin 'to straddle', from varus 'bent'; source of prevaricate (to walk crookedly).",
+"species":"Latin 'a look, appearance', from specere 'to see'; specious and special.",
+"syn / sym":"Greek 'with, together'; symbiosis, sympathy, symphony.",
+"opsis":"Greek 'sight, view'; the -opsy of biopsy and autopsy, and synopsis.",
+"amphi-":"Greek 'on both sides'; amphibian (both lives) and amphitheatre.",
+"mori / mort-":"Latin 'death, to die'; mortal, mortuary, immortal, moribund.",
+"necros":"Greek 'corpse'; necropolis, necromancy, necrosis.",
+"polis":"Greek 'city, city-state'; metropolis, politics, police.",
+"manteia":"Greek 'prophecy', from mantis 'seer'; the -mancy of necromancy.",
+"necare":"Latin 'to kill'; internecine and pernicious descend from it.",
+"manus":"Latin 'hand'; manual, manuscript, manufacture, manipulate.",
+"capere":"Latin 'to seize, take'; capture, capable, accept, receive.",
+"dare / datum":"Latin 'to give'; data, donate, tradition (a handing over).",
+"pes, pedis":"Latin 'foot'; pedal, pedestrian, impede (to shackle the feet).",
+"corpus, corporis":"Latin 'body'; corpse, corporation, corporal, incorporate.",
+"caput, capitis":"Latin 'head'; capital, captain, decapitate, per capita.",
+"l\u00e9ger":"French 'light, nimble', from Latin levis; source of legerdemain (sleight of hand).",
+"animus / anima":"Latin 'breath, soul'; animate, animosity, magnanimous, unanimous.",
+"aequus":"Latin 'level, equal'; equal, equanimity, equator, adequate.",
+"pusillus":"Latin 'very small'; with animus 'spirit' it makes pusillanimous (faint-hearted).",
+"unus":"Latin 'one'; unit, unite, unanimous, universe.",
+"advertere":"Latin ad- + vertere 'to turn toward'; advertise, advert, and adverse.",
+"vertere / versus":"Latin 'to turn'; the version, -verse, and -vert of countless words.",
+"vertigo":"Latin 'a whirling', from vertere 'to turn'; source of vertigo and vertiginous.",
+"sub-":"Latin 'under, below'; submarine, subvert, submit.",
+"contra-":"Latin 'against'; contradict, contrary, counter.",
+"kallos":"Greek 'beauty'; calligraphy (beautiful writing) and kaleidoscope.",
+"epi-":"Greek 'upon, over'; epidermis, epitaph, epilogue, epidemic.",
+"scribere / scriptus":"Latin 'to write'; script, describe, prescribe, transcript.",
+"credere":"Latin 'to believe, trust'; credit, credible, incredible, creed.",
+"ad- / ac-":"Latin 'to, toward'; adhere, advance, accept, address.",
+"onyma":"Greek (Aeolic) 'name'; synonym, pseudonym, anonymous.",
+"nomen, nominis":"Latin 'name'; nominate, nominal, nomenclature, noun.",
+"pseudes":"Greek 'false, lying'; pseudonym and pseudo-science.",
+"eu-":"Greek 'good, well'; euphemism, euphoria, eulogy, euphony.",
+"dys-":"Greek 'bad, difficult'; dysfunction, dyslexia, dystopia.",
+"kakos":"Greek 'bad'; cacophony (harsh sound) and cacography.",
+"phone":"Greek 'sound, voice'; telephone, symphony, phonetics.",
+"pheme":"Greek 'speech, report', from phanai 'to speak'; the -phemy of euphemism and blasphemy.",
+"doxa":"Greek 'opinion, glory'; orthodox, paradox, heterodox.",
+"thanatos":"Greek 'death' (the god Thanatos); euthanasia and thanatology.",
+"specere / spectus":"Latin 'to look'; spectacle, inspect, respect, spectator.",
+"per-":"Latin 'through, thoroughly'; perceive, pervade, persist.",
+"circum-":"Latin 'around'; circumspect (looking around), circumvent, circumscribe.",
+"myein":"Greek 'to shut (the eyes)'; source of myopia (near-sight) and mystery.",
+"presbys":"Greek 'old man, elder'; presbyopia (aging sight) and presbyter (priest).",
+"caedere / -cida":"Latin 'to cut, kill'; the -cide of homicide, and incision and concise.",
+"frater":"Latin 'brother'; fraternal, fraternity, fratricide.",
+"rex, regis":"Latin 'king'; regal, regicide, and the reg- of regnal.",
+"genos":"Greek 'race, kind, birth'; genocide, genesis, genealogy.",
+"uxor":"Latin 'wife'; uxorious (excessively fond of one's wife).",
+"gignere / genus":"Latin 'to beget; birth, kind'; genus, generate, congenital, progeny.",
+"puer":"Latin 'boy, child'; puerile and puerperal.",
+"senex":"Latin 'old man'; senile, senator, senior.",
+"nostos":"Greek 'return home'; with algos 'pain' it forms nostalgia.",
+"algos":"Greek 'pain'; neuralgia, nostalgia, analgesic.",
+"sopor":"Latin 'deep sleep'; soporific and sopor.",
+"hypnos":"Greek 'sleep' (the god Hypnos); hypnosis and hypnotic.",
+"dis-":"Latin 'apart, away, not'; disperse, dissent, disagree.",
+"-escent":"Latin -escere, marking a beginning; convalescent, adolescent, luminescent.",
+"pugnare":"Latin 'to fight'; pugnacious, repugnant, impugn.",
+"pugnus / pugil":"Latin pugnus 'fist' / pugil 'boxer'; source of pugilist.",
+"bellum":"Latin 'war'; belligerent, bellicose, rebel, antebellum.",
+"gerere":"Latin 'to carry, conduct, wage'; belligerent, gesture, digest.",
+"sequi / secutus":"Latin 'to follow'; sequel, consecutive, prosecute, sequence.",
+"ob-":"Latin 'toward, against'; obstruct, oppose, obvious.",
+"im- / in-":"Latin 'in, into, upon' (im- before b, m, p); impugn, impose, import.",
+"non":"Latin 'not'; nonchalant, nonsense, nondescript.",
+"-acious":"Latin -ax, -acis 'given to'; pugnacious, tenacious, audacious."
+};
+
 
 // Confusable near-twins. Sentence fits exactly one. "why" states the distinction.
 const CONFUSABLES = [
@@ -880,7 +1192,7 @@ const INTERVALS = [2*DAY, 5*DAY, 12*DAY, 30*DAY]; // Leitner boxes 0..3
 
 function load(){ try{ let raw = localStorage.getItem(KEY);
   if(!raw){ const bak=localStorage.getItem(KEY+'_bak'); if(bak){ const o=deserialize(bak); if(o) raw=JSON.stringify(o); } }
-  const p = JSON.parse(raw) || {}; p.gates=p.gates||{}; p.bar=p.bar||{passed:false,lockedUntil:0}; p.review=p.review||{}; p.prompted=p.prompted||{}; p.seenInfer=p.seenInfer||{}; p.predict=p.predict!==false; p.ledger=p.ledger||{}; p.mark=p.mark||null; return p; }catch(e){ return {gates:{},bar:{passed:false,lockedUntil:0},review:{},prompted:{},seenInfer:{},predict:true,ledger:{},mark:null}; } }
+  const p = JSON.parse(raw) || {}; p.gates=p.gates||{}; p.bar=p.bar||{passed:false,lockedUntil:0}; p.review=p.review||{}; p.prompted=p.prompted||{}; p.seenInfer=p.seenInfer||{}; p.predict=p.predict!==false; p.ledger=p.ledger||{}; p.mark=p.mark||null; p.drill=p.drill||{theta:0,n:0,seen:{}}; p.drill.seen=p.drill.seen||{}; return p; }catch(e){ return {gates:{},bar:{passed:false,lockedUntil:0},review:{},prompted:{},seenInfer:{},predict:true,ledger:{},mark:null,drill:{theta:0,n:0,seen:{}}}; } }
 function stageBar(frac){ const pct=Math.round(Math.min(1,Math.max(0,frac))*100); return `<div class="sbar"><div class="sfill" style="width:${pct}%"></div></div>`; }
 // gated inference sampling: eligible by req, fresh-first
 function inferPick(idx,n){
@@ -914,8 +1226,8 @@ function rootHint(w){ return w.parts.filter(p=>p[1]).map(p=>p[0]+'='+p[1]).join(
 function blank(w){ const re=new RegExp(w.word.replace(/[.*+?^${}()|[\]\\]/g,'\\$&'),'i'); return esc(w.sentence).replace(re,'<b>＿＿＿＿</b>'); }
 function depthOf(w){ return (window.DEPTH && window.DEPTH[w.word]) || {}; }
 function vigOf(w){ return depthOf(w).v || ''; }
-function etyOf(w){ return depthOf(w).e || ''; }
-function defOfWord(name){ for(const l of LEVELS){ const x=l.words.find(t=>t.word===name); if(x) return x.def; } return ''; }
+function etyOf(w){ return depthOf(w).e || w.ety || ''; }
+function defOfWord(name){ for(const l of LEVELS){ const x=l.words.find(t=>t.word===name); if(x) return x.def; } const d=(window.DRILL_POOL||[]).find(t=>t.word===name); return d?d.def:''; }
 function letterCue(word){ return word[0] + word.slice(1).replace(/[^ ]/g,'·'); }
 function allSealed(){ return LEVELS.every(l=>G(l.id).sealed); }
 function fmtDur(ms){ const h=Math.floor(ms/3600000),m=Math.floor((ms%3600000)/60000),s=Math.floor((ms%60000)/1000); return String(h).padStart(2,'0')+':'+String(m).padStart(2,'0')+':'+String(s).padStart(2,'0'); }
@@ -1022,13 +1334,14 @@ function primaryAction(due, debtBlocks){
     if(debtBlocks) return {kicker:'Review', label:'Clear the Docket first', sub:'Due words gate the next opening', fn:startReview};
     return {kicker: idx===0?'Begin':'Next Gate', label:'Gate '+rom(LEVELS[idx].id)+' \u00b7 '+LEVELS[idx].title, sub:LEVELS[idx].theme, fn:()=>enterGate(idx)};
   }
-  if(P.bar.passed) return {kicker:'Admitted \u2726', label:'The method is yours', sub:'Revisit the Forge or your Lexicon anytime', fn:null};
+  if(P.bar.passed) return {kicker:'Admitted \u2726', label:'The Drill Hall stands open', sub:'Adaptive drilling on the advanced stock \u2014 for as long as you like', fn:startDrill};
   if(debtBlocks) return {kicker:'Review', label:'The Review Docket', sub:'Clear the docket, then the Bar sits open', fn:startReview};
   if(P.bar.lockedUntil>Date.now()) return {kicker:'The Bar', label:'Doors locked', sub:'Reopens in '+fmtDur(P.bar.lockedUntil-Date.now()), fn:null};
   return {kicker:'The Bar', label:'The Bar sits open', sub:'Fifty items \u00b7 '+BAR_PASS+' to pass \u00b7 one attempt', fn:startBar};
 }
 
 /* ================= HOME ================= */
+let _sealedOpen=false;
 function home(){
   stopClock(); S=null; P=load();
   const sealedCt = LEVELS.filter(l=>G(l.id).sealed).length;
@@ -1036,22 +1349,19 @@ function home(){
   const debtBlocks = due>0;
 
   // Review Docket: quiet strip when clear; asserts itself only when words are due
+  // Review Docket shows only when words are actually due; a clear docket runs
+  // silently in the background and stays off the home page.
   let docket='';
-  if(Object.keys(P.review).length){
-    const nd = nextDueMs();
-    if(due>0){
-      docket = `<button class="lvl-card" style="border-left-color:var(--ox-bright);padding:10px 16px" id="docket-btn">
-        <div class="lvl-num" style="color:var(--ox-bright);font-size:18px;min-width:42px">⚖</div>
-        <div class="lvl-body"><h3 style="font-size:16px">The Review Docket</h3></div>
-        <span class="lvl-seal" style="color:var(--ox)">${due} due</span></button>`;
-    } else {
-      docket = `<button class="lex-bar" disabled style="cursor:default;margin-bottom:16px">
-        <span>⚖ The Docket · clear</span><span class="ct">next in ${isFinite(nd)?fmtDays(Math.max(nd,0)):'—'}</span></button>`;
-    }
+  if(due>0){
+    docket = `<button class="lvl-card" style="border-left-color:var(--ox-bright);padding:10px 16px" id="docket-btn">
+      <div class="lvl-num" style="color:var(--ox-bright);font-size:18px;min-width:42px">⚖</div>
+      <div class="lvl-body"><h3 style="font-size:16px">The Review Docket</h3></div>
+      <span class="lvl-seal" style="color:var(--ox)">${due} due</span></button>`;
   }
 
-  let cards = LEVELS.map((lv,idx)=>{
-    const g=G(lv.id);
+  const currentIdx = window.RS_BURNT ? LEVELS.findIndex((l,i)=> !G(l.id).sealed && (i===0 || G(LEVELS[i-1].id).sealed)) : -1;
+  const renderCard = (idx)=>{
+    const lv=LEVELS[idx], g=G(lv.id);
     const prevSealed = idx===0 || G(LEVELS[idx-1].id).sealed;
     const fresh = !g.t1 && !g.sealed;
     const unlocked = prevSealed && !(fresh && debtBlocks);
@@ -1065,10 +1375,24 @@ function home(){
            : resum?'<span class="lvl-seal">In progress</span>':'<span class="lvl-seal">Trial II<br>ready</span>'; }
     else seal = (P.mark && P.mark.idx===idx && markFresh(P.mark) && P.mark.kind!=='T2')
            ? '<span class="lvl-seal">In progress</span>' : '<span class="lvl-seal">Open</span>';
-    return `<button class="lvl-card${g.sealed?' sealed':''}" ${unlocked?'':'disabled'} data-lvl="${idx}">
+    return `<button class="lvl-card${g.sealed?' sealed':''}${idx===currentIdx?' current':''}" ${unlocked?'':'disabled'} data-lvl="${idx}">
       <div class="lvl-num">${rom(lv.id)}</div>
       <div class="lvl-body"><h3>${lv.title}</h3><p>${lv.theme}</p></div>${seal}</button>`;
-  }).join('');
+  };
+  // Completed (sealed) gates collapse under a single tile; the live gates stay in view.
+  const sealedIdx = LEVELS.map((_,i)=>i).filter(i=>G(LEVELS[i].id).sealed);
+  const openIdx   = LEVELS.map((_,i)=>i).filter(i=>!G(LEVELS[i].id).sealed);
+  let cards = '';
+  if(sealedIdx.length){
+    cards += `<div class="sealed-group">
+      <button class="lvl-card sealed sealed-toggle${_sealedOpen?' open':''}" id="sealed-toggle" aria-expanded="${_sealedOpen}">
+        <div class="lvl-num">✦</div>
+        <div class="lvl-body"><h3>Sealed gates</h3></div>
+        <span class="lvl-seal done">${sealedIdx.length} sealed <span class="chev">▸</span></span></button>
+      <div class="sealed-list" id="sealed-list"${_sealedOpen?'':' hidden'}>${sealedIdx.map(renderCard).join('')}</div>
+    </div>`;
+  }
+  cards += openIdx.map(renderCard).join('');
 
   const barReady = allSealed() && !debtBlocks;
   const barLocked = P.bar.lockedUntil > Date.now();
@@ -1097,10 +1421,9 @@ function home(){
       <div class="session-bar"><i style="width:${sealPct}%"></i></div>
     </button>
     <div class="stats">
-      <div class="stat"><div class="stat-n">${sealedCt}<span>/${LEVELS.length}</span></div><div class="stat-l">Sealed</div></div>
       <div class="stat"><div class="stat-n">${P.streak||0}</div><div class="stat-l">Day streak</div></div>
       <button class="stat" id="lex-stat"${lexCount?'':' disabled'} style="font-family:var(--ui);cursor:${lexCount?'pointer':'default'}"><div class="stat-n">${lexCount}</div><div class="stat-l">Lexicon</div></button>
-      <div class="stat${due>0?' due':''}"><div class="stat-n">${due}</div><div class="stat-l">Due</div></div>
+      ${drillStat(due)}
     </div></section>`;
 
   app.innerHTML = `${dashHtml}<section class="index">
@@ -1112,6 +1435,11 @@ function home(){
     </section>`;
 
   document.querySelectorAll('.lvl-card[data-lvl]:not(:disabled)').forEach(b=>{ b.onclick=()=>enterGate(+b.dataset.lvl); });
+  const stg=document.getElementById('sealed-toggle');
+  if(stg){ const sl=document.getElementById('sealed-list');
+    stg.onclick=()=>{ _sealedOpen=!_sealedOpen;
+      if(_sealedOpen) sl.removeAttribute('hidden'); else sl.setAttribute('hidden','');
+      stg.classList.toggle('open',_sealedOpen); stg.setAttribute('aria-expanded',_sealedOpen); }; }
   const db=document.getElementById('docket-btn'); if(db && !db.disabled) db.onclick=startReview;
   const bb=document.getElementById('bar-btn'); if(bb && !bb.disabled) bb.onclick=startBar;
   document.getElementById('restore').onclick=restoreModal;
@@ -1119,6 +1447,7 @@ function home(){
   document.getElementById('predict-toggle').onclick=()=>{ P.predict=!P.predict; save(); home(); };
   const lx=document.getElementById('lex-stat'); if(lx && lexCount) lx.onclick=()=>lexicon('');
   const fg=document.getElementById('forge-btn'); if(fg) fg.onclick=startForge;
+  const dh=document.getElementById('drill-btn'); if(dh && !dh.disabled) dh.onclick=startDrill;
   const cta=document.getElementById('cta'); if(cta && pa.fn) cta.onclick=pa.fn;
 
   if(LEVELS.some(l=>{const g=G(l.id);return g.t1&&!g.sealed;}) || barLocked){
@@ -1178,9 +1507,13 @@ function enterGate(idx){
 
 function rootsScreen(idx){
   const lv=LEVELS[idx];
-  const rows=lv.roots.map(r=>`<div class="root-row">
+  const showEtym = !!window.RS_ETYM;
+  const rows=lv.roots.map(r=>{
+    const et = showEtym ? (ETYM[r.root]||'') : '';
+    return `<div class="root-row">
     <div><span class="root-key">${r.root}</span><span class="root-lang">${r.lang}</span></div>
-    <div class="root-gloss">${r.gloss}</div></div>`).join('');
+    <div><div class="root-gloss">${r.gloss}</div>${et?`<div class="root-etym">${et}</div>`:''}</div></div>`;
+  }).join('');
   app.innerHTML=`<section class="panel">
     <button class="back" id="home">← The Gates</button>
     <div class="stage-label">Gate ${rom(lv.id)} · The Roots</div>
@@ -1379,11 +1712,29 @@ function renderTrialPrompt({label,gateLabel,it,w,onResolve,onNext,oneShot}){
     promptHtml=`<div class="q-ask">Never taught — build it from its roots</div><div class="q-word">${inf.word}</div>`;
     const opts=shuffle([{t:inf.def,ok:true},...inf.distractors.map(t=>({t,ok:false}))]);
     bodyHtml=`<div class="choices">${opts.map((o,i)=>`<button class="choice" data-ok="${o.ok}"><span class="mark">${L[i]}</span><span>${o.t}</span></button>`).join('')}</div>`;
+  } else if(it.m==='DSENT'){
+    promptHtml=`<div class="q-ask">Which word fits the sentence?</div><div class="q-sentence">“${blank(w)}”</div>`;
+    bodyHtml=`<div class="choices">${it.opts.map((o,i)=>`<button class="choice" data-ok="${o===w.word}"><span class="mark">${L[i]}</span><span style="font-family:'IBM Plex Mono',monospace">${o}</span></button>`).join('')}</div>`;
+  } else if(it.m==='LIT'||it.m==='ETY'||it.m==='KIN'){
+    promptHtml = it.m==='LIT'
+      ? `<div class="q-ask">Its pieces read, in order</div><div class="q-def" style="font-family:'IBM Plex Mono',monospace;font-size:16.5px;line-height:1.7">${litOf(w)}</div><div class="q-ask" style="margin:12px 0 0">— which word is built so?</div>`
+      : it.m==='ETY'
+      ? `<div class="q-ask">A word's history — whose is it?</div><div class="q-sentence">“${it.masked}”</div>`
+      : `<div class="q-ask">Same blood — which word is kin to</div><div class="q-word">${it.kin}</div>`;
+    bodyHtml=`<div class="choices">${it.opts.map((o,i)=>`<button class="choice" data-ok="${o===w.word}"><span class="mark">${L[i]}</span><span style="font-family:'IBM Plex Mono',monospace">${o}</span></button>`).join('')}</div>`;
+  } else if(it.m==='ROOTQ'){
+    const wordHtml=w.parts.map(p=>p===it.part?`<span style="color:var(--ox)">${p[0]}</span>`:p[0]).join('');
+    promptHtml=`<div class="q-ask">One piece of it — what does the marked piece carry?</div><div class="q-word">${wordHtml}</div>`;
+    bodyHtml=`<div class="choices">${it.opts.map((o,i)=>`<button class="choice" data-ok="${o===it.part[1]}"><span class="mark">${L[i]}</span><span>“${o}”</span></button>`).join('')}</div>`;
+  } else if(it.m==='ROOTS'){
+    promptHtml=`<div class="q-ask">The root itself — what does it carry?</div><div class="q-word" style="font-family:'IBM Plex Mono',monospace">${it.root.root}</div><div class="pron">${it.root.lang}</div>`;
+    bodyHtml=`<div class="choices">${it.opts.map((o,i)=>`<button class="choice" data-ok="${o===it.root.gloss}"><span class="mark">${L[i]}</span><span>“${o}”</span></button>`).join('')}</div>`;
   } else if(it.m==='COMPOSE'){
     const src = it.inf || w;
     const segs = src.parts.map(p=>p[0]);
     let dpool=[];
     if(it.inf){ INFER_POOL.forEach(f=>{ if(f.word!==src.word) f.parts.forEach(p=>{ if(p[0].length>1) dpool.push(p[0]); }); }); }
+    else if(it.drill){ drillWords().forEach(x=>{ if(x.word!==src.word) x.parts.forEach(p=>{ if(p[0].length>1) dpool.push(p[0]); }); }); }
     else { LEVELS[it.gi].words.forEach(x=>{ if(x.word!==w.word) x.parts.forEach(p=>{ if(p[0].length>1) dpool.push(p[0]); }); }); }
     dpool = shuffle([...new Set(dpool)].filter(s=>!segs.includes(s))).slice(0,3);
     const bank = shuffle([...segs, ...dpool]);
@@ -1399,11 +1750,15 @@ function renderTrialPrompt({label,gateLabel,it,w,onResolve,onNext,oneShot}){
     const others=shuffle(gate.words.filter(x=>x.word!==w.word)).slice(0,3).map(x=>x.word);
     const opts=shuffle([{t:w.word,ok:true},...others.map(t=>({t,ok:false}))]);
     bodyHtml=`<div class="choices">${opts.map((o,i)=>`<button class="choice" data-ok="${o.ok}"><span class="mark">${L[i]}</span><span style="font-family:'IBM Plex Mono',monospace">${o.t}</span></button>`).join('')}</div>`;
-  } else { // VIGT or PROD — typed exact
+  } else { // PROD / VIGT / CLOZE / LITT — typed exact
     typed=true;
     promptHtml = it.m==='VIGT' && vigOf(w)
       ? `<div class="q-ask">Name the word the scene calls for — exact spelling</div><div class="q-sentence">“${esc(vigOf(w))}”</div><div class="cue">${letterCue(w.word)}</div>`
-      : `<div class="q-ask">Type the word — exact spelling</div><div class="q-def">“${w.def}”</div>`;
+      : it.m==='CLOZE'
+      ? `<div class="q-ask">Complete the sentence — exact spelling</div><div class="q-sentence">“${blank(w)}”</div><div class="cue">${letterCue(w.word)}</div>`
+      : it.m==='LITT'
+      ? `<div class="q-ask">Its pieces read, in order — type the word</div><div class="q-def" style="font-family:'IBM Plex Mono',monospace;font-size:16.5px;line-height:1.7">${litOf(w)}</div><div class="cue">${letterCue(w.word)}</div>`
+      : `<div class="q-ask">Type the word — exact spelling</div><div class="q-def">“${w.def}”</div>${it.drill?`<div class="cue">${letterCue(w.word)}</div>`:''}`;
     bodyHtml=`<div class="typebox"><input id="ans" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="the word…"><button class="btn" id="sub">Submit</button></div>`;
   }
 
@@ -1426,10 +1781,26 @@ function renderTrialPrompt({label,gateLabel,it,w,onResolve,onNext,oneShot}){
     else if(it.m==='COMPOSE'){ const src=it.inf||w;
       hint=`<span class="root-hint">${src.parts.map(p=>p[0]+(p[1]?' ('+p[1]+')':'')).join(' + ')}</span>`; }
     else if(w) hint=`<span class="root-hint">${rootHint(w)}</span>`;
-    if(ok){ v.className='verdict right'; v.innerHTML='Correct.'+hint;
+    // Inferred words and every word met in the Drill Hall pause on a correct
+    // answer to show the etymological breakdown — never auto-advance.
+    const teach = it.inf || (S.kind==='DRILL' && !!w);
+    if(ok && teach){ v.className='verdict right';
+      const src=it.inf||w;
+      let deep='';
+      if(src){
+        if(src.def) deep+=`<span class="fb-line fb-contrast">${src.word} — ${src.def.toLowerCase()}</span>`;
+        const story = it.inf ? '' : etyOf(w);
+        if(story) deep+=`<span class="fb-line fb-ety">${story}</span>`;
+        if(!it.inf && vigOf(w) && it.m!=='VIG' && it.m!=='VIGT') deep+=`<span class="fb-line fb-scene">“${esc(vigOf(w))}”</span>`;
+      }
+      v.innerHTML='Correct.'+hint+deep;
+      document.getElementById('a').innerHTML=`<button class="btn" id="n">${(S.queue.length&&!oneShot)||(oneShot&&S.pos<S.queue.length)?'Next →':'Finish →'}</button>`;
+      document.getElementById('n').onclick=onNext;
+      document.getElementById('n').focus(); }
+    else if(ok){ v.className='verdict right'; v.innerHTML='Correct.'+hint;
       const sess=S; setTimeout(()=>{ if(S===sess) onNext(); },350); }
     else {
-      const answer = it.m==='PAIR'?it.pair.ans : it.m==='INFER'?it.inf.def : it.m==='COMPOSE'?(it.inf||w).word : w.word;
+      const answer = it.m==='PAIR'?it.pair.ans : it.m==='INFER'?it.inf.def : it.m==='COMPOSE'?(it.inf||w).word : it.m==='ROOTQ'?'“'+it.part[1]+'”' : it.m==='ROOTS'?'“'+it.root.gloss+'”' : w.word;
       let deep='';
       if(w){
         const pd = picked && picked!==w.word ? defOfWord(picked) : '';
@@ -1505,11 +1876,12 @@ function trialDone(){
   if(S.kind==='T1'){ g.t1=Date.now(); save(); return temperScreen(S.idx, weak); }
   g.sealed=true; save();
   enqueueGateReview(S.idx);
+  const newDrill=(window.DRILL_POOL||[]).filter(d=>d.req===lv.id).length;
   const isLast=allSealed();
   sealScreen({seal:rom(lv.id),title:'Gate Sealed',
     score:'queue cleared · '+(S.debt?S.debt+' penalty reps paid':'no errors'),
     note: (isLast?`All ${LEVELS.length} gates are sealed. Clear the Docket, then the Bar sits open — fifty items, one attempt.`
-               :'Gate '+rom(lv.id)+' is sealed and its words enter the Review Docket. The next gate opens once the Docket is clear.') + weakLine,
+               :'Gate '+rom(lv.id)+' is sealed and its words enter the Review Docket. The next gate opens once the Docket is clear.') + (newDrill?' '+newDrill+' advanced word'+(newDrill>1?'s':'')+' enter the Drill Hall.':'') + weakLine,
     actions:`<button class="btn" id="h2">Return to the gates</button>`});
   document.getElementById('h2').onclick=home;
 }
@@ -1608,7 +1980,7 @@ function barDone(){
 /* ================= SAVE / RESTORE ================= */
 function serialize(){
   // compact, self-describing; base64 so it survives copy/paste cleanly
-  const payload = {v:2, gates:P.gates, bar:P.bar, review:P.review, prompted:P.prompted, seenInfer:P.seenInfer, predict:P.predict, ledger:P.ledger};
+  const payload = {v:2, gates:P.gates, bar:P.bar, review:P.review, prompted:P.prompted, seenInfer:P.seenInfer, predict:P.predict, ledger:P.ledger, drill:P.drill};
   try{ return btoa(unescape(encodeURIComponent(JSON.stringify(payload)))); }
   catch(e){ return JSON.stringify(payload); }
 }
@@ -1670,7 +2042,7 @@ function restoreModal(){
     const obj=deserialize(document.getElementById('code').value);
     if(!obj){ msg.className='msg bad'; msg.textContent='That code could not be read.'; return; }
     P.gates=obj.gates||{}; P.bar=obj.bar||{passed:false,lockedUntil:0};
-    P.review=obj.review||{}; P.prompted=obj.prompted||{}; P.seenInfer=obj.seenInfer||{}; P.predict=obj.predict!==false; P.ledger=obj.ledger||{};
+    P.review=obj.review||{}; P.prompted=obj.prompted||{}; P.seenInfer=obj.seenInfer||{}; P.predict=obj.predict!==false; P.ledger=obj.ledger||{}; P.drill=obj.drill||{theta:0,n:0,seen:{}}; P.drill.seen=P.drill.seen||{};
     save(); closeModal(); home();
   };
 }
@@ -1685,12 +2057,13 @@ function lexiconBar(){
 function lexEntries(){
   const out = sealedWords().map(x=>({key:x.w.word, g:x, inf:-1}));
   INFER_POOL.forEach((f,fi)=>{ if(P.seenInfer[f.word]) out.push({key:f.word, g:null, inf:fi}); });
+  (window.DRILL_POOL||[]).forEach((d,di)=>{ if(P.drill.seen[d.word]) out.push({key:d.word, g:null, inf:-1, dr:di}); });
   return out.sort((a,b)=>a.key.localeCompare(b.key));
 }
 function lexicon(q){
   const all=lexEntries();
   const ql=(q||'').toLowerCase();
-  const defOf=e=>e.g?e.g.w.def:INFER_POOL[e.inf].def;
+  const defOf=e=>e.g?e.g.w.def:(e.dr!==undefined?DRILL_POOL[e.dr].def:INFER_POOL[e.inf].def);
   const hits=ql?all.filter(e=>e.key.toLowerCase().includes(ql)||defOf(e).toLowerCase().includes(ql)):all;
   S=null; stopClock&&stopClock();
   app.innerHTML=`<section class="panel">
@@ -1703,6 +2076,11 @@ function lexicon(q){
         const led=t?`<span class="lex-led ${t.w>t.r?'bad':''}">${t.r}–${t.w}</span>`:'';
         return `<button class="lex-row" data-gi="${x.gi}" data-wi="${x.wi}"><span class="lex-w">${x.w.word}</span><span class="lex-d">${esc(x.w.def)}</span>${led}</button>`;
       }
+      if(e.dr!==undefined){
+        const d=DRILL_POOL[e.dr], s=P.drill.seen[d.word];
+        const led=s?`<span class="lex-led ${s.w>s.r?'bad':''}">${s.r}–${s.w}</span>`:'';
+        return `<button class="lex-row" data-dr="${e.dr}"><span class="lex-w">${d.word}</span><span class="lex-d">${esc(d.def)}</span>${led}</button>`;
+      }
       return `<button class="lex-row" data-inf="${e.inf}"><span class="lex-w">${e.key}</span><span class="lex-d">${esc(INFER_POOL[e.inf].def)}</span><span class="lex-led" style="color:var(--gild)">inferred</span></button>`;
     }).join('')||'<div class="grad-note">Nothing matches.</div>'}</div></section>`;
   document.getElementById('home').onclick=home;
@@ -1710,7 +2088,8 @@ function lexicon(q){
   inp.oninput=()=>{ const v=inp.value; clearTimeout(inp._t); inp._t=setTimeout(()=>lexicon(v),140); };
   if(q){ inp.focus(); inp.setSelectionRange(inp.value.length,inp.value.length); }
   document.querySelectorAll('.lex-row').forEach(b=>b.onclick=()=>{
-    if(b.dataset.inf!==undefined) inferView(+b.dataset.inf,q);
+    if(b.dataset.dr!==undefined) drillView(+b.dataset.dr,q);
+    else if(b.dataset.inf!==undefined) inferView(+b.dataset.inf,q);
     else wordView(+b.dataset.gi,+b.dataset.wi,q);
   });
 }
@@ -1725,6 +2104,16 @@ function inferView(fi,q){
     <div class="card"><div class="headword">${f.word}</div>
       <div class="morph">${morph}</div><div class="def">${f.def}</div>
       <div class="near">${esc(f.roots)}</div></div>
+  </section>`;
+  document.getElementById('back').onclick=()=>lexicon(q||'');
+}
+function drillView(di,q){
+  const d=DRILL_POOL[di], s=P.drill.seen[d.word];
+  app.innerHTML=`<section class="panel">
+    <button class="back" id="back">← The Lexicon</button>
+    <div class="stage-label">The Drill Hall · unlocked by Gate ${rom(d.req)}</div>
+    ${cardHtml(d)}
+    ${s?`<div class="grad-note" style="text-align:center">drilled: ${s.r} right · ${s.w} wrong</div>`:''}
   </section>`;
   document.getElementById('back').onclick=()=>lexicon(q||'');
 }
@@ -1796,6 +2185,222 @@ function forgeItem(){
     },
     onNext: forgeItem
   });
+}
+
+/* ================= THE DRILL HALL (adaptive) =================
+   A Rasch (1PL) engine: every drill word carries a difficulty b; the learner
+   carries an ability θ. P(correct) = 1/(1+e^−(θ−b)). Each answer nudges θ by
+   K·(result − P), K annealing with experience — so the drill converges on
+   words you get right about seven times in ten, and climbs as you do. */
+const DRILL_TLOGIT = Math.log(0.72/0.28);   // serve items near 72% expected success
+function sig(x){ return 1/(1+Math.exp(-x)); }
+function drillWords(){ return (window.DRILL_POOL||[]).filter(d=>G(d.req).sealed); }
+function caliber(){ return Math.round(100*sig(P.drill.theta/1.4)); }
+
+/* ---- drill modalities: the same stock, attacked from every side ----
+   Each word rotates through fresh angles before any repeats: recognize the
+   meaning, fit the sentence, read the pieces literally, name what one piece
+   carries, claim the etymology, spot the kin, assemble it, then produce it
+   cold. Typed production is scored harder than recognition (MODE_SHIFT). */
+const DRILL_LADDER=['DSENT','LIT','ROOTQ','ETY','KIN','COMPOSE','CLOZE','LITT','PROD'];
+const MODE_SHIFT={ROOTS:-0.5,REC:-0.35,ROOTQ:-0.2,DSENT:0,LIT:0,VIG:0,KIN:0.15,ETY:0.25,COMPOSE:0.35,CLOZE:0.45,LITT:0.55,PROD:0.7,VIGT:0.7};
+function litOf(w){ return w.parts.filter(p=>p[1]).map(p=>'“'+p[1]+'”').join(' + '); }
+function sharedPrefix(a,b){ a=a.toLowerCase(); b=b.toLowerCase(); let i=0; while(i<a.length&&i<b.length&&a[i]===b[i])i++; return i; }
+function kinPick(w){ const ks=(w.kin||[]).filter(k=>sharedPrefix(k,w.word)<4); return ks.length?ks[Math.floor(Math.random()*ks.length)]:null; }
+function sharesPart(a,b){
+  const ps=x=>x.parts.filter(p=>p[1]&&p[0].length>1);
+  return ps(a).some(p=>ps(b).some(q=>{
+    const A=p[0].toLowerCase(),B=q[0].toLowerCase();
+    return A.startsWith(B.slice(0,4))||B.startsWith(A.slice(0,4))||p[1]===q[1];
+  }));
+}
+function drillFoils(w,n,extra,avoidShared){
+  let pool=drillWords().concat(sealedWords().map(x=>x.w)).filter(x=>x.word!==w.word&&(!extra||extra(x)));
+  if(avoidShared){ const s=pool.filter(x=>!sharesPart(x,w)); if(s.length>=n) pool=s; }
+  const seen=new Set([w.word]);
+  return shuffle(pool).filter(x=>!seen.has(x.word)&&seen.add(x.word)).slice(0,n).map(x=>x.word);
+}
+function glossFoils(part,w){
+  const correct=part[1];
+  const bad=g=>g===correct||g.includes(correct)||correct.includes(g);
+  const own=w.parts.filter(p=>p[1]&&p!==part&&!bad(p[1])).map(p=>p[1]);
+  const pool=new Set();
+  drillWords().forEach(x=>x.parts.forEach(p=>{ if(p[1]&&p[0].length>1) pool.add(p[1]); }));
+  LEVELS.forEach(l=>{ if(G(l.id).sealed&&l.roots) l.roots.forEach(r=>pool.add(r.gloss)); });
+  const foils=shuffle([...pool].filter(g=>!bad(g)&&!own.includes(g)));
+  return shuffle([correct,...shuffle([...own.slice(0,1),...foils.slice(0,3)]).slice(0,3)]);
+}
+function maskEty(text,word){
+  let out=esc(text);
+  word.split(/\s+/).forEach(t=>{
+    if(t.length<4) return;
+    const st=t.slice(0,Math.max(4,t.length-3)).replace(/[^A-Za-z]/g,'');
+    if(st.length<3) return;
+    out=out.replace(new RegExp('[A-Za-z]*'+st+'[A-Za-z]*','gi'),'＿＿＿');
+  });
+  return out;
+}
+function modeOk(m,d){
+  if(m==='LIT'||m==='LITT') return d.parts.filter(p=>p[1]).length>=2;
+  if(m==='ROOTQ') return d.parts.some(p=>p[1]&&p[0].length>1);
+  if(m==='ETY') return !!d.ety;
+  if(m==='KIN') return !!kinPick(d);
+  if(m==='COMPOSE') return d.parts.length>=2;
+  return true;
+}
+function drillMode(d,s){
+  if(!s||!(s.r+s.w)) return 'REC';                      // first meeting: recognize it
+  const hist=s.m||[];
+  const fresh=DRILL_LADDER.filter(m=>modeOk(m,d)&&!hist.includes(m));
+  if(fresh.length) return fresh[Math.floor(Math.random()*Math.min(3,fresh.length))];
+  const pool=DRILL_LADDER.filter(m=>modeOk(m,d)&&m!==hist[hist.length-1]);
+  return pool.length?pool[Math.floor(Math.random()*pool.length)]:'PROD';
+}
+function rootsItem(){
+  const gs=LEVELS.filter(l=>G(l.id).sealed&&l.roots&&l.roots.length);
+  if(!gs.length) return null;
+  const g=gs[Math.floor(Math.random()*gs.length)];
+  const r=g.roots[Math.floor(Math.random()*g.roots.length)];
+  const all=new Set();
+  gs.forEach(x=>x.roots.forEach(t=>{ if(t.gloss!==r.gloss&&!t.gloss.includes(r.gloss)&&!r.gloss.includes(t.gloss)) all.add(t.gloss); }));
+  const foils=shuffle([...all]).slice(0,3);
+  if(foils.length<3) return null;
+  return {m:'ROOTS',root:r,gate:g.id,opts:shuffle([r.gloss,...foils])};
+}
+function drillStat(due){
+  const open=drillWords();
+  const ok=open.length&&due===0;
+  return `<button class="stat" id="drill-btn" ${ok?'':'disabled'} style="font-family:var(--ui);cursor:${ok?'pointer':'default'};${open.length?'':'opacity:.55;'}">
+    <div class="stat-n" style="color:var(--gild)">⌖</div><div class="stat-l">${due>0?'Docket first':'Drill'}</div></button>`;
+}
+function startDrill(){
+  stopClock();
+  if(!P.drill.n) return drillIntro();
+  S={kind:'DRILL',n:0,right:0,recent:[],queue:[1],debt:0,sit:{cleared:0,ahead:0}};
+  drillItem();
+}
+function drillIntro(){
+  app.innerHTML=`<section class="panel seal-wrap">
+    <button class="back" id="home" style="display:block;text-align:left">← The Gates</button>
+    <div class="stage-label">The Drill Hall</div>
+    <div class="grad-title">Words the gates never taught.</div>
+    <p class="grad-note">An advanced stock, every word built from roots you have already sealed. The drill attacks each word from a different side every time you meet it — what it means, the sentence it lives in, the literal reading of its pieces, the root inside it, its history, its kin — until it comes off your fingers on demand. It measures your caliber as you answer and serves words just past your reach — right about seven times in ten, by design. Sealing more gates unlocks deeper stock. Drill as long as you like; nothing here is required.</p>
+    <div class="actions"><button class="btn" id="go">Begin the drill →</button></div></section>`;
+  document.getElementById('home').onclick=home;
+  document.getElementById('go').onclick=()=>{ S={kind:'DRILL',n:0,right:0,recent:[],queue:[1],debt:0,sit:{cleared:0,ahead:0}}; drillItem(); };
+}
+function drillPick(){
+  const tgt=P.drill.theta-DRILL_TLOGIT;
+  const cands=[];
+  const consider=(rec)=>{
+    drillWords().forEach(d=>{ if(rec.includes(d.word)) return;
+      const s=P.drill.seen[d.word];
+      let score=-Math.abs(d.b-tgt);
+      if(!s) score+=0.35;                          // fresh stock first
+      else if(s.r-s.w>=2) score-=0.8;              // mastered — retire gently
+      cands.push({t:'new',d,score:score+Math.random()*0.3});
+    });
+    // seasoning: about one item in four revisits the sealed gates
+    const pool=sealedWords();
+    if(pool.length && (Math.random()<0.25 || !cands.length)){
+      for(let k=0;k<3;k++){
+        const x=pool[Math.floor(Math.random()*pool.length)];
+        if(rec.includes(x.w.word)) continue;
+        const t=P.ledger[x.gi+'-'+x.wi]||{r:0,w:0};
+        const b=-1.8+x.gi*0.13+(t.w>t.r?0.5:0);
+        cands.push({t:'rev',x,b,score:-Math.abs(b-tgt)-0.15+Math.random()*0.3});
+      }
+    }
+  };
+  consider(S.recent);
+  if(!cands.length) consider([]);
+  cands.sort((a,b)=>b.score-a.score);
+  return cands[0];
+}
+function drillItem(){
+  const tuneTheta=(ok,b)=>{
+    const pExp=sig(P.drill.theta-b);
+    const K=Math.max(0.14,0.5/Math.sqrt(1+P.drill.n/5));
+    P.drill.theta=Math.max(-3.5,Math.min(3.5,P.drill.theta+K*((ok?1:0)-pExp)));
+    P.drill.n++; S.n++; if(ok)S.right++;
+  };
+  // about one item in eight steps back to the roots themselves
+  if(Math.random()<0.12){
+    const rit=rootsItem();
+    if(rit){
+      S.queue=[1];
+      renderTrialPrompt({label:'The Drill Hall',gateLabel:'The roots · Gate '+rom(rit.gate),it:rit,w:null,
+        onResolve:ok=>{ tuneTheta(ok,-0.5); save(); return ok?null:'the drill eases to caliber '+caliber(); },
+        onNext:drillItem});
+      drillMeta(); return;
+    }
+  }
+  const pick=drillPick();
+  if(!pick) return home();
+  let it,w,b;
+  if(pick.t==='rev'){
+    w=wordAt(pick.x.gi,pick.x.wi);
+    const ms=['REC','PROD'];
+    if(vigOf(w)) ms.push('VIG');
+    if(w.parts.some(p=>p[1]&&p[0].length>1)) ms.push('ROOTQ');
+    const m=ms[Math.floor(Math.random()*ms.length)];
+    it={gi:pick.x.gi,wi:pick.x.wi,m};
+    if(m==='ROOTQ'){ const cs=w.parts.filter(p=>p[1]&&p[0].length>1); it.part=cs[Math.floor(Math.random()*cs.length)]; it.opts=glossFoils(it.part,w); }
+    b=pick.b+(MODE_SHIFT[m]||0);
+    it.drillB=b;
+  } else {
+    const d=pick.d; w=d;
+    const s=P.drill.seen[d.word];
+    const m=drillMode(d,s);
+    it={m,drill:d};
+    if(m==='DSENT'){
+      const near=drillWords().filter(x=>x.word!==d.word)
+        .sort((a,c)=>Math.abs(a.b-d.b)-Math.abs(c.b-d.b)).slice(0,6);
+      it.opts=shuffle([d.word,...shuffle(near).slice(0,3).map(x=>x.word)]);
+    } else if(m==='LIT'){
+      it.opts=shuffle([d.word,...drillFoils(d,3)]);
+    } else if(m==='ETY'){
+      it.masked=maskEty(d.ety,d.word);
+      it.opts=shuffle([d.word,...drillFoils(d,3,x=>!d.ety.toLowerCase().includes(x.word.slice(0,5).toLowerCase()),true)]);
+    } else if(m==='KIN'){
+      it.kin=kinPick(d);
+      it.opts=shuffle([d.word,...drillFoils(d,3,x=>sharedPrefix(x.word,it.kin)<4&&!(x.kin||[]).includes(it.kin),true)]);
+    } else if(m==='ROOTQ'){
+      const cs=d.parts.filter(p=>p[1]&&p[0].length>1);
+      it.part=cs[Math.floor(Math.random()*cs.length)];
+      it.opts=glossFoils(it.part,d);
+    }
+    b=d.b+(MODE_SHIFT[m]||0);
+    it.drillB=b;
+  }
+  S.recent.push(w.word); if(S.recent.length>8) S.recent.shift();
+  S.queue=[1];
+  const isNew = pick.t==='new' && !P.drill.seen[w.word];
+  renderTrialPrompt({
+    label:'The Drill Hall',
+    gateLabel: pick.t==='rev' ? 'Review · Gate '+rom(LEVELS[it.gi].id)
+             : isNew ? 'New stock · unlocked by Gate '+rom(it.drill.req) : '',
+    it,w,
+    onResolve: ok=>{
+      tuneTheta(ok,b);
+      if(pick.t==='rev') tally(it.gi,it.wi,ok);
+      else { const s=P.drill.seen[w.word]||(P.drill.seen[w.word]={r:0,w:0}); ok?s.r++:s.w++;
+        s.m=s.m||[]; s.m.push(it.m); if(s.m.length>12) s.m.shift(); }
+      save();
+      return ok?null:'the drill eases to caliber '+caliber();
+    },
+    onNext: drillItem
+  });
+  drillMeta();
+}
+function drillMeta(){
+  const cal=caliber();
+  const qm=document.querySelector('.queue-meta');
+  if(qm) qm.innerHTML=`<span>Caliber ${cal}</span><span>${S.n?S.right+' of '+S.n+' this sitting':'endless · leave anytime'}</span>`;
+  const sf=document.querySelector('.sbar .sfill');
+  if(sf) sf.style.width=cal+'%';
+  const back=document.getElementById('home');
+  if(back) back.textContent='← Enough drilling';
 }
 
 function sealScreen({seal,title,score,note,actions,gold}){
