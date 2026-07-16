@@ -103,9 +103,8 @@ function speakWord(w, done){
 /* ---------- bundled human recordings ---------- */
 // pronunciations: { "<word>": "data:audio/mpeg;base64,…" } — one clip per
 // Rootstock word, loaded from pronunciations.js as window.PRONUNCIATIONS so it
-// inlines cleanly into the standalone build (and works offline via the service
-// worker in the live app). Preferred over on-device synthesis; TTS remains the
-// fallback for any word without a clip (or if playback fails).
+// inlines cleanly into the standalone build. Preferred over on-device synthesis;
+// TTS remains the fallback for any word without a clip (or if playback fails).
 let PRON = (typeof window !== 'undefined' && window.PRONUNCIATIONS) || null;
 const clipCache = {};
 if(!PRON){

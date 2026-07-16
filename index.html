@@ -375,6 +375,12 @@
   // session tile at the top of the home screen, which already points to the
   // present gate — so it's off by default now; ?burnt=1 restores it.
   window.RS_BURNT = q.get('burnt') === '1';
+  // ?dev=1 grants a non-expiring entitlement to the web-preview simulation, so
+  // building past Gate III doesn't mean re-tripping the 3-day trial every three
+  // days. It persists, so it only needs to be passed once. Web preview only:
+  // RS ignores it whenever a native bridge is present, leaving StoreKit the
+  // sole source of truth in the shipped app.
+  window.RS_DEV = q.get('dev') === '1';
   window.addEventListener('message', function(e){
     if(e.data && typeof e.data.rsTheme === 'string')
       document.documentElement.classList.toggle('parchment', e.data.rsTheme === 'parchment');
@@ -1472,17 +1478,29 @@ function touchStreak(){
 }
 
 /* ---- the one next thing: drives the home session card ---- */
+// The tile must promise only what the tap delivers. enterGate() sends any gate
+// the subscription doesn't cover to the paywall, so a tile reading "Next Gate \u00b7
+// Gate XI" on a locked gate is a lie the gate cards don't tell \u2014 they show
+// "Members \u2726". Mirror that here rather than advertising a gate and opening a
+// price list.
+function gateLocked(idx){ return !RS.canAccessGate(idx); }
+function membersAction(idx){
+  return {kicker:'Members \u2726', label:'Gate '+rom(LEVELS[idx].id)+' \u00b7 '+LEVELS[idx].title,
+          sub:'Open every gate to continue', fn:()=>enterGate(idx)};
+}
 function primaryAction(due, debtBlocks){
   const mk=P.mark;
   if(mk && markFresh(mk) && LEVELS[mk.idx]){ const g=G(LEVELS[mk.idx].id);
     if(!g.sealed && markUsable(mk,g))
-      return {kicker:'Resume', label:'Gate '+rom(LEVELS[mk.idx].id)+' \u00b7 '+LEVELS[mk.idx].title, sub:'Pick up where you left off', fn:()=>enterGate(mk.idx)};
+      return gateLocked(mk.idx) ? membersAction(mk.idx)
+        : {kicker:'Resume', label:'Gate '+rom(LEVELS[mk.idx].id)+' \u00b7 '+LEVELS[mk.idx].title, sub:'Pick up where you left off', fn:()=>enterGate(mk.idx)};
   }
   if(due>0) return {kicker:'Review', label:'The Review Docket', sub:due+' word'+(due>1?'s':'')+' ready for recall', fn:startReview};
   for(let idx=0; idx<LEVELS.length; idx++){
     const g=G(LEVELS[idx].id); if(g.sealed) continue;
     const prevSealed = idx===0 || G(LEVELS[idx-1].id).sealed;
     if(!prevSealed) break;
+    if(gateLocked(idx)) return membersAction(idx);
     if(g.t1){ const left=temperUnlock(g.t1)-Date.now();
       if(left>0) return {kicker:'Tempering', label:'Gate '+rom(LEVELS[idx].id)+' is setting', sub:'Trial II opens in '+fmtDur(left), fn:null};
       return {kicker:'Trial II', label:'Gate '+rom(LEVELS[idx].id)+' \u00b7 '+LEVELS[idx].title, sub:'Typed production \u2014 seal the gate', fn:()=>enterGate(idx)};
@@ -2824,6 +2842,14 @@ const RS = (function(){
       else if(native()==='cap') window.RootstockNative.postMessage(JSON.stringify(msg));
     }catch(e){}
   }
+  // ?dev=1 — a standing entitlement for the web preview, so development past the
+  // free gates isn't fenced by the 3-day trial clock. Never applied when a native
+  // bridge exists: StoreKit remains the only thing that can grant entitlement in
+  // the shipped app. expiresAt:null means active() never ages it out.
+  if(window.RS_DEV && !native() && sub.source !== 'native'){
+    sub = { source:'dev', active:true, plan:'annual', trial:false, startedAt:Date.now(), expiresAt:null };
+    persist();
+  }
   function active(){
     if(sub.source==='native') return !!sub.active;      // native/StoreKit is the source of truth in the app
     if(!sub.active) return false;                        // web-preview simulation below
@@ -3027,36 +3053,12 @@ function boot(){
 boot();
 
 </script>
-<script>
-if('serviceWorker' in navigator){
-  window.addEventListener('load', () => {
-    const swSrc = `
-      const CACHE='rootstock-v2';
-      self.addEventListener('install', e => {
-        self.skipWaiting();
-        e.waitUntil(caches.open(CACHE).then(c => c.add(self.registration.scope)));
-      });
-      self.addEventListener('activate', e => {
-        e.waitUntil(
-          caches.keys()
-            .then(keys => Promise.all(keys.filter(k => k !== CACHE).map(k => caches.delete(k))))
-            .then(() => self.clients.claim())
-        );
-      });
-      self.addEventListener('fetch', e => {
-        e.respondWith(
-          fetch(e.request).then(res => {
-            const copy = res.clone();
-            caches.open(CACHE).then(c => c.put(e.request, copy));
-            return res;
-          }).catch(() => caches.match(e.request).then(hit => hit || caches.match(self.registration.scope)))
-        );
-      });
-    `;
-    const blob = new Blob([swSrc], {type: 'application/javascript'});
-    navigator.serviceWorker.register(URL.createObjectURL(blob)).catch(()=>{});
-  });
-}
-</script>
+<!-- No service worker. The previous one registered from a blob: URL, which every
+     browser rejects outright ("The URL protocol of the script ('blob:...') is not
+     supported"), and the failure was swallowed by an empty .catch — so it never
+     ran for anyone, cached nothing, and the offline support it appeared to provide
+     never existed. Reinstating it means a real same-origin sw.js, and that is a
+     deliberate change: it would start caching a ~7.6 MB pronunciations.js where
+     nothing is cached today. Left out until that's actually wanted and tested. -->
 </body>
 </html>
