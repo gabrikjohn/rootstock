@@ -1,0 +1,459 @@
+[
+ {
+  "word": "a",
+  "ipa": "ə"
+ },
+ {
+  "word": "acious",
+  "ipa": "ˈeɪʃəs"
+ },
+ "ad",
+ {
+  "word": "adulari",
+  "ipa": "ˌædʒəˈlɑri"
+ },
+ "advertere",
+ {
+  "word": "aequus",
+  "ipa": "ˈiːkwəs"
+ },
+ "agora",
+ "akros",
+ "algos",
+ "alter",
+ "ambi",
+ "amphi",
+ "ana",
+ {
+  "word": "analyein",
+  "ipa": "ˌænəˈliːɪn"
+ },
+ {
+  "word": "aner",
+  "ipa": "əˈnɛr"
+ },
+ "animus",
+ "anthropos",
+ {
+  "word": "archein",
+  "ipa": "ˈɑrkeɪn"
+ },
+ {
+  "word": "asketes",
+  "ipa": "əˈskiːtiːz"
+ },
+ "astron",
+ "autos",
+ "bellum",
+ {
+  "word": "bene",
+  "ipa": "ˈbɛneɪ"
+ },
+ "bi",
+ "biblion",
+ "bios",
+ {
+  "word": "botane",
+  "ipa": "boʊˈtɑːneɪ"
+ },
+ {
+  "word": "caedere",
+  "ipa": "ˈkaɪdɛreɪ"
+ },
+ {
+  "word": "capere",
+  "ipa": "ˈkɑpɛˌreɪ"
+ },
+ {
+  "word": "caput",
+  "ipa": "ˈkæpət"
+ },
+ {
+  "word": "Chauvin",
+  "ipa": "ʃoʊˈvæn"
+ },
+ {
+  "word": "cheir",
+  "ipa": "kaɪr"
+ },
+ "chronos",
+ {
+  "word": "ciarlare",
+  "ipa": "tʃɑrˈlɑreɪ"
+ },
+ "circum",
+ "claustrum",
+ {
+  "word": "cogere",
+  "ipa": "ˈkoʊɡɛreɪ"
+ },
+ "com",
+ "con",
+ {
+  "word": "condonare",
+  "ipa": "ˌkɒndoʊˈnɑreɪ"
+ },
+ "contra",
+ "corpus",
+ {
+  "word": "corrigere",
+  "ipa": "kɒˈrɪdʒɛreɪ"
+ },
+ {
+  "word": "credere",
+  "ipa": "ˈkreɪdɛreɪ"
+ },
+ {
+  "word": "crimen",
+  "ipa": "ˈkriːmɛn"
+ },
+ {
+  "word": "culpa",
+  "ipa": "ˈkʊlpə"
+ },
+ {
+  "word": "dare",
+  "ipa": "ˈdɑreɪ"
+ },
+ "demos",
+ "derma",
+ "dia",
+ {
+  "word": "dicere",
+  "ipa": "ˈdiːkɛreɪ"
+ },
+ {
+  "word": "dikē",
+  "ipa": "ˈdiːkeɪ"
+ },
+ {
+  "word": "dilettare",
+  "ipa": "ˌdiːlɛˈtɑreɪ"
+ },
+ {
+  "word": "dipsa",
+  "ipa": "ˈdɪpsə"
+ },
+ "dis",
+ "doxa",
+ "duo",
+ {
+  "word": "dys",
+  "ipa": "dɪs"
+ },
+ {
+  "word": "e",
+  "ipa": "ɪ"
+ },
+ "ego",
+ {
+  "word": "eikon",
+  "ipa": "ˈaɪkɒn"
+ },
+ "entomon",
+ "epi",
+ {
+  "word": "escent",
+  "ipa": "ɪˈsɛnt"
+ },
+ "etymon",
+ {
+  "word": "eu",
+  "ipa": "juː"
+ },
+ "ex",
+ "extra",
+ {
+  "word": "fallere",
+  "ipa": "ˈfælɛreɪ"
+ },
+ {
+  "word": "fatigare",
+  "ipa": "ˌfætɪˈɡɑreɪ"
+ },
+ "frater",
+ "gamos",
+ {
+  "word": "garrire",
+  "ipa": "ɡəˈrɪreɪ"
+ },
+ {
+  "word": "ge",
+  "ipa": "ɡɛ"
+ },
+ "genitus",
+ {
+  "word": "genos",
+  "ipa": "ˈɡɛnɒs"
+ },
+ {
+  "word": "gerere",
+  "ipa": "ˈɡɛrɛreɪ"
+ },
+ {
+  "word": "geron",
+  "ipa": "ˈɡɛrɒn"
+ },
+ {
+  "word": "gignere",
+  "ipa": "ˈɡɪŋnɛreɪ"
+ },
+ "grandis",
+ {
+  "word": "graphein",
+  "ipa": "ˈɡræfeɪn"
+ },
+ "grex",
+ {
+  "word": "hieros",
+  "ipa": "ˈhaɪəroʊs"
+ },
+ "hypnos",
+ "hypochondria",
+ {
+  "word": "iatreia",
+  "ipa": "aɪəˈtriːə"
+ },
+ "im",
+ "in",
+ "ingenuus",
+ "internus",
+ "intro",
+ "judex",
+ {
+  "word": "jurare",
+  "ipa": "dʒʊˈrɑreɪ"
+ },
+ {
+  "word": "jus",
+  "ipa": "jʊs"
+ },
+ "kakos",
+ "kallos",
+ "kardia",
+ {
+  "word": "kleptein",
+  "ipa": "ˈklɛpteɪn"
+ },
+ "kratos",
+ "Lakonia",
+ "lis",
+ "logos",
+ {
+  "word": "loqui",
+  "ipa": "ˈloʊkwiː"
+ },
+ {
+  "word": "léger",
+  "ipa": "leɪˈʒeɪ"
+ },
+ "magnus",
+ {
+  "word": "male",
+  "ipa": "ˈmæleɪ"
+ },
+ "malus",
+ "mania",
+ {
+  "word": "manteia",
+  "ipa": "mænˈtiːə"
+ },
+ "manus",
+ "Martinet",
+ {
+  "word": "mater",
+  "ipa": "ˈmɑtɛr"
+ },
+ "megas",
+ "mendax",
+ "metron",
+ {
+  "word": "miles",
+  "ipa": "ˈmiːlɛs"
+ },
+ {
+  "word": "misein",
+  "ipa": "miːˈseɪn"
+ },
+ "monos",
+ {
+  "word": "mori",
+  "ipa": "ˈmɔri"
+ },
+ {
+  "word": "myein",
+  "ipa": "ˈmaɪɪn"
+ },
+ {
+  "word": "necare",
+  "ipa": "nɛˈkɑreɪ"
+ },
+ "necros",
+ "neuron",
+ "nomen",
+ "nomos",
+ "non",
+ {
+  "word": "noscere",
+  "ipa": "ˈnɒskɛreɪ"
+ },
+ "nostos",
+ "ob",
+ "obstetrix",
+ "odontos",
+ "oligos",
+ "onyma",
+ {
+  "word": "ophthalmos",
+  "ipa": "ɒfˈθælmɒs"
+ },
+ "opsis",
+ "orthos",
+ "osteon",
+ {
+  "word": "pais",
+  "ipa": "paɪs"
+ },
+ "par",
+ "pater",
+ "pathos",
+ "per",
+ {
+  "word": "pes",
+  "ipa": "peɪs"
+ },
+ {
+  "word": "pheme",
+  "ipa": "ˈfeɪmeɪ"
+ },
+ "Philistine",
+ "phone",
+ {
+  "word": "placare",
+  "ipa": "pləˈkɑreɪ"
+ },
+ "ploutos",
+ "polis",
+ "polys",
+ {
+  "word": "pous",
+  "ipa": "puːs"
+ },
+ "presbys",
+ "prudentia",
+ {
+  "word": "pseudes",
+  "ipa": "ˈsuːdiːz"
+ },
+ "psyche",
+ {
+  "word": "puer",
+  "ipa": "ˈpuːɛr"
+ },
+ {
+  "word": "pugnare",
+  "ipa": "pʊɡˈnɑreɪ"
+ },
+ "pugnus",
+ "pusillus",
+ {
+  "word": "pyr",
+  "ipa": "paɪər"
+ },
+ "rex",
+ "scintilla",
+ {
+  "word": "scire",
+  "ipa": "ˈskiːreɪ"
+ },
+ {
+  "word": "scribere",
+  "ipa": "ˈskriːbɛreɪ"
+ },
+ "senex",
+ "sententia",
+ {
+  "word": "sequi",
+  "ipa": "ˈsɛkwiː"
+ },
+ "similis",
+ {
+  "word": "simulare",
+  "ipa": "ˌsɪmjʊˈlɑreɪ"
+ },
+ {
+  "word": "socius",
+  "ipa": "ˈsoʊʃiəs"
+ },
+ "solus",
+ "soma",
+ "sopor",
+ {
+  "word": "specere",
+  "ipa": "ˈspɛkɛreɪ"
+ },
+ "species",
+ "Stoa",
+ "sub",
+ "summa",
+ {
+  "word": "sykon",
+  "ipa": "ˈsuːkɒn"
+ },
+ "syn",
+ {
+  "word": "tacere",
+  "ipa": "təˈkɛreɪ"
+ },
+ "tele",
+ "tempus",
+ {
+  "word": "tergere",
+  "ipa": "ˈtɜrdʒɛreɪ"
+ },
+ "thanatos",
+ "theos",
+ "trepidus",
+ "unus",
+ "urbs",
+ "uxor",
+ {
+  "word": "vacillare",
+  "ipa": "ˌvæsɪˈlɑreɪ"
+ },
+ {
+  "word": "varicare",
+  "ipa": "ˌværɪˈkɑreɪ"
+ },
+ "verbum",
+ {
+  "word": "vertere",
+  "ipa": "ˈvɛrtɛreɪ"
+ },
+ "vertigo",
+ "verto",
+ "verus",
+ {
+  "word": "vetus",
+  "ipa": "ˈvɛtəs"
+ },
+ "via",
+ {
+  "word": "vir",
+  "ipa": "vɪr"
+ },
+ {
+  "word": "vivere",
+  "ipa": "ˈviːvɛreɪ"
+ },
+ {
+  "word": "volvere",
+  "ipa": "ˈvɒlvɛreɪ"
+ },
+ "vox",
+ "xenos",
+ {
+  "word": "zoion",
+  "ipa": "ˈzoʊiɒn"
+ }
+]
