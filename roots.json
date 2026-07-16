@@ -1,459 +1,898 @@
 [
  {
   "word": "a",
-  "ipa": "ə"
+  "lang": "Greek",
+  "say": "α"
  },
  {
   "word": "acious",
-  "ipa": "ˈeɪʃəs"
+  "lang": "Latin"
  },
- "ad",
+ {
+  "word": "ad",
+  "lang": "Latin"
+ },
  {
   "word": "adulari",
-  "ipa": "ˌædʒəˈlɑri"
+  "lang": "Latin"
  },
- "advertere",
+ {
+  "word": "advertere",
+  "lang": "Latin"
+ },
  {
   "word": "aequus",
-  "ipa": "ˈiːkwəs"
+  "lang": "Latin"
  },
- "agora",
- "akros",
- "algos",
- "alter",
- "ambi",
- "amphi",
- "ana",
+ {
+  "word": "agora",
+  "lang": "Greek",
+  "say": "αγορά"
+ },
+ {
+  "word": "akros",
+  "lang": "Greek",
+  "say": "άκρος"
+ },
+ {
+  "word": "algos",
+  "lang": "Greek",
+  "say": "άλγος"
+ },
+ {
+  "word": "alter",
+  "lang": "Latin"
+ },
+ {
+  "word": "ambi",
+  "lang": "Latin"
+ },
+ {
+  "word": "amphi",
+  "lang": "Greek",
+  "say": "αμφί"
+ },
+ {
+  "word": "ana",
+  "lang": "Greek",
+  "say": "ανά"
+ },
  {
   "word": "analyein",
-  "ipa": "ˌænəˈliːɪn"
+  "lang": "Greek",
+  "say": "αναλύειν"
  },
  {
   "word": "aner",
-  "ipa": "əˈnɛr"
+  "lang": "Greek",
+  "say": "ανήρ"
  },
  "animus",
- "anthropos",
+ {
+  "word": "anthropos",
+  "lang": "Greek",
+  "say": "άνθρωπος"
+ },
  {
   "word": "archein",
-  "ipa": "ˈɑrkeɪn"
+  "lang": "Greek",
+  "say": "άρχειν"
  },
  {
   "word": "asketes",
-  "ipa": "əˈskiːtiːz"
+  "lang": "Greek",
+  "say": "ασκητής"
  },
- "astron",
- "autos",
- "bellum",
+ {
+  "word": "astron",
+  "lang": "Greek",
+  "say": "άστρον"
+ },
+ {
+  "word": "autos",
+  "lang": "Greek",
+  "say": "αυτός"
+ },
+ {
+  "word": "bellum",
+  "lang": "Latin"
+ },
  {
   "word": "bene",
-  "ipa": "ˈbɛneɪ"
+  "lang": "Latin"
  },
- "bi",
- "biblion",
- "bios",
+ {
+  "word": "bi",
+  "lang": "Latin"
+ },
+ {
+  "word": "biblion",
+  "lang": "Greek",
+  "say": "βιβλίον"
+ },
+ {
+  "word": "bios",
+  "lang": "Greek",
+  "say": "βίος"
+ },
  {
   "word": "botane",
-  "ipa": "boʊˈtɑːneɪ"
+  "lang": "Greek",
+  "say": "βοτάνη"
  },
  {
   "word": "caedere",
-  "ipa": "ˈkaɪdɛreɪ"
+  "lang": "Latin"
  },
  {
   "word": "capere",
-  "ipa": "ˈkɑpɛˌreɪ"
+  "lang": "Latin"
  },
  {
   "word": "caput",
-  "ipa": "ˈkæpət"
+  "lang": "Latin"
  },
  {
   "word": "Chauvin",
-  "ipa": "ʃoʊˈvæn"
+  "lang": "French"
  },
  {
   "word": "cheir",
-  "ipa": "kaɪr"
+  "lang": "Greek",
+  "say": "χειρ"
  },
- "chronos",
+ {
+  "word": "chronos",
+  "lang": "Greek",
+  "say": "χρόνος"
+ },
  {
   "word": "ciarlare",
-  "ipa": "tʃɑrˈlɑreɪ"
+  "lang": "Italian"
  },
- "circum",
- "claustrum",
+ {
+  "word": "circum",
+  "lang": "Latin"
+ },
+ {
+  "word": "claustrum",
+  "lang": "Latin"
+ },
  {
   "word": "cogere",
-  "ipa": "ˈkoʊɡɛreɪ"
+  "lang": "Latin"
  },
- "com",
- "con",
+ {
+  "word": "com",
+  "lang": "Latin"
+ },
+ {
+  "word": "con",
+  "lang": "Latin"
+ },
  {
   "word": "condonare",
-  "ipa": "ˌkɒndoʊˈnɑreɪ"
+  "lang": "Latin"
  },
- "contra",
- "corpus",
+ {
+  "word": "contra",
+  "lang": "Latin"
+ },
+ {
+  "word": "corpus",
+  "lang": "Latin"
+ },
  {
   "word": "corrigere",
-  "ipa": "kɒˈrɪdʒɛreɪ"
+  "lang": "Latin"
  },
  {
   "word": "credere",
-  "ipa": "ˈkreɪdɛreɪ"
+  "lang": "Latin"
  },
  {
   "word": "crimen",
-  "ipa": "ˈkriːmɛn"
+  "lang": "Latin"
  },
  {
   "word": "culpa",
-  "ipa": "ˈkʊlpə"
+  "lang": "Latin"
  },
  {
   "word": "dare",
-  "ipa": "ˈdɑreɪ"
+  "lang": "Latin"
  },
- "demos",
- "derma",
- "dia",
+ {
+  "word": "demos",
+  "lang": "Greek",
+  "say": "δήμος"
+ },
+ {
+  "word": "derma",
+  "lang": "Greek",
+  "say": "δέρμα"
+ },
+ {
+  "word": "dia",
+  "lang": "Greek",
+  "say": "διά"
+ },
  {
   "word": "dicere",
-  "ipa": "ˈdiːkɛreɪ"
+  "lang": "Latin"
  },
  {
   "word": "dikē",
-  "ipa": "ˈdiːkeɪ"
+  "lang": "Greek",
+  "say": "δίκη"
  },
  {
   "word": "dilettare",
-  "ipa": "ˌdiːlɛˈtɑreɪ"
+  "lang": "Italian"
  },
  {
   "word": "dipsa",
-  "ipa": "ˈdɪpsə"
+  "lang": "Greek",
+  "say": "δίψα"
  },
- "dis",
- "doxa",
- "duo",
+ {
+  "word": "dis",
+  "lang": "Latin"
+ },
+ {
+  "word": "doxa",
+  "lang": "Greek",
+  "say": "δόξα"
+ },
+ {
+  "word": "duo",
+  "lang": "Latin"
+ },
  {
   "word": "dys",
-  "ipa": "dɪs"
+  "lang": "Greek",
+  "say": "δυς"
  },
  {
   "word": "e",
-  "ipa": "ɪ"
+  "lang": "Latin"
  },
- "ego",
+ {
+  "word": "ego",
+  "lang": "Latin"
+ },
  {
   "word": "eikon",
-  "ipa": "ˈaɪkɒn"
+  "lang": "Greek",
+  "say": "εικών"
  },
- "entomon",
- "epi",
+ {
+  "word": "entomon",
+  "lang": "Greek",
+  "say": "έντομον"
+ },
+ {
+  "word": "epi",
+  "lang": "Greek",
+  "say": "επί"
+ },
  {
   "word": "escent",
-  "ipa": "ɪˈsɛnt"
+  "lang": "Latin"
  },
- "etymon",
+ {
+  "word": "etymon",
+  "lang": "Greek",
+  "say": "έτυμον"
+ },
  {
   "word": "eu",
-  "ipa": "juː"
+  "lang": "Greek",
+  "say": "ευ"
  },
- "ex",
- "extra",
+ {
+  "word": "ex",
+  "lang": "Latin"
+ },
+ {
+  "word": "extra",
+  "lang": "Latin"
+ },
  {
   "word": "fallere",
-  "ipa": "ˈfælɛreɪ"
+  "lang": "Latin"
  },
  {
   "word": "fatigare",
-  "ipa": "ˌfætɪˈɡɑreɪ"
+  "lang": "Latin"
  },
- "frater",
- "gamos",
+ {
+  "word": "frater",
+  "lang": "Latin"
+ },
+ {
+  "word": "gamos",
+  "lang": "Greek",
+  "say": "γάμος"
+ },
  {
   "word": "garrire",
-  "ipa": "ɡəˈrɪreɪ"
+  "lang": "Latin"
  },
  {
   "word": "ge",
-  "ipa": "ɡɛ"
+  "lang": "Greek",
+  "say": "γη"
  },
- "genitus",
+ {
+  "word": "genitus",
+  "lang": "Latin"
+ },
  {
   "word": "genos",
-  "ipa": "ˈɡɛnɒs"
+  "lang": "Greek",
+  "say": "γένος"
  },
  {
   "word": "gerere",
-  "ipa": "ˈɡɛrɛreɪ"
+  "lang": "Latin"
  },
  {
   "word": "geron",
-  "ipa": "ˈɡɛrɒn"
+  "lang": "Greek",
+  "say": "γέρων"
  },
  {
   "word": "gignere",
-  "ipa": "ˈɡɪŋnɛreɪ"
+  "lang": "Latin"
  },
- "grandis",
+ {
+  "word": "grandis",
+  "lang": "Latin"
+ },
  {
   "word": "graphein",
-  "ipa": "ˈɡræfeɪn"
+  "lang": "Greek",
+  "say": "γράφειν"
  },
- "grex",
+ {
+  "word": "grex",
+  "lang": "Latin"
+ },
  {
   "word": "hieros",
-  "ipa": "ˈhaɪəroʊs"
+  "lang": "Greek",
+  "say": "ιερός"
  },
- "hypnos",
- "hypochondria",
+ {
+  "word": "hypnos",
+  "lang": "Greek",
+  "say": "ύπνος"
+ },
+ {
+  "word": "hypochondria",
+  "lang": "Greek",
+  "say": "υποχόνδρια"
+ },
  {
   "word": "iatreia",
-  "ipa": "aɪəˈtriːə"
+  "lang": "Greek",
+  "say": "ιατρεία"
  },
- "im",
- "in",
- "ingenuus",
- "internus",
- "intro",
- "judex",
+ {
+  "word": "im",
+  "lang": "Latin"
+ },
+ {
+  "word": "in",
+  "lang": "Latin"
+ },
+ {
+  "word": "ingenuus",
+  "lang": "Latin"
+ },
+ {
+  "word": "internus",
+  "lang": "Latin"
+ },
+ {
+  "word": "intro",
+  "lang": "Latin"
+ },
+ {
+  "word": "judex",
+  "lang": "Latin"
+ },
  {
   "word": "jurare",
-  "ipa": "dʒʊˈrɑreɪ"
+  "lang": "Latin"
  },
  {
   "word": "jus",
-  "ipa": "jʊs"
+  "lang": "Latin"
  },
- "kakos",
- "kallos",
- "kardia",
+ {
+  "word": "kakos",
+  "lang": "Greek",
+  "say": "κακός"
+ },
+ {
+  "word": "kallos",
+  "lang": "Greek",
+  "say": "κάλλος"
+ },
+ {
+  "word": "kardia",
+  "lang": "Greek",
+  "say": "καρδία"
+ },
  {
   "word": "kleptein",
-  "ipa": "ˈklɛpteɪn"
+  "lang": "Greek",
+  "say": "κλέπτειν"
  },
- "kratos",
- "Lakonia",
- "lis",
- "logos",
+ {
+  "word": "kratos",
+  "lang": "Greek",
+  "say": "κράτος"
+ },
+ {
+  "word": "Lakonia",
+  "lang": "Greek",
+  "say": "Λακωνία"
+ },
+ {
+  "word": "lis",
+  "lang": "Latin"
+ },
+ {
+  "word": "logos",
+  "lang": "Greek",
+  "say": "λόγος"
+ },
  {
   "word": "loqui",
-  "ipa": "ˈloʊkwiː"
+  "lang": "Latin"
  },
  {
   "word": "léger",
-  "ipa": "leɪˈʒeɪ"
+  "lang": "French"
  },
- "magnus",
+ {
+  "word": "magnus",
+  "lang": "Latin"
+ },
  {
   "word": "male",
-  "ipa": "ˈmæleɪ"
+  "lang": "Latin"
  },
- "malus",
- "mania",
+ {
+  "word": "malus",
+  "lang": "Latin"
+ },
+ {
+  "word": "mania",
+  "lang": "Greek",
+  "say": "μανία"
+ },
  {
   "word": "manteia",
-  "ipa": "mænˈtiːə"
+  "lang": "Greek",
+  "say": "μαντεία"
  },
- "manus",
+ {
+  "word": "manus",
+  "lang": "Latin"
+ },
  "Martinet",
  {
   "word": "mater",
-  "ipa": "ˈmɑtɛr"
+  "lang": "Latin"
  },
- "megas",
- "mendax",
- "metron",
+ {
+  "word": "megas",
+  "lang": "Greek",
+  "say": "μέγας"
+ },
+ {
+  "word": "mendax",
+  "lang": "Latin"
+ },
+ {
+  "word": "metron",
+  "lang": "Greek",
+  "say": "μέτρον"
+ },
  {
   "word": "miles",
-  "ipa": "ˈmiːlɛs"
+  "lang": "Latin"
  },
  {
   "word": "misein",
-  "ipa": "miːˈseɪn"
+  "lang": "Greek",
+  "say": "μισείν"
  },
- "monos",
+ {
+  "word": "monos",
+  "lang": "Greek",
+  "say": "μόνος"
+ },
  {
   "word": "mori",
-  "ipa": "ˈmɔri"
+  "lang": "Latin"
  },
  {
   "word": "myein",
-  "ipa": "ˈmaɪɪn"
+  "lang": "Greek",
+  "say": "μύειν"
  },
  {
   "word": "necare",
-  "ipa": "nɛˈkɑreɪ"
+  "lang": "Latin"
  },
- "necros",
- "neuron",
- "nomen",
- "nomos",
- "non",
+ {
+  "word": "necros",
+  "lang": "Greek",
+  "say": "νεκρός"
+ },
+ {
+  "word": "neuron",
+  "lang": "Greek",
+  "say": "νεύρον"
+ },
+ {
+  "word": "nomen",
+  "lang": "Latin"
+ },
+ {
+  "word": "nomos",
+  "lang": "Greek",
+  "say": "νόμος"
+ },
+ {
+  "word": "non",
+  "lang": "Latin"
+ },
  {
   "word": "noscere",
-  "ipa": "ˈnɒskɛreɪ"
+  "lang": "Latin"
  },
- "nostos",
- "ob",
- "obstetrix",
- "odontos",
- "oligos",
- "onyma",
+ {
+  "word": "nostos",
+  "lang": "Greek",
+  "say": "νόστος"
+ },
+ {
+  "word": "ob",
+  "lang": "Latin"
+ },
+ {
+  "word": "obstetrix",
+  "lang": "Latin"
+ },
+ {
+  "word": "odontos",
+  "lang": "Greek",
+  "say": "οδόντος"
+ },
+ {
+  "word": "oligos",
+  "lang": "Greek",
+  "say": "ολίγος"
+ },
+ {
+  "word": "onyma",
+  "lang": "Greek",
+  "say": "όνυμα"
+ },
  {
   "word": "ophthalmos",
-  "ipa": "ɒfˈθælmɒs"
+  "lang": "Greek",
+  "say": "οφθαλμός"
  },
- "opsis",
- "orthos",
- "osteon",
+ {
+  "word": "opsis",
+  "lang": "Greek",
+  "say": "όψις"
+ },
+ {
+  "word": "orthos",
+  "lang": "Greek",
+  "say": "ορθός"
+ },
+ {
+  "word": "osteon",
+  "lang": "Greek",
+  "say": "οστέον"
+ },
  {
   "word": "pais",
-  "ipa": "paɪs"
+  "lang": "Greek",
+  "say": "παις"
  },
- "par",
- "pater",
- "pathos",
- "per",
+ {
+  "word": "par",
+  "lang": "Latin"
+ },
+ {
+  "word": "pater",
+  "lang": "Latin"
+ },
+ {
+  "word": "pathos",
+  "lang": "Greek",
+  "say": "πάθος"
+ },
+ {
+  "word": "per",
+  "lang": "Latin"
+ },
  {
   "word": "pes",
-  "ipa": "peɪs"
+  "lang": "Latin"
  },
  {
   "word": "pheme",
-  "ipa": "ˈfeɪmeɪ"
+  "lang": "Greek",
+  "say": "φήμη"
  },
  "Philistine",
- "phone",
+ {
+  "word": "phone",
+  "lang": "Greek",
+  "say": "φωνή"
+ },
  {
   "word": "placare",
-  "ipa": "pləˈkɑreɪ"
+  "lang": "Latin"
  },
- "ploutos",
- "polis",
- "polys",
+ {
+  "word": "ploutos",
+  "lang": "Greek",
+  "say": "πλούτος"
+ },
+ {
+  "word": "polis",
+  "lang": "Greek",
+  "say": "πόλις"
+ },
+ {
+  "word": "polys",
+  "lang": "Greek",
+  "say": "πολύς"
+ },
  {
   "word": "pous",
-  "ipa": "puːs"
+  "lang": "Greek",
+  "say": "πους"
  },
- "presbys",
- "prudentia",
+ {
+  "word": "presbys",
+  "lang": "Greek",
+  "say": "πρέσβυς"
+ },
+ {
+  "word": "prudentia",
+  "lang": "Latin"
+ },
  {
   "word": "pseudes",
-  "ipa": "ˈsuːdiːz"
+  "lang": "Greek",
+  "say": "ψευδής"
  },
- "psyche",
+ {
+  "word": "psyche",
+  "lang": "Greek",
+  "say": "ψυχή"
+ },
  {
   "word": "puer",
-  "ipa": "ˈpuːɛr"
+  "lang": "Latin"
  },
  {
   "word": "pugnare",
-  "ipa": "pʊɡˈnɑreɪ"
+  "lang": "Latin"
  },
- "pugnus",
- "pusillus",
+ {
+  "word": "pugnus",
+  "lang": "Latin"
+ },
+ {
+  "word": "pusillus",
+  "lang": "Latin"
+ },
  {
   "word": "pyr",
-  "ipa": "paɪər"
+  "lang": "Greek",
+  "say": "πυρ"
  },
- "rex",
- "scintilla",
+ {
+  "word": "rex",
+  "lang": "Latin"
+ },
+ {
+  "word": "scintilla",
+  "lang": "Latin"
+ },
  {
   "word": "scire",
-  "ipa": "ˈskiːreɪ"
+  "lang": "Latin"
  },
  {
   "word": "scribere",
-  "ipa": "ˈskriːbɛreɪ"
+  "lang": "Latin"
  },
- "senex",
- "sententia",
+ {
+  "word": "senex",
+  "lang": "Latin"
+ },
+ {
+  "word": "sententia",
+  "lang": "Latin"
+ },
  {
   "word": "sequi",
-  "ipa": "ˈsɛkwiː"
+  "lang": "Latin"
  },
- "similis",
+ {
+  "word": "similis",
+  "lang": "Latin"
+ },
  {
   "word": "simulare",
-  "ipa": "ˌsɪmjʊˈlɑreɪ"
+  "lang": "Latin"
  },
  {
   "word": "socius",
-  "ipa": "ˈsoʊʃiəs"
+  "lang": "Latin"
  },
- "solus",
- "soma",
- "sopor",
+ {
+  "word": "solus",
+  "lang": "Latin"
+ },
+ {
+  "word": "soma",
+  "lang": "Greek",
+  "say": "σώμα"
+ },
+ {
+  "word": "sopor",
+  "lang": "Latin"
+ },
  {
   "word": "specere",
-  "ipa": "ˈspɛkɛreɪ"
+  "lang": "Latin"
  },
- "species",
- "Stoa",
- "sub",
- "summa",
+ {
+  "word": "species",
+  "lang": "Latin"
+ },
+ {
+  "word": "Stoa",
+  "lang": "Greek",
+  "say": "Στοά"
+ },
+ {
+  "word": "sub",
+  "lang": "Latin"
+ },
+ {
+  "word": "summa",
+  "lang": "Latin"
+ },
  {
   "word": "sykon",
-  "ipa": "ˈsuːkɒn"
+  "lang": "Greek",
+  "say": "σύκον"
  },
- "syn",
+ {
+  "word": "syn",
+  "lang": "Greek",
+  "say": "συν"
+ },
  {
   "word": "tacere",
-  "ipa": "təˈkɛreɪ"
+  "lang": "Latin"
  },
- "tele",
- "tempus",
+ {
+  "word": "tele",
+  "lang": "Greek",
+  "say": "τήλε"
+ },
+ {
+  "word": "tempus",
+  "lang": "Latin"
+ },
  {
   "word": "tergere",
-  "ipa": "ˈtɜrdʒɛreɪ"
+  "lang": "Latin"
  },
- "thanatos",
- "theos",
- "trepidus",
- "unus",
- "urbs",
- "uxor",
+ {
+  "word": "thanatos",
+  "lang": "Greek",
+  "say": "θάνατος"
+ },
+ {
+  "word": "theos",
+  "lang": "Greek",
+  "say": "θεός"
+ },
+ {
+  "word": "trepidus",
+  "lang": "Latin"
+ },
+ {
+  "word": "unus",
+  "lang": "Latin"
+ },
+ {
+  "word": "urbs",
+  "lang": "Latin"
+ },
+ {
+  "word": "uxor",
+  "lang": "Latin"
+ },
  {
   "word": "vacillare",
-  "ipa": "ˌvæsɪˈlɑreɪ"
+  "lang": "Latin"
  },
  {
   "word": "varicare",
-  "ipa": "ˌværɪˈkɑreɪ"
+  "lang": "Latin"
  },
- "verbum",
+ {
+  "word": "verbum",
+  "lang": "Latin"
+ },
  {
   "word": "vertere",
-  "ipa": "ˈvɛrtɛreɪ"
+  "lang": "Latin"
  },
- "vertigo",
- "verto",
- "verus",
+ {
+  "word": "vertigo",
+  "lang": "Latin"
+ },
+ {
+  "word": "verto",
+  "lang": "Latin"
+ },
+ {
+  "word": "verus",
+  "lang": "Latin"
+ },
  {
   "word": "vetus",
-  "ipa": "ˈvɛtəs"
+  "lang": "Latin"
  },
- "via",
+ {
+  "word": "via",
+  "lang": "Latin"
+ },
  {
   "word": "vir",
-  "ipa": "vɪr"
+  "lang": "Latin"
  },
  {
   "word": "vivere",
-  "ipa": "ˈviːvɛreɪ"
+  "lang": "Latin"
  },
  {
   "word": "volvere",
-  "ipa": "ˈvɒlvɛreɪ"
+  "lang": "Latin"
  },
- "vox",
- "xenos",
+ {
+  "word": "vox",
+  "lang": "Latin"
+ },
+ {
+  "word": "xenos",
+  "lang": "Greek",
+  "say": "ξένος"
+ },
  {
   "word": "zoion",
-  "ipa": "ˈzoʊiɒn"
+  "lang": "Greek",
+  "say": "ζώον"
  }
 ]

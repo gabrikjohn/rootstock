@@ -40,44 +40,60 @@ SPEAKING_RATE = 0.9              # slightly slow = clearer on isolated words
 # Optional carrier phrase. "{word}" = the word alone. Use e.g.
 # "The word is {word}." if a bare word gets odd prosody.
 CARRIER = "{word}"
+
+# Per-entry "lang" (e.g. {"word":"chronos","lang":"Greek","say":"χρόνος"})
+# routes synthesis through a real voice for that language instead of the
+# default English one, so Latin/Greek/French roots sound like Latin, Greek,
+# and French instead of an English engine's guess. "say", if given, is what's
+# actually spoken (e.g. Greek-script text) while "word" stays the dict key.
+VOICE_BY_LANG = {
+    "Latin": ("it-IT-Neural2-A", "it-IT"),     # Italian is the standard practical
+    "Italian": ("it-IT-Neural2-A", "it-IT"),   # proxy for Latin: rolled r's, pure vowels
+    "Greek": ("el-GR-Wavenet-B", "el-GR"),     # no Neural2 tier for Greek yet
+    "French": ("fr-FR-Neural2-F", "fr-FR"),
+}
 # ---------------------------------------------------------------------------
 
 
-def build_input(word: str, ipa: str | None) -> "texttospeech.SynthesisInput":
+def build_input(text: str, ipa: str | None) -> "texttospeech.SynthesisInput":
     """SSML input. If ipa is given, force pronunciation with <phoneme>."""
     inner = (
         f'<phoneme alphabet="ipa" ph="{html.escape(ipa, quote=True)}">'
-        f"{html.escape(word)}</phoneme>"
+        f"{html.escape(text)}</phoneme>"
         if ipa
-        else html.escape(word)
+        else html.escape(text)
     )
     ssml = f"<speak>{CARRIER.format(word=inner)}</speak>"
     return texttospeech.SynthesisInput(ssml=ssml)
 
 
-def synthesize(client, word: str, ipa: str | None) -> bytes:
+def synthesize(client, text: str, ipa: str | None, lang: str | None) -> bytes:
+    voice_name, language_code = VOICE_BY_LANG.get(lang, (VOICE_NAME, LANGUAGE_CODE))
     voice = texttospeech.VoiceSelectionParams(
-        language_code=LANGUAGE_CODE, name=VOICE_NAME
+        language_code=language_code, name=voice_name
     )
     audio_config = texttospeech.AudioConfig(
         audio_encoding=texttospeech.AudioEncoding.MP3,
         speaking_rate=SPEAKING_RATE,
     )
     resp = client.synthesize_speech(
-        input=build_input(word, ipa), voice=voice, audio_config=audio_config
+        input=build_input(text, ipa), voice=voice, audio_config=audio_config
     )
     return resp.audio_content  # raw MP3 bytes
 
 
 def load_words(path: Path):
-    """Accept ["cat","dog"] OR [{"word":"cat","ipa":"kæt"}, {"word":"dog"}]."""
+    """Accept ["cat","dog"] OR [{"word":"cat","ipa":"kæt"}] OR
+    [{"word":"chronos","lang":"Greek","say":"χρόνος"}]. "say" (if present) is
+    the text actually spoken; "word" is always the output dict key."""
     data = json.loads(path.read_text(encoding="utf-8"))
     out = []
     for item in data:
         if isinstance(item, str):
-            out.append((item, None))
+            out.append((item, item, None, None))
         else:
-            out.append((item["word"], item.get("ipa")))
+            word = item["word"]
+            out.append((word, item.get("say", word), item.get("ipa"), item.get("lang")))
     return out
 
 
@@ -100,12 +116,12 @@ def main():
     if args.as_files:
         audio_dir.mkdir(exist_ok=True)
 
-    for i, (word, ipa) in enumerate(words, 1):
+    for i, (word, say, ipa, lang) in enumerate(words, 1):
         key = word.lower()
         if key in manifest:  # skip dupes across gates / INFER_POOL
             continue
         try:
-            mp3 = synthesize(client, word, ipa)
+            mp3 = synthesize(client, say, ipa, lang)
         except Exception as e:  # keep going; report the failure
             print(f"  ! {word}: {e}", file=sys.stderr)
             continue
@@ -117,7 +133,8 @@ def main():
             b64 = base64.b64encode(mp3).decode("ascii")
             manifest[key] = f"data:audio/mpeg;base64,{b64}"
 
-        print(f"  [{i}/{len(words)}] {word}{' (ipa)' if ipa else ''}")
+        tag = f' ({lang})' if lang else (' (ipa)' if ipa else '')
+        print(f"  [{i}/{len(words)}] {word}{tag}")
         time.sleep(0.02)  # gentle on quota
 
     out_path = Path(args.outfile)
