@@ -27,7 +27,7 @@
 <template id="__bundler_thumbnail"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" fill="#141a24"/><text x="50" y="50" text-anchor="middle" dominant-baseline="central" font-family="Georgia,serif" font-size="40" fill="#c9a45c">R</text></svg></template>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&family=IBM+Plex+Mono:wght@400;500&family=IM+Fell+English:ital@0;1&family=IM+Fell+English+SC&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&family=IBM+Plex+Mono:wght@400;500&family=IM+Fell+English:ital@0;1&family=IM+Fell+English+SC&family=Playfair+Display:ital,wght@0,500;0,700;0,900;1,500&family=Spectral:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
 <style>
   :root{
     --ink:#1b2230; --ink-soft:#5b6472;
@@ -182,6 +182,8 @@
   .headword{font-family:var(--display);font-weight:600;font-size:clamp(34px,9.5vw,50px);line-height:1;letter-spacing:-.025em}
   .pron{font-family:var(--mono);font-size:12.5px;color:var(--ink-soft);margin-top:9px;letter-spacing:.02em;
     display:flex;align-items:center;justify-content:center;gap:9px;flex-wrap:wrap}
+  .hint{font-family:var(--sans,inherit);font-size:12.5px;color:var(--ink-soft);margin-top:9px;max-width:38ch;
+    margin-left:auto;margin-right:auto;line-height:1.4}
   .say{display:inline-flex;align-items:center;justify-content:center;width:32px;height:32px;border-radius:50%;flex:none;
     border:1px solid var(--line);background:var(--surface-2);color:var(--ox);cursor:pointer;padding:0;
     transition:transform .12s,box-shadow .12s,background .12s,color .12s}
@@ -362,6 +364,47 @@
   html.parchment .modal-scrim{background:rgba(56,38,14,.55)}
   html.parchment ::selection{background:rgba(140,47,27,.25)}
 
+  /* ==== vintage theme (?theme=vintage) — old-book palette, flat borders, mast header ==== */
+  html.vintage{
+    --ink:#141a24; --ink-soft:#33404f;
+    --parch:#f2ead9; --parch-deep:#e7dcc4;
+    --surface:#f2ead9; --surface-2:#e7dcc4;
+    --ox:#7c2231; --ox-bright:#9c3142;
+    --gild:#a9852f; --moss:#3f5b4c;
+    --line:#c9bb9c; --shadow:rgba(20,26,36,.14);
+    --radius:0px; --radius-sm:0px;
+    --sh-sm:none; --sh-md:none; --sh-lg:0 18px 50px rgba(20,26,36,.22);
+    --ui:'Spectral',Georgia,serif;
+    --serif:'Spectral',Georgia,serif;
+    --display:'Playfair Display',Georgia,serif;
+  }
+  html.vintage body{background:radial-gradient(120% 90% at 50% -10%, #f6f0e2 0%, var(--parch) 42%, var(--parch-deep) 100%)}
+  /* mast-style header, built from the existing topbar markup */
+  html.vintage .topbar{position:static;flex-direction:column;gap:6px;text-align:center;background:none;
+    backdrop-filter:none;-webkit-backdrop-filter:none;border-top:2px solid var(--ink);border-bottom:1px solid var(--ink);
+    padding:18px 4px 20px;margin-bottom:22px}
+  html.vintage .topbar > div:last-child{order:-1;justify-content:center;width:100%;position:relative}
+  html.vintage .brand-mark{display:none}
+  html.vintage .brand{font-family:var(--display);font-weight:900;font-style:italic;font-size:clamp(30px,8vw,46px);
+    color:var(--ox);letter-spacing:-.01em;justify-content:center}
+  html.vintage .brand-tag{font-family:var(--mono);font-size:11px;letter-spacing:.42em;color:var(--ox)}
+  html.vintage .topbar-cog{position:absolute;right:0;top:50%;transform:translateY(-50%);border-radius:50%}
+  /* flat, hard-bordered cards and controls — no rounded corners, no soft ambient shadow */
+  html.vintage .lvl-card,html.vintage .lex-bar,html.vintage .card,html.vintage .choice,html.vintage .chip,
+  html.vintage .modal,html.vintage .set-card,html.vintage .stat,html.vintage .pw-plan{border-radius:0;box-shadow:none}
+  html.vintage .back{border-radius:0;box-shadow:none}
+  html.vintage .btn{border-radius:0;box-shadow:none}
+  html.vintage .btn:hover{transform:none}
+  html.vintage .typebox input{border-radius:0;box-shadow:none}
+  html.vintage .seg{border-radius:3px;box-shadow:none}
+  html.vintage .lex-row{border-radius:0}
+  html.vintage .sbar,html.vintage .sfill{border-radius:0}
+  html.vintage .lvl-card:hover:not(:disabled){transform:none}
+  html.vintage .choice:hover:not(.locked){transform:none}
+  /* wax-seal + sealed-gate stamp, tuned toward the reference's flatter ring and rotated double border */
+  html.vintage .wax::before{border:1.5px dashed rgba(242,234,217,.5)}
+  html.vintage .stamp{border-radius:0;border:2px double var(--ox);color:var(--ox);transform:rotate(-7deg);opacity:.75}
+
   @media (prefers-reduced-motion: reduce){*{transition:none!important;animation:none!important}}
   :focus-visible{outline:2px solid var(--ox);outline-offset:2px}
 </style>
@@ -369,7 +412,9 @@
 (function(){
   var q = new URLSearchParams(location.search);
   // Parchment theme and etymology notes are the app's defaults; ?theme=plain / ?etym=0 opt out.
-  if(q.get('theme') !== 'plain') document.documentElement.classList.add('parchment');
+  // ?theme=vintage swaps in the old-book test aesthetic instead.
+  if(q.get('theme') === 'vintage') document.documentElement.classList.add('vintage');
+  else if(q.get('theme') !== 'plain') document.documentElement.classList.add('parchment');
   window.RS_ETYM = q.get('etym') !== '0';
   // The frontier gate's burnt-parchment highlight duplicated the big brown
   // session tile at the top of the home screen, which already points to the
@@ -382,8 +427,10 @@
   // sole source of truth in the shipped app.
   window.RS_DEV = q.get('dev') === '1';
   window.addEventListener('message', function(e){
-    if(e.data && typeof e.data.rsTheme === 'string')
+    if(e.data && typeof e.data.rsTheme === 'string'){
       document.documentElement.classList.toggle('parchment', e.data.rsTheme === 'parchment');
+      document.documentElement.classList.toggle('vintage', e.data.rsTheme === 'vintage');
+    }
   });
 })();
 </script>
@@ -958,6 +1005,21 @@ const GATES_E = [
 ];
 
 const LEVELS = [...GATES_A, ...GATES_B, ...GATES_C, ...GATES_D, ...GATES_E];
+
+// A "+"-joined root (e.g. "aequus + vox") teaches two distinct roots together, but
+// quizzing them as one item turns recall into a spelling test. splitRootEntry breaks
+// such entries into independent quiz items at recall time; teaching screens keep the
+// combined `roots` entry so the pairing (e.g. with "equivocate") stays visible.
+function splitRootEntry(r){
+  if(!r.root.includes(' + ')) return [r];
+  const roots = r.root.split(' + ').map(s=>s.trim());
+  const glosses = r.gloss.includes(' + ') ? r.gloss.split(' + ').map(s=>s.trim()) : roots.map(()=>r.gloss);
+  return roots.map((root,i)=>({root, lang:r.lang, gloss:glosses[i]||glosses[0], compoundOf:r.root}));
+}
+LEVELS.forEach(lv=>{
+  lv.quizRoots = lv.roots.flatMap(splitRootEntry)
+    .map(r=>({...r, key: r.compoundOf ? `${r.compoundOf}::${r.root}` : r.root}));
+});
 
 // Brief etymological notes, keyed by root form — shown beneath each root when the
 // "Etymology notes" tweak is on. Each traces the root's origin and anchors it to a
@@ -1720,16 +1782,16 @@ function rootsScreen(idx){
 
 function rootDrill(idx){
   const lv=LEVELS[idx], W=lv.words.length;
-  S={idx,queue:shuffle(lv.roots.map((_,i)=>i)),debt:0,done:0,sit:{cleared:0,ahead:W+3*W}};
+  S={idx,queue:shuffle(lv.quizRoots.map((_,i)=>i)),debt:0,done:0,sit:{cleared:0,ahead:W+3*W}};
   rootDrillItem();
 }
 function rootDrillItem(){
   const lv=LEVELS[S.idx];
   if(S.queue.length===0) return studyScreen(S.idx,0);
   markSit('roots');
-  const ri=S.queue[0], r=lv.roots[ri];
+  const ri=S.queue[0], r=lv.quizRoots[ri];
   const seen=new Set([r.gloss]); const others=[];
-  for(const o of shuffle(lv.roots.filter((_,i)=>i!==ri))){ if(seen.has(o.gloss)) continue; seen.add(o.gloss); others.push(o.gloss); if(others.length===3) break; }
+  for(const o of shuffle(lv.quizRoots.filter((o,i)=>i!==ri && (!r.compoundOf || o.compoundOf!==r.compoundOf)))){ if(seen.has(o.gloss)) continue; seen.add(o.gloss); others.push(o.gloss); if(others.length===3) break; }
   const opts=shuffle([{t:r.gloss,ok:true},...others.map(t=>({t,ok:false}))]);
   const L=['A','B','C','D'];
   app.innerHTML=`<section class="panel">
@@ -1839,7 +1901,7 @@ function studyScreen(idx,w){
 function startTrial1(idx){
   const lv=LEVELS[idx];
   let items=[]; lv.words.forEach((_,wi)=>{items.push({gi:idx,wi,m:'REC'},{gi:idx,wi,m:'REV'},{gi:idx,wi,m:'VIG'});});
-  lv.roots.forEach(r=>items.push({m:'ROOTS',root:r,opts:rootOpts(idx,r)}));   // review the roots themselves, recognition
+  lv.quizRoots.forEach(r=>items.push({m:'ROOTS',root:r,opts:rootOpts(idx,r)}));   // review the roots themselves, recognition
   if(idx>=3) inferPick(idx,1).forEach(f=>items.push({m:'INFER',inf:f}));
   const sit = (S&&S.sit)?S.sit:{cleared:0,ahead:0};
   sit.ahead=0; sit.studyEntered=true;                 // trial I is the last stage of sitting 1
@@ -1858,7 +1920,7 @@ function startTrial2(idx){
       .forEach(x=>items.push({...x.r, m:Math.random()<.5?'PROD':'VIGT'}));
   if(idx>=3) inferPick(idx,2).forEach(f=>items.push({m:'INFER',inf:f}));
   // confusable pairs: both members taught by now
-  lv.roots.forEach(r=>items.push({m:'ROOTT',root:r}));   // the roots again, this time recalled by typing
+  lv.quizRoots.forEach(r=>items.push({m:'ROOTT',root:r}));   // the roots again, this time recalled by typing
   const pairs = pairPick(idx,3);
   pairs.forEach(p=>items.push({m:'PAIR',pair:p}));
   S={idx,kind:'T2',queue:shuffle(items),debt:0,done:0,sit:{cleared:0,ahead:0},missed:[]};
@@ -1931,8 +1993,9 @@ function renderTrialPrompt({label,gateLabel,it,w,onResolve,onNext,oneShot}){
     bodyHtml=`<div class="choices">${it.opts.map((o,i)=>`<button class="choice" data-ok="${o===it.root.gloss}"><span class="mark">${L[i]}</span><span>“${o}”</span></button>`).join('')}</div>`;
   } else if(it.m==='ROOTT'){
     typed=true;
-    promptHtml=`<div class="q-ask">Name the root — the ${it.root.lang} for</div><div class="q-def">“${it.root.gloss}”</div><div class="cue">${rootCue(it.root)}</div>`;
-    bodyHtml=`<div class="typebox"><input id="ans" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="the root…"><button class="btn" id="sub">Submit</button></div>`;
+    const multiForm = rootForms(it.root).length>1;
+    promptHtml=`<div class="q-ask">Name the root — the ${it.root.lang} for</div><div class="q-def">“${it.root.gloss}”</div><div class="cue">${rootCue(it.root)}</div>${multiForm?`<div class="hint">Either spelling is accepted — punctuation and spacing don't need to match exactly.</div>`:''}`;
+    bodyHtml=`<div class="typebox"><input id="ans" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="${multiForm?'either form…':'the root…'}"><button class="btn" id="sub">Submit</button></div>`;
   } else if(it.m==='COMPOSE'){
     const src = it.inf || w;
     const segs = src.parts.map(p=>p[0]);
@@ -2433,7 +2496,7 @@ function glossFoils(part,w){
   const own=w.parts.filter(p=>p[1]&&p!==part&&!bad(p[1])).map(p=>p[1]);
   const pool=new Set();
   drillWords().forEach(x=>x.parts.forEach(p=>{ if(p[1]&&p[0].length>1) pool.add(p[1]); }));
-  LEVELS.forEach(l=>{ if(G(l.id).sealed&&l.roots) l.roots.forEach(r=>pool.add(r.gloss)); });
+  LEVELS.forEach(l=>{ if(G(l.id).sealed&&l.quizRoots) l.quizRoots.forEach(r=>pool.add(r.gloss)); });
   const foils=shuffle([...pool].filter(g=>!bad(g)&&!own.includes(g)));
   return shuffle([correct,...shuffle([...own.slice(0,1),...foils.slice(0,3)]).slice(0,3)]);
 }
@@ -2464,12 +2527,12 @@ function drillMode(d,s){
   return pool.length?pool[Math.floor(Math.random()*pool.length)]:'PROD';
 }
 function rootsItem(){
-  const gs=LEVELS.filter(l=>G(l.id).sealed&&l.roots&&l.roots.length);
+  const gs=LEVELS.filter(l=>G(l.id).sealed&&l.quizRoots&&l.quizRoots.length);
   if(!gs.length) return null;
   const g=gs[Math.floor(Math.random()*gs.length)];
-  const r=g.roots[Math.floor(Math.random()*g.roots.length)];
+  const r=g.quizRoots[Math.floor(Math.random()*g.quizRoots.length)];
   const all=new Set();
-  gs.forEach(x=>x.roots.forEach(t=>{ if(t.gloss!==r.gloss&&!t.gloss.includes(r.gloss)&&!r.gloss.includes(t.gloss)) all.add(t.gloss); }));
+  gs.forEach(x=>x.quizRoots.forEach(t=>{ if(t.gloss!==r.gloss&&!t.gloss.includes(r.gloss)&&!r.gloss.includes(t.gloss)) all.add(t.gloss); }));
   const foils=shuffle([...all]).slice(0,3);
   if(foils.length<3) return null;
   return {m:'ROOTS',root:r,gate:g.id,opts:shuffle([r.gloss,...foils])};
@@ -2635,9 +2698,9 @@ const FOCUSES=[
 const FOCUS_GLYPH={roots:'❦',defs:'≡',ety:'❧',usage:'❝',kin:'⁂',new:'✦',all:'⌖'};
 const FBOX=[3,4,6,9,13,18];
 
-function sealedRoots(){ const seen=new Set(),out=[]; LEVELS.forEach(l=>{ if(G(l.id).sealed&&l.roots) l.roots.forEach(r=>{ if(!seen.has(r.root)){ seen.add(r.root); out.push({root:r,gate:l.id}); } }); }); return out; }
+function sealedRoots(){ const seen=new Set(),out=[]; LEVELS.forEach(l=>{ if(G(l.id).sealed&&l.quizRoots) l.quizRoots.forEach(r=>{ if(!seen.has(r.key)){ seen.add(r.key); out.push({root:r,gate:l.id}); } }); }); return out; }
 function buildFocusPool(f){
-  if(f.kind==='root') return sealedRoots().map(x=>({key:'r:'+x.root.root,kind:'root',root:x.root,gate:x.gate}));
+  if(f.kind==='root') return sealedRoots().map(x=>({key:'r:'+x.root.key,kind:'root',root:x.root,gate:x.gate}));
   const seen=new Set(),out=[];
   LEVELS.forEach((l,gi)=>{ if(G(l.id).sealed) l.words.forEach((w,wi)=>{ if(!seen.has(w.word)){ seen.add(w.word); out.push({key:'w:'+w.word,kind:'word',d:w,gi,wi}); } }); });
   drillWords().forEach(d=>{ if(!seen.has(d.word)){ seen.add(d.word); out.push({key:'w:'+d.word,kind:'word',d,drill:true}); } });
@@ -2693,7 +2756,7 @@ function feasible(e,mode){
   }
   return false;
 }
-function masteryOf(e){ const s = e.kind==='root'?P.drill.roots[e.root.root]:P.drill.seen[e.d.word]; return s?s.r-s.w:0; }
+function masteryOf(e){ const s = e.kind==='root'?P.drill.roots[e.root.key||e.root.root]:P.drill.seen[e.d.word]; return s?s.r-s.w:0; }
 // hidden scheduler: coverage-first, wrong-answers sooner/heavier, known items rested
 function focusPick(){
   const step=S.step;
@@ -2716,7 +2779,7 @@ function pickMode(f,e){
   let useHard=false;
   if(hard.length){ if(!mc.length) useHard=true; else if(m>=3) useHard=Math.random()<Math.min(1,(m-2)/4); }
   const bank = useHard?hard:(mc.length?mc:hard);
-  const s = e.kind==='root'?P.drill.roots[e.root.root]:P.drill.seen[e.d.word];
+  const s = e.kind==='root'?P.drill.roots[e.root.key||e.root.root]:P.drill.seen[e.d.word];
   const last = s&&s.m&&s.m[s.m.length-1];
   const fresh = bank.filter(x=>x!==last);
   const use = fresh.length?fresh:bank;
@@ -2771,7 +2834,7 @@ function focusItem(){
     label:'The Drill Hall', gateLabel:gl, it, w,
     onResolve: ok=>{
       drillTune(ok,b);
-      if(e.kind==='root'){ const s=P.drill.roots[e.root.root]||(P.drill.roots[e.root.root]={r:0,w:0}); ok?s.r++:s.w++; s.m=s.m||[]; s.m.push(mode); if(s.m.length>8)s.m.shift(); }
+      if(e.kind==='root'){ const rk=e.root.key||e.root.root; const s=P.drill.roots[rk]||(P.drill.roots[rk]={r:0,w:0}); ok?s.r++:s.w++; s.m=s.m||[]; s.m.push(mode); if(s.m.length>8)s.m.shift(); }
       else { if(e.gi!=null) tally(e.gi,e.wi,ok);
         const s=P.drill.seen[e.d.word]||(P.drill.seen[e.d.word]={r:0,w:0}); ok?s.r++:s.w++; s.m=s.m||[]; s.m.push(mode); if(s.m.length>12)s.m.shift(); }
       const sc=S.sched[e.key]||(S.sched[e.key]={due:0,weight:1,box:0,seen:false});
@@ -2794,8 +2857,8 @@ function focusMeta(){
 function rootOpts(gi,r){
   const seen=new Set([r.gloss]),foils=[];
   const take=list=>{ for(const t of shuffle(list)){ if(seen.has(t.gloss)||t.gloss.includes(r.gloss)||r.gloss.includes(t.gloss)) continue; seen.add(t.gloss); foils.push(t.gloss); if(foils.length===3)return; } };
-  take(LEVELS[gi].roots.filter(x=>x!==r));
-  if(foils.length<3) LEVELS.forEach(l=>{ if(foils.length<3&&l.roots) take(l.roots); });
+  take(LEVELS[gi].quizRoots.filter(x=>x!==r));
+  if(foils.length<3) LEVELS.forEach(l=>{ if(foils.length<3&&l.quizRoots) take(l.quizRoots); });
   return shuffle([r.gloss,...foils.slice(0,3)]);
 }
 function normRoot(s){ return (s||'').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/[^a-z]/g,''); }
