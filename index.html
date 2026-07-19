@@ -1498,13 +1498,17 @@ function itemOut(it){ const o={m:it.m};
   if(it.gi!==undefined){ o.gi=it.gi; o.wi=it.wi; }
   if(it.pair){ o.pi=CONFUSABLES.indexOf(it.pair); }
   if(it.inf){ o.fw=it.inf.word; }
+  if(it.root){ o.rr=it.root.root; }
   return o; }
-function itemIn(o){ const it={m:o.m==='BLANK'?'VIG':o.m};
+function itemIn(o, idx){ const it={m:o.m==='BLANK'?'VIG':o.m};
   if(o.gi!==undefined){ it.gi=o.gi; it.wi=o.wi; }
   if(o.pi!==undefined){ it.pair=CONFUSABLES[o.pi]; if(!it.pair) return null; }
   if(o.fw){ it.inf=INFER_POOL.find(f=>f.word===o.fw); if(!it.inf) return null; }
+  if(o.rr!==undefined && LEVELS[idx]){ it.root=LEVELS[idx].quizRoots.find(r=>r.root===o.rr);
+    if(it.root && o.m==='ROOTS') it.opts=rootOpts(idx,it.root); }
   if(o.m==='PAIR'&&!it.pair) return null;
   if(o.m==='INFER'&&!it.inf) return null;
+  if((o.m==='ROOTS'||o.m==='ROOTT')&&!it.root) return null;   // old marks stored no root — drop, don't crash
   return it; }
 function setMark(mk){ mk.t=Date.now(); P.mark=mk; save(); }
 function clearMark(idx){ if(P.mark && (idx===undefined || P.mark.idx===idx)){ P.mark=null; save(); } }
@@ -1522,7 +1526,7 @@ function resumeMark(mk,idx){
   if(mk.stage==='roots'){
     S={idx, queue:mk.q.slice(), debt:mk.debt||0, done:mk.done||0, sit: mk.sit||{cleared:0,ahead:0}};
     return rootDrillItem(); }
-  const queue=(mk.q||[]).map(itemIn).filter(Boolean);
+  const queue=(mk.q||[]).map(o=>itemIn(o,idx)).filter(Boolean);
   if(!queue.length){ clearMark(idx); return enterGate(idx); }
   S={idx, kind:mk.kind, queue, debt:mk.debt||0, done:mk.done||0,
      sit: mk.sit||{cleared:0,ahead:0}, studyLeft:0, missed: mk.missed||[]};
