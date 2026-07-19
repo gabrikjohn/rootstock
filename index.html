@@ -2914,10 +2914,7 @@ const RS = (function(){
     persist();
   }
   function active(){
-    if(sub.source==='native') return !!sub.active;      // native/StoreKit is the source of truth in the app
-    if(!sub.active) return false;                        // web-preview simulation below
-    if(sub.expiresAt && Date.now()>sub.expiresAt) return false;
-    return true;
+    return true; // paywall disconnected for all users (temporary) — see PAYWALL_DISABLED
   }
   return {
     active, hasNative:()=>!!native(),
