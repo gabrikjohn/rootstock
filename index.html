@@ -364,46 +364,125 @@
   html.parchment .modal-scrim{background:rgba(56,38,14,.55)}
   html.parchment ::selection{background:rgba(140,47,27,.25)}
 
-  /* ==== vintage theme (?theme=vintage) — old-book palette, flat borders, mast header ==== */
-  html.vintage{
+  /* ==== classic theme (?theme=classic) — adapted from the stylistic demo ==== */
+  html.classic{
     --ink:#141a24; --ink-soft:#33404f;
     --parch:#f2ead9; --parch-deep:#e7dcc4;
-    --surface:#f2ead9; --surface-2:#e7dcc4;
+    --surface:rgba(255,255,255,.40); --surface-2:rgba(255,255,255,.18);
     --ox:#7c2231; --ox-bright:#9c3142;
     --gild:#a9852f; --moss:#3f5b4c;
     --line:#c9bb9c; --shadow:rgba(20,26,36,.14);
     --radius:0px; --radius-sm:0px;
-    --sh-sm:none; --sh-md:none; --sh-lg:0 18px 50px rgba(20,26,36,.22);
+    --sh-sm:none; --sh-md:0 6px 20px var(--shadow); --sh-lg:0 18px 50px rgba(20,26,36,.22);
     --ui:'Spectral',Georgia,serif;
     --serif:'Spectral',Georgia,serif;
     --display:'Playfair Display',Georgia,serif;
   }
-  html.vintage body{background:radial-gradient(120% 90% at 50% -10%, #f6f0e2 0%, var(--parch) 42%, var(--parch-deep) 100%)}
-  /* mast-style header, built from the existing topbar markup */
-  html.vintage .topbar{position:static;flex-direction:column;gap:6px;text-align:center;background:none;
-    backdrop-filter:none;-webkit-backdrop-filter:none;border-top:2px solid var(--ink);border-bottom:1px solid var(--ink);
-    padding:18px 4px 20px;margin-bottom:22px}
-  html.vintage .topbar > div:last-child{order:-1;justify-content:center;width:100%;position:relative}
-  html.vintage .brand-mark{display:none}
-  html.vintage .brand{font-family:var(--display);font-weight:900;font-style:italic;font-size:clamp(30px,8vw,46px);
-    color:var(--ox);letter-spacing:-.01em;justify-content:center}
-  html.vintage .brand-tag{font-family:var(--mono);font-size:11px;letter-spacing:.42em;color:var(--ox)}
-  html.vintage .topbar-cog{position:absolute;right:0;top:50%;transform:translateY(-50%);border-radius:50%}
-  /* flat, hard-bordered cards and controls — no rounded corners, no soft ambient shadow */
-  html.vintage .lvl-card,html.vintage .lex-bar,html.vintage .card,html.vintage .choice,html.vintage .chip,
-  html.vintage .modal,html.vintage .set-card,html.vintage .stat,html.vintage .pw-plan{border-radius:0;box-shadow:none}
-  html.vintage .back{border-radius:0;box-shadow:none}
-  html.vintage .btn{border-radius:0;box-shadow:none}
-  html.vintage .btn:hover{transform:none}
-  html.vintage .typebox input{border-radius:0;box-shadow:none}
-  html.vintage .seg{border-radius:3px;box-shadow:none}
-  html.vintage .lex-row{border-radius:0}
-  html.vintage .sbar,html.vintage .sfill{border-radius:0}
-  html.vintage .lvl-card:hover:not(:disabled){transform:none}
-  html.vintage .choice:hover:not(.locked){transform:none}
-  /* wax-seal + sealed-gate stamp, tuned toward the reference's flatter ring and rotated double border */
-  html.vintage .wax::before{border:1.5px dashed rgba(242,234,217,.5)}
-  html.vintage .stamp{border-radius:0;border:2px double var(--ox);color:var(--ox);transform:rotate(-7deg);opacity:.75}
+  html.classic body{background:radial-gradient(120% 90% at 50% -10%,#f6f0e2 0%,var(--parch) 42%,var(--parch-deep) 100%)}
+  html.classic .wrap{max-width:680px;padding:clamp(14px,4vw,40px)}
+  html.classic .topbar{position:relative;top:auto;display:flex;flex-direction:column;gap:6px;text-align:center;background:none;
+    backdrop-filter:none;-webkit-backdrop-filter:none;border-bottom:2px solid var(--ink);padding:8px 0 20px;margin-bottom:26px}
+  html.classic .topbar::after{content:"";position:absolute;left:0;right:0;bottom:-6px;height:1px;background:var(--ink)}
+  html.classic .topbar > div:last-child{order:-1;justify-content:center;width:100%;position:relative}
+  html.classic .brand-mark{display:none}
+  html.classic .brand{font-family:var(--display);font-weight:500;font-style:italic;font-size:clamp(38px,10vw,64px);line-height:.92;letter-spacing:-.01em;justify-content:center;color:var(--ox);gap:0}
+  html.classic .brand::before{content:"The";font-weight:900;font-style:normal;color:var(--ink);margin-right:.08em}
+  html.classic .brand-tag{font-family:var(--mono);font-size:11px;letter-spacing:.42em;text-transform:uppercase;color:var(--ox);padding-left:.42em}
+  html.classic .topbar-cog{position:absolute;right:0;top:50%;transform:translateY(-50%);background:none;border:1px solid var(--line);
+    border-radius:0;box-shadow:none;color:var(--ink-soft)}
+  html.classic .topbar-cog:hover{color:var(--ox);transform:translateY(-50%);box-shadow:none}
+
+  html.classic .dash{margin:0 0 28px}
+  html.classic .dash-greet{text-align:center;margin:0 0 16px}
+  html.classic .dash-hello{font-family:var(--display);font-weight:700;font-size:clamp(24px,6vw,32px);letter-spacing:0}
+  html.classic .dash-sub{font-style:italic;font-size:clamp(14px,3.4vw,17px);color:var(--ink-soft);margin-top:6px}
+  html.classic .session{background:rgba(255,255,255,.34);color:var(--ink);border:1px solid var(--line);border-left:4px solid var(--ox);
+    border-radius:0;box-shadow:none;padding:16px 18px}
+  html.classic .session::after{display:none}
+  html.classic .session:hover:not(:disabled){transform:translateY(-2px);box-shadow:0 8px 22px var(--shadow);background:rgba(255,255,255,.60)}
+  html.classic .session-kicker{color:var(--ox);font-size:11px;letter-spacing:.20em}
+  html.classic .session-arrow{background:transparent;color:var(--ox);border:1px solid var(--line);border-radius:0}
+  html.classic .session-title{font-family:var(--display);font-weight:700;font-size:24px;letter-spacing:0}
+  html.classic .session-meta{font-family:var(--serif);font-style:italic;color:var(--ink-soft);font-size:15px}
+  html.classic .session-bar{height:6px;background:var(--parch-deep);border:1px solid var(--line);border-radius:2px}
+  html.classic .session-bar>i{background:var(--ox);border-radius:0}
+  html.classic .stats{gap:0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);margin-top:16px}
+  html.classic .stat{background:none;border:0;border-right:1px solid var(--line);border-radius:0;box-shadow:none;padding:10px 8px}
+  html.classic .stat:last-child{border-right:0}
+  html.classic button.stat:not(:disabled):hover{transform:none;box-shadow:none;color:var(--ox)}
+  html.classic .stat-n{font-family:var(--display);font-weight:700;font-size:24px}
+  html.classic .stat-l{font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase}
+
+  html.classic .index{margin-top:28px}
+  html.classic .index-head{font-size:11px;letter-spacing:.20em;margin-bottom:12px}
+  html.classic .lvl-card{gap:16px;background:rgba(255,255,255,.34);border:1px solid var(--line);border-left:4px solid var(--ox);
+    border-radius:0;box-shadow:none;padding:16px 18px;margin-bottom:12px;font-family:inherit;transition:transform .12s,box-shadow .12s,background .12s}
+  html.classic .lvl-card:hover:not(:disabled){transform:translateY(-2px);box-shadow:0 8px 22px var(--shadow);background:rgba(255,255,255,.60)}
+  html.classic .lvl-card:disabled{opacity:.50;border-left-color:var(--line);background:rgba(255,255,255,.20)}
+  html.classic .lvl-card.bar-card{background:rgba(255,255,255,.34);border-left-color:var(--gild);border-color:var(--line);border-left-color:var(--gild)}
+  html.classic .lvl-card.drill-card{background:rgba(255,255,255,.34);border-left-color:var(--gild);color:var(--ink);padding:16px 18px}
+  html.classic .lvl-card.drill-card .lvl-num{color:var(--gild);background:none}
+  html.classic .lvl-card.drill-card .lvl-body h3{font-size:20px;color:var(--ink)}
+  html.classic .lvl-num{font-family:var(--display);font-size:24px;font-weight:700;color:var(--ox);min-width:58px;width:auto;height:auto;
+    background:none;border-radius:0;text-align:center;font-style:italic}
+  html.classic .lvl-body h3{font-family:var(--display);font-weight:700;font-size:20px;line-height:1.1;letter-spacing:0}
+  html.classic .lvl-body p{font-size:14px;color:var(--ink-soft);margin-top:3px;line-height:1.4}
+  html.classic .lvl-seal{font-size:10px;letter-spacing:.15em}
+  html.classic .lvl-card.sealed{padding:8px 16px;opacity:.68;background:rgba(255,255,255,.16);gap:12px}
+  html.classic .lvl-card.sealed .lvl-body h3{font-size:15px;color:var(--ink)}
+  html.classic .lvl-card.sealed .lvl-num{font-size:15px;min-width:42px;color:var(--ox);background:none}
+  html.classic .lvl-card.sealed:hover:not(:disabled){transform:none;box-shadow:none;background:rgba(255,255,255,.30);opacity:.92}
+  html.classic .sealed-list{border-left-color:var(--line)}
+  html.classic .stamp{border-radius:0;border:2px double var(--ox);color:var(--ox);padding:4px 10px 3px;transform:rotate(-7deg);opacity:.55}
+  html.classic .lex-bar{background:none;border:0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);border-radius:0;
+    box-shadow:none;padding:8px 4px;margin:0 0 16px;font-size:10.5px;letter-spacing:.16em}
+  html.classic .lex-bar .ct{font-family:var(--mono);letter-spacing:.06em;text-transform:none}
+  html.classic .lex-bar:hover:not(:disabled){transform:none;box-shadow:none;color:var(--ink)}
+
+  html.classic .panel{margin-top:8px;animation:none}
+  html.classic .back{background:none;border:none;border-radius:0;box-shadow:none;font-family:var(--mono);font-size:11px;letter-spacing:.18em;
+    text-transform:uppercase;color:var(--ink-soft);padding:6px 0;margin-bottom:6px}
+  html.classic .back:hover{color:var(--ox);transform:none}
+  html.classic .stage-label{font-size:11px;letter-spacing:.24em;margin-bottom:4px}
+  html.classic .stage-title{font-family:var(--display);font-weight:700;font-size:clamp(24px,6vw,32px);letter-spacing:0;margin-bottom:18px}
+  html.classic .theme{font-style:italic;font-size:16px}
+  html.classic .root-row{padding:13px 4px}
+  html.classic .root-key{font-size:16px}
+  html.classic .root-lang{font-size:10px;letter-spacing:.12em}
+  html.classic .card{background:rgba(255,255,255,.40);border:1px solid var(--line);border-radius:0;box-shadow:0 6px 20px var(--shadow)}
+  html.classic .headword{font-family:var(--display);font-weight:900;font-size:clamp(34px,9vw,52px);letter-spacing:-.01em}
+  html.classic .pron{font-size:13px;letter-spacing:.04em}
+  html.classic .seg{border-radius:3px;background:var(--parch-deep);box-shadow:none}
+  html.classic .def{font-size:19px}
+  html.classic .exline{margin-top:14px;padding-top:14px;font-size:16px}
+  html.classic .btn{font-family:var(--mono);font-size:13px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;border-radius:0;
+    box-shadow:none;background:var(--ink);color:var(--parch)}
+  html.classic .btn:hover{background:var(--ox);border-color:var(--ox);transform:translateY(-1px);box-shadow:none}
+  html.classic .btn.ghost{background:transparent;color:var(--ink);border-color:var(--ink)}
+  html.classic .btn.ghost:hover{background:var(--ink);color:var(--parch)}
+  html.classic .choice{font-family:inherit;background:rgba(255,255,255,.40);border-radius:0;box-shadow:none;transition:background .12s,border-color .12s}
+  html.classic .choice:hover:not(.locked){border-color:var(--ox);background:rgba(255,255,255,.70);transform:none;box-shadow:none}
+  html.classic .typebox input{border-radius:0;box-shadow:none;background:rgba(255,255,255,.70);border-color:var(--ink);font-size:18px;letter-spacing:.04em}
+  html.classic .typebox input:focus{outline:2px solid var(--ox);outline-offset:1px;box-shadow:none}
+  html.classic .verdict .root-hint{font-size:12px}
+  html.classic .wax{width:120px;height:120px;box-shadow:0 8px 22px rgba(92,22,34,.40),inset 0 2px 8px rgba(255,255,255,.20)}
+  html.classic .wax::before{border:1.5px dashed rgba(242,234,217,.50)}
+  html.classic .wax.gold{box-shadow:0 8px 22px rgba(122,94,29,.40),inset 0 2px 8px rgba(255,255,255,.25)}
+  html.classic .grad-title{font-weight:700;letter-spacing:0}
+  html.classic .fine{font-size:10px;letter-spacing:.14em;opacity:.70}
+  html.classic .sbar{height:6px;background:var(--parch-deep);border:1px solid var(--line);border-radius:2px}
+  html.classic .sfill{border-radius:0}
+  html.classic .restore-link{font-size:10px;letter-spacing:.16em;opacity:.55;margin-top:26px}
+  html.classic .lex-row{border-radius:0;padding:9px 4px;font-family:var(--serif)}
+  html.classic .lex-row:hover{background:rgba(20,26,36,.04)}
+  html.classic #lexq{border-radius:0;box-shadow:none;background:rgba(255,255,255,.55);padding:9px 12px}
+  html.classic .built{border-radius:0;border:1px dashed var(--line);padding:6px 10px}
+  html.classic .chip{border-radius:0;box-shadow:none;background:var(--parch-deep);border:1px solid var(--ink);padding:8px 14px}
+  html.classic .chip:hover:not(:disabled){background:var(--ink);color:var(--parch);transform:none}
+  html.classic .modal-scrim{background:rgba(20,26,36,.55);backdrop-filter:none;-webkit-backdrop-filter:none}
+  html.classic .modal{background:var(--parch);border:1px solid var(--ink);border-radius:0;box-shadow:0 18px 50px rgba(20,26,36,.40)}
+  html.classic .modal h3{font-weight:700;letter-spacing:0}
+  html.classic .modal textarea{border-radius:0;background:rgba(255,255,255,.70)}
 
   @media (prefers-reduced-motion: reduce){*{transition:none!important;animation:none!important}}
   :focus-visible{outline:2px solid var(--ox);outline-offset:2px}
@@ -412,20 +491,24 @@
 (function(){
   var q = new URLSearchParams(location.search);
   // Parchment theme and etymology notes are the app's defaults; ?theme=plain / ?etym=0 opt out.
-  // ?theme=vintage swaps in the old-book test aesthetic instead.
+  // ?theme=classic swaps in the old-book test aesthetic. ?theme=vintage is a legacy alias.
+  function rsNormalizeTheme(t){
+    if(t === 'vintage') return 'classic';
+    return /^(parchment|classic|plain)$/.test(t) ? t : '';
+  }
   function rsThemeFromStorage(){
     try{
       var p = JSON.parse(localStorage.getItem('rootstock_v2') || '{}');
-      return /^(parchment|vintage|plain)$/.test(p.appearance) ? p.appearance : '';
+      return rsNormalizeTheme(p.appearance);
     }catch(e){ return ''; }
   }
   function rsApplyTheme(t){
-    document.documentElement.classList.toggle('parchment', t === 'parchment');
-    document.documentElement.classList.toggle('vintage', t === 'vintage');
+    var theme = rsNormalizeTheme(t) || 'parchment';
+    document.documentElement.classList.toggle('parchment', theme === 'parchment');
+    document.documentElement.classList.toggle('classic', theme === 'classic');
   }
-  var rsRequestedTheme = q.get('theme');
-  if(rsRequestedTheme === 'vintage') rsApplyTheme('vintage');
-  else if(rsRequestedTheme === 'plain') rsApplyTheme('plain');
+  var rsRequestedTheme = rsNormalizeTheme(q.get('theme'));
+  if(rsRequestedTheme) rsApplyTheme(rsRequestedTheme);
   else rsApplyTheme(rsThemeFromStorage() || 'parchment');
   window.RS_ETYM = q.get('etym') !== '0';
   // The frontier gate's burnt-parchment highlight duplicated the big brown
@@ -530,7 +613,33 @@ html.parchment .set-status{border-bottom-color:rgba(139,106,48,.22)}
 .theme-choice:hover{border-color:var(--ox);color:var(--ink)}
 .theme-choice.on{background:var(--ink);border-color:var(--ink);color:var(--parch)}
 html.parchment .theme-choice.on{background:var(--ox);border-color:var(--ox);color:#fff8e4}
-html.vintage .theme-choice{border-radius:0}
+html.classic .theme-choice{border-radius:0}
+html.classic .theme-choice.on{background:var(--ink);border-color:var(--ink);color:var(--parch)}
+
+html.classic .ob{min-height:calc(100vh - 220px)}
+html.classic .ob-art{border-radius:50%;box-shadow:0 8px 22px rgba(92,22,34,.40),inset 0 2px 8px rgba(255,255,255,.20)}
+html.classic .ob h2,html.classic .pw h2{font-family:var(--display);font-weight:700;letter-spacing:0}
+html.classic .ob-step .n{border-radius:0;background:var(--ink);font-family:var(--mono)}
+html.classic .ob-step b{font-family:var(--serif);font-weight:600}
+html.classic .ob-dots i,html.classic .ob-dots i.on{border-radius:0}
+html.classic .pw-seal{box-shadow:0 8px 22px rgba(122,94,29,.40),inset 0 2px 8px rgba(255,255,255,.25)}
+html.classic .pw-plan{background:rgba(255,255,255,.40);border:1px solid var(--line);border-left:4px solid var(--ox);border-radius:0;box-shadow:none}
+html.classic .pw-plan:hover{transform:translateY(-1px);box-shadow:0 8px 22px var(--shadow);background:rgba(255,255,255,.60)}
+html.classic .pw-plan.sel{border-color:var(--line);border-left-color:var(--ox);box-shadow:none;background:rgba(255,255,255,.68)}
+html.classic .pw-radio{border-radius:0;border-color:var(--ink)}
+html.classic .pw-plan.sel .pw-radio::after{border-radius:0}
+html.classic .pw-badge{border-radius:0;box-shadow:none}
+html.classic .pw-links button{font-family:var(--mono);letter-spacing:.14em}
+html.classic .set-h{font-size:11px;letter-spacing:.20em;margin-bottom:12px}
+html.classic .set-card{background:rgba(255,255,255,.34);border:1px solid var(--line);border-radius:0;box-shadow:none}
+html.classic .set-row{font-family:var(--serif);font-size:15px;background:none}
+html.classic .set-row:hover{background:rgba(255,255,255,.45)}
+html.classic .set-status{border-bottom:1px solid var(--line)}
+html.classic .set-status .badge{border-radius:0;box-shadow:none}
+html.classic .set-status .st b{font-family:var(--display);font-weight:700}
+html.classic .rs-sw{border-radius:0;background:var(--parch-deep)}
+html.classic .rs-sw::after{border-radius:0;box-shadow:none}
+html.classic #rs-toast{border-radius:0;background:var(--ink);color:var(--parch);box-shadow:0 18px 50px rgba(20,26,36,.40)}
 
 /* toast */
 #rs-toast{position:fixed;left:50%;bottom:32px;transform:translateX(-50%) translateY(18px);background:var(--ink);color:var(--parch);font-family:var(--ui);font-size:13.5px;font-weight:500;padding:11px 20px;border-radius:24px;box-shadow:var(--sh-lg);opacity:0;pointer-events:none;transition:opacity .2s,transform .2s;z-index:60;max-width:82%;text-align:center}
@@ -1393,12 +1502,15 @@ const BAR_SIZE = 50, BAR_PASS = 45;
 const DAY = 24*60*60*1000;
 const INTERVALS = [2*DAY, 5*DAY, 12*DAY, 30*DAY]; // Leitner boxes 0..3
 
-const APPEARANCES = ['parchment','vintage','plain'];
-function validAppearance(v){ return APPEARANCES.includes(v) ? v : 'parchment'; }
+const APPEARANCES = ['parchment','classic','plain'];
+function validAppearance(v){
+  if(v === 'vintage') return 'classic';
+  return APPEARANCES.includes(v) ? v : 'parchment';
+}
 function applyAppearance(v){
   const a = validAppearance(v);
   document.documentElement.classList.toggle('parchment', a === 'parchment');
-  document.documentElement.classList.toggle('vintage', a === 'vintage');
+  document.documentElement.classList.toggle('classic', a === 'classic');
 }
 function load(){ try{ let raw = localStorage.getItem(KEY);
   if(!raw){ const bak=localStorage.getItem(KEY+'_bak'); if(bak){ const o=deserialize(bak); if(o) raw=JSON.stringify(o); } }
@@ -3110,7 +3222,7 @@ function settings(){
       <div class="set-card">
         <div class="theme-picker" role="group" aria-label="Theme">
           <button class="theme-choice ${P.appearance==='parchment'?'on':''}" data-theme="parchment" aria-pressed="${P.appearance==='parchment'}">Parchment</button>
-          <button class="theme-choice ${P.appearance==='vintage'?'on':''}" data-theme="vintage" aria-pressed="${P.appearance==='vintage'}">Vintage</button>
+          <button class="theme-choice ${P.appearance==='classic'?'on':''}" data-theme="classic" aria-pressed="${P.appearance==='classic'}">Classic</button>
           <button class="theme-choice ${P.appearance==='plain'?'on':''}" data-theme="plain" aria-pressed="${P.appearance==='plain'}">Plain</button>
         </div>
       </div></div>
