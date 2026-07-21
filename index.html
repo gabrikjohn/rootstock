@@ -492,9 +492,10 @@
   var q = new URLSearchParams(location.search);
   // Parchment theme and etymology notes are the app's defaults; ?theme=plain / ?etym=0 opt out.
   // ?theme=classic swaps in the old-book test aesthetic. ?theme=vintage is a legacy alias.
+  // ?theme=odyssey opens the limited-edition seafaring treatment.
   function rsNormalizeTheme(t){
     if(t === 'vintage') return 'classic';
-    return /^(parchment|classic|plain)$/.test(t) ? t : '';
+    return /^(parchment|classic|plain|odyssey)$/.test(t) ? t : '';
   }
   function rsThemeFromStorage(){
     try{
@@ -506,8 +507,10 @@
     var theme = rsNormalizeTheme(t) || 'parchment';
     document.documentElement.classList.toggle('parchment', theme === 'parchment');
     document.documentElement.classList.toggle('classic', theme === 'classic');
+    document.documentElement.classList.toggle('odyssey', theme === 'odyssey');
   }
   var rsRequestedTheme = rsNormalizeTheme(q.get('theme'));
+  window.RS_THEME_OVERRIDE = rsRequestedTheme || '';
   if(rsRequestedTheme) rsApplyTheme(rsRequestedTheme);
   else rsApplyTheme(rsThemeFromStorage() || 'parchment');
   window.RS_ETYM = q.get('etym') !== '0';
@@ -607,7 +610,7 @@ html.parchment .set-status{border-bottom-color:rgba(139,106,48,.22)}
 .rs-sw.on{background:var(--moss);border-color:var(--moss)}
 .rs-sw::after{content:"";position:absolute;top:2px;left:2px;width:20px;height:20px;border-radius:50%;background:#fff;box-shadow:var(--sh-sm);transition:transform .16s}
 .rs-sw.on::after{transform:translateX(19px)}
-.theme-picker{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;padding:8px}
+.theme-picker{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:6px;padding:8px}
 .theme-choice{min-width:0;background:transparent;border:1px solid var(--line);border-radius:var(--radius-sm);color:var(--ink-soft);cursor:pointer;
   font-family:var(--mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;padding:11px 5px;transition:background .12s,border-color .12s,color .12s}
 .theme-choice:hover{border-color:var(--ox);color:var(--ink)}
@@ -615,6 +618,7 @@ html.parchment .set-status{border-bottom-color:rgba(139,106,48,.22)}
 html.parchment .theme-choice.on{background:var(--ox);border-color:var(--ox);color:#fff8e4}
 html.classic .theme-choice{border-radius:0}
 html.classic .theme-choice.on{background:var(--ink);border-color:var(--ink);color:var(--parch)}
+@media (max-width:420px){.theme-picker{grid-template-columns:repeat(2,minmax(0,1fr))}}
 
 html.classic .ob{min-height:calc(100vh - 220px)}
 html.classic .ob-art{border-radius:50%;box-shadow:0 8px 22px rgba(92,22,34,.40),inset 0 2px 8px rgba(255,255,255,.20)}
@@ -640,6 +644,120 @@ html.classic .set-status .st b{font-family:var(--display);font-weight:700}
 html.classic .rs-sw{border-radius:0;background:var(--parch-deep)}
 html.classic .rs-sw::after{border-radius:0;box-shadow:none}
 html.classic #rs-toast{border-radius:0;background:var(--ink);color:var(--parch);box-shadow:0 18px 50px rgba(20,26,36,.40)}
+
+/* ==== Odyssey limited-edition theme ==== */
+html.odyssey{
+  --ink:#102331; --ink-soft:#506b74;
+  --parch:#d8ccb3; --parch-deep:#c8b88f;
+  --surface:#f4ead2; --surface-2:#e7dcc0;
+  --ox:#8f3540; --ox-bright:#af4551;
+  --gild:#a77d2f; --moss:#2f6b62;
+  --line:#bba97f; --shadow:rgba(12,34,47,.16);
+  --radius:12px; --radius-sm:8px;
+  --sh-sm:0 1px 2px rgba(12,34,47,.07),0 4px 12px rgba(12,34,47,.08);
+  --sh-md:0 2px 7px rgba(12,34,47,.09),0 16px 36px rgba(12,34,47,.16);
+  --sh-lg:0 24px 62px rgba(8,24,34,.28);
+  --display:'IM Fell English',Georgia,serif;
+}
+html.odyssey body{
+  background-color:#cfc1a1;
+  background-image:
+    radial-gradient(120% 95% at 50% -24%,rgba(37,95,107,.38),rgba(37,95,107,0) 54%),
+    linear-gradient(115deg,rgba(14,55,73,.14),rgba(255,255,255,0) 34%,rgba(160,121,43,.12) 100%),
+    repeating-linear-gradient(0deg,rgba(58,45,25,.045) 0 1px,transparent 1px 34px),
+    repeating-linear-gradient(90deg,rgba(58,45,25,.035) 0 1px,transparent 1px 34px);
+}
+html.odyssey body::before{
+  content:"";position:fixed;inset:0;pointer-events:none;z-index:0;
+  background:
+    radial-gradient(circle at 14% 20%,rgba(16,35,49,.08) 0 1px,transparent 2px),
+    radial-gradient(circle at 78% 18%,rgba(167,125,47,.16) 0 1px,transparent 2px),
+    radial-gradient(circle at 68% 72%,rgba(16,35,49,.07) 0 1px,transparent 2px);
+  background-size:110px 120px,150px 140px,130px 150px;
+  opacity:.55;
+}
+html.odyssey .wrap{position:relative;z-index:1}
+html.odyssey .topbar{background:linear-gradient(var(--parch),var(--parch) 66%,rgba(216,204,179,0))}
+html.odyssey .brand-mark{
+  background:radial-gradient(circle at 38% 30%,#284d5f,#102331 65%,#081720 100%);
+  border:1px solid rgba(231,212,162,.35);
+  box-shadow:0 3px 10px rgba(8,24,34,.28),inset 0 1px 0 rgba(244,234,210,.18);
+}
+html.odyssey .brand-tag,html.odyssey .stage-label,html.odyssey .session-kicker{color:#2f6b62}
+html.odyssey .session{
+  background:
+    radial-gradient(120% 90% at 92% 8%,rgba(58,127,127,.34),rgba(58,127,127,0) 52%),
+    linear-gradient(160deg,#123248 0%,#0d2536 54%,#071924 100%);
+  color:#f4ead2;border:1px solid rgba(231,212,162,.22);
+  box-shadow:var(--sh-md),inset 0 1px 0 rgba(244,234,210,.14);
+}
+html.odyssey .session::after{
+  right:-56px;top:-54px;width:210px;height:210px;
+  background:radial-gradient(circle,rgba(167,125,47,.34),rgba(167,125,47,0) 70%);
+}
+html.odyssey .session-arrow{background:rgba(244,234,210,.13);color:#e9d49a}
+html.odyssey .session-bar{background:rgba(244,234,210,.14)}
+html.odyssey .session-bar>i,.odyssey .sfill{background:linear-gradient(90deg,#2f6b62,#a77d2f)}
+html.odyssey .card,html.odyssey .modal,html.odyssey .set-card{
+  background:linear-gradient(175deg,#f7efd9,#eadbbb);
+  border-color:#aa966c;
+  box-shadow:var(--sh-md),inset 0 0 26px rgba(16,35,49,.07);
+}
+html.odyssey .stat,html.odyssey .lvl-card,html.odyssey .lex-bar,html.odyssey .choice,html.odyssey .chip,.odyssey .pw-plan{
+  background:linear-gradient(180deg,#f6ecd5,#eadfc2);
+  border-color:#b7a376;
+  box-shadow:var(--sh-sm),inset 0 0 14px rgba(16,35,49,.045);
+}
+html.odyssey .lvl-card:hover:not(:disabled),html.odyssey .choice:hover:not(.locked),html.odyssey .pw-plan:hover{border-color:#2f6b62}
+html.odyssey .lvl-card.current,html.odyssey .lvl-card.drill-card,html.odyssey .lvl-card.bar-card{
+  background:
+    radial-gradient(120% 100% at 88% 0%,rgba(47,107,98,.22),rgba(47,107,98,0) 48%),
+    linear-gradient(168deg,#e8cf8f,#d2ad55 56%,#b98536);
+  border-color:#8d6a28;color:#2b2515;
+}
+html.odyssey .lvl-num{background:rgba(47,107,98,.10);color:#1e5b59}
+html.odyssey .root-key,html.odyssey .seg .mn,html.odyssey .prompt .q-ask{color:#1e5b59}
+html.odyssey .btn{background:#102331;border-color:#102331;color:#f4ead2}
+html.odyssey .btn:hover{background:#2f6b62;border-color:#2f6b62}
+html.odyssey .btn.ghost{background:transparent;color:#102331;border-color:#aa966c}
+html.odyssey .btn.ghost:hover{background:#f7efd9;color:#1e5b59;border-color:#2f6b62}
+html.odyssey .back,html.odyssey .topbar-cog{
+  background:linear-gradient(175deg,#f7efd9,#eadbbb);
+  border-color:#aa966c;
+}
+html.odyssey .say{color:#1e5b59}
+html.odyssey .choice.correct,html.odyssey .built.ok,html.odyssey .typebox input.ok{background:rgba(47,107,98,.12)}
+html.odyssey .choice.wrong,html.odyssey .built.bad,html.odyssey .typebox input.bad{background:rgba(143,53,64,.10)}
+html.odyssey .seg{background:#e8dcbf}
+html.odyssey .wax,html.odyssey .ob-art{
+  background:radial-gradient(circle at 38% 32%,#af4551,#8f3540 58%,#5c1c27 100%);
+}
+html.odyssey .pw-seal,html.odyssey .set-status .badge{
+  background:radial-gradient(circle at 38% 30%,#d3b65f,#a77d2f 58%,#604711 100%);
+}
+html.odyssey .theme-choice.on{background:#102331;border-color:#102331;color:#f4ead2}
+html.odyssey .modal-scrim{background:rgba(8,24,34,.56)}
+html.odyssey #rs-toast{background:#102331;color:#f4ead2}
+
+.odyssey-ambience{position:fixed;inset:0;pointer-events:none;overflow:hidden;z-index:2}
+.ody-ship,.ody-monster{position:absolute;pointer-events:none;will-change:transform,opacity}
+.ody-ship{left:-120px;top:var(--ody-y,42vh);width:88px;height:54px;opacity:0;animation:ody-sail var(--ody-dur,28s) linear forwards}
+.ody-ship::before{content:"";position:absolute;left:14px;right:5px;bottom:3px;height:13px;background:#102331;border-radius:0 0 38px 42px;clip-path:polygon(0 0,100% 0,84% 100%,18% 100%)}
+.ody-ship::after{content:"";position:absolute;left:41px;bottom:15px;width:2px;height:35px;background:#102331;box-shadow:15px 8px 0 -1px #102331}
+.ody-sail{position:absolute;bottom:19px;background:#f4ead2;border:1px solid rgba(16,35,49,.32);filter:drop-shadow(0 1px 1px rgba(8,24,34,.12))}
+.ody-sail.main{left:21px;width:28px;height:31px;clip-path:polygon(100% 0,0 100%,100% 100%)}
+.ody-sail.jib{left:47px;width:22px;height:24px;clip-path:polygon(0 0,0 100%,100% 100%)}
+.ody-monster{--ody-flip:1;width:92px;height:92px;opacity:0;filter:drop-shadow(0 8px 14px rgba(8,24,34,.18));animation:ody-peek 7.5s ease-in-out forwards}
+.ody-monster::before{content:"";position:absolute;inset:18px;border-radius:46% 54% 48% 52%;background:#2f6b62;box-shadow:inset 0 -12px 0 rgba(16,35,49,.16)}
+.ody-monster::after{content:"";position:absolute;left:39px;top:43px;width:6px;height:6px;border-radius:50%;background:#f4ead2;box-shadow:16px 0 0 #f4ead2}
+.ody-monster.left{left:-58px;top:var(--ody-y,28vh)}
+.ody-monster.right{--ody-flip:-1;right:-58px;top:var(--ody-y,62vh)}
+@keyframes ody-sail{0%{opacity:0;transform:translateX(0) translateY(0)}8%,88%{opacity:.26}100%{opacity:0;transform:translateX(calc(100vw + 220px)) translateY(var(--ody-drift,14px))}}
+@keyframes ody-peek{0%,100%{opacity:0;transform:scaleX(var(--ody-flip)) translateX(0)}14%,72%{opacity:.24}38%,60%{transform:scaleX(var(--ody-flip)) translateX(var(--ody-peek,34px))}}
+@media (prefers-reduced-motion: reduce){
+  .odyssey-ambience{display:none!important}
+  html.odyssey body::before{opacity:.35}
+}
 
 /* toast */
 #rs-toast{position:fixed;left:50%;bottom:32px;transform:translateX(-50%) translateY(18px);background:var(--ink);color:var(--parch);font-family:var(--ui);font-size:13.5px;font-weight:500;padding:11px 20px;border-radius:24px;box-shadow:var(--sh-lg);opacity:0;pointer-events:none;transition:opacity .2s,transform .2s;z-index:60;max-width:82%;text-align:center}
@@ -1502,15 +1620,76 @@ const BAR_SIZE = 50, BAR_PASS = 45;
 const DAY = 24*60*60*1000;
 const INTERVALS = [2*DAY, 5*DAY, 12*DAY, 30*DAY]; // Leitner boxes 0..3
 
-const APPEARANCES = ['parchment','classic','plain'];
+const APPEARANCES = ['parchment','classic','plain','odyssey'];
 function validAppearance(v){
   if(v === 'vintage') return 'classic';
   return APPEARANCES.includes(v) ? v : 'parchment';
+}
+let odysseyTimer=null, odysseyReduce=null;
+function odysseyReduced(){
+  try{
+    if(!odysseyReduce) odysseyReduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)');
+    return !!(odysseyReduce && odysseyReduce.matches);
+  }catch(e){ return false; }
+}
+function odysseyLayer(){
+  let layer=document.getElementById('odyssey-ambience');
+  if(!layer){
+    layer=document.createElement('div');
+    layer.id='odyssey-ambience';
+    layer.className='odyssey-ambience';
+    layer.setAttribute('aria-hidden','true');
+    document.body.appendChild(layer);
+  }
+  return layer;
+}
+function stopOdysseyAmbience(){
+  if(odysseyTimer){ clearTimeout(odysseyTimer); odysseyTimer=null; }
+  const layer=document.getElementById('odyssey-ambience');
+  if(layer) layer.remove();
+}
+function odysseyEvent(){
+  if(!document.documentElement.classList.contains('odyssey') || odysseyReduced()) return;
+  const layer=odysseyLayer();
+  if(layer.children.length) return;
+  const ship=Math.random()<.62;
+  const el=document.createElement('div');
+  if(ship){
+    el.className='ody-ship';
+    el.style.setProperty('--ody-y', (18+Math.random()*62).toFixed(1)+'vh');
+    el.style.setProperty('--ody-dur', (25+Math.random()*14).toFixed(1)+'s');
+    el.style.setProperty('--ody-drift', (Math.random()<.5?-1:1)*(8+Math.random()*18).toFixed(1)+'px');
+    el.innerHTML='<span class="ody-sail main"></span><span class="ody-sail jib"></span>';
+  }else{
+    const side=Math.random()<.5?'left':'right';
+    el.className='ody-monster '+side;
+    el.style.setProperty('--ody-y', (16+Math.random()*68).toFixed(1)+'vh');
+    el.style.setProperty('--ody-peek', side==='left'?'38px':'-38px');
+  }
+  el.addEventListener('animationend',()=>el.remove(),{once:true});
+  layer.appendChild(el);
+}
+function startOdysseyAmbience(){
+  if(odysseyTimer || odysseyReduced()) return;
+  odysseyLayer();
+  const tick=()=>{
+    odysseyTimer=null;
+    if(!document.documentElement.classList.contains('odyssey') || odysseyReduced()){ stopOdysseyAmbience(); return; }
+    odysseyEvent();
+    odysseyTimer=setTimeout(tick, 20000 + Math.random()*25000);
+  };
+  odysseyTimer=setTimeout(tick, 3500 + Math.random()*5000);
+}
+function syncOdysseyAmbience(){
+  if(document.documentElement.classList.contains('odyssey') && !odysseyReduced()) startOdysseyAmbience();
+  else stopOdysseyAmbience();
 }
 function applyAppearance(v){
   const a = validAppearance(v);
   document.documentElement.classList.toggle('parchment', a === 'parchment');
   document.documentElement.classList.toggle('classic', a === 'classic');
+  document.documentElement.classList.toggle('odyssey', a === 'odyssey');
+  syncOdysseyAmbience();
 }
 function load(){ try{ let raw = localStorage.getItem(KEY);
   if(!raw){ const bak=localStorage.getItem(KEY+'_bak'); if(bak){ const o=deserialize(bak); if(o) raw=JSON.stringify(o); } }
@@ -3224,6 +3403,7 @@ function settings(){
           <button class="theme-choice ${P.appearance==='parchment'?'on':''}" data-theme="parchment" aria-pressed="${P.appearance==='parchment'}">Parchment</button>
           <button class="theme-choice ${P.appearance==='classic'?'on':''}" data-theme="classic" aria-pressed="${P.appearance==='classic'}">Classic</button>
           <button class="theme-choice ${P.appearance==='plain'?'on':''}" data-theme="plain" aria-pressed="${P.appearance==='plain'}">Plain</button>
+          <button class="theme-choice ${P.appearance==='odyssey'?'on':''}" data-theme="odyssey" aria-pressed="${P.appearance==='odyssey'}">Odyssey</button>
         </div>
       </div></div>
     <div class="set-grp"><div class="set-h">Progress</div>
@@ -3260,6 +3440,7 @@ function settings(){
 /* ================= BOOT ================= */
 function boot(){
   P=load();
+  if(window.RS_THEME_OVERRIDE){ P.appearance=validAppearance(window.RS_THEME_OVERRIDE); save(); }
   applyAppearance(P.appearance);
   RS.requestStatus();
   const cog=document.getElementById('cog'); if(cog) cog.onclick=settings;
