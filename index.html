@@ -292,6 +292,15 @@
   .veil-prompt input[type=checkbox]{width:14px;height:14px;accent-color:var(--ox);cursor:pointer;margin:0}
   .veil-prompt:hover{opacity:.75}
 
+  /* ---- learn-more (root deep study) ---- */
+  .learn-prompt{display:flex;align-items:center;justify-content:center;gap:8px;margin:16px auto 0;cursor:pointer;
+    font-family:var(--mono);font-size:9.5px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-soft);padding:8px;width:fit-content}
+  .learn-prompt input[type=checkbox]{width:14px;height:14px;accent-color:var(--gild);cursor:pointer;margin:0}
+  .learn-prompt:hover{opacity:.75}
+  .learn-prompt.spent{opacity:.5;cursor:default}
+  .verdict .fb-grow{font-style:normal;font-family:var(--mono);font-size:13px;color:var(--ink-soft);line-height:1.55}
+  .verdict .fb-grow b{color:var(--ink);font-weight:600}
+
   /* ---- compose chips ---- */
   .built{min-height:40px;display:flex;justify-content:center;align-items:center;gap:2px;flex-wrap:wrap;
     border:1.5px dashed var(--line);border-radius:12px;padding:8px 12px;margin:14px 0 4px;font-family:var(--mono);font-size:17px}
@@ -662,6 +671,7 @@ html.parchment #rs-toast{background:linear-gradient(165deg,#4a3115,#33200b);colo
 
 <script src="depth.js"></script>
 <script src="drill.js"></script>
+<script src="rootdeep.js"></script>
 <script src="pronunciations.js"></script>
 <script src="ipa.js"></script>
 <script>
@@ -1556,6 +1566,37 @@ function depthOf(w){ return (window.DEPTH && window.DEPTH[w.word]) || {}; }
 function vigOf(w){ return depthOf(w).v || ''; }
 function etyOf(w){ return depthOf(w).e || w.ety || ''; }
 function defOfWord(name){ for(const l of LEVELS){ const x=l.words.find(t=>t.word===name); if(x) return x.def; } const d=(window.DRILL_POOL||[]).find(t=>t.word===name); return d?d.def:''; }
+// Words already learned that are built from a given root — derived from the parts
+// data, matched by normalised root form (primary) or shared gloss (secondary).
+function rootFamily(r){
+  const forms=rootForms(r).map(normRoot).filter(f=>f.length>1);
+  const rg=(r.gloss||'').toLowerCase().trim();
+  const out=[],seen=new Set();
+  const partHit=p=>{
+    const pf=normRoot(p[0]);
+    if(pf&&pf.length>1&&forms.some(f=> pf===f || (f.length>=3&&pf.startsWith(f)) || (pf.length>=3&&f.startsWith(pf)))) return true;
+    const pg=(p[1]||'').toLowerCase().trim();
+    return !!(pg&&pg.length>=3&&rg&&(pg===rg||rg.includes(pg)||pg.includes(rg)));
+  };
+  const scan=w=>{ if(!w||!w.parts||seen.has(w.word)) return;
+    if(w.parts.some(partHit)){ seen.add(w.word); out.push({word:w.word,def:w.def||''}); } };
+  LEVELS.forEach(l=>l.words.forEach(scan));
+  (window.DRILL_POOL||[]).forEach(scan);
+  return out.slice(0,4);
+}
+// The deeper-study panel for a root: a richer origin note (ROOT_DEEP, falling back
+// to the terse ETYM line) plus the words it grows into. Shown when "Learn more" is on.
+function rootDeepHtml(r){
+  let out='';
+  const note=(window.ROOT_DEEP&&ROOT_DEEP[r.root])||ETYM[r.root]||'';
+  if(note) out+=`<span class="fb-line fb-ety">${note}</span>`;
+  const fam=rootFamily(r);
+  if(fam.length){
+    const list=fam.map(k=> k.def?`<b>${k.word}</b> — ${esc(k.def).toLowerCase().replace(/\.$/,'')}`:`<b>${k.word}</b>`).join('  ·  ');
+    out+=`<span class="fb-line fb-grow">Grows into — ${list}</span>`;
+  }
+  return out;
+}
 function letterCue(word){ return word[0] + word.slice(1).replace(/[^ ]/g,'·'); }
 function allSealed(){ return LEVELS.every(l=>G(l.id).sealed); }
 function fmtDur(ms){ const h=Math.floor(ms/3600000),m=Math.floor((ms%3600000)/60000),s=Math.floor((ms%60000)/1000); return String(h).padStart(2,'0')+':'+String(m).padStart(2,'0')+':'+String(s).padStart(2,'0'); }
@@ -2192,15 +2233,20 @@ function renderTrialPrompt({label,gateLabel,it,w,onResolve,onNext,oneShot}){
     else if(w) hint=`<span class="root-hint">${rootHint(w)}</span>`;
     // Inferred words and every word met in the Drill Hall pause on a correct
     // answer to show the etymological breakdown — never auto-advance.
+    const lp = document.querySelector('.learn-prompt');
+    const learnRoot = !!(lp && lp.querySelector('input') && lp.querySelector('input').checked);
+    if(lp){ lp.classList.add('spent'); const lpi=lp.querySelector('input'); if(lpi) lpi.disabled=true; }
     const teach = it.inf || (S.kind==='DRILL' && !!w);
-    if(ok && teach){ v.className='verdict right';
-      const src=it.inf||w;
+    if(ok && (teach || learnRoot)){ v.className='verdict right';
       let deep='';
-      if(src){
-        if(src.def) deep+=`<span class="fb-line fb-contrast">${src.word} ${saySmall(src.word)} — ${src.def.toLowerCase()}</span>`;
-        const story = it.inf ? '' : etyOf(w);
-        if(story) deep+=`<span class="fb-line fb-ety">${story}</span>`;
-        if(!it.inf && vigOf(w) && it.m!=='VIG' && it.m!=='VIGT') deep+=`<span class="fb-line fb-scene">“${esc(vigOf(w))}”</span>`;
+      if(it.root){ deep = rootDeepHtml(it.root); }
+      else { const src=it.inf||w;
+        if(src){
+          if(src.def) deep+=`<span class="fb-line fb-contrast">${src.word} ${saySmall(src.word)} — ${src.def.toLowerCase()}</span>`;
+          const story = it.inf ? '' : etyOf(w);
+          if(story) deep+=`<span class="fb-line fb-ety">${story}</span>`;
+          if(!it.inf && vigOf(w) && it.m!=='VIG' && it.m!=='VIGT') deep+=`<span class="fb-line fb-scene">“${esc(vigOf(w))}”</span>`;
+        }
       }
       v.innerHTML='Correct.'+hint+deep;
       document.getElementById('a').innerHTML=`<button class="btn" id="n">${(S.queue.length&&!oneShot)||(oneShot&&S.pos<S.queue.length)?'Next →':'Finish →'}</button>`;
@@ -2217,6 +2263,7 @@ function renderTrialPrompt({label,gateLabel,it,w,onResolve,onNext,oneShot}){
         if(etyOf(w)) deep+=`<span class="fb-line fb-ety">${etyOf(w)}</span>`;
         if(vigOf(w) && it.m!=='VIG' && it.m!=='VIGT') deep+=`<span class="fb-line fb-scene">“${esc(vigOf(w))}”</span>`;
       }
+      if(it.root && learnRoot) deep+=rootDeepHtml(it.root);
       v.className='verdict wrong';
       const ansAudio = (S.kind==='DRILL' && w) ? ' '+saySmall(w.word) : '';
       v.innerHTML=`<b>${answer}</b>${ansAudio}${extra?' — '+extra:''}.${hint}${deep}`;
@@ -2250,6 +2297,7 @@ function renderTrialPrompt({label,gateLabel,it,w,onResolve,onNext,oneShot}){
     sub.onclick=check; input.onkeydown=e=>{if(e.key==='Enter')check();};
   } else wireChoices(finish);
   applyVeil();
+  applyRootLearn(it);
 }
 
 // Prediction veil: blur answer sets until the learner commits to a guess.
@@ -2265,6 +2313,18 @@ function applyVeil(){
   b.appendChild(document.createTextNode("What's your prediction?"));
   t.parentNode.insertBefore(b, t);
   cb.onchange = ()=>{ if(cb.checked){ t.classList.remove('veiled'); cb.disabled=true; } };
+}
+// A subtle, per-question opt-in shown only on Drill Hall root questions. When ticked
+// before answering, finish() pauses on the root's deep-study panel instead of the
+// usual snappy auto-advance. Renders unticked every question (per-question, no memory).
+function applyRootLearn(it){
+  if(!it.root || !S || S.kind!=='DRILL') return;
+  const v=document.getElementById('v'); if(!v) return;
+  const b=document.createElement('label'); b.className='learn-prompt';
+  const cb=document.createElement('input'); cb.type='checkbox';
+  b.appendChild(cb);
+  b.appendChild(document.createTextNode('Learn more about this root'));
+  v.parentNode.insertBefore(b, v);
 }
 function wireChoices(resolve){
   const cs=[...document.querySelectorAll('.choice')];
