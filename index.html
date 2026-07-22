@@ -280,6 +280,29 @@
   #lexq{width:100%;font-family:var(--serif);font-size:15px;padding:11px 14px;border:1px solid var(--line);border-radius:12px;background:var(--surface);color:var(--ink);box-shadow:var(--sh-sm)}
   #lexq:focus{outline:none;border-color:var(--ox)}
 
+  /* ---- roots lexicon ---- */
+  .lex-switch{display:flex;align-items:center;gap:12px;width:100%;background:var(--surface);border:1px solid var(--line);
+    border-radius:12px;padding:12px 16px;margin:0 0 14px;cursor:pointer;box-shadow:var(--sh-sm);
+    font-family:var(--ui);color:var(--ink);text-align:left;transition:transform .12s,box-shadow .12s}
+  .lex-switch:hover{transform:translateY(-1px);box-shadow:var(--sh-md)}
+  .lex-switch-t{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--ox)}
+  .lex-switch-ct{flex:1;font-size:12.5px;color:var(--ink-soft)}
+  .lex-switch-arrow{font-size:19px;color:var(--ox);flex:none}
+  .root-lex-list{display:flex;flex-direction:column;gap:4px}
+  .root-lex-row{display:flex;align-items:center;gap:12px;width:100%;text-align:left;background:none;border:none;
+    border-bottom:1px solid var(--line);border-radius:10px;padding:12px 8px;cursor:pointer;color:var(--ink)}
+  .root-lex-row:hover{background:var(--surface)}
+  .rl-main{flex:1;min-width:0}
+  .rl-key{font-family:var(--mono);font-weight:500;font-size:16px;color:var(--ox)}
+  .rl-lang{font-family:var(--mono);font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--gild);margin-left:9px}
+  .rl-gloss{font-family:var(--serif);font-size:14px;color:var(--ink-soft);font-style:italic;margin-top:3px;
+    overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .rl-arrow{font-size:18px;color:var(--gild);flex:none}
+  .rl-head{font-family:var(--mono);font-weight:500;font-size:clamp(28px,7vw,40px);color:var(--ox);letter-spacing:0}
+  .rl-gloss-lg{font-family:var(--serif);font-size:20px;margin-top:12px;color:var(--ink)}
+  .rl-etym{font-family:var(--serif);font-style:italic;font-size:15px;line-height:1.55;color:var(--ink-soft);margin:16px auto 0;max-width:46ch}
+  .rl-grow-label{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--gild);margin:22px 2px 8px}
+
   /* ---- ghost glosses (inline, not buttons) ---- */
   .ghost:not(.btn){background:none;border:none;padding:0;cursor:pointer;font:inherit;color:inherit;border-bottom:1px dotted var(--gild)}
   .ghost:not(.btn):hover{color:var(--ox)}
@@ -1568,7 +1591,7 @@ function etyOf(w){ return depthOf(w).e || w.ety || ''; }
 function defOfWord(name){ for(const l of LEVELS){ const x=l.words.find(t=>t.word===name); if(x) return x.def; } const d=(window.DRILL_POOL||[]).find(t=>t.word===name); return d?d.def:''; }
 // Words already learned that are built from a given root — derived from the parts
 // data, matched by normalised root form (primary) or shared gloss (secondary).
-function rootFamily(r){
+function rootFamily(r,lim){
   const forms=rootForms(r).map(normRoot).filter(f=>f.length>1);
   const rg=(r.gloss||'').toLowerCase().trim();
   const out=[],seen=new Set();
@@ -1582,7 +1605,16 @@ function rootFamily(r){
     if(w.parts.some(partHit)){ seen.add(w.word); out.push({word:w.word,def:w.def||''}); } };
   LEVELS.forEach(l=>l.words.forEach(scan));
   (window.DRILL_POOL||[]).forEach(scan);
-  return out.slice(0,4);
+  return out.slice(0, lim||4);
+}
+// Locate a headword within the gates by name → {gi,wi}, or null if it lives
+// only in the drill pool (or nowhere).
+function wordLoc(name){
+  for(let gi=0;gi<LEVELS.length;gi++){
+    const wi=LEVELS[gi].words.findIndex(w=>w.word===name);
+    if(wi>=0) return {gi,wi};
+  }
+  return null;
 }
 // The deeper-study panel for a root: a richer origin note (ROOT_DEEP, falling back
 // to the terse ETYM line) plus the words it grows into. Shown when "Learn more" is on.
@@ -1861,7 +1893,7 @@ function home(){
   const db=document.getElementById('docket-btn'); if(db && !db.disabled) db.onclick=startReview;
   const bb=document.getElementById('bar-btn'); if(bb && !bb.disabled) bb.onclick=startBar;
   document.getElementById('settings-link').onclick=settings;
-  const lx=document.getElementById('lex-stat'); if(lx && lexCount) lx.onclick=()=>lexicon('');
+  const lx=document.getElementById('lex-stat'); if(lx && lexCount) lx.onclick=()=>rootLexicon('');
   const fg=document.getElementById('forge-btn'); if(fg) fg.onclick=startForge;
   const dh=document.getElementById('drill-btn'); if(dh && !dh.disabled) dh.onclick=startDrill;
   const cta=document.getElementById('cta'); if(cta && pa.fn) cta.onclick=pa.fn;
@@ -2534,6 +2566,63 @@ function lexEntries(){
   (window.DRILL_POOL||[]).forEach((d,di)=>{ if(P.drill.seen[d.word]) out.push({key:d.word, g:null, inf:-1, dr:di}); });
   return out.sort((a,b)=>a.key.localeCompare(b.key));
 }
+// The Lexicon opens on the roots — the app is built around them — and an arrow
+// leads out to the words that grow from them. Roots are drawn from every sealed
+// gate; each opens a detail card with its origin note and the words it feeds.
+function rootLexicon(q){
+  const all=sealedRoots();
+  const ql=(q||'').toLowerCase();
+  const hits=ql?all.filter(x=> rootForms(x.root).some(f=>f.toLowerCase().includes(ql)) || (x.root.gloss||'').toLowerCase().includes(ql)):all;
+  const wordsN=lexEntries().length;
+  S=null; stopClock&&stopClock();
+  app.innerHTML=`<section class="panel">
+    <button class="back" id="home">← The Gates</button>
+    <div class="stage-label">The Lexicon · Roots · ${all.length}</div>
+    <button class="lex-switch" id="to-words">
+      <span class="lex-switch-t">The Words</span>
+      <span class="lex-switch-ct">${wordsN} ${wordsN===1?'word':'words'} grown from these roots</span>
+      <span class="lex-switch-arrow">→</span></button>
+    <div class="typebox" style="margin:6px 0 14px"><input id="lexq" placeholder="search root or meaning…" value="${esc(q||'')}" autocomplete="off"></div>
+    <div class="root-lex-list">${hits.map(x=>{
+      const r=x.root;
+      return `<button class="root-lex-row" data-key="${esc(r.key)}">
+        <div class="rl-main">
+          <div><span class="rl-key">${r.root}</span><span class="rl-lang">${r.lang}</span></div>
+          <div class="rl-gloss">${esc(r.gloss)}</div>
+        </div><span class="rl-arrow">›</span></button>`;
+    }).join('')||'<div class="grad-note">No roots yet — seal a gate to begin your keeping.</div>'}</div></section>`;
+  document.getElementById('home').onclick=home;
+  document.getElementById('to-words').onclick=()=>lexicon('');
+  const inp=document.getElementById('lexq');
+  inp.oninput=()=>{ const v=inp.value; clearTimeout(inp._t); inp._t=setTimeout(()=>rootLexicon(v),140); };
+  if(q){ inp.focus(); inp.setSelectionRange(inp.value.length,inp.value.length); }
+  app.querySelectorAll('.root-lex-row').forEach(b=>b.onclick=()=>rootView(b.dataset.key,q));
+}
+function rootView(key,q){
+  const entry=sealedRoots().find(x=>x.root.key===key);
+  if(!entry){ rootLexicon(q||''); return; }
+  const r=entry.root;
+  const note=(window.ROOT_DEEP&&ROOT_DEEP[r.root])||ETYM[r.root]||'';
+  const fam=rootFamily(r,8);
+  const rows=fam.map(k=>{
+    const loc=wordLoc(k.word), d=esc(k.def||'');
+    if(loc) return `<button class="lex-row" data-gi="${loc.gi}" data-wi="${loc.wi}"><span class="lex-w">${k.word}</span><span class="lex-d">${d}</span></button>`;
+    return `<div class="lex-row" style="cursor:default"><span class="lex-w">${k.word}</span><span class="lex-d">${d}</span></div>`;
+  }).join('');
+  S=null; stopClock&&stopClock();
+  app.innerHTML=`<section class="panel">
+    <button class="back" id="back">← The Roots</button>
+    <div class="stage-label">Root · ${r.lang}${entry.gate?' · Gate '+rom(entry.gate):''}</div>
+    <div class="card">
+      <div class="headword rl-head">${r.root}</div>
+      <div class="rl-gloss-lg">“${esc(r.gloss)}”</div>
+      ${note?`<div class="rl-etym">${note}</div>`:''}
+    </div>
+    ${fam.length?`<div class="rl-grow-label">Grows into</div><div class="lex-list">${rows}</div>`:''}
+  </section>`;
+  document.getElementById('back').onclick=()=>rootLexicon(q||'');
+  app.querySelectorAll('.lex-row[data-gi]').forEach(b=>b.onclick=()=>wordView(+b.dataset.gi,+b.dataset.wi,'',()=>rootView(key,q),'The Root'));
+}
 function lexicon(q){
   const all=lexEntries();
   const ql=(q||'').toLowerCase();
@@ -2541,8 +2630,8 @@ function lexicon(q){
   const hits=ql?all.filter(e=>e.key.toLowerCase().includes(ql)||defOf(e).toLowerCase().includes(ql)):all;
   S=null; stopClock&&stopClock();
   app.innerHTML=`<section class="panel">
-    <button class="back" id="home">← The Gates</button>
-    <div class="stage-label">The Lexicon · ${all.length} words</div>
+    <button class="back" id="home">← The Roots</button>
+    <div class="stage-label">The Lexicon · Words · ${all.length}</div>
     <div class="typebox" style="margin:6px 0 14px"><input id="lexq" placeholder="search word or meaning…" value="${esc(q||'')}" autocomplete="off"></div>
     <div class="lex-list">${hits.map(e=>{
       if(e.g){
@@ -2557,7 +2646,7 @@ function lexicon(q){
       }
       return `<button class="lex-row" data-inf="${e.inf}"><span class="lex-w">${e.key}</span><span class="lex-d">${esc(INFER_POOL[e.inf].def)}</span><span class="lex-led" style="color:var(--gild)">inferred</span></button>`;
     }).join('')||'<div class="grad-note">Nothing matches.</div>'}</div></section>`;
-  document.getElementById('home').onclick=home;
+  document.getElementById('home').onclick=()=>rootLexicon('');
   const inp=document.getElementById('lexq');
   inp.oninput=()=>{ const v=inp.value; clearTimeout(inp._t); inp._t=setTimeout(()=>lexicon(v),140); };
   if(q){ inp.focus(); inp.setSelectionRange(inp.value.length,inp.value.length); }
@@ -2611,10 +2700,10 @@ function sealedGateView(idx){
   document.querySelectorAll('.lex-row').forEach(b=>b.onclick=()=>wordView(idx,+b.dataset.wi,'',()=>sealedGateView(idx)));
 }
 
-function wordView(gi,wi,q,backFn){
+function wordView(gi,wi,q,backFn,backLabel){
   const w=wordAt(gi,wi), t=P.ledger[gi+'-'+wi];
   app.innerHTML=`<section class="panel">
-    <button class="back" id="back">← ${backFn?'Gate '+rom(LEVELS[gi].id):'The Lexicon'}</button>
+    <button class="back" id="back">← ${backLabel||(backFn?'Gate '+rom(LEVELS[gi].id):'The Lexicon')}</button>
     <div class="stage-label">Gate ${rom(LEVELS[gi].id)} · ${LEVELS[gi].title}</div>
     ${cardHtml(w)}
     ${t?`<div class="grad-note" style="text-align:center">lifetime: ${t.r} right · ${t.w} wrong</div>`:''}
