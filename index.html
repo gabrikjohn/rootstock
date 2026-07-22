@@ -288,16 +288,7 @@
   .lex-switch-t{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--ox)}
   .lex-switch-ct{flex:1;font-size:12.5px;color:var(--ink-soft)}
   .lex-switch-arrow{font-size:19px;color:var(--ox);flex:none}
-  .root-lex-list{display:flex;flex-direction:column;gap:4px}
-  .root-lex-row{display:flex;align-items:center;gap:12px;width:100%;text-align:left;background:none;border:none;
-    border-bottom:1px solid var(--line);border-radius:10px;padding:12px 8px;cursor:pointer;color:var(--ink)}
-  .root-lex-row:hover{background:var(--surface)}
-  .rl-main{flex:1;min-width:0}
-  .rl-key{font-family:var(--mono);font-weight:500;font-size:16px;color:var(--ox)}
-  .rl-lang{font-family:var(--mono);font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--gild);margin-left:9px}
-  .rl-gloss{font-family:var(--serif);font-size:14px;color:var(--ink-soft);font-style:italic;margin-top:3px;
-    overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-  .rl-arrow{font-size:18px;color:var(--gild);flex:none}
+  .lex-row .rl-w{font-family:var(--mono);font-weight:500;color:var(--ox)}
   .rl-head{font-family:var(--mono);font-weight:500;font-size:clamp(28px,7vw,40px);color:var(--ox);letter-spacing:0}
   .rl-gloss-lg{font-family:var(--serif);font-size:20px;margin-top:12px;color:var(--ink)}
   .rl-etym{font-family:var(--serif);font-style:italic;font-size:15px;line-height:1.55;color:var(--ink-soft);margin:16px auto 0;max-width:46ch}
@@ -2570,7 +2561,7 @@ function lexEntries(){
 // leads out to the words that grow from them. Roots are drawn from every sealed
 // gate; each opens a detail card with its origin note and the words it feeds.
 function rootLexicon(q){
-  const all=sealedRoots();
+  const all=sealedRoots().sort((a,b)=>a.root.root.toLowerCase().localeCompare(b.root.root.toLowerCase()));
   const ql=(q||'').toLowerCase();
   const hits=ql?all.filter(x=> rootForms(x.root).some(f=>f.toLowerCase().includes(ql)) || (x.root.gloss||'').toLowerCase().includes(ql)):all;
   const wordsN=lexEntries().length;
@@ -2583,20 +2574,16 @@ function rootLexicon(q){
       <span class="lex-switch-ct">${wordsN} ${wordsN===1?'word':'words'} grown from these roots</span>
       <span class="lex-switch-arrow">→</span></button>
     <div class="typebox" style="margin:6px 0 14px"><input id="lexq" placeholder="search root or meaning…" value="${esc(q||'')}" autocomplete="off"></div>
-    <div class="root-lex-list">${hits.map(x=>{
+    <div class="lex-list">${hits.map(x=>{
       const r=x.root;
-      return `<button class="root-lex-row" data-key="${esc(r.key)}">
-        <div class="rl-main">
-          <div><span class="rl-key">${r.root}</span><span class="rl-lang">${r.lang}</span></div>
-          <div class="rl-gloss">${esc(r.gloss)}</div>
-        </div><span class="rl-arrow">›</span></button>`;
+      return `<button class="lex-row" data-key="${esc(r.key)}"><span class="lex-w rl-w">${r.root}</span><span class="lex-d">${esc(r.gloss)}</span><span class="lex-led" style="color:var(--gild)">${r.lang}</span></button>`;
     }).join('')||'<div class="grad-note">No roots yet — seal a gate to begin your keeping.</div>'}</div></section>`;
   document.getElementById('home').onclick=home;
   document.getElementById('to-words').onclick=()=>lexicon('');
   const inp=document.getElementById('lexq');
   inp.oninput=()=>{ const v=inp.value; clearTimeout(inp._t); inp._t=setTimeout(()=>rootLexicon(v),140); };
   if(q){ inp.focus(); inp.setSelectionRange(inp.value.length,inp.value.length); }
-  app.querySelectorAll('.root-lex-row').forEach(b=>b.onclick=()=>rootView(b.dataset.key,q));
+  app.querySelectorAll('.lex-row[data-key]').forEach(b=>b.onclick=()=>rootView(b.dataset.key,q));
 }
 function rootView(key,q){
   const entry=sealedRoots().find(x=>x.root.key===key);
