@@ -280,6 +280,20 @@
   #lexq{width:100%;font-family:var(--serif);font-size:15px;padding:11px 14px;border:1px solid var(--line);border-radius:12px;background:var(--surface);color:var(--ink);box-shadow:var(--sh-sm)}
   #lexq:focus{outline:none;border-color:var(--ox)}
 
+  /* ---- roots lexicon ---- */
+  .lex-switch{display:flex;align-items:center;gap:12px;width:100%;background:var(--surface);border:1px solid var(--line);
+    border-radius:12px;padding:12px 16px;margin:0 0 14px;cursor:pointer;box-shadow:var(--sh-sm);
+    font-family:var(--ui);color:var(--ink);text-align:left;transition:transform .12s,box-shadow .12s}
+  .lex-switch:hover{transform:translateY(-1px);box-shadow:var(--sh-md)}
+  .lex-switch-t{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--ox)}
+  .lex-switch-ct{flex:1;font-size:12.5px;color:var(--ink-soft)}
+  .lex-switch-arrow{font-size:19px;color:var(--ox);flex:none}
+  .lex-row .rl-w{font-family:var(--mono);font-weight:500;color:var(--ox)}
+  .rl-head{font-family:var(--mono);font-weight:500;font-size:clamp(28px,7vw,40px);color:var(--ox);letter-spacing:0}
+  .rl-gloss-lg{font-family:var(--serif);font-size:20px;margin-top:12px;color:var(--ink)}
+  .rl-etym{font-family:var(--serif);font-style:italic;font-size:15px;line-height:1.55;color:var(--ink-soft);margin:16px auto 0;max-width:46ch}
+  .rl-grow-label{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--gild);margin:22px 2px 8px}
+
   /* ---- ghost glosses (inline, not buttons) ---- */
   .ghost:not(.btn){background:none;border:none;padding:0;cursor:pointer;font:inherit;color:inherit;border-bottom:1px dotted var(--gild)}
   .ghost:not(.btn):hover{color:var(--ox)}
@@ -291,6 +305,15 @@
     font-family:var(--mono);font-size:9.5px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--ink);padding:8px;width:fit-content}
   .veil-prompt input[type=checkbox]{width:14px;height:14px;accent-color:var(--ox);cursor:pointer;margin:0}
   .veil-prompt:hover{opacity:.75}
+
+  /* ---- learn-more (root deep study) ---- */
+  .learn-prompt{display:flex;align-items:center;justify-content:center;gap:8px;margin:16px auto 0;cursor:pointer;
+    font-family:var(--mono);font-size:9.5px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-soft);padding:8px;width:fit-content}
+  .learn-prompt input[type=checkbox]{width:14px;height:14px;accent-color:var(--gild);cursor:pointer;margin:0}
+  .learn-prompt:hover{opacity:.75}
+  .learn-prompt.spent{opacity:.5;cursor:default}
+  .verdict .fb-grow{font-style:normal;font-family:var(--mono);font-size:13px;color:var(--ink-soft);line-height:1.55}
+  .verdict .fb-grow b{color:var(--ink);font-weight:600}
 
   /* ---- compose chips ---- */
   .built{min-height:40px;display:flex;justify-content:center;align-items:center;gap:2px;flex-wrap:wrap;
@@ -1159,6 +1182,7 @@ html.dragon-codex .theme-option.sel::after{background:#75261b;color:#f5dda4}
 
 <script src="depth.js"></script>
 <script src="drill.js"></script>
+<script src="rootdeep.js"></script>
 <script src="pronunciations.js"></script>
 <script src="ipa.js"></script>
 <script>
@@ -2118,6 +2142,46 @@ function depthOf(w){ return (window.DEPTH && window.DEPTH[w.word]) || {}; }
 function vigOf(w){ return depthOf(w).v || ''; }
 function etyOf(w){ return depthOf(w).e || w.ety || ''; }
 function defOfWord(name){ for(const l of LEVELS){ const x=l.words.find(t=>t.word===name); if(x) return x.def; } const d=(window.DRILL_POOL||[]).find(t=>t.word===name); return d?d.def:''; }
+// Words already learned that are built from a given root — derived from the parts
+// data, matched by normalised root form (primary) or shared gloss (secondary).
+function rootFamily(r,lim){
+  const forms=rootForms(r).map(normRoot).filter(f=>f.length>1);
+  const rg=(r.gloss||'').toLowerCase().trim();
+  const out=[],seen=new Set();
+  const partHit=p=>{
+    const pf=normRoot(p[0]);
+    if(pf&&pf.length>1&&forms.some(f=> pf===f || (f.length>=3&&pf.startsWith(f)) || (pf.length>=3&&f.startsWith(pf)))) return true;
+    const pg=(p[1]||'').toLowerCase().trim();
+    return !!(pg&&pg.length>=3&&rg&&(pg===rg||rg.includes(pg)||pg.includes(rg)));
+  };
+  const scan=w=>{ if(!w||!w.parts||seen.has(w.word)) return;
+    if(w.parts.some(partHit)){ seen.add(w.word); out.push({word:w.word,def:w.def||''}); } };
+  LEVELS.forEach(l=>l.words.forEach(scan));
+  (window.DRILL_POOL||[]).forEach(scan);
+  return out.slice(0, lim||4);
+}
+// Locate a headword within the gates by name → {gi,wi}, or null if it lives
+// only in the drill pool (or nowhere).
+function wordLoc(name){
+  for(let gi=0;gi<LEVELS.length;gi++){
+    const wi=LEVELS[gi].words.findIndex(w=>w.word===name);
+    if(wi>=0) return {gi,wi};
+  }
+  return null;
+}
+// The deeper-study panel for a root: a richer origin note (ROOT_DEEP, falling back
+// to the terse ETYM line) plus the words it grows into. Shown when "Learn more" is on.
+function rootDeepHtml(r){
+  let out='';
+  const note=(window.ROOT_DEEP&&ROOT_DEEP[r.root])||ETYM[r.root]||'';
+  if(note) out+=`<span class="fb-line fb-ety">${note}</span>`;
+  const fam=rootFamily(r);
+  if(fam.length){
+    const list=fam.map(k=> k.def?`<b>${k.word}</b> — ${esc(k.def).toLowerCase().replace(/\.$/,'')}`:`<b>${k.word}</b>`).join('  ·  ');
+    out+=`<span class="fb-line fb-grow">Grows into — ${list}</span>`;
+  }
+  return out;
+}
 function letterCue(word){ return word[0] + word.slice(1).replace(/[^ ]/g,'·'); }
 function allSealed(){ return LEVELS.every(l=>G(l.id).sealed); }
 function fmtDur(ms){ const h=Math.floor(ms/3600000),m=Math.floor((ms%3600000)/60000),s=Math.floor((ms%60000)/1000); return String(h).padStart(2,'0')+':'+String(m).padStart(2,'0')+':'+String(s).padStart(2,'0'); }
@@ -2382,7 +2446,7 @@ function home(){
   const db=document.getElementById('docket-btn'); if(db && !db.disabled) db.onclick=startReview;
   const bb=document.getElementById('bar-btn'); if(bb && !bb.disabled) bb.onclick=startBar;
   document.getElementById('settings-link').onclick=settings;
-  const lx=document.getElementById('lex-stat'); if(lx && lexCount) lx.onclick=()=>lexicon('');
+  const lx=document.getElementById('lex-stat'); if(lx && lexCount) lx.onclick=()=>rootLexicon('');
   const fg=document.getElementById('forge-btn'); if(fg) fg.onclick=startForge;
   const dh=document.getElementById('drill-btn'); if(dh && !dh.disabled) dh.onclick=startDrill;
   const cta=document.getElementById('cta'); if(cta && pa.fn) cta.onclick=pa.fn;
@@ -2639,6 +2703,7 @@ function trialItem(){
   renderTrialPrompt({
     label:'Gate '+rom(lv.id)+' · '+label,
     gateLabel: it.gi!==undefined && it.gi!==S.idx ? 'Review · Gate '+rom(LEVELS[it.gi].id) : '',
+    forgeOnMiss:true,
     it, w: (it.m==='PAIR'||it.m==='INFER'||it.m==='ROOTS'||it.m==='ROOTT')?null:wordAt(it.gi,it.wi),
     onResolve: ok=>{
       if(it.gi!==undefined) tally(it.gi,it.wi,ok);
@@ -2652,7 +2717,7 @@ function trialItem(){
 }
 
 /* Shared prompt renderer: REC / REV / BLANK / PROD / PAIR / INFER */
-function renderTrialPrompt({label,gateLabel,it,w,onResolve,onNext,oneShot}){
+function renderTrialPrompt({label,gateLabel,it,w,onResolve,onNext,oneShot,forgeOnMiss}){
   if(it.inf){ P.seenInfer[it.inf.word]=1; save(); }
   if(it.pair){ P.seenPair[CONFUSABLES.indexOf(it.pair)]=1; save(); }
   let promptHtml='',bodyHtml='',typed=false;
@@ -2754,15 +2819,20 @@ function renderTrialPrompt({label,gateLabel,it,w,onResolve,onNext,oneShot}){
     else if(w) hint=`<span class="root-hint">${rootHint(w)}</span>`;
     // Inferred words and every word met in the Drill Hall pause on a correct
     // answer to show the etymological breakdown — never auto-advance.
+    const lp = document.querySelector('.learn-prompt');
+    const learnRoot = !!(lp && lp.querySelector('input') && lp.querySelector('input').checked);
+    if(lp){ lp.classList.add('spent'); const lpi=lp.querySelector('input'); if(lpi) lpi.disabled=true; }
     const teach = it.inf || (S.kind==='DRILL' && !!w);
-    if(ok && teach){ v.className='verdict right';
-      const src=it.inf||w;
+    if(ok && (teach || learnRoot)){ v.className='verdict right';
       let deep='';
-      if(src){
-        if(src.def) deep+=`<span class="fb-line fb-contrast">${src.word} ${saySmall(src.word)} — ${src.def.toLowerCase()}</span>`;
-        const story = it.inf ? '' : etyOf(w);
-        if(story) deep+=`<span class="fb-line fb-ety">${story}</span>`;
-        if(!it.inf && vigOf(w) && it.m!=='VIG' && it.m!=='VIGT') deep+=`<span class="fb-line fb-scene">“${esc(vigOf(w))}”</span>`;
+      if(it.root){ deep = rootDeepHtml(it.root); }
+      else { const src=it.inf||w;
+        if(src){
+          if(src.def) deep+=`<span class="fb-line fb-contrast">${src.word} ${saySmall(src.word)} — ${src.def.toLowerCase()}</span>`;
+          const story = it.inf ? '' : etyOf(w);
+          if(story) deep+=`<span class="fb-line fb-ety">${story}</span>`;
+          if(!it.inf && vigOf(w) && it.m!=='VIG' && it.m!=='VIGT') deep+=`<span class="fb-line fb-scene">“${esc(vigOf(w))}”</span>`;
+        }
       }
       v.innerHTML='Correct.'+hint+deep;
       document.getElementById('a').innerHTML=`<button class="btn" id="n">${(S.queue.length&&!oneShot)||(oneShot&&S.pos<S.queue.length)?'Next →':'Finish →'}</button>`;
@@ -2779,11 +2849,14 @@ function renderTrialPrompt({label,gateLabel,it,w,onResolve,onNext,oneShot}){
         if(etyOf(w)) deep+=`<span class="fb-line fb-ety">${etyOf(w)}</span>`;
         if(vigOf(w) && it.m!=='VIG' && it.m!=='VIGT') deep+=`<span class="fb-line fb-scene">“${esc(vigOf(w))}”</span>`;
       }
+      if(it.root && learnRoot) deep+=rootDeepHtml(it.root);
       v.className='verdict wrong';
       const ansAudio = (S.kind==='DRILL' && w) ? ' '+saySmall(w.word) : '';
       v.innerHTML=`<b>${answer}</b>${ansAudio}${extra?' — '+extra:''}.${hint}${deep}`;
-      document.getElementById('a').innerHTML=`<button class="btn" id="n">${(S.queue.length&&!oneShot)||(oneShot&&S.pos<S.queue.length)?'Next →':'Finish →'}</button>`;
+      const fgOffer = (forgeOnMiss && it.gi!==undefined && w) ? `<button class="btn ghost" id="fg-now">⚒ Forge it</button>` : '';
+      document.getElementById('a').innerHTML=fgOffer+`<button class="btn" id="n">${(S.queue.length&&!oneShot)||(oneShot&&S.pos<S.queue.length)?'Next →':'Finish →'}</button>`;
       document.getElementById('n').onclick=onNext;
+      const fgn=document.getElementById('fg-now'); if(fgn) fgn.onclick=()=>forgeNow(it.gi,it.wi,it.m,onNext);
       document.getElementById('n').focus(); }
   };
 
@@ -2812,6 +2885,7 @@ function renderTrialPrompt({label,gateLabel,it,w,onResolve,onNext,oneShot}){
     sub.onclick=check; input.onkeydown=e=>{if(e.key==='Enter')check();};
   } else wireChoices(finish);
   applyVeil();
+  applyRootLearn(it);
 }
 
 // Prediction veil: blur answer sets until the learner commits to a guess.
@@ -2827,6 +2901,18 @@ function applyVeil(){
   b.appendChild(document.createTextNode("What's your prediction?"));
   t.parentNode.insertBefore(b, t);
   cb.onchange = ()=>{ if(cb.checked){ t.classList.remove('veiled'); cb.disabled=true; } };
+}
+// A subtle, per-question opt-in shown only on Drill Hall root questions. When ticked
+// before answering, finish() pauses on the root's deep-study panel instead of the
+// usual snappy auto-advance. Renders unticked every question (per-question, no memory).
+function applyRootLearn(it){
+  if(!it.root || !S || S.kind!=='DRILL') return;
+  const v=document.getElementById('v'); if(!v) return;
+  const b=document.createElement('label'); b.className='learn-prompt';
+  const cb=document.createElement('input'); cb.type='checkbox';
+  b.appendChild(cb);
+  b.appendChild(document.createTextNode('Learn more about this root'));
+  v.parentNode.insertBefore(b, v);
 }
 function wireChoices(resolve){
   const cs=[...document.querySelectorAll('.choice')];
@@ -3033,6 +3119,59 @@ function lexEntries(){
   (window.DRILL_POOL||[]).forEach((d,di)=>{ if(P.drill.seen[d.word]) out.push({key:d.word, g:null, inf:-1, dr:di}); });
   return out.sort((a,b)=>a.key.localeCompare(b.key));
 }
+// The Lexicon opens on the roots — the app is built around them — and an arrow
+// leads out to the words that grow from them. Roots are drawn from every sealed
+// gate; each opens a detail card with its origin note and the words it feeds.
+function rootLexicon(q){
+  const all=sealedRoots().sort((a,b)=>a.root.root.toLowerCase().localeCompare(b.root.root.toLowerCase()));
+  const ql=(q||'').toLowerCase();
+  const hits=ql?all.filter(x=> rootForms(x.root).some(f=>f.toLowerCase().includes(ql)) || (x.root.gloss||'').toLowerCase().includes(ql)):all;
+  const wordsN=lexEntries().length;
+  S=null; stopClock&&stopClock();
+  app.innerHTML=`<section class="panel">
+    <button class="back" id="home">← The Gates</button>
+    <div class="stage-label">The Lexicon · Roots · ${all.length}</div>
+    <button class="lex-switch" id="to-words">
+      <span class="lex-switch-t">The Words</span>
+      <span class="lex-switch-ct">${wordsN} ${wordsN===1?'word':'words'} grown from these roots</span>
+      <span class="lex-switch-arrow">→</span></button>
+    <div class="typebox" style="margin:6px 0 14px"><input id="lexq" placeholder="search root or meaning…" value="${esc(q||'')}" autocomplete="off"></div>
+    <div class="lex-list">${hits.map(x=>{
+      const r=x.root;
+      return `<button class="lex-row" data-key="${esc(r.key)}"><span class="lex-w rl-w">${r.root}</span><span class="lex-d">${esc(r.gloss)}</span><span class="lex-led" style="color:var(--gild)">${r.lang}</span></button>`;
+    }).join('')||'<div class="grad-note">No roots yet — seal a gate to begin your keeping.</div>'}</div></section>`;
+  document.getElementById('home').onclick=home;
+  document.getElementById('to-words').onclick=()=>lexicon('');
+  const inp=document.getElementById('lexq');
+  inp.oninput=()=>{ const v=inp.value; clearTimeout(inp._t); inp._t=setTimeout(()=>rootLexicon(v),140); };
+  if(q){ inp.focus(); inp.setSelectionRange(inp.value.length,inp.value.length); }
+  app.querySelectorAll('.lex-row[data-key]').forEach(b=>b.onclick=()=>rootView(b.dataset.key,q));
+}
+function rootView(key,q){
+  const entry=sealedRoots().find(x=>x.root.key===key);
+  if(!entry){ rootLexicon(q||''); return; }
+  const r=entry.root;
+  const note=(window.ROOT_DEEP&&ROOT_DEEP[r.root])||ETYM[r.root]||'';
+  const fam=rootFamily(r,8);
+  const rows=fam.map(k=>{
+    const loc=wordLoc(k.word), d=esc(k.def||'');
+    if(loc) return `<button class="lex-row" data-gi="${loc.gi}" data-wi="${loc.wi}"><span class="lex-w">${k.word}</span><span class="lex-d">${d}</span></button>`;
+    return `<div class="lex-row" style="cursor:default"><span class="lex-w">${k.word}</span><span class="lex-d">${d}</span></div>`;
+  }).join('');
+  S=null; stopClock&&stopClock();
+  app.innerHTML=`<section class="panel">
+    <button class="back" id="back">← The Roots</button>
+    <div class="stage-label">Root · ${r.lang}${entry.gate?' · Gate '+rom(entry.gate):''}</div>
+    <div class="card">
+      <div class="headword rl-head">${r.root}</div>
+      <div class="rl-gloss-lg">“${esc(r.gloss)}”</div>
+      ${note?`<div class="rl-etym">${note}</div>`:''}
+    </div>
+    ${fam.length?`<div class="rl-grow-label">Grows into</div><div class="lex-list">${rows}</div>`:''}
+  </section>`;
+  document.getElementById('back').onclick=()=>rootLexicon(q||'');
+  app.querySelectorAll('.lex-row[data-gi]').forEach(b=>b.onclick=()=>wordView(+b.dataset.gi,+b.dataset.wi,'',()=>rootView(key,q),'The Root'));
+}
 function lexicon(q){
   const all=lexEntries();
   const ql=(q||'').toLowerCase();
@@ -3040,8 +3179,8 @@ function lexicon(q){
   const hits=ql?all.filter(e=>e.key.toLowerCase().includes(ql)||defOf(e).toLowerCase().includes(ql)):all;
   S=null; stopClock&&stopClock();
   app.innerHTML=`<section class="panel">
-    <button class="back" id="home">← The Gates</button>
-    <div class="stage-label">The Lexicon · ${all.length} words</div>
+    <button class="back" id="home">← The Roots</button>
+    <div class="stage-label">The Lexicon · Words · ${all.length}</div>
     <div class="typebox" style="margin:6px 0 14px"><input id="lexq" placeholder="search word or meaning…" value="${esc(q||'')}" autocomplete="off"></div>
     <div class="lex-list">${hits.map(e=>{
       if(e.g){
@@ -3056,7 +3195,7 @@ function lexicon(q){
       }
       return `<button class="lex-row" data-inf="${e.inf}"><span class="lex-w">${e.key}</span><span class="lex-d">${esc(INFER_POOL[e.inf].def)}</span><span class="lex-led" style="color:var(--gild)">inferred</span></button>`;
     }).join('')||'<div class="grad-note">Nothing matches.</div>'}</div></section>`;
-  document.getElementById('home').onclick=home;
+  document.getElementById('home').onclick=()=>rootLexicon('');
   const inp=document.getElementById('lexq');
   inp.oninput=()=>{ const v=inp.value; clearTimeout(inp._t); inp._t=setTimeout(()=>lexicon(v),140); };
   if(q){ inp.focus(); inp.setSelectionRange(inp.value.length,inp.value.length); }
@@ -3110,10 +3249,10 @@ function sealedGateView(idx){
   document.querySelectorAll('.lex-row').forEach(b=>b.onclick=()=>wordView(idx,+b.dataset.wi,'',()=>sealedGateView(idx)));
 }
 
-function wordView(gi,wi,q,backFn){
+function wordView(gi,wi,q,backFn,backLabel){
   const w=wordAt(gi,wi), t=P.ledger[gi+'-'+wi];
   app.innerHTML=`<section class="panel">
-    <button class="back" id="back">← ${backFn?'Gate '+rom(LEVELS[gi].id):'The Lexicon'}</button>
+    <button class="back" id="back">← ${backLabel||(backFn?'Gate '+rom(LEVELS[gi].id):'The Lexicon')}</button>
     <div class="stage-label">Gate ${rom(LEVELS[gi].id)} · ${LEVELS[gi].title}</div>
     ${cardHtml(w)}
     ${t?`<div class="grad-note" style="text-align:center">lifetime: ${t.r} right · ${t.w} wrong</div>`:''}
@@ -3122,8 +3261,26 @@ function wordView(gi,wi,q,backFn){
 }
 
 /* ================= THE FORGE ================= */
+/* A missed word can be reworked from several angles, not one. forgeAngles lists
+   every drill facet a given word can support; the Forge draws a spread of them
+   per word, and each penalty rep re-picks a fresh angle so a miss is met from a
+   new direction rather than the same failed prompt. */
+const FORGE_ANGLES = 2;       // distinct angles served per weak word in a Forge run
+const FORGE_NOW_ANGLES = 2;   // angles in the on-the-spot rework after a gate miss
+function forgeAngles(w){
+  const m=['REV','PROD'];                                   // meaning→word, and typed recall — always possible
+  if(w.distractors && w.distractors.length) m.unshift('REC');
+  if(vigOf(w)) m.push('VIG','VIGT');                        // read the scene, choose then type
+  if(w.sentence) m.push('CLOZE');                           // fill the sentence, typed
+  if(w.parts && w.parts.length>=2){ m.push('COMPOSE'); if(litOf(w)) m.push('LITT'); }  // assemble / read the pieces
+  return m;
+}
+function pickAngles(w,n){ const a=forgeAngles(w); return shuffle(a).slice(0, Math.max(1, Math.min(n, a.length))); }
+function reangle(f,w){ const a=forgeAngles(w); const alts=a.filter(m=>m!==f.m); const pool=alts.length?alts:a; return {...f, m:pool[Math.floor(Math.random()*pool.length)]}; }
 function weakWords(){
-  return sealedWords().filter(x=>{ const t=P.ledger[x.gi+'-'+x.wi]; return t && t.w>=2 && t.w*2>=t.r; });
+  // Lowered threshold: a single miss now qualifies, and words linger until they
+  // are answered right three times over for each miss (t.w*3 >= t.r).
+  return sealedWords().filter(x=>{ const t=P.ledger[x.gi+'-'+x.wi]; return t && t.w>=1 && t.w*3>=t.r; });
 }
 function forgeCard(){
   const wk=weakWords();
@@ -3135,15 +3292,17 @@ function forgeCard(){
     <span class="lvl-seal" style="color:var(--ox)">Open</span></button>`;
 }
 function startForge(){
-  const items=weakWords().map(x=>({gi:x.gi,wi:x.wi,m:Math.random()<.5?'PROD':'COMPOSE'}));
+  const wk=weakWords();
+  const items=[];
+  wk.forEach(x=>{ const w=wordAt(x.gi,x.wi); pickAngles(w,FORGE_ANGLES).forEach(m=>items.push({gi:x.gi,wi:x.wi,m})); });
   if(!items.length) return home();
-  S={kind:'FORGE',queue:shuffle(items),debt:0,done:0,sit:{cleared:0,ahead:0}};
+  S={kind:'FORGE',queue:shuffle(items),debt:0,done:0,words:wk.length,sit:{cleared:0,ahead:0}};
   forgeItem();
 }
 function forgeItem(){
   if(S.queue.length===0){
-    const n=S.done;
-    return sealScreen({seal:'⚒',title:'Forge Cleared',score:n+' words reworked'+(S.debt?' · '+S.debt+' penalty reps':''),
+    const n=S.words||S.done;
+    return sealScreen({seal:'⚒',title:'Forge Cleared',score:n+(n===1?' word reworked':' words reworked')+(S.debt?' · '+S.debt+' penalty reps':''),
       note:'The tallies remember. Miss them less and they leave the Forge on their own.',
       actions:'<button class="btn" id="h2">The Gates →</button>'}) || (document.getElementById('h2').onclick=home);
   }
@@ -3153,10 +3312,31 @@ function forgeItem(){
     onResolve: ok=>{
       tally(it.gi,it.wi,ok);
       if(ok){ S.queue.shift(); S.done++; S.sit.cleared++; }
-      else { const f=S.queue.shift(); S.queue.push(f); S.queue.push({...f}); S.debt++; }
-      return ok?null:'it returns to the queue, plus a penalty rep';
+      else { const f=S.queue.shift(); S.queue.push(reangle(f,w)); S.queue.push(reangle(f,w)); S.debt++; }
+      return ok?null:'it returns to the queue from a fresh angle, plus a penalty rep';
     },
     onNext: forgeItem
+  });
+}
+/* On-the-spot rework: the moment a word is missed inside a gate, the learner can
+   drill it straight away from a couple of fresh angles (skipping the one just
+   failed), after which control returns to the gate exactly where it was left. */
+function forgeNow(gi,wi,skipMode,resume){
+  const w=wordAt(gi,wi);
+  const modes=shuffle(forgeAngles(w).filter(m=>m!==skipMode)).slice(0,FORGE_NOW_ANGLES);
+  if(!modes.length) return resume();
+  S={kind:'FORGENOW', queue:modes.map(m=>({gi,wi,m})), pos:0, debt:0, resume, saved:S};
+  forgeNowItem();
+}
+function forgeNowItem(){
+  if(S.pos>=S.queue.length){ const r=S.resume; S=S.saved; return r(); }
+  const it=S.queue[S.pos], w=wordAt(it.gi,it.wi);
+  renderTrialPrompt({
+    label:'The Forge · '+(S.pos+1)+' of '+S.queue.length,
+    gateLabel:'Reworking · Gate '+rom(LEVELS[it.gi].id),
+    it, w, oneShot:true,
+    onResolve: ok=>{ tally(it.gi,it.wi,ok); S.pos++; return null; },
+    onNext: forgeNowItem
   });
 }
 
