@@ -1,9 +1,10 @@
-const CACHE = 'rootstock-v3-dragon-codex';
+const CACHE = 'rootstock-v4-dragon-codex';
 const PRECACHE = [
   './',
   'index.html',
   'depth.js',
   'drill.js',
+  'rootdeep.js',
   'pronunciations.js',
   'ipa.js'
 ];
