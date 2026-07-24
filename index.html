@@ -2,10 +2,9 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#141a24">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#e9d9b0">
 <meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="mobile-web-app-capable" content="yes">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Rootstock">
@@ -52,7 +51,7 @@
 
   /* ---- top bar ---- */
   .topbar{position:sticky;top:0;z-index:20;display:flex;align-items:center;justify-content:space-between;
-    padding:16px 2px 13px;margin-bottom:2px;
+    padding:calc(16px + env(safe-area-inset-top,0px)) 2px 13px;margin-bottom:2px;
     background:linear-gradient(var(--parch),var(--parch) 66%,rgba(246,244,239,0));backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
   .brand{display:flex;align-items:center;gap:9px;font-family:var(--display);font-weight:600;font-size:20px;letter-spacing:-.015em}
   .brand-mark{display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:9px;
@@ -404,7 +403,7 @@
   html.classic body{background:radial-gradient(120% 90% at 50% -10%,#f6f0e2 0%,var(--parch) 42%,var(--parch-deep) 100%)}
   html.classic .wrap{max-width:680px;padding:clamp(14px,4vw,40px)}
   html.classic .topbar{position:relative;top:auto;display:flex;flex-direction:column;gap:6px;text-align:center;background:none;
-    backdrop-filter:none;-webkit-backdrop-filter:none;border-bottom:2px solid var(--ink);padding:8px 0 20px;margin-bottom:26px}
+    backdrop-filter:none;-webkit-backdrop-filter:none;border-bottom:2px solid var(--ink);padding:calc(8px + env(safe-area-inset-top,0px)) 0 20px;margin-bottom:26px}
   html.classic .topbar::after{content:"";position:absolute;left:0;right:0;bottom:-6px;height:1px;background:var(--ink)}
   html.classic .topbar > div:last-child{order:-1;justify-content:center;width:100%;position:relative}
   html.classic .brand-mark{display:none}
@@ -886,7 +885,7 @@ html.dragon-codex #app{
 
 /* leather masthead */
 html.dragon-codex .topbar{
-  padding:12px 14px 11px;margin:0 -2px 13px;
+  padding:calc(12px + env(safe-area-inset-top,0px)) 14px 11px;margin:0 -2px 13px;
   border:1px solid rgba(207,157,66,.65);border-top:0;border-radius:0 0 15px 15px;
   background:
     linear-gradient(90deg,rgba(216,170,80,.09),transparent 22%,transparent 78%,rgba(216,170,80,.09)),
