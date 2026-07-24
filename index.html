@@ -885,12 +885,13 @@ html.dragon-codex #app{
 
 /* leather masthead */
 html.dragon-codex .topbar{
-  padding:calc(12px + env(safe-area-inset-top,0px)) 14px 11px;margin:0 -2px 13px;
-  border:1px solid rgba(207,157,66,.65);border-top:0;border-radius:0 0 15px 15px;
+  top:calc(env(safe-area-inset-top,0px) + 10px);
+  padding:13px 14px 12px;margin:calc(env(safe-area-inset-top,0px) + 10px) -2px 13px;
+  border:1px solid rgba(207,157,66,.65);border-radius:15px;
   background:
     linear-gradient(90deg,rgba(216,170,80,.09),transparent 22%,transparent 78%,rgba(216,170,80,.09)),
     linear-gradient(165deg,rgba(73,25,19,.98),rgba(32,12,10,.98));
-  box-shadow:0 8px 22px rgba(24,8,6,.28),inset 0 -1px 0 rgba(235,195,105,.18);
+  box-shadow:0 10px 26px rgba(24,8,6,.34),inset 0 0 0 1px rgba(235,195,105,.12),inset 0 -1px 0 rgba(235,195,105,.18);
   backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)
 }
 html.dragon-codex .brand{color:#f1dfb1;text-shadow:0 1px 2px #160706}
