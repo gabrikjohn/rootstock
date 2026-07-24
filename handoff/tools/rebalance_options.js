@@ -66,18 +66,37 @@ DRILL_POOL.forEach(word=>{
   plans.push({file:'drill.js',word,replacements:replacementFor('drill.js',word,local.length>=4?local:DRILL_POOL)});
 });
 
+function arrayEnd(source, open){
+  if(source[open]!=='[') throw new Error(`Expected array at offset ${open}`);
+  let depth=0, quoted=false, escaped=false;
+  for(let i=open;i<source.length;i++){
+    const ch=source[i];
+    if(quoted){
+      if(escaped){ escaped=false; continue; }
+      if(ch==='\\'){ escaped=true; continue; }
+      if(ch==='"') quoted=false;
+      continue;
+    }
+    if(ch==='"'){ quoted=true; continue; }
+    if(ch==='['){ depth++; continue; }
+    if(ch===']' && --depth===0) return i+1;
+  }
+  throw new Error(`Unclosed array at offset ${open}`);
+}
+
 const files=new Map([['index.html', html], ['drill.js', fs.readFileSync(path.join(ROOT,'drill.js'),'utf8')]]);
 for(const plan of plans){
   let out=files.get(plan.file);
-  const name=plan.word.word.replace(/[.*+?^${}()|[\]\\]/g,'\\$&');
-  const re=new RegExp(`\\{word:"${name}"[\\s\\S]*?distractors:\\[(?:"(?:\\\\.|[^"\\\\])*"\\s*,?\\s*)+\\]`);
-  const match=out.match(re);
-  if(!match || out.match(new RegExp(re.source,'g')).length!==1) throw new Error(`Guard failed for ${plan.file}:${plan.word.word}`);
-  const old=match[0];
+  const marker=`{word:${JSON.stringify(plan.word.word)}`;
+  const objectStart=out.indexOf(marker);
+  if(objectStart<0 || out.indexOf(marker,objectStart+marker.length)>=0) throw new Error(`Guard failed for ${plan.file}:${plan.word.word}`);
+  const objectEnd=out.indexOf('\n',objectStart);
+  const fieldStart=out.indexOf('distractors:[',objectStart);
+  if(fieldStart<0 || (objectEnd>=0 && fieldStart>objectEnd)) throw new Error(`Missing distractors for ${plan.file}:${plan.word.word}`);
+  const open=fieldStart+'distractors:'.length;
+  const fieldEnd=arrayEnd(out,open);
   const replacement=`distractors:[${plan.replacements.map(JSON.stringify).join(',')}]`;
-  const next=old.replace(/distractors:\[(?:"(?:\\.|[^"\\])*"\s*,?\s*)+\]/, replacement);
-  if(next===old) throw new Error(`No distractor replacement for ${plan.word.word}`);
-  files.set(plan.file, out.replace(old,next));
+  files.set(plan.file,out.slice(0,fieldStart)+replacement+out.slice(fieldEnd));
 }
 for(const [file, out] of files) fs.writeFileSync(path.join(ROOT,file),out);
 console.log(`Rebalanced ${plans.length} items with full competing definitions.`);
