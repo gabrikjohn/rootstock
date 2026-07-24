@@ -2134,6 +2134,32 @@ let P = load();
 function G(id){ if(!P.gates[id]) P.gates[id]={t1:0,sealed:false}; return P.gates[id]; }
 function rom(n){ if(!(n>0))return n; const T=[[1000,'M'],[900,'CM'],[500,'D'],[400,'CD'],[100,'C'],[90,'XC'],[50,'L'],[40,'XL'],[10,'X'],[9,'IX'],[5,'V'],[4,'IV'],[1,'I']]; let s=''; for(const[v,r]of T){ while(n>=v){ s+=r; n-=v; } } return s; }
 function shuffle(a){ a=a.slice(); for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];} return a; }
+// A stable identity for a quiz item, so the same word/root is never served twice
+// in a row (even from a different angle or as a penalty rep).
+function itemKey(it){
+  if(!it) return '';
+  if(it.m==='PAIR') return 'p:'+(it.pair&&it.pair.ans);
+  if(it.m==='INFER') return 'i:'+(it.inf&&it.inf.word);
+  if(it.root) return 'r:'+(it.root.key||it.root.root||it.root);
+  if(it.gi!=null&&it.wi!=null) return 'w:'+it.gi+':'+it.wi;
+  return String(it.m||'');
+}
+// If the queue head repeats the just-served key, pull the first differing item
+// forward. No-op when nothing else is left (unavoidable at the very end).
+function avoidRepeat(q,lastKey,keyOf){
+  if(lastKey==null || q.length<2 || keyOf(q[0])!==lastKey) return;
+  for(let i=1;i<q.length;i++){ if(keyOf(q[i])!==lastKey){ const [x]=q.splice(i,1); q.unshift(x); return; } }
+}
+// Re-insert a missed item plus one penalty rep, spaced apart so neither is served
+// back-to-back with the other (avoidRepeat handles any residual adjacency).
+function requeueMiss(q,item,penalty){
+  const a=Math.max(1,Math.floor(q.length*0.34));
+  const b=Math.max(a+2,Math.floor(q.length*0.7));
+  q.splice(Math.min(a,q.length),0,penalty);
+  q.splice(Math.min(b,q.length),0,item);
+}
+// A root's origin note for reveals: the deep-study line, falling back to the terse etym.
+function rootEtymNote(r){ return (window.ROOT_DEEP&&ROOT_DEEP[r.root])||ETYM[r.root]||''; }
 function esc(s){ return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/"/g,'&quot;'); }
 function rootHint(w){ return w.parts.filter(p=>p[1]).map(p=>p[0]+'='+p[1]).join('  ·  '); }
 function blank(w){ const re=new RegExp(w.word.replace(/[.*+?^${}()|[\]\\]/g,'\\$&'),'i'); return esc(w.sentence).replace(re,'<b>＿＿＿＿</b>'); }
@@ -2172,7 +2198,7 @@ function wordLoc(name){
 // to the terse ETYM line) plus the words it grows into. Shown when "Learn more" is on.
 function rootDeepHtml(r){
   let out='';
-  const note=(window.ROOT_DEEP&&ROOT_DEEP[r.root])||ETYM[r.root]||'';
+  const note=rootEtymNote(r);
   if(note) out+=`<span class="fb-line fb-ety">${note}</span>`;
   const fam=rootFamily(r);
   if(fam.length){
@@ -2554,8 +2580,10 @@ function rootDrill(idx){
 function rootDrillItem(){
   const lv=LEVELS[S.idx];
   if(S.queue.length===0) return studyScreen(S.idx,0);
+  avoidRepeat(S.queue, S.lastRoot, x=>x);
   markSit('roots');
   const ri=S.queue[0], r=lv.quizRoots[ri];
+  S.lastRoot=ri;
   const seen=new Set([r.gloss]); const others=[];
   for(const o of shuffle(lv.quizRoots.filter((o,i)=>i!==ri && (!r.compoundOf || o.compoundOf!==r.compoundOf)))){ if(seen.has(o.gloss)) continue; seen.add(o.gloss); others.push(o.gloss); if(others.length===3) break; }
   const opts=shuffle([{t:r.gloss,ok:true},...others.map(t=>({t,ok:false}))]);
@@ -2576,8 +2604,12 @@ function rootDrillItem(){
     const v=document.getElementById('v');
     if(ok){ S.queue.shift(); S.done++; S.sit.cleared++; v.className='verdict right'; v.textContent='Correct.';
       const sess=S; setTimeout(()=>{ if(S===sess) rootDrillItem(); },350); }
-    else { S.queue.push(S.queue.shift()); S.queue.push(ri); S.debt++;
-      v.className='verdict wrong'; v.textContent='No — it returns to the queue, with a penalty rep.';
+    else { S.queue.shift(); requeueMiss(S.queue, ri, ri); S.debt++;
+      v.className='verdict wrong';
+      const note=rootEtymNote(r);
+      v.innerHTML=`No — <b>${esc(r.root)}</b> means “${esc(r.gloss)}.”`
+        + (note?`<span class="fb-line fb-ety" style="display:block;margin-top:7px">${note}</span>`:'')
+        + `<span class="fb-line" style="display:block;margin-top:7px;opacity:.72">It returns to the queue, with a penalty rep.</span>`;
       document.getElementById('a').innerHTML=`<button class="btn" id="n">${S.queue.length?'Next →':'To the words →'}</button>`;
       document.getElementById('n').onclick=rootDrillItem;
       document.getElementById('n').focus(); }
@@ -2696,8 +2728,10 @@ function startTrial2(idx){
 function trialItem(){
   const lv=LEVELS[S.idx];
   if(S.queue.length===0) return trialDone();
+  avoidRepeat(S.queue, S.lastKey, itemKey);
   markSit('trial');
   const it=S.queue[0];
+  S.lastKey=itemKey(it);
   const label = S.kind==='T1'?'Trial I':'Trial II';
   renderTrialPrompt({
     label:'Gate '+rom(lv.id)+' · '+label,
@@ -2707,7 +2741,7 @@ function trialItem(){
     onResolve: ok=>{
       if(it.gi!==undefined) tally(it.gi,it.wi,ok);
       if(ok){ S.queue.shift(); S.done++; if(S.sit)S.sit.cleared++; }
-      else { const f=S.queue.shift(); S.queue.push(f); S.queue.push({...f}); S.debt++;
+      else { const f=S.queue.shift(); requeueMiss(S.queue, f, {...f}); S.debt++;
         S.missed.push(it.m==='PAIR'?it.pair.ans : it.m==='INFER'?it.inf.word : it.root?it.root.root : wordAt(it.gi,it.wi).word); }
       return ok?null:'it returns to the queue, plus a penalty rep';
     },
@@ -3150,7 +3184,7 @@ function rootView(key,q){
   const entry=sealedRoots().find(x=>x.root.key===key);
   if(!entry){ rootLexicon(q||''); return; }
   const r=entry.root;
-  const note=(window.ROOT_DEEP&&ROOT_DEEP[r.root])||ETYM[r.root]||'';
+  const note=rootEtymNote(r);
   const fam=rootFamily(r,8);
   const rows=fam.map(k=>{
     const loc=wordLoc(k.word), d=esc(k.def||'');
