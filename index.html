@@ -2160,6 +2160,16 @@ function requeueMiss(q,item,penalty){
 }
 // A root's origin note for reveals: the deep-study line, falling back to the terse etym.
 function rootEtymNote(r){ return (window.ROOT_DEEP&&ROOT_DEEP[r.root])||ETYM[r.root]||''; }
+// The teaching block for an inference word, shown on both correct and wrong answers:
+// how its pieces compose (English glosses) and the classical roots behind them, so
+// the feedback explains the inference instead of merely restating the definition.
+function inferDeep(inf){
+  if(!inf) return '';
+  const morph = inf.parts.map(p=>p[1]?`${p[0]} (${p[1]})`:p[0]).join(' + ');
+  let d=`<span class="fb-line fb-parts">${esc(morph)}</span>`;
+  if(inf.roots) d+=`<span class="fb-line fb-ety">${esc(inf.roots)}</span>`;
+  return d;
+}
 function esc(s){ return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/"/g,'&quot;'); }
 function rootHint(w){ return w.parts.filter(p=>p[1]).map(p=>p[0]+'='+p[1]).join('  ·  '); }
 function blank(w){ const re=new RegExp(w.word.replace(/[.*+?^${}()|[\]\\]/g,'\\$&'),'i'); return esc(w.sentence).replace(re,'<b>＿＿＿＿</b>'); }
@@ -2845,7 +2855,7 @@ function renderTrialPrompt({label,gateLabel,it,w,onResolve,onNext,oneShot,forgeO
     const v=document.getElementById('v');
     let hint='';
     if(it.m==='PAIR') hint=`<span class="root-hint">${it.pair.why}</span>`;
-    else if(it.m==='INFER') hint=`<span class="root-hint">${it.inf.roots}</span>`;
+    else if(it.m==='INFER') hint='';
     else if(it.m==='COMPOSE'){ const src=it.inf||w;
       hint=`<span class="root-hint">${src.parts.map(p=>p[0]+(p[1]?' ('+p[1]+')':'')).join(' + ')}</span>`; }
     else if(it.root) hint=`<span class="root-hint">${it.root.root} — ${it.root.gloss} · ${it.root.lang}</span>`;
@@ -2862,9 +2872,12 @@ function renderTrialPrompt({label,gateLabel,it,w,onResolve,onNext,oneShot,forgeO
       else { const src=it.inf||w;
         if(src){
           if(src.def) deep+=`<span class="fb-line fb-contrast">${src.word} ${saySmall(src.word)} — ${src.def.toLowerCase()}</span>`;
-          const story = it.inf ? '' : etyOf(w);
-          if(story) deep+=`<span class="fb-line fb-ety">${story}</span>`;
-          if(!it.inf && vigOf(w) && it.m!=='VIG' && it.m!=='VIGT') deep+=`<span class="fb-line fb-scene">“${esc(vigOf(w))}”</span>`;
+          if(it.inf) deep+=inferDeep(it.inf);
+          else {
+            const story = etyOf(w);
+            if(story) deep+=`<span class="fb-line fb-ety">${story}</span>`;
+            if(vigOf(w) && it.m!=='VIG' && it.m!=='VIGT') deep+=`<span class="fb-line fb-scene">“${esc(vigOf(w))}”</span>`;
+          }
         }
       }
       v.innerHTML='Correct.'+hint+deep;
@@ -2883,6 +2896,7 @@ function renderTrialPrompt({label,gateLabel,it,w,onResolve,onNext,oneShot,forgeO
         if(vigOf(w) && it.m!=='VIG' && it.m!=='VIGT') deep+=`<span class="fb-line fb-scene">“${esc(vigOf(w))}”</span>`;
       }
       if(it.root && learnRoot) deep+=rootDeepHtml(it.root);
+      if(it.inf) deep+=inferDeep(it.inf);
       v.className='verdict wrong';
       const ansAudio = (S.kind==='DRILL' && w) ? ' '+saySmall(w.word) : '';
       v.innerHTML=`<b>${answer}</b>${ansAudio}${extra?' — '+extra:''}.${hint}${deep}`;
