@@ -1,0 +1,27 @@
+{
+  "gates": {
+    "1": {
+      "t1": 1700000000000,
+      "sealed": true
+    }
+  },
+  "bar": {
+    "passed": false,
+    "lockedUntil": 0
+  },
+  "review": {},
+  "prompted": {},
+  "seenInfer": {},
+  "seenPair": {},
+  "predict": true,
+  "appearance": "parchment",
+  "ledger": {},
+  "mark": null,
+  "drill": {
+    "theta": 0,
+    "n": 0,
+    "seen": {},
+    "roots": {}
+  },
+  "onboarded": true
+}

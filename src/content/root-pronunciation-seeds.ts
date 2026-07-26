@@ -1,0 +1,907 @@
+export interface RootPronunciationSeedEntry {
+  word: string;
+  lang: string;
+  say?: string;
+  ipa?: string;
+}
+
+export type RootPronunciationSeed = string | RootPronunciationSeedEntry;
+
+export const ROOT_PRONUNCIATION_SEEDS = [
+  {
+    "word": "a",
+    "lang": "Greek",
+    "say": "α"
+  },
+  {
+    "word": "acious",
+    "lang": "Latin"
+  },
+  {
+    "word": "ad",
+    "lang": "Latin"
+  },
+  {
+    "word": "adulari",
+    "lang": "Latin"
+  },
+  {
+    "word": "advertere",
+    "lang": "Latin"
+  },
+  {
+    "word": "aequus",
+    "lang": "Latin"
+  },
+  {
+    "word": "agora",
+    "lang": "Greek",
+    "say": "αγορά"
+  },
+  {
+    "word": "akros",
+    "lang": "Greek",
+    "say": "άκρος"
+  },
+  {
+    "word": "algos",
+    "lang": "Greek",
+    "say": "άλγος"
+  },
+  {
+    "word": "alter",
+    "lang": "Latin"
+  },
+  {
+    "word": "ambi",
+    "lang": "Latin"
+  },
+  {
+    "word": "amphi",
+    "lang": "Greek",
+    "say": "αμφί"
+  },
+  {
+    "word": "ana",
+    "lang": "Greek",
+    "say": "ανά"
+  },
+  {
+    "word": "analyein",
+    "lang": "Greek",
+    "say": "αναλύειν"
+  },
+  {
+    "word": "aner",
+    "lang": "Greek",
+    "say": "ανήρ"
+  },
+  "animus",
+  {
+    "word": "anthropos",
+    "lang": "Greek",
+    "say": "άνθρωπος"
+  },
+  {
+    "word": "archein",
+    "lang": "Greek",
+    "say": "άρχειν"
+  },
+  {
+    "word": "asketes",
+    "lang": "Greek",
+    "say": "ασκητής"
+  },
+  {
+    "word": "astron",
+    "lang": "Greek",
+    "say": "άστρον"
+  },
+  {
+    "word": "autos",
+    "lang": "Greek",
+    "say": "αυτός"
+  },
+  {
+    "word": "bellum",
+    "lang": "Latin"
+  },
+  {
+    "word": "bene",
+    "lang": "Latin"
+  },
+  {
+    "word": "bi",
+    "lang": "Latin"
+  },
+  {
+    "word": "biblion",
+    "lang": "Greek",
+    "say": "βιβλίον"
+  },
+  {
+    "word": "bios",
+    "lang": "Greek",
+    "say": "βίος"
+  },
+  {
+    "word": "botane",
+    "lang": "Greek",
+    "say": "βοτάνη"
+  },
+  {
+    "word": "caedere",
+    "lang": "Latin"
+  },
+  {
+    "word": "capere",
+    "lang": "Latin"
+  },
+  {
+    "word": "caput",
+    "lang": "Latin"
+  },
+  {
+    "word": "Chauvin",
+    "lang": "French"
+  },
+  {
+    "word": "cheir",
+    "lang": "Greek",
+    "say": "χειρ"
+  },
+  {
+    "word": "chronos",
+    "lang": "Greek",
+    "say": "χρόνος"
+  },
+  {
+    "word": "ciarlare",
+    "lang": "Italian"
+  },
+  {
+    "word": "circum",
+    "lang": "Latin"
+  },
+  {
+    "word": "claustrum",
+    "lang": "Latin"
+  },
+  {
+    "word": "cogere",
+    "lang": "Latin"
+  },
+  {
+    "word": "com",
+    "lang": "Latin"
+  },
+  {
+    "word": "con",
+    "lang": "Latin"
+  },
+  {
+    "word": "condonare",
+    "lang": "Latin"
+  },
+  {
+    "word": "contra",
+    "lang": "Latin"
+  },
+  {
+    "word": "corpus",
+    "lang": "Latin"
+  },
+  {
+    "word": "corrigere",
+    "lang": "Latin"
+  },
+  {
+    "word": "credere",
+    "lang": "Latin"
+  },
+  {
+    "word": "crimen",
+    "lang": "Latin"
+  },
+  {
+    "word": "culpa",
+    "lang": "Latin"
+  },
+  {
+    "word": "dare",
+    "lang": "Latin"
+  },
+  {
+    "word": "demos",
+    "lang": "Greek",
+    "say": "δήμος"
+  },
+  {
+    "word": "derma",
+    "lang": "Greek",
+    "say": "δέρμα"
+  },
+  {
+    "word": "dia",
+    "lang": "Greek",
+    "say": "διά"
+  },
+  {
+    "word": "dicere",
+    "lang": "Latin"
+  },
+  {
+    "word": "dikē",
+    "lang": "Greek",
+    "say": "δίκη"
+  },
+  {
+    "word": "dilettare",
+    "lang": "Italian"
+  },
+  {
+    "word": "dipsa",
+    "lang": "Greek",
+    "say": "δίψα"
+  },
+  {
+    "word": "dis",
+    "lang": "Latin"
+  },
+  {
+    "word": "doxa",
+    "lang": "Greek",
+    "say": "δόξα"
+  },
+  {
+    "word": "duo",
+    "lang": "Latin"
+  },
+  {
+    "word": "dys",
+    "lang": "Greek",
+    "say": "δυς"
+  },
+  {
+    "word": "e",
+    "lang": "Latin"
+  },
+  {
+    "word": "ego",
+    "lang": "Latin"
+  },
+  {
+    "word": "eikon",
+    "lang": "Greek",
+    "say": "εικών"
+  },
+  {
+    "word": "entomon",
+    "lang": "Greek",
+    "say": "έντομον"
+  },
+  {
+    "word": "epi",
+    "lang": "Greek",
+    "say": "επί"
+  },
+  {
+    "word": "escent",
+    "lang": "Latin"
+  },
+  {
+    "word": "etymon",
+    "lang": "Greek",
+    "say": "έτυμον"
+  },
+  {
+    "word": "eu",
+    "lang": "Greek",
+    "say": "ευ"
+  },
+  {
+    "word": "ex",
+    "lang": "Latin"
+  },
+  {
+    "word": "extra",
+    "lang": "Latin"
+  },
+  {
+    "word": "fallere",
+    "lang": "Latin"
+  },
+  {
+    "word": "fatigare",
+    "lang": "Latin"
+  },
+  {
+    "word": "frater",
+    "lang": "Latin"
+  },
+  {
+    "word": "gamos",
+    "lang": "Greek",
+    "say": "γάμος"
+  },
+  {
+    "word": "garrire",
+    "lang": "Latin"
+  },
+  {
+    "word": "ge",
+    "lang": "Greek",
+    "say": "γη"
+  },
+  {
+    "word": "genitus",
+    "lang": "Latin"
+  },
+  {
+    "word": "genos",
+    "lang": "Greek",
+    "say": "γένος"
+  },
+  {
+    "word": "gerere",
+    "lang": "Latin"
+  },
+  {
+    "word": "geron",
+    "lang": "Greek",
+    "say": "γέρων"
+  },
+  {
+    "word": "gignere",
+    "lang": "Latin"
+  },
+  {
+    "word": "grandis",
+    "lang": "Latin"
+  },
+  {
+    "word": "graphein",
+    "lang": "Greek",
+    "say": "γράφειν"
+  },
+  {
+    "word": "grex",
+    "lang": "Latin"
+  },
+  {
+    "word": "hieros",
+    "lang": "Greek",
+    "say": "ιερός"
+  },
+  {
+    "word": "hypnos",
+    "lang": "Greek",
+    "say": "ύπνος"
+  },
+  {
+    "word": "hypochondria",
+    "lang": "Greek",
+    "say": "υποχόνδρια"
+  },
+  {
+    "word": "iatreia",
+    "lang": "Greek",
+    "say": "ιατρεία"
+  },
+  {
+    "word": "im",
+    "lang": "Latin"
+  },
+  {
+    "word": "in",
+    "lang": "Latin"
+  },
+  {
+    "word": "ingenuus",
+    "lang": "Latin"
+  },
+  {
+    "word": "internus",
+    "lang": "Latin"
+  },
+  {
+    "word": "intro",
+    "lang": "Latin"
+  },
+  {
+    "word": "judex",
+    "lang": "Latin"
+  },
+  {
+    "word": "jurare",
+    "lang": "Latin"
+  },
+  {
+    "word": "jus",
+    "lang": "Latin"
+  },
+  {
+    "word": "kakos",
+    "lang": "Greek",
+    "say": "κακός"
+  },
+  {
+    "word": "kallos",
+    "lang": "Greek",
+    "say": "κάλλος"
+  },
+  {
+    "word": "kardia",
+    "lang": "Greek",
+    "say": "καρδία"
+  },
+  {
+    "word": "kleptein",
+    "lang": "Greek",
+    "say": "κλέπτειν"
+  },
+  {
+    "word": "kratos",
+    "lang": "Greek",
+    "say": "κράτος"
+  },
+  {
+    "word": "Lakonia",
+    "lang": "Greek",
+    "say": "Λακωνία"
+  },
+  {
+    "word": "lis",
+    "lang": "Latin"
+  },
+  {
+    "word": "logos",
+    "lang": "Greek",
+    "say": "λόγος"
+  },
+  {
+    "word": "loqui",
+    "lang": "Latin"
+  },
+  {
+    "word": "léger",
+    "lang": "French"
+  },
+  {
+    "word": "magnus",
+    "lang": "Latin"
+  },
+  {
+    "word": "male",
+    "lang": "Latin"
+  },
+  {
+    "word": "malus",
+    "lang": "Latin"
+  },
+  {
+    "word": "mania",
+    "lang": "Greek",
+    "say": "μανία"
+  },
+  {
+    "word": "manteia",
+    "lang": "Greek",
+    "say": "μαντεία"
+  },
+  {
+    "word": "manus",
+    "lang": "Latin"
+  },
+  "Martinet",
+  {
+    "word": "mater",
+    "lang": "Latin"
+  },
+  {
+    "word": "megas",
+    "lang": "Greek",
+    "say": "μέγας"
+  },
+  {
+    "word": "mendax",
+    "lang": "Latin"
+  },
+  {
+    "word": "metron",
+    "lang": "Greek",
+    "say": "μέτρον"
+  },
+  {
+    "word": "miles",
+    "lang": "Latin"
+  },
+  {
+    "word": "misein",
+    "lang": "Greek",
+    "say": "μισείν"
+  },
+  {
+    "word": "monos",
+    "lang": "Greek",
+    "say": "μόνος"
+  },
+  {
+    "word": "mori",
+    "lang": "Latin"
+  },
+  {
+    "word": "myein",
+    "lang": "Greek",
+    "say": "μύειν"
+  },
+  {
+    "word": "necare",
+    "lang": "Latin"
+  },
+  {
+    "word": "necros",
+    "lang": "Greek",
+    "say": "νεκρός"
+  },
+  {
+    "word": "neuron",
+    "lang": "Greek",
+    "say": "νεύρον"
+  },
+  {
+    "word": "nomen",
+    "lang": "Latin"
+  },
+  {
+    "word": "nomos",
+    "lang": "Greek",
+    "say": "νόμος"
+  },
+  {
+    "word": "non",
+    "lang": "Latin"
+  },
+  {
+    "word": "noscere",
+    "lang": "Latin"
+  },
+  {
+    "word": "nostos",
+    "lang": "Greek",
+    "say": "νόστος"
+  },
+  {
+    "word": "ob",
+    "lang": "Latin"
+  },
+  {
+    "word": "obstetrix",
+    "lang": "Latin"
+  },
+  {
+    "word": "odontos",
+    "lang": "Greek",
+    "say": "οδόντος"
+  },
+  {
+    "word": "oligos",
+    "lang": "Greek",
+    "say": "ολίγος"
+  },
+  {
+    "word": "onyma",
+    "lang": "Greek",
+    "say": "όνυμα"
+  },
+  {
+    "word": "ophthalmos",
+    "lang": "Greek",
+    "say": "οφθαλμός"
+  },
+  {
+    "word": "opsis",
+    "lang": "Greek",
+    "say": "όψις"
+  },
+  {
+    "word": "orthos",
+    "lang": "Greek",
+    "say": "ορθός"
+  },
+  {
+    "word": "osteon",
+    "lang": "Greek",
+    "say": "οστέον"
+  },
+  {
+    "word": "pais",
+    "lang": "Greek",
+    "say": "παις"
+  },
+  {
+    "word": "par",
+    "lang": "Latin"
+  },
+  {
+    "word": "pater",
+    "lang": "Latin"
+  },
+  {
+    "word": "pathos",
+    "lang": "Greek",
+    "say": "πάθος"
+  },
+  {
+    "word": "per",
+    "lang": "Latin"
+  },
+  {
+    "word": "pes",
+    "lang": "Latin"
+  },
+  {
+    "word": "pheme",
+    "lang": "Greek",
+    "say": "φήμη"
+  },
+  "Philistine",
+  {
+    "word": "phone",
+    "lang": "Greek",
+    "say": "φωνή"
+  },
+  {
+    "word": "placare",
+    "lang": "Latin"
+  },
+  {
+    "word": "ploutos",
+    "lang": "Greek",
+    "say": "πλούτος"
+  },
+  {
+    "word": "polis",
+    "lang": "Greek",
+    "say": "πόλις"
+  },
+  {
+    "word": "polys",
+    "lang": "Greek",
+    "say": "πολύς"
+  },
+  {
+    "word": "pous",
+    "lang": "Greek",
+    "say": "πους"
+  },
+  {
+    "word": "presbys",
+    "lang": "Greek",
+    "say": "πρέσβυς"
+  },
+  {
+    "word": "prudentia",
+    "lang": "Latin"
+  },
+  {
+    "word": "pseudes",
+    "lang": "Greek",
+    "say": "ψευδής"
+  },
+  {
+    "word": "psyche",
+    "lang": "Greek",
+    "say": "ψυχή"
+  },
+  {
+    "word": "puer",
+    "lang": "Latin"
+  },
+  {
+    "word": "pugnare",
+    "lang": "Latin"
+  },
+  {
+    "word": "pugnus",
+    "lang": "Latin"
+  },
+  {
+    "word": "pusillus",
+    "lang": "Latin"
+  },
+  {
+    "word": "pyr",
+    "lang": "Greek",
+    "say": "πυρ"
+  },
+  {
+    "word": "rex",
+    "lang": "Latin"
+  },
+  {
+    "word": "scintilla",
+    "lang": "Latin"
+  },
+  {
+    "word": "scire",
+    "lang": "Latin"
+  },
+  {
+    "word": "scribere",
+    "lang": "Latin"
+  },
+  {
+    "word": "senex",
+    "lang": "Latin"
+  },
+  {
+    "word": "sententia",
+    "lang": "Latin"
+  },
+  {
+    "word": "sequi",
+    "lang": "Latin"
+  },
+  {
+    "word": "similis",
+    "lang": "Latin"
+  },
+  {
+    "word": "simulare",
+    "lang": "Latin"
+  },
+  {
+    "word": "socius",
+    "lang": "Latin"
+  },
+  {
+    "word": "solus",
+    "lang": "Latin"
+  },
+  {
+    "word": "soma",
+    "lang": "Greek",
+    "say": "σώμα"
+  },
+  {
+    "word": "sopor",
+    "lang": "Latin"
+  },
+  {
+    "word": "specere",
+    "lang": "Latin"
+  },
+  {
+    "word": "species",
+    "lang": "Latin"
+  },
+  {
+    "word": "Stoa",
+    "lang": "Greek",
+    "say": "Στοά"
+  },
+  {
+    "word": "sub",
+    "lang": "Latin"
+  },
+  {
+    "word": "summa",
+    "lang": "Latin"
+  },
+  {
+    "word": "sykon",
+    "lang": "Greek",
+    "say": "σύκον"
+  },
+  {
+    "word": "syn",
+    "lang": "Greek",
+    "say": "συν"
+  },
+  {
+    "word": "tacere",
+    "lang": "Latin"
+  },
+  {
+    "word": "tele",
+    "lang": "Greek",
+    "say": "τήλε"
+  },
+  {
+    "word": "tempus",
+    "lang": "Latin"
+  },
+  {
+    "word": "tergere",
+    "lang": "Latin"
+  },
+  {
+    "word": "thanatos",
+    "lang": "Greek",
+    "say": "θάνατος"
+  },
+  {
+    "word": "theos",
+    "lang": "Greek",
+    "say": "θεός"
+  },
+  {
+    "word": "trepidus",
+    "lang": "Latin"
+  },
+  {
+    "word": "unus",
+    "lang": "Latin"
+  },
+  {
+    "word": "urbs",
+    "lang": "Latin"
+  },
+  {
+    "word": "uxor",
+    "lang": "Latin"
+  },
+  {
+    "word": "vacillare",
+    "lang": "Latin"
+  },
+  {
+    "word": "varicare",
+    "lang": "Latin"
+  },
+  {
+    "word": "verbum",
+    "lang": "Latin"
+  },
+  {
+    "word": "vertere",
+    "lang": "Latin"
+  },
+  {
+    "word": "vertigo",
+    "lang": "Latin"
+  },
+  {
+    "word": "verto",
+    "lang": "Latin"
+  },
+  {
+    "word": "verus",
+    "lang": "Latin"
+  },
+  {
+    "word": "vetus",
+    "lang": "Latin"
+  },
+  {
+    "word": "via",
+    "lang": "Latin"
+  },
+  {
+    "word": "vir",
+    "lang": "Latin"
+  },
+  {
+    "word": "vivere",
+    "lang": "Latin"
+  },
+  {
+    "word": "volvere",
+    "lang": "Latin"
+  },
+  {
+    "word": "vox",
+    "lang": "Latin"
+  },
+  {
+    "word": "xenos",
+    "lang": "Greek",
+    "say": "ξένος"
+  },
+  {
+    "word": "zoion",
+    "lang": "Greek",
+    "say": "ζώον"
+  }
+] satisfies RootPronunciationSeed[];

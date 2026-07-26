@@ -1,0 +1,316 @@
+
+/* ==================================================================
+   THE DRAGON CODEX — original illuminated-fantasy limited edition
+   ================================================================== */
+html.dragon-codex{
+  --ink:#382414; --ink-soft:#735634;
+  --parch:#e9d6a7; --parch-deep:#d6ba78;
+  --surface:#f2e4bd; --surface-2:#e7d29e;
+  --ox:#8d2f20; --ox-bright:#b44a2c;
+  --gild:#9b741f; --moss:#4b6136;
+  --line:#b9934d; --shadow:rgba(39,20,11,.25);
+  --radius:13px; --radius-sm:9px;
+  --sh-sm:0 1px 2px rgba(36,17,9,.10),0 4px 12px rgba(36,17,9,.12);
+  --sh-md:0 3px 8px rgba(36,17,9,.15),0 16px 36px rgba(36,17,9,.20);
+  --sh-lg:0 25px 64px rgba(25,9,6,.40);
+}
+html.dragon-codex body{
+  position:relative;isolation:isolate;
+  background:
+    radial-gradient(ellipse at 50% 20%,#6f4020 0,#321611 58%,#180b09 100%);
+  color:var(--ink);
+}
+html.dragon-codex body::before{
+  content:"";position:fixed;inset:0;z-index:0;pointer-events:none;
+  background:url("../assets/themes/dragon-codex/frame-mobile.webp") center top/cover no-repeat;
+  opacity:.86;
+}
+html.dragon-codex .wrap{position:relative;z-index:1;padding-bottom:max(44px,env(safe-area-inset-bottom))}
+html.dragon-codex #app{
+  position:relative;padding:12px 12px 22px;border:1px solid rgba(163,115,45,.48);border-radius:16px;
+  background:
+    linear-gradient(180deg,rgba(239,222,177,.94),rgba(231,208,152,.91));
+  box-shadow:0 12px 34px rgba(33,13,8,.18),inset 0 0 0 2px rgba(255,241,199,.30)
+}
+
+/* leather masthead */
+html.dragon-codex .topbar{
+  padding:calc(12px + env(safe-area-inset-top,0px)) 14px 11px;margin:0 -2px 13px;
+  border:1px solid rgba(207,157,66,.65);border-top:0;border-radius:0 0 15px 15px;
+  background:
+    linear-gradient(90deg,rgba(216,170,80,.09),transparent 22%,transparent 78%,rgba(216,170,80,.09)),
+    linear-gradient(165deg,rgba(73,25,19,.98),rgba(32,12,10,.98));
+  box-shadow:0 8px 22px rgba(24,8,6,.28),inset 0 -1px 0 rgba(235,195,105,.18);
+  backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)
+}
+html.dragon-codex .brand{color:#f1dfb1;text-shadow:0 1px 2px #160706}
+html.dragon-codex .brand-tag{color:#d8ac50}
+html.dragon-codex .brand-mark{
+  width:32px;height:32px;border:1px solid #d0a34a;color:#f4dfac;border-radius:50%;
+  background:
+    linear-gradient(rgba(42,11,9,.48),rgba(42,11,9,.48)),
+    url("../assets/themes/dragon-codex/dragon-crest.webp") center/cover;
+  box-shadow:0 2px 8px rgba(0,0,0,.52),inset 0 0 0 2px rgba(235,193,96,.18);
+  text-shadow:0 1px 3px #130404
+}
+html.dragon-codex .topbar-cog{
+  color:#e4c87f;background:rgba(238,208,137,.08);border-color:rgba(214,168,75,.62);
+  box-shadow:inset 0 0 0 1px rgba(63,18,14,.8),0 2px 8px rgba(0,0,0,.32)
+}
+html.dragon-codex .topbar-cog:hover{color:#fff0c6;border-color:#e1bd6b;background:rgba(238,208,137,.14)}
+
+/* manuscript page surfaces */
+html.dragon-codex .panel{position:relative}
+html.dragon-codex .panel::before{
+  content:"";position:absolute;z-index:0;pointer-events:none;inset:28px -8px auto;height:min(420px,58vh);
+  background:url("../assets/themes/dragon-codex/interior-marginalia.webp") center top/100% auto no-repeat;
+  opacity:.08;border-radius:14px
+}
+html.dragon-codex .panel>*{position:relative;z-index:1}
+html.dragon-codex .card,
+html.dragon-codex .modal{
+  background:
+    linear-gradient(rgba(247,235,198,.86),rgba(237,218,164,.90)),
+    url("../assets/themes/dragon-codex/interior-marginalia.webp") center/cover;
+  border:1px solid #a77d34;
+  box-shadow:var(--sh-md),inset 0 0 0 3px rgba(246,224,166,.55),inset 0 0 38px rgba(110,68,20,.16)
+}
+html.dragon-codex .card::before,
+html.dragon-codex .modal::before{
+  content:"";position:absolute;inset:7px;border:1px solid rgba(142,96,29,.28);
+  border-radius:calc(var(--radius) - 4px);pointer-events:none
+}
+html.dragon-codex .card,
+html.dragon-codex .modal{position:relative}
+html.dragon-codex .stat,
+html.dragon-codex .lvl-card,
+html.dragon-codex .lex-bar,
+html.dragon-codex .choice,
+html.dragon-codex .chip,
+html.dragon-codex .set-card,
+html.dragon-codex .pw-plan{
+  background:linear-gradient(168deg,rgba(247,235,201,.98),rgba(228,205,147,.98));
+  border-color:#b38b43;
+  box-shadow:var(--sh-sm),inset 0 0 0 1px rgba(255,240,199,.55),inset 0 0 18px rgba(112,70,24,.10)
+}
+html.dragon-codex .lvl-card:hover:not(:disabled),
+html.dragon-codex .choice:hover:not(.locked),
+html.dragon-codex .lex-bar:hover:not(:disabled),
+html.dragon-codex .pw-plan:hover{
+  border-color:#8d5c24;box-shadow:var(--sh-md),inset 0 0 0 1px rgba(255,240,199,.64)
+}
+html.dragon-codex .lvl-card:disabled{
+  opacity:.80;background:linear-gradient(168deg,#e9d9ad,#d6bd7d);color:#4d3922
+}
+html.dragon-codex .lvl-card.bar-card{
+  background:
+    radial-gradient(circle at 88% 22%,rgba(180,58,31,.18),transparent 30%),
+    linear-gradient(165deg,#f0dca4,#daba70);
+  border-color:#9e7130
+}
+html.dragon-codex .lvl-card.drill-card{
+  background:
+    linear-gradient(95deg,rgba(34,11,9,.92),rgba(77,27,20,.90)),
+    url("../assets/themes/dragon-codex/dashboard-vignette.webp") right center/cover;
+  color:#f1dfb1;border-color:#b78736
+}
+html.dragon-codex .lvl-card.drill-card .lvl-body h3{color:#f1dfb1}
+html.dragon-codex .lvl-card.drill-card .lvl-num{color:#e5ba5b;background:rgba(229,186,91,.12);border-color:#b78736}
+html.dragon-codex .lvl-card.current{
+  background:
+    radial-gradient(circle at 86% 18%,rgba(207,156,61,.26),transparent 34%),
+    linear-gradient(155deg,#5a2119,#2c0f0d 72%);
+  color:#f3e2b4;border-color:#c19542;
+  box-shadow:0 8px 24px rgba(41,12,9,.38),inset 0 0 0 1px rgba(234,190,94,.18)
+}
+html.dragon-codex .lvl-card.current .lvl-body h3{color:#fff0c4}
+html.dragon-codex .lvl-card.current .lvl-body p{color:#d7bd81}
+html.dragon-codex .lvl-card.current .lvl-num{color:#f0cb73;background:rgba(230,183,81,.13);border-color:#b88938}
+html.dragon-codex .lvl-card.current .lvl-seal{color:#e1bc65}
+
+/* dragon gate medallions */
+html.dragon-codex .lvl-num{
+  position:relative;border-radius:50%;border:1px solid #9c7230;
+  color:#7b2a1d;background:
+    radial-gradient(circle at 34% 28%,#f8e7b8,#d5b66e 68%,#b4883d);
+  box-shadow:inset 0 0 0 3px rgba(255,239,190,.55),0 3px 8px rgba(69,35,10,.20)
+}
+html.dragon-codex .lvl-num::after{
+  content:"";position:absolute;inset:4px;border:1px dotted rgba(109,73,22,.42);border-radius:50%;pointer-events:none
+}
+html.dragon-codex .stamp{color:#42562e;border-color:rgba(66,86,46,.56);background:rgba(75,97,54,.08)}
+
+/* dashboard feature art */
+html.dragon-codex .dash-hello{color:#392314;text-shadow:0 1px rgba(255,246,213,.45)}
+html.dragon-codex .session{
+  min-height:190px;padding:21px 20px 23px;border:1px solid #bb8c39;
+  background-image:
+    linear-gradient(90deg,rgba(29,8,7,.96) 0%,rgba(43,12,9,.93) 45%,rgba(43,12,9,.55) 70%,rgba(20,7,6,.18) 100%),
+    url("../assets/themes/dragon-codex/dashboard-vignette.webp");
+  background-size:cover;background-position:center;
+  box-shadow:var(--sh-lg),inset 0 0 0 3px rgba(215,165,69,.12),inset 0 0 36px rgba(0,0,0,.32)
+}
+html.dragon-codex .session::after{
+  right:-25px;top:-42px;width:220px;height:220px;
+  background:radial-gradient(circle,rgba(216,162,65,.20),rgba(216,162,65,0) 67%)
+}
+html.dragon-codex .session::before{
+  content:"";position:absolute;inset:0;z-index:2;pointer-events:none;transform:translateX(-120%);
+  background:linear-gradient(105deg,transparent 34%,rgba(255,224,144,.18) 49%,transparent 64%)
+}
+html.dragon-codex .session:hover::before{animation:codex-glint .72s ease}
+html.dragon-codex .session-kicker{color:#d8b15a}
+html.dragon-codex .session-title{color:#fff0c5;text-shadow:0 2px 5px #160504}
+html.dragon-codex .session-meta{color:#d8c18d}
+html.dragon-codex .session-arrow{color:#f2d98f;background:rgba(225,179,80,.12);border:1px solid rgba(225,179,80,.34)}
+html.dragon-codex .session-bar{height:7px;background:rgba(17,5,4,.64);border:1px solid rgba(226,180,81,.24)}
+html.dragon-codex .session-bar>i,
+html.dragon-codex .sfill{
+  background:linear-gradient(90deg,#8d5b1b,#d7ae4f 50%,#f0d47c);
+  box-shadow:0 0 9px rgba(222,174,67,.36)
+}
+html.dragon-codex .sbar{height:8px;background:#c9aa65;border:1px solid rgba(116,72,20,.25)}
+html.dragon-codex .stat{border-width:1px}
+html.dragon-codex .stat-n{color:#4b2b18}
+
+/* manuscript typography and dividers */
+html.dragon-codex .index-head,
+html.dragon-codex .set-h{
+  color:#6f4a1f
+}
+html.dragon-codex .set-h{
+  display:inline-flex;align-items:center;padding:3px 9px;border:1px solid rgba(158,111,39,.25);border-radius:20px;
+  background:rgba(241,224,179,.88);box-shadow:0 1px 5px rgba(67,37,14,.10)
+}
+html.dragon-codex .index-head::before,
+html.dragon-codex .set-h::before{content:"✦";color:#9b741f;margin-right:7px}
+html.dragon-codex .stage-label{
+  display:flex;align-items:center;justify-content:center;gap:9px;color:#862c1f;
+  text-shadow:0 1px rgba(255,239,192,.6)
+}
+html.dragon-codex .stage-label::before,
+html.dragon-codex .stage-label::after{
+  content:"";height:1px;width:34px;background:linear-gradient(90deg,transparent,#9b741f)
+}
+html.dragon-codex .stage-label::after{background:linear-gradient(90deg,#9b741f,transparent)}
+html.dragon-codex .stage-title,
+html.dragon-codex .headword,
+html.dragon-codex .grad-title{color:#3b2312;text-shadow:0 1px rgba(255,245,209,.65)}
+html.dragon-codex .root-row{border-color:rgba(133,93,32,.38)}
+html.dragon-codex .root-key{color:#882e20}
+html.dragon-codex .root-lang,
+html.dragon-codex .near{color:#88661b}
+html.dragon-codex .seg{
+  background:linear-gradient(#f3e2b1,#dec181);border-color:#b28b45;
+  box-shadow:inset 0 0 0 1px rgba(255,242,200,.6)
+}
+html.dragon-codex .exline{border-color:rgba(137,93,27,.32)}
+html.dragon-codex .fine::before{content:"☙  "}
+html.dragon-codex .fine::after{content:"  ❧"}
+
+/* controls and states */
+html.dragon-codex .btn{
+  border-color:#c39945;border-radius:9px;color:#f5e5b7;
+  background:
+    linear-gradient(145deg,rgba(121,44,29,.96),rgba(48,15,12,.98));
+  box-shadow:0 4px 12px rgba(38,11,8,.28),inset 0 0 0 1px rgba(240,196,99,.18)
+}
+html.dragon-codex .btn:hover{color:#fff1c8;border-color:#e0b859;background:linear-gradient(145deg,#9c3b26,#4b1712)}
+html.dragon-codex .btn.ghost{color:#5e361d;background:rgba(244,229,185,.58);border-color:#a77d37}
+html.dragon-codex .back{
+  color:#654421;background:rgba(239,222,174,.90);border-color:#b28a42;
+  box-shadow:var(--sh-sm),inset 0 0 0 1px rgba(255,244,209,.55)
+}
+html.dragon-codex .back:hover{color:#842d1f}
+html.dragon-codex .choice .mark,
+html.dragon-codex .prompt .q-ask,
+html.dragon-codex .cue{color:#872e21}
+html.dragon-codex .choice.correct,
+html.dragon-codex .typebox input.ok,
+html.dragon-codex .built.ok{background:linear-gradient(160deg,#e3d9a8,#cbd093);border-color:#526a3c}
+html.dragon-codex .choice.wrong,
+html.dragon-codex .typebox input.bad,
+html.dragon-codex .built.bad{background:linear-gradient(160deg,#efd5aa,#dfb085);border-color:#8d2f20}
+html.dragon-codex .typebox input,
+html.dragon-codex .modal textarea{
+  color:#352213;background:rgba(248,236,199,.94);border-color:#ab823d
+}
+html.dragon-codex .typebox input:focus{border-color:#9c6e26;box-shadow:0 0 0 3px rgba(169,121,38,.20)}
+html.dragon-codex :focus-visible{outline-color:#b6842f}
+
+/* seals, onboarding, paywall and account */
+html.dragon-codex .wax,
+html.dragon-codex .wax.gold,
+html.dragon-codex .ob-art,
+html.dragon-codex .pw-seal{
+  border:2px solid #c99a42;
+  background:
+    linear-gradient(rgba(48,13,10,.24),rgba(48,13,10,.24)),
+    url("../assets/themes/dragon-codex/dragon-crest.webp") center/cover;
+  box-shadow:0 14px 34px rgba(39,10,8,.38),inset 0 0 0 4px rgba(238,195,101,.15)
+}
+html.dragon-codex .wax::before{border-color:rgba(242,210,132,.52)}
+html.dragon-codex .wax span,
+html.dragon-codex .ob-art span,
+html.dragon-codex .pw-seal{
+  color:#fff0c2;text-shadow:0 2px 5px #1d0605
+}
+html.dragon-codex .ob-art span{
+  display:flex;align-items:center;justify-content:center;width:46px;height:46px;border-radius:50%;
+  background:rgba(35,9,7,.64);border:1px solid rgba(221,174,73,.52);font-size:29px
+}
+html.dragon-codex .pw-seal{font-size:0}
+html.dragon-codex .pw-seal::after{content:"✦";font-size:24px}
+html.dragon-codex .pw-bens li::before{color:#9b741f}
+html.dragon-codex .pw-plan.sel{
+  border-color:#8d2f20;box-shadow:var(--sh-md),0 0 0 3px rgba(141,47,32,.14)
+}
+html.dragon-codex .pw-badge{background:linear-gradient(#ad8128,#795818);color:#fff0c4}
+html.dragon-codex .set-card{overflow:hidden}
+html.dragon-codex .set-row,
+html.dragon-codex .set-status{border-color:rgba(139,96,31,.32)}
+html.dragon-codex .set-row:hover{background:rgba(145,98,31,.09)}
+html.dragon-codex .restore-link{
+  width:max-content;max-width:100%;margin-left:auto;margin-right:auto;padding:6px 12px;border-radius:18px;
+  color:#57361e;opacity:.88;background:rgba(239,221,172,.80);text-shadow:0 1px rgba(255,245,212,.55)
+}
+html.dragon-codex .set-status .badge{
+  background:
+    linear-gradient(rgba(47,13,10,.22),rgba(47,13,10,.22)),
+    url("../assets/themes/dragon-codex/dragon-crest.webp") center/cover;
+  border:1px solid #bb8d3b
+}
+html.dragon-codex .modal-scrim{background:rgba(24,7,6,.67)}
+html.dragon-codex #rs-toast{color:#f3dfac;background:linear-gradient(145deg,#5b2017,#230b09);border:1px solid #b88736}
+html.dragon-codex ::selection{background:rgba(155,116,31,.28)}
+
+/* appearance picker in either skin */
+html.parchment .theme-option{background:linear-gradient(168deg,#f7edcb,#ead7a5);border-color:#b6975a}
+html.dragon-codex .theme-option{
+  background:linear-gradient(155deg,#f1dfad,#d8ba73);border-color:#a97f38
+}
+html.dragon-codex .theme-option.sel{
+  border-color:#77261c;box-shadow:var(--sh-md),0 0 0 3px rgba(119,38,28,.14)
+}
+html.dragon-codex .theme-option.sel::after{background:#75261b;color:#f5dda4}
+
+@keyframes codex-glint{to{transform:translateX(120%)}}
+@media (min-width:760px){
+  html.dragon-codex body::before{
+    background-image:url("../assets/themes/dragon-codex/frame-wide.webp");
+    background-position:center top
+  }
+  html.dragon-codex .wrap{
+    margin-top:18px;margin-bottom:18px;padding-left:26px;padding-right:26px;
+    border-left:1px solid rgba(151,103,37,.28);border-right:1px solid rgba(151,103,37,.28)
+  }
+}
+@media (max-width:359px),(max-height:700px){
+  html.dragon-codex body::before{opacity:.54}
+  html.dragon-codex .panel::before{opacity:.12}
+  html.dragon-codex .session{min-height:174px}
+}
+@media (max-width:390px){
+  .theme-picker{grid-template-columns:1fr}
+  .theme-preview{height:62px}
+}

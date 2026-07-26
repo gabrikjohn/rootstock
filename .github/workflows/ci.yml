@@ -1,0 +1,53 @@
+name: Rootstock checks
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+jobs:
+  web:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+      - run: npm ci
+      - run: npm run check
+      - run: npx playwright install --with-deps chromium
+      - run: npm run test:e2e
+      - name: Verify generated checks leave tracked sources clean
+        run: git diff --exit-code
+      - uses: actions/upload-artifact@v4
+        with:
+          name: rootstock-web-bundle
+          path: dist
+          if-no-files-found: error
+
+  native:
+    runs-on: macos-15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+      - run: npm ci
+      - name: Test StoreKit and offline WKWebView behavior
+        run: npm run test:native
+      - name: Build the iOS release shell
+        run: |
+          xcodebuild \
+            -project ios/Rootstock.xcodeproj \
+            -scheme Rootstock \
+            -sdk iphonesimulator \
+            -configuration Release \
+            -derivedDataPath "$RUNNER_TEMP/rootstock-derived" \
+            CODE_SIGNING_ALLOWED=NO \
+            build
+      - name: Verify the bundled artifact byte-for-byte
+        run: diff -qr dist "$RUNNER_TEMP/rootstock-derived/Build/Products/Release-iphonesimulator/Rootstock.app/web"
+      - name: Verify native checks leave tracked sources clean
+        run: git diff --exit-code

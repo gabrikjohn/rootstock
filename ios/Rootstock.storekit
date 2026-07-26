@@ -1,0 +1,100 @@
+{
+  "identifier" : "RootstockLocalStoreKit",
+  "nonRenewingSubscriptions" : [
+
+  ],
+  "products" : [
+
+  ],
+  "settings" : {
+    "_applicationInternalID" : "rootstock-local",
+    "_developerTeamID" : "",
+    "_failTransactionsEnabled" : false,
+    "_locale" : "en_US",
+    "_storefront" : "USA",
+    "_storeKitErrors" : [
+
+    ]
+  },
+  "subscriptionGroups" : [
+    {
+      "id" : "rootstock-full",
+      "localizations" : [
+        {
+          "description" : "All gates, the Bar, and the Drill Hall.",
+          "displayName" : "Rootstock Full",
+          "locale" : "en_US"
+        }
+      ],
+      "name" : "Rootstock Full",
+      "subscriptions" : [
+        {
+          "adHocOffers" : [
+
+          ],
+          "codeOffers" : [
+
+          ],
+          "displayPrice" : "4.99",
+          "familyShareable" : false,
+          "groupNumber" : 1,
+          "internalID" : "rootstock-monthly",
+          "introductoryOffer" : {
+            "displayPrice" : "0",
+            "internalID" : "rootstock-monthly-trial",
+            "numberOfPeriods" : 1,
+            "paymentMode" : "free",
+            "subscriptionPeriod" : "P3D"
+          },
+          "localizations" : [
+            {
+              "description" : "Complete access to Rootstock.",
+              "displayName" : "Rootstock Full Monthly",
+              "locale" : "en_US"
+            }
+          ],
+          "productID" : "com.rootstock.full.monthly",
+          "recurringSubscriptionPeriod" : "P1M",
+          "referenceName" : "Rootstock Full — Monthly",
+          "subscriptionGroupID" : "rootstock-full",
+          "type" : "RecurringSubscription"
+        },
+        {
+          "adHocOffers" : [
+
+          ],
+          "codeOffers" : [
+
+          ],
+          "displayPrice" : "39.99",
+          "familyShareable" : false,
+          "groupNumber" : 2,
+          "internalID" : "rootstock-annual",
+          "introductoryOffer" : {
+            "displayPrice" : "0",
+            "internalID" : "rootstock-annual-trial",
+            "numberOfPeriods" : 1,
+            "paymentMode" : "free",
+            "subscriptionPeriod" : "P3D"
+          },
+          "localizations" : [
+            {
+              "description" : "Complete access to Rootstock.",
+              "displayName" : "Rootstock Full Annual",
+              "locale" : "en_US"
+            }
+          ],
+          "productID" : "com.rootstock.full.annual",
+          "recurringSubscriptionPeriod" : "P1Y",
+          "referenceName" : "Rootstock Full — Annual",
+          "subscriptionGroupID" : "rootstock-full",
+          "type" : "RecurringSubscription"
+        }
+      ]
+    }
+  ],
+  "version" : {
+    "major" : 3,
+    "minor" : 0
+  }
+}
