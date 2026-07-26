@@ -13,6 +13,7 @@ const forbiddenPaths = [
   "pronunciations.js",
   "rootdeep.js",
   "roots_pronunciations.json",
+  "scripts/fetch-fonts.mjs",
   "service-worker.js",
   "store/App Store Listing.html",
   "store/Developer Handoff.html",

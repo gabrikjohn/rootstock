@@ -17,12 +17,13 @@ npm run test:native
 ```
 
 The shared scheme uses `ios/Rootstock.storekit` for local monthly and annual purchase testing.
-`RootstockTests` exercises price loading, annual purchase, entitlement publication, and expiration;
-`RootstockUITests` restarts the bundled WKWebView with all network traffic blocked. On Apple
-runtimes where a valid StoreKit configuration unexpectedly returns no products, the StoreKit test
-is skipped only on iOS 26; it remains a failure on earlier runtimes and automatically resumes the
-full assertions when products load. Production signing requires the publisher’s Apple Developer
-team; do not commit personal signing settings.
+`RootstockTests` exercises localized price loading, monthly and annual purchases, introductory-trial
+state, restore into a fresh service instance, expiration, refund revocation, and entitlement
+publication. `RootstockUITests` restarts the bundled WKWebView with all network traffic blocked. On
+Apple runtimes where a valid StoreKit configuration unexpectedly returns no products, the StoreKit
+test is skipped only on iOS 26; it remains a failure on earlier runtimes and automatically resumes
+the full assertions when products load. Production signing requires the publisher’s Apple
+Developer team; do not commit personal signing settings.
 
 ## JavaScript-to-native requests
 

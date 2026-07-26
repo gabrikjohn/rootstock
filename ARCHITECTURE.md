@@ -17,8 +17,10 @@ Rootstock remains an offline, framework-free web application. The maintained sou
 - `ios/` is the StoreKit 2/WKWebView shell. Its build phase consumes only the generated `dist/`
   directory and bundles those exact files under `web/`.
 
-The only intentional native global is `window.RS_setEntitlement`. The StoreKit request messages and
-the `rootstock_v2`, `rootstock_v2_bak`, and `rootstock_theme_v1` storage contracts remain unchanged.
+The only app-owned global is `window.RS_setEntitlement`. Host-provided `window.webkit` and
+`window.RootstockNative` bridge endpoints remain compatibility inputs; content and engine data are
+never published as globals. The StoreKit request messages and the `rootstock_v2`,
+`rootstock_v2_bak`, and `rootstock_theme_v1` storage contracts remain unchanged.
 
 ## Development and releases
 
