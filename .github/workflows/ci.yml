@@ -17,7 +17,8 @@ jobs:
       - run: npm ci
       - run: npm run check
       - run: npx playwright install --with-deps chromium
-      - run: npm run test:e2e
+      - name: Run functional browser acceptance tests
+        run: npm run test:e2e -- --project=functional-mobile
       - name: Verify generated checks leave tracked sources clean
         run: git diff --exit-code
       - uses: actions/upload-artifact@v4
@@ -25,6 +26,25 @@ jobs:
           name: rootstock-web-bundle
           path: dist
           if-no-files-found: error
+
+  visual:
+    runs-on: macos-15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+      - run: npm ci
+      - run: npx playwright install chromium
+      - name: Compare supported-width screenshots on the baseline platform
+        run: >-
+          npm run test:e2e --
+          --project=visual-compact
+          --project=visual-standard
+          --project=visual-wide
+      - name: Verify visual checks leave tracked sources clean
+        run: git diff --exit-code
 
   native:
     runs-on: macos-15
