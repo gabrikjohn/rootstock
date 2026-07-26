@@ -1,0 +1,17 @@
+{
+  "name": "Rootstock",
+  "short_name": "Rootstock",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#141a24",
+  "theme_color": "#141a24",
+  "icons": [
+    {
+      "src": "icons/AppIcon-1024.png",
+      "sizes": "1024x1024",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}

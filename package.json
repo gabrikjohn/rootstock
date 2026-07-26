@@ -1,0 +1,30 @@
+{
+  "name": "rootstock",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": "24.x"
+  },
+  "scripts": {
+    "dev": "node scripts/build.mjs --serve",
+    "build": "node scripts/build.mjs",
+    "typecheck": "tsc --noEmit",
+    "validate:content": "vitest run tests/content.test.ts",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:e2e": "playwright test",
+    "test:native": "node scripts/native-test.mjs",
+    "generate:seeds": "node scripts/generate-seeds.mjs",
+    "check:seeds": "node scripts/generate-seeds.mjs --check",
+    "check:repo": "node scripts/check-repository.mjs",
+    "check": "npm run check:repo && npm run typecheck && npm test && npm run check:seeds && npm run build"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.56.1",
+    "@types/node": "^26.1.1",
+    "esbuild": "^0.28.1",
+    "typescript": "^5.9.3",
+    "vitest": "^4.0.4"
+  }
+}

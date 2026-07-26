@@ -9,11 +9,11 @@
 
 ## Testing
 
-<!-- How did you verify it? e.g. opened index.html, sealed a gate, checked the Forge. -->
+<!-- How did you verify it? `npm run check` is required; add `npm run test:e2e` for user flows. -->
 -
 
 ## Checklist
 
-- [ ] I opened the app and exercised the change by hand
-- [ ] Inline scripts still parse (no console errors on load)
+- [ ] `npm run check` passes
+- [ ] I exercised affected user flows (`npm run test:e2e` when appropriate)
 - [ ] I updated any user-facing copy or docs that this touches

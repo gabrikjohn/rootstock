@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#e9d9b0">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Rootstock">
+<link rel="apple-touch-icon" href="./icons/AppIcon-180.png">
+<link rel="manifest" href="./manifest.webmanifest">
+<link rel="stylesheet" href="./assets/app.css">
+<title>The Rootstock — Word Power</title>
+<script>(function(){
+  var q = new URLSearchParams(location.search);
+  var THEME_KEY = 'rootstock_theme_v1';
+  var THEME_COLORS = {
+    plain:'#f6f4ef',
+    parchment:'#e9d9b0',
+    classic:'#e9dfc8',
+    odyssey:'#102331',
+    'dragon-codex':'#24100f'
+  };
+  // Parchment remains the default. Vintage is retained as a Classic alias.
+  function rsNormalizeTheme(t){
+    if(t === 'vintage') return 'classic';
+    return /^(parchment|classic|plain|odyssey|dragon-codex)$/.test(t) ? t : '';
+  }
+  function rsThemeFromStorage(){
+    try{
+      var saved = rsNormalizeTheme(localStorage.getItem(THEME_KEY));
+      if(saved) return saved;
+      var p = JSON.parse(localStorage.getItem('rootstock_v2') || '{}');
+      return rsNormalizeTheme(p.appearance);
+    }catch(e){ return ''; }
+  }
+  function rsApplyTheme(t,persist){
+    var theme = rsNormalizeTheme(t) || 'parchment';
+    var root = document.documentElement;
+    root.classList.toggle('parchment', theme === 'parchment' || theme === 'dragon-codex');
+    root.classList.toggle('classic', theme === 'classic');
+    root.classList.toggle('odyssey', theme === 'odyssey');
+    root.classList.toggle('dragon-codex', theme === 'dragon-codex');
+    root.setAttribute('data-rs-theme',theme);
+    var meta = document.querySelector('meta[name="theme-color"]');
+    if(meta) meta.setAttribute('content',THEME_COLORS[theme]);
+    if(persist){
+      try{ localStorage.setItem(THEME_KEY,theme); }catch(e){}
+    }
+    window.dispatchEvent(new CustomEvent('rs-theme-change',{detail:{theme:theme}}));
+    return theme;
+  }
+  var rsRequestedTheme = rsNormalizeTheme(q.get('theme'));
+  document.documentElement.setAttribute('data-rs-theme-override',rsRequestedTheme || '');
+  rsApplyTheme(rsRequestedTheme || rsThemeFromStorage() || 'parchment',false);
+  document.documentElement.setAttribute('data-rs-etym',q.get('etym') !== '0' ? '1' : '0');
+  // The frontier gate's burnt-parchment highlight duplicated the big brown
+  // session tile at the top of the home screen, which already points to the
+  // present gate — so it's off by default now; ?burnt=1 restores it.
+  document.documentElement.setAttribute('data-rs-burnt',q.get('burnt') === '1' ? '1' : '0');
+  // ?dev=1 grants a non-expiring entitlement to the web-preview simulation, so
+  // building past Gate III doesn't mean re-tripping the 3-day trial every three
+  // days. It persists, so it only needs to be passed once. Web preview only:
+  // RS ignores it whenever a native bridge is present, leaving StoreKit the
+  // sole source of truth in the shipped app.
+  document.documentElement.setAttribute('data-rs-dev',q.get('dev') === '1' ? '1' : '0');
+  window.addEventListener('message', function(e){
+    if(e.data && typeof e.data.rsTheme === 'string'){
+      var theme = rsNormalizeTheme(e.data.rsTheme);
+      if(theme) rsApplyTheme(theme,false);
+    }
+  });
+})();</script>
+</head>
+<body>
+<div class="wrap">
+  <header class="topbar">
+    <div class="brand"><span class="brand-mark">R</span>Rootstock</div>
+    <div style="display:flex;align-items:center;gap:11px">
+      <span class="brand-tag">Word Power</span>
+      <button class="topbar-cog" id="cog" aria-label="Settings" title="Settings">⚙</button>
+    </div>
+  </header>
+  <main id="app"></main>
+  <div class="fine">After the method of Norman Lewis · twenty-four gates and the Bar</div>
+</div>
+<script src="./assets/app.js"></script>
+</body>
+</html>

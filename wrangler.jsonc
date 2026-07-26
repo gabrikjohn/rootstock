@@ -1,0 +1,6 @@
+{
+  "name": "rootstock",
+  "compatibility_date": "2026-07-23",
+  "pages_build_output_dir": "./dist",
+  "send_metrics": false
+}
