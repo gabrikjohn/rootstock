@@ -2,7 +2,7 @@ import { createHash } from "node:crypto";
 import { createReadStream } from "node:fs";
 import { cp, mkdir, readdir, readFile, rm } from "node:fs/promises";
 import { createServer } from "node:http";
-import { extname, join, normalize, resolve } from "node:path";
+import { extname, join, resolve } from "node:path";
 import process from "node:process";
 import * as esbuild from "esbuild";
 
@@ -83,6 +83,10 @@ async function build() {
 await build();
 
 if (serving) {
+  const servedFiles = new Map(
+    (await listFiles(dist)).map((file) => [`/${file}`, join(dist, file)])
+  );
+  servedFiles.set("/", join(dist, "index.html"));
   const mime = {
     ".css": "text/css; charset=utf-8",
     ".html": "text/html; charset=utf-8",
@@ -96,12 +100,16 @@ if (serving) {
     ".woff2": "font/woff2"
   };
   const server = createServer((request, response) => {
-    const rawPath = decodeURIComponent((request.url ?? "/").split("?")[0] ?? "/");
-    const relative = rawPath === "/" ? "index.html" : rawPath.replace(/^\/+/, "");
-    const safe = normalize(relative);
-    const absolute = resolve(dist, safe);
-    if (!absolute.startsWith(`${dist}/`) && absolute !== join(dist, "index.html")) {
-      response.writeHead(403).end("Forbidden");
+    let path;
+    try {
+      path = decodeURIComponent((request.url ?? "/").split("?")[0] ?? "/");
+    } catch {
+      response.writeHead(400).end("Bad request");
+      return;
+    }
+    const absolute = servedFiles.get(path);
+    if (!absolute) {
+      response.writeHead(404).end("Not found");
       return;
     }
     const stream = createReadStream(absolute);
