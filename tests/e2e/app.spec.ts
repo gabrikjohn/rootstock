@@ -289,6 +289,9 @@ test("completes both trials and seals an entire gate", async ({ page }) => {
     await answerChoiceAndWait(page);
   }
   for (let index = 0; index < gate.words.length; index += 1) {
+    const word = gate.words[index]!;
+    await expect(page.locator(".headword")).toHaveText(word.word);
+    await expect(page.locator(`.say[data-say="${word.word}"]`)).toBeVisible();
     await page.locator("#next").click();
   }
   while (!await page.getByText("Trial I is passed.").isVisible()) {
