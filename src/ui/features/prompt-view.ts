@@ -15,6 +15,8 @@ interface PromptViewOptions {
   literal(word: Word | DrillWord): string;
   // Resolves an option's text — a definition or a headword — to its part of speech.
   posOf(text: string): string | null;
+  // Wrong headwords for a word-choice prompt, ranked by confusability.
+  wordFoils(word: Word | DrillWord, gateIndex: number | undefined, count: number): string[];
   rootForms(root: Root): string[];
   rootCue(root: Root): string;
   rootAudio(root: string): string;
@@ -62,11 +64,7 @@ export function buildPromptView(options: PromptViewOptions): PromptView {
     }
     case "REV": {
       const word = requireWord(options.word, item.m);
-      const gate = requireGate(options.gates, item.gi);
-      const others = shuffle(
-        gate.words.filter((candidate) => candidate.word !== word.word),
-        options.random
-      ).slice(0, 3).map((candidate) => candidate.word);
+      const others = options.wordFoils(word, item.gi, 3);
       const choices = shuffle([
         { text: word.word, correct: true },
         ...others.map((text) => ({ text, correct: false }))
@@ -184,12 +182,8 @@ export function buildPromptView(options: PromptViewOptions): PromptView {
     }
     case "VIG": {
       const word = requireWord(options.word, item.m);
-      const gate = requireGate(options.gates, item.gi);
       const scene = options.vignette(word) || word.def;
-      const others = shuffle(
-        gate.words.filter((candidate) => candidate.word !== word.word),
-        options.random
-      ).slice(0, 3).map((candidate) => candidate.word);
+      const others = options.wordFoils(word, item.gi, 3);
       const choices = shuffle([
         { text: word.word, correct: true },
         ...others.map((text) => ({ text, correct: false }))

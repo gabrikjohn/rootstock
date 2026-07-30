@@ -24,6 +24,7 @@ import {
   sigmoid,
   updateAbility
 } from "../src/domain/drill";
+import { scoreDistractors } from "../src/domain/distractors";
 import { isEntitlementActive } from "../src/domain/entitlement";
 import { selectLexiconEntries } from "../src/domain/lexicon";
 import {
@@ -206,6 +207,51 @@ describe("Leitner scheduling", () => {
     expect(docketBlocks(DOCKET_SESSION_CAP + 1, now - DAY_MS, now)).toBe(true);
     expect(docketBlocks(1, now - 7 * DAY_MS, now)).toBe(true);
     expect(docketBlocks(1, now - 6 * DAY_MS, now)).toBe(false);
+  });
+});
+
+describe("distractor scoring", () => {
+  const gate = LEVELS[0]!;
+  const target = gate.words[0]!;
+  const corpus = LEVELS.flatMap((level) => level.words);
+
+  it("never offers a foil of a different part of speech", () => {
+    for (const word of corpus) {
+      const foils = scoreDistractors({
+        target: word, candidates: corpus, count: 3, random: zeroRandom
+      });
+      for (const foil of foils) {
+        expect(foil.pos, `${word.word} / ${foil.word}`).toBe(word.pos);
+      }
+    }
+  });
+
+  it("prefers foils that share a root over unrelated ones", () => {
+    // egoist's kin should beat a word from an unrelated semantic field.
+    const family = new Set(["egotist", "egocentric"]);
+    const picked = scoreDistractors({
+      target, candidates: corpus, count: 2, random: zeroRandom, family
+    }).map((word) => word.word);
+    expect(picked).toContain("egotist");
+  });
+
+  it("reaches beyond the target's own gate", () => {
+    // The old rule could only ever draw from the target's ten-word gate.
+    const own = new Set(gate.words.map((word) => word.word));
+    const foreign = corpus.filter((word) => !own.has(word.word));
+    const picked = scoreDistractors({
+      target, candidates: foreign, count: 3, random: zeroRandom
+    });
+    expect(picked.length).toBeGreaterThan(0);
+    expect(picked.every((word) => !own.has(word.word))).toBe(true);
+  });
+
+  it("excludes the target and anything sharing its definition", () => {
+    const picked = scoreDistractors({
+      target, candidates: corpus, count: 3, random: zeroRandom
+    });
+    expect(picked.some((word) => word.word === target.word)).toBe(false);
+    expect(picked.some((word) => word.def === target.def)).toBe(false);
   });
 });
 

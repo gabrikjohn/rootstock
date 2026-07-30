@@ -21,6 +21,7 @@ import {
   sigmoid,
   updateAbility
 } from "../domain/drill";
+import { scoreDistractors } from "../domain/distractors";
 import { selectLexiconEntries } from "../domain/lexicon";
 import { deserializeProgress, serializeProgress } from "../domain/persistence";
 import { canAccessGate, temperUnlock as calculateTemperUnlock } from "../domain/progression";
@@ -189,6 +190,21 @@ function inferDeep(inf:InferenceWord|null|undefined):string{
 }
 function esc(s:string):string{ return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/"/g,'&quot;'); }
 function rootHint(w:Word|DrillWord):string{ return w.parts.filter(p=>p[1]).map(p=>p[0]+'='+p[1]).join('  ·  '); }
+// Wrong headwords for a word-choice prompt. The old rule took three at random from the
+// target's own gate, so ten words made a small, quickly-memorised pool and elimination beat
+// meaning. Now the whole taught corpus competes and the nearest are chosen: same root
+// family first, then shared morphemes and authored near-twins, with same part of speech
+// required throughout.
+function wordFoils(w:Word|DrillWord,gi:number|undefined,count:number):string[]{
+  const pool:(Word|DrillWord)[]=[];
+  LEVELS.forEach((l,i)=>{ if(G(l.id).sealed||i===gi) pool.push(...l.words); });
+  pool.push(...drillWords());
+  const family=new Set(catalog.rootFamily({root:w.parts.map(p=>p[0]).join(' / '),lang:'',gloss:''},12).map(x=>x.word));
+  return scoreDistractors({
+    target:w,candidates:pool,count,random:deps.random,family,
+    similars:SIMILARS,...(gi===undefined?{}:{gate:gi}),gateOf:x=>gateIdxOfWord(x.word)
+  }).map(x=>x.word);
+}
 // Option text → part of speech, keyed by both headword and definition so the same lookup
 // serves word-choice and meaning-choice prompts. Built once; the corpus is immutable.
 let _posIndex:Map<string,string>|null=null;
@@ -804,7 +820,7 @@ function renderTrialPrompt({label,gateLabel,it,w,onResolve,onNext,oneShot=false,
   if(it.pair){ P.seenPair[String(CONFUSABLES.indexOf(it.pair))]=true; save(); }
   const view=buildPromptView({
     item:it,word:w,gates:LEVELS,inferencePool:INFER_POOL,drillWords:drillWords(),
-    random:deps.random,vignette:vigOf,literal:litOf,posOf,rootForms,rootCue,rootAudio:rootSay
+    random:deps.random,vignette:vigOf,literal:litOf,posOf,wordFoils,rootForms,rootCue,rootAudio:rootSay
   });
   const {promptHtml,bodyHtml,typed}=view;
   if(view.compose) it._compose=view.compose;
