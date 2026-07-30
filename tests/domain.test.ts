@@ -38,7 +38,10 @@ import {
   DAY_MS,
   DOCKET_SESSION_CAP,
   docketBlocks,
+  fuzzInterval,
   initialReview,
+  REVIEW_FUZZ_MIN,
+  REVIEW_FUZZ_RANGE,
   REVIEW_INTERVALS,
   scheduleReview
 } from "../src/domain/scheduling";
@@ -80,12 +83,38 @@ describe("entitlement", () => {
 describe("Leitner scheduling", () => {
   it("advances, caps, and resets review boxes from an injected clock value", () => {
     const now = 1_000;
-    expect(initialReview(now)).toEqual({ box: 0, due: now + REVIEW_INTERVALS[0]! });
-    expect(scheduleReview({ box: 0, due: 0 }, true, now))
-      .toEqual({ box: 1, due: now + REVIEW_INTERVALS[1]! });
-    expect(scheduleReview({ box: 3, due: 0 }, true, now).box).toBe(3);
-    expect(scheduleReview({ box: 3, due: 0 }, false, now))
-      .toEqual({ box: 0, due: now + REVIEW_INTERVALS[0]! });
+    const flat = { next: () => 0.5 };
+    const rung = (box: number) => now + REVIEW_INTERVALS[box]!;
+    expect(initialReview(now, flat)).toEqual({ box: 0, due: rung(0) });
+    expect(scheduleReview({ box: 0, due: 0 }, true, now, flat))
+      .toEqual({ box: 1, due: rung(1) });
+    expect(scheduleReview({ box: 3, due: 0 }, true, now, flat).box).toBe(3);
+    expect(scheduleReview({ box: 3, due: 0 }, false, now, flat))
+      .toEqual({ box: 0, due: rung(0) });
+  });
+
+  it("fuzzes each interval so a gate's cohort fans out instead of clumping", () => {
+    const now = 1_000;
+    const base = REVIEW_INTERVALS[0]!;
+    expect(fuzzInterval(base, { next: () => 0 })).toBe(Math.round(base * REVIEW_FUZZ_MIN));
+    expect(fuzzInterval(base, { next: () => 1 }))
+      .toBe(Math.round(base * (REVIEW_FUZZ_MIN + REVIEW_FUZZ_RANGE)));
+
+    // Ten words enrolled by one sealed gate at the same instant must not share a due date.
+    let step = 0;
+    const spread = { next: () => (step++ % 10) / 10 };
+    const dues = new Set(
+      Array.from({ length: 10 }, () => initialReview(now, spread).due)
+    );
+    expect(dues.size).toBe(10);
+
+    // The ladder must stay ordered: no fuzzed rung may overtake the one above it.
+    REVIEW_INTERVALS.forEach((interval, box) => {
+      const next = REVIEW_INTERVALS[box + 1];
+      if (next === undefined) return;
+      expect(fuzzInterval(interval, { next: () => 1 }))
+        .toBeLessThan(fuzzInterval(next, { next: () => 0 }));
+    });
   });
 
   it("bars progression only on a real docket backlog", () => {

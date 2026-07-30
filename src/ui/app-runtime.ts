@@ -25,7 +25,7 @@ import { selectLexiconEntries } from "../domain/lexicon";
 import { deserializeProgress, serializeProgress } from "../domain/persistence";
 import { canAccessGate, temperUnlock as calculateTemperUnlock } from "../domain/progression";
 import { normalizeRoot, rootForms as getRootForms, rootMatches } from "../domain/roots";
-import { docketBlocks, initialReview, REVIEW_INTERVALS, scheduleReview } from "../domain/scheduling";
+import { docketBlocks, initialReview, scheduleReview } from "../domain/scheduling";
 import { buildBarItems, buildTrialOneItems, selectInference } from "../domain/sessions";
 import { pronLine } from "../platform/audio";
 import type { AppDependencies } from "../platform/contracts";
@@ -105,7 +105,6 @@ function temperUnlock(t1:number):number{
 }
 const BAR_SIZE = 50, BAR_PASS = 45;
 const DAY = 24*60*60*1000;
-const INTERVALS = REVIEW_INTERVALS; // Leitner boxes 0..3
 
 const appearanceController = new AppearanceController(deps.random, deps.storage);
 const progressStore = new ProgressStore(deps.storage);
@@ -243,7 +242,7 @@ function pairPick(maxGi:number, n:number):ConfusablePair[]{
 /* ---- Review Docket (Leitner) ---- */
 function enqueueGateReview(gi:number):void{
   LEVELS[gi]!.words.forEach((_,wi)=>{ const k=gi+'-'+wi;
-    if(!P.review[k]) P.review[k]=initialReview(deps.clock.now()); });
+    if(!P.review[k]) P.review[k]=initialReview(deps.clock.now(),deps.random); });
   save();
 }
 function dueKeys():string[]{ const now=deps.clock.now(); return Object.keys(P.review).filter(k=>P.review[k]!.due<=now); }
@@ -483,7 +482,7 @@ function reviewItem():void{
   if(session.queue.length===0){
     save();
     sealScreen({seal:'⚖',title:'Docket Cleared',score:(session.debt?session.debt+' lapses reset':'no lapses'),
-      note:'Every due word answered. Lapsed words return in two days; the rest climb the calendar.',
+      note:'Every due word answered. Lapsed words return in about two days; the rest climb the calendar.',
       actions:'<button class="btn" id="h2">Return to the gates</button>'});
     requiredButton("h2").onclick=home;
     return;
@@ -503,10 +502,10 @@ function reviewItem():void{
       const r=P.review[reviewKey];
       if(!r) throw new Error(`Missing review state for ${reviewKey}`);
       tally(gi,wi,ok);
-      if(ok){ session.queue.shift(); session.done++; session.sit.cleared++; Object.assign(r,scheduleReview(r,true,deps.clock.now())); }
-      else { const f=session.queue.shift(); if(f)session.queue.push(f); session.debt++; Object.assign(r,scheduleReview(r,false,deps.clock.now())); }
+      if(ok){ session.queue.shift(); session.done++; session.sit.cleared++; Object.assign(r,scheduleReview(r,true,deps.clock.now(),deps.random)); }
+      else { const f=session.queue.shift(); if(f)session.queue.push(f); session.debt++; Object.assign(r,scheduleReview(r,false,deps.clock.now(),deps.random)); }
       save();
-      return ok?null:'lapse — box reset to two days; it returns this session until correct';
+      return ok?null:'lapse — box reset to about two days; it returns this session until correct';
     },
     onNext: reviewItem
   });
