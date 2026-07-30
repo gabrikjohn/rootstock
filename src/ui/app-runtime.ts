@@ -189,6 +189,18 @@ function inferDeep(inf:InferenceWord|null|undefined):string{
 }
 function esc(s:string):string{ return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/"/g,'&quot;'); }
 function rootHint(w:Word|DrillWord):string{ return w.parts.filter(p=>p[1]).map(p=>p[0]+'='+p[1]).join('  ·  '); }
+// Option text → part of speech, keyed by both headword and definition so the same lookup
+// serves word-choice and meaning-choice prompts. Built once; the corpus is immutable.
+let _posIndex:Map<string,string>|null=null;
+function posOf(text:string):string|null{
+  if(!_posIndex){
+    _posIndex=new Map();
+    const add=(w:{word:string;def:string;pos?:string})=>{ if(!w.pos) return;
+      _posIndex!.set(w.word,w.pos); _posIndex!.set(w.def,w.pos); };
+    LEVELS.forEach(l=>l.words.forEach(add)); INFER_POOL.forEach(add); DRILL_POOL.forEach(add);
+  }
+  return _posIndex.get(text)??_posIndex.get(text.replace(/^[“"]|[”"]$/g,''))??null;
+}
 function vigOf(w:Word|DrillWord):string{ return catalog.vignette(w); }
 function etyOf(w:Word|DrillWord):string{ return catalog.wordEtymology(w); }
 function defOfWord(name:string):string{ return catalog.definition(name); }
@@ -792,7 +804,7 @@ function renderTrialPrompt({label,gateLabel,it,w,onResolve,onNext,oneShot=false,
   if(it.pair){ P.seenPair[String(CONFUSABLES.indexOf(it.pair))]=true; save(); }
   const view=buildPromptView({
     item:it,word:w,gates:LEVELS,inferencePool:INFER_POOL,drillWords:drillWords(),
-    random:deps.random,vignette:vigOf,literal:litOf,rootForms,rootCue,rootAudio:rootSay
+    random:deps.random,vignette:vigOf,literal:litOf,posOf,rootForms,rootCue,rootAudio:rootSay
   });
   const {promptHtml,bodyHtml,typed}=view;
   if(view.compose) it._compose=view.compose;

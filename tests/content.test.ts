@@ -142,6 +142,44 @@ describe("runtime content", () => {
     for (const pair of CONFUSABLES) expect([pair.a, pair.b]).toContain(pair.ans);
   });
 
+  it("tags every headword with the part of speech its definition uses", () => {
+    for (const word of allWords) {
+      expect(word.pos, word.word).toBeTruthy();
+      expect(["n.", "v.", "adj.", "adv."], word.word).toContain(word.pos);
+    }
+    // A definition opening "To …" names an action; anything else tagged as a verb is a slip.
+    for (const word of allWords) {
+      if (word.pos === "v.") expect(word.def, word.word).toMatch(/^[Tt]o\s/);
+      if (/^[Tt]o\s/.test(word.def)) expect(word.pos, word.word).toBe("v.");
+    }
+  });
+
+  it("only offers a part-of-speech tag when it eliminates no option", () => {
+    // The tag is shown on a prompt only when every option shares a part of speech, so it
+    // teaches without narrowing the field. Most authored sets are mixed, which is fine —
+    // what must never happen is a tag appearing over a set it could be used to filter.
+    const posByText = new Map<string, string>();
+    for (const word of allWords) {
+      if (!word.pos) continue;
+      posByText.set(word.word, word.pos);
+      posByText.set(word.def, word.pos);
+    }
+    const shared = (options: string[]): string | null => {
+      const first = posByText.get(options[0] ?? "");
+      if (!first) return null;
+      return options.every((option) => posByText.get(option) === first) ? first : null;
+    };
+    for (const word of allWords) {
+      const tag = shared([word.def, ...word.distractors]);
+      if (tag === null) continue;
+      // Where a tag would show, it must match the answer and every foil alike.
+      expect(tag, word.word).toBe(word.pos);
+      for (const distractor of word.distractors) {
+        expect(posByText.get(distractor), `${word.word} / ${distractor}`).toBe(word.pos);
+      }
+    }
+  });
+
   it("prevents answer length from revealing the correct option", () => {
     for (const pool of [gateWords, INFER_POOL, DRILL_POOL]) {
       const stats = optionStats(pool);

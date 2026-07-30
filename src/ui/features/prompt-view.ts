@@ -13,6 +13,8 @@ interface PromptViewOptions {
   random: RandomSource;
   vignette(word: Word | DrillWord): string;
   literal(word: Word | DrillWord): string;
+  // Resolves an option's text — a definition or a headword — to its part of speech.
+  posOf(text: string): string | null;
   rootForms(root: Root): string[];
   rootCue(root: Root): string;
   rootAudio(root: string): string;
@@ -27,6 +29,21 @@ export interface PromptView {
 
 const labels = ["A", "B", "C", "D"];
 
+// The part-of-speech tag is teaching, but on a prompt it is also a filter: label the
+// question "adj." while three of the four options are noun phrases and you have crossed
+// them off for the learner. So it appears only when every option shares a part of speech
+// and the tag therefore eliminates nothing. Any option that cannot be resolved suppresses
+// it too — an unknown is not evidence of agreement.
+function sharedPosTag(
+  options: readonly string[],
+  posOf: (text: string) => string | null
+): string {
+  const first = posOf(options[0] ?? "");
+  if (!first) return "";
+  for (const option of options) if (posOf(option) !== first) return "";
+  return `<span class="pos">${first}</span> `;
+}
+
 export function buildPromptView(options: PromptViewOptions): PromptView {
   const { item } = options;
   switch (item.m) {
@@ -36,8 +53,9 @@ export function buildPromptView(options: PromptViewOptions): PromptView {
         { text: word.def, correct: true },
         ...word.distractors.map((text) => ({ text, correct: false }))
       ], options.random);
+      const tag = sharedPosTag(choices.map((choice) => choice.text), options.posOf);
       return {
-        promptHtml: `<div class="q-ask">What does it mean?</div><div class="q-word">${word.word}</div>`,
+        promptHtml: `<div class="q-ask">What does it mean?</div><div class="q-word">${tag}${word.word}</div>`,
         bodyHtml: renderObjectChoices(choices),
         typed: false
       };
@@ -53,8 +71,9 @@ export function buildPromptView(options: PromptViewOptions): PromptView {
         { text: word.word, correct: true },
         ...others.map((text) => ({ text, correct: false }))
       ], options.random);
+      const tag = sharedPosTag(choices.map((choice) => choice.text), options.posOf);
       return {
-        promptHtml: `<div class="q-ask">Which word fits?</div><div class="q-def">“${word.def}”</div>`,
+        promptHtml: `<div class="q-ask">Which word fits?</div><div class="q-def">${tag}“${word.def}”</div>`,
         bodyHtml: renderObjectChoices(choices, true),
         typed: false
       };
