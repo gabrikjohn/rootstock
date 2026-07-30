@@ -34,7 +34,14 @@ import {
 } from "../src/domain/persistence";
 import { canAccessGate, TEMPER_MIN_MS, temperUnlock } from "../src/domain/progression";
 import { normalizeRoot, rootForms, rootMatches, splitRootEntry } from "../src/domain/roots";
-import { initialReview, REVIEW_INTERVALS, scheduleReview } from "../src/domain/scheduling";
+import {
+  DAY_MS,
+  DOCKET_SESSION_CAP,
+  docketBlocks,
+  initialReview,
+  REVIEW_INTERVALS,
+  scheduleReview
+} from "../src/domain/scheduling";
 import { buildBarItems, buildTrialOneItems, selectInference } from "../src/domain/sessions";
 import { COGNATES, DEPTH, ETYM, ROOT_DEEP } from "../src/content";
 
@@ -79,6 +86,15 @@ describe("Leitner scheduling", () => {
     expect(scheduleReview({ box: 3, due: 0 }, true, now).box).toBe(3);
     expect(scheduleReview({ box: 3, due: 0 }, false, now))
       .toEqual({ box: 0, due: now + REVIEW_INTERVALS[0]! });
+  });
+
+  it("bars progression only on a real docket backlog", () => {
+    const now = 100 * DAY_MS;
+    expect(docketBlocks(0, null, now)).toBe(false);
+    expect(docketBlocks(DOCKET_SESSION_CAP, now - DAY_MS, now)).toBe(false);
+    expect(docketBlocks(DOCKET_SESSION_CAP + 1, now - DAY_MS, now)).toBe(true);
+    expect(docketBlocks(1, now - 7 * DAY_MS, now)).toBe(true);
+    expect(docketBlocks(1, now - 6 * DAY_MS, now)).toBe(false);
   });
 });
 

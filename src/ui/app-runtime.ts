@@ -25,7 +25,7 @@ import { selectLexiconEntries } from "../domain/lexicon";
 import { deserializeProgress, serializeProgress } from "../domain/persistence";
 import { canAccessGate, temperUnlock as calculateTemperUnlock } from "../domain/progression";
 import { normalizeRoot, rootForms as getRootForms, rootMatches } from "../domain/roots";
-import { initialReview, REVIEW_INTERVALS, scheduleReview } from "../domain/scheduling";
+import { docketBlocks, initialReview, REVIEW_INTERVALS, scheduleReview } from "../domain/scheduling";
 import { buildBarItems, buildTrialOneItems, selectInference } from "../domain/sessions";
 import { pronLine } from "../platform/audio";
 import type { AppDependencies } from "../platform/contracts";
@@ -248,6 +248,18 @@ function enqueueGateReview(gi:number):void{
 }
 function dueKeys():string[]{ const now=deps.clock.now(); return Object.keys(P.review).filter(k=>P.review[k]!.due<=now); }
 function nextDueMs():number{ const t=Object.values(P.review).map(r=>r.due); return t.length? Math.min(...t)-deps.clock.now() : Infinity; }
+// The due date of the word that has waited longest, or null when nothing is due.
+// Feeds docketBlocks: a week-old lapse is a backlog, a word due this morning is not.
+function oldestDueAt():number|null{
+  const now=deps.clock.now(); let oldest:number|null=null;
+  for(const r of Object.values(P.review)){ if(r.due<=now && (oldest===null||r.due<oldest)) oldest=r.due; }
+  return oldest;
+}
+// Does the docket bar progression? The home card nudges whenever anything is due,
+// but the gates, the Bar, and the Drill Hall only lock once the backlog outgrows a
+// single sitting or a word has sat unanswered for a week. Two due words used to
+// hold the entire app hostage; now they only ask.
+function docketDebt(due:number):boolean{ return docketBlocks(due, oldestDueAt(), deps.clock.now()); }
 
 // The controller owns a single mutable session at a time. Each session constructor
 // below writes its own shape; feature renderers and domain helpers remain fully typed.
@@ -379,7 +391,7 @@ function home():void{
   stopClock(); S=null; P=load();
   const sealedCt = LEVELS.filter(l=>G(l.id).sealed).length;
   const due = dueKeys().length;
-  const debtBlocks = due>0;
+  const debtBlocks = docketDebt(due);
 
   const currentIdx = previewFlag("burnt") ? LEVELS.findIndex((l,i)=> !G(l.id).sealed && (i===0 || G(gateAt(i-1).id).sealed)) : -1;
   const gateCards:HomeGateCard[] = LEVELS.map((lv,idx)=>{
@@ -432,7 +444,7 @@ function home():void{
     summary:sealedCt?sealedCt+' of '+LEVELS.length+' gates sealed':'Twenty-four gates await their first root.',
     streak:P.streak||0,
     lexiconCount:lexCount,
-    drill:drillStat(due),
+    drill:drillStat(debtBlocks),
     session,
     sealedCount:sealedCt,
     gateCount:LEVELS.length,
@@ -1214,10 +1226,10 @@ function rootsItem():QuizItem|null{
   if(foils.length<3) return null;
   return {m:'ROOTS',root:r,gate:g.id,opts:shuffle([r.gloss,...foils])};
 }
-function drillStat(due:number):HomeDrillStat{
+function drillStat(blocked:boolean):HomeDrillStat{
   const open=drillWords();
-  const ok=open.length&&due===0;
-  return {enabled:!!ok,visible:open.length>0,label:due>0?'Docket first':'Drill'};
+  const ok=open.length&&!blocked;
+  return {enabled:!!ok,visible:open.length>0,label:blocked?'Docket first':'Drill'};
 }
 function startDrill():void{
   stopClock();

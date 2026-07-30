@@ -235,6 +235,45 @@ test("serves a due review and advances its Leitner box", async ({ page }) => {
   )).toBe(1);
 });
 
+test("nudges on a small docket but only bars progression on a backlog", async ({ page }) => {
+  const dueReview = (count: number) => {
+    const due = Date.now() - 60 * 60 * 1000;
+    const review: Record<string, { box: number; due: number }> = {};
+    for (let index = 0; index < count; index += 1) {
+      review[`${Math.floor(index / 10)}-${index % 10}`] = { box: 0, due };
+    }
+    return review;
+  };
+
+  // Seeded once; the reload below re-runs this script, so later edits must survive it.
+  await page.addInitScript((fixture) => {
+    if (!localStorage.getItem("rootstock_v2")) {
+      localStorage.setItem("rootstock_v2", JSON.stringify(fixture));
+    }
+    localStorage.setItem("rootstock_sub", JSON.stringify({
+      source: "dev",
+      active: true,
+      plan: "annual",
+      expiresAt: null
+    }));
+  }, { ...admittedProgress, review: dueReview(3) });
+
+  // A handful of fresh due words: the home card asks, the Drill Hall stays open.
+  await page.goto("/");
+  await expect(page.locator(".session-title")).toHaveText("The Review Docket");
+  await expect(page.locator("#drill-btn")).toBeEnabled();
+  await expect(page.locator("#drill-btn")).toContainText("Drill");
+
+  // Past a sitting's worth, the docket bars the way again.
+  await page.evaluate((review) => {
+    const saved = JSON.parse(localStorage.getItem("rootstock_v2") ?? "{}");
+    localStorage.setItem("rootstock_v2", JSON.stringify({ ...saved, review }));
+  }, dueReview(25));
+  await page.reload();
+  await expect(page.locator("#drill-btn")).toBeDisabled();
+  await expect(page.locator("#drill-btn")).toContainText("Docket first");
+});
+
 test("opens the root and word lexicons from sealed content", async ({ page }) => {
   await page.addInitScript((fixture) => {
     localStorage.setItem("rootstock_v2", JSON.stringify(fixture));
