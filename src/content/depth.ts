@@ -653,163 +653,203 @@ export const DEPTH = {
   },
   "apathy": {
     "v": "The third notice of eviction lay unopened on the mat beside the first two.",
-    "e": "Greek a- (without) + pathos (feeling) — to the Stoics apatheia was freedom from passion, a virtue; English kept only the numbness."
+    "e": "Greek a- (without) + pathos (feeling) — to the Stoics apatheia was freedom from passion, a virtue; English kept only the numbness.",
+    "s": "Greek a-, 'without,' with pathos, 'feeling' — and for the Stoics this was the goal of a life, not a failure of one. Apatheia meant freedom from the passions: the sage who had trained himself out of fear, grief and craving was not numb but unshakeable, and the word named an achievement. Early English use kept that philosophical sense. What ruined it was the ordinary observation that people who feel nothing usually do nothing, so the discipline collapsed into indifference and the virtue became a fault. Today apathy is a lack of feeling or concern, and the Stoic ideal it once named now needs a different word entirely."
   },
   "empathy": {
     "v": "She had buried a son too, and sat with the widow saying nothing, feeling everything.",
-    "e": "Greek en + pathos, 'feeling into' — coined around 1900 to translate German Einfühlung, the act of feeling your way into another's inner world."
+    "e": "Greek en + pathos, 'feeling into' — coined around 1900 to translate German Einfühlung, the act of feeling your way into another's inner world.",
+    "s": "Greek en, 'in,' with pathos, 'feeling' — a feeling-into, and the compound is a translation rather than an inheritance. German aesthetics had Einfühlung, coined by Theodor Lipps for the way a viewer projects himself into a work of art, feeling the strain in a column or the reach in an arch; Edward Titchener rendered it into English as empathy in 1909. So the word was invented to describe our relations with objects, not with people. The transfer to other minds came afterwards and has entirely taken over. Today empathy is the capacity to share another's feelings, and psychology has spent a century arguing about how it works."
   },
   "antipathy": {
     "v": "They had never exchanged a hard word, yet each crossed the street rather than share a sidewalk.",
-    "e": "Greek anti + pathos, 'feeling against' — an aversion of the whole system, older than any reason for it."
+    "e": "Greek anti + pathos, 'feeling against' — an aversion of the whole system, older than any reason for it.",
+    "s": "Greek anti, 'against,' with pathos, 'feeling' — feeling directed against something, and for two centuries the word belonged to physics as much as to temperament. Renaissance natural philosophy explained the world by sympathies and antipathies, occult forces of attraction and repulsion between substances; the loadstone and garlic were said to have a natural antipathy, as were certain animals, and this counted as an explanation. The framework did not survive the seventeenth century. The word did, keeping only its application to people. Today antipathy is a settled dislike, usually older than any reason its owner can give for it."
   },
   "telepathy": {
     "v": "She was reaching for the phone to call her twin when it rang — her twin, again.",
-    "e": "Greek tele (far) + pathos — 'feeling at a distance,' coined in 1882 by the Society for Psychical Research, which spent decades failing to prove it."
+    "e": "Greek tele (far) + pathos — 'feeling at a distance,' coined in 1882 by the Society for Psychical Research, which spent decades failing to prove it.",
+    "s": "Greek tele, 'far off,' with pathos, 'feeling' — feeling at a distance, and the word has an author and a purpose. Frederic Myers coined it in 1882 for the newly founded Society for Psychical Research, deliberately replacing the clumsier thought-transference with something that sounded like the sciences whose company he wanted. The Society then spent decades on card-guessing experiments that produced nothing replicable. The coinage outlived the programme. Today telepathy names mind-to-mind contact at a distance, a well-made Greek compound for a thing that has never been shown to happen, in the same tele- family as the telephone and television that do."
   },
   "pathology": {
     "v": "The lab report traced the fever to its cause and gave the disease its name and course.",
-    "e": "Greek pathos + logos — the study of suffering; the pathologist reads disease the way a philologist reads texts."
+    "e": "Greek pathos + logos — the study of suffering; the pathologist reads disease the way a philologist reads texts.",
+    "s": "Greek pathos, 'suffering,' with logos — the account of suffering, and the word has narrowed steadily towards the laboratory. It began as the general study of disease, the branch of medicine concerned with what illness is rather than how to treat it, and it now most often names the specific discipline that examines tissue, fluid and the dead to say what went wrong. The pathologist reads a body the way a philologist reads a manuscript. Today pathology is the study of disease and its nature, and the adjective built from it, pathological, long ago escaped medicine to describe any fault that behaves like an illness."
   },
   "psychosomatic": {
     "v": "Every scan came back clean, yet the stomach pain arrived each Sunday night before the Monday shift.",
-    "e": "Greek psyche (mind) + soma (body) — the mind writing its troubles in the body's handwriting; the ailment is real, the author is upstairs."
+    "e": "Greek psyche (mind) + soma (body) — the mind writing its troubles in the body's handwriting; the ailment is real, the author is upstairs.",
+    "s": "Greek psyche, 'mind,' with soma, 'body' — a compound English has had since the 1830s and has misused almost continuously. It does not mean imaginary. A psychosomatic symptom is a real physiological event with a psychological contributor: the ulcer bleeds, the blood pressure rises, the rash is there to be photographed, and what the word claims is a causal path from mind to tissue, not the absence of tissue. The dismissive use, meaning all in your head, inverts the term's actual content. Today psychosomatic describes bodily symptoms rooted in the mind, and soma's other children include the chromosome and the somatic cell."
   },
   "megalomania": {
     "v": "The plans on his desk renamed the capital after himself and budgeted a 300-foot statue.",
-    "e": "Greek megas, megalo- (great) + mania — the madness of greatness; psychiatry's old name for delusions of grandeur."
+    "e": "Greek megas, megalo- (great) + mania — the madness of greatness; psychiatry's old name for delusions of grandeur.",
+    "s": "Greek megas, in its combining form megalo-, 'great,' with mania, 'madness' — the madness of greatness, and another of the nineteenth century's compound diagnoses. French and German psychiatry used mégalomanie for the delusion of grandeur, the patient convinced he was an emperor or a prophet, and it sat in the textbooks beside the other manias as a recognised category. Psychiatry has long since dropped it as a diagnosis. Politics kept it. Today megalomania names a delusion of one's own greatness and is used almost entirely as invective, while megas survives more neutrally in the megaphone, the megalith and the megalopolis."
   },
   "pyromania": {
     "v": "Three warehouse fires in one summer, each set by the same quiet man who stayed to watch the engines come.",
-    "e": "Greek pyr, 'fire' — the fire that burns in 'pyre' and 'pyrotechnics,' here burning as compulsion."
+    "e": "Greek pyr, 'fire' — the fire that burns in 'pyre' and 'pyrotechnics,' here burning as compulsion.",
+    "s": "Greek pyr, 'fire,' with mania, 'madness' — and it belongs to the same French wave of the 1830s that produced kleptomania, when Esquirol and his students were sorting the insanities into monomanias, each a single compulsion in an otherwise sound mind. The category collapsed; a handful of its members did not. Pyromania and kleptomania survived because the behaviours they name are real and recognisable even after the theory that grouped them was abandoned. Today pyromania is a compulsion to set fires, and pyr's other descendants include the funeral pyre, pyrotechnics, and iron pyrites, the fool's gold that strikes sparks."
   },
   "dipsomania": {
     "v": "He hid bottles in the toolshed, the attic, and the spare tire, and could not tell you why.",
-    "e": "Greek dipsa, 'thirst' + mania — the mad thirst: the nineteenth century's clinical name for what it later called alcoholism."
+    "e": "Greek dipsa, 'thirst' + mania — the mad thirst: the nineteenth century's clinical name for what it later called alcoholism.",
+    "s": "Greek dipsa, 'thirst,' with mania, 'madness' — the mad thirst, coined in German medicine early in the nineteenth century for compulsive drinking. It is a fossil of one particular way of understanding drink. Dipsomania framed the problem as an intermittent insanity, a seizure of craving; then in 1849 the Swedish physician Magnus Huss coined alcoholism, which framed it instead as a chronic poisoning by a substance, and that model won. The older word slid out of the clinic and into literature. Today dipsomania names an uncontrollable craving for alcohol, and it survives mainly as the more decorative term for a thing medicine now calls something else."
   },
   "bibliomania": {
     "v": "Books stood two deep on every stair; he owned four copies of editions he had never opened.",
-    "e": "Greek biblion, 'book' — from Byblos, the Phoenician port that shipped papyrus; the Bible is simply 'the books.'"
+    "e": "Greek biblion, 'book' — from Byblos, the Phoenician port that shipped papyrus; the Bible is simply 'the books.'",
+    "s": "Greek biblion, 'book,' with mania — and the book-word is a place name. Byblos was the Phoenician port through which papyrus reached the Greek world, so the Greeks called the writing material after the harbour it came from, and the Bible is simply ta biblia, the books. The compound is English and satirical: Thomas Frognall Dibdin published Bibliomania in 1809, an affectionate account of the collecting fever then gripping English gentlemen, who were bidding absurd sums for early printings. Today bibliomania is an obsessive craving to collect books, and it is the rare mania that its sufferers cheerfully admit to."
   },
   "anachronism": {
     "v": "In the film's Roman forum, a centurion checks his wristwatch.",
-    "e": "Greek ana- (backward) + chronos (time) — a thing knocked back against time's order; Shakespeare's striking clock in Julius Caesar is the textbook case."
+    "e": "Greek ana- (backward) + chronos (time) — a thing knocked back against time's order; Shakespeare's striking clock in Julius Caesar is the textbook case.",
+    "s": "Greek ana-, 'backwards,' with chronos, 'time' — a thing set against time's order, and its first English use was narrower and drier than the modern one. In the seventeenth century an anachronism was an error in dating, the scholar's mistake of assigning an event to the wrong year, and the word belonged to chronology as a technical discipline. It widened into the familiar sense of anything out of its period. The textbook example is Shakespeare's, whose clock strikes three in Julius Caesar some fourteen centuries before mechanical clocks existed. Today an anachronism is a thing in the wrong time, whether by an author's slip or by survival past its age."
   },
   "chronological": {
     "v": "The biographer laid the letters out by date, and the love affair told itself in order.",
-    "e": "Greek chronos + logos — time's own ordering; Kronos the Titan, who devoured his children, lent time its devouring name."
+    "e": "Greek chronos + logos — time's own ordering; Kronos the Titan, who devoured his children, lent time its devouring name.",
+    "s": "Greek chronos, 'time,' with logos — time's own ordering. Behind the root stands a confusion the Greeks themselves made: Chronos was time personified, and Kronos was the Titan who swallowed his children to keep them from supplanting him, and the two names were close enough that later antiquity ran them together. Time acquired the Titan's appetite by the merger, which is why Father Time carries a scythe and why we speak of time devouring what it made. Today chronological means arranged in the order of time, and the same chronos gives the chronicle, the chronometer and the chronic complaint that will not resolve."
   },
   "synchronize": {
     "v": "'On my mark' — six divers' watches clicked to the same second.",
-    "e": "Greek syn (together) + chronos — to make times agree; swimmers, watches, and film soundtracks all answer to it."
+    "e": "Greek syn (together) + chronos — to make times agree; swimmers, watches, and film soundtracks all answer to it.",
+    "s": "Greek syn, 'together,' with chronos, 'time' — to make times agree, and for most of history there was nothing to agree about. Every town kept its own solar noon, and a clock in Bristol stood some ten minutes behind a clock in London with no inconvenience to anyone. The railways ended that. A timetable is unworkable if each station keeps its own hour, so Britain adopted a single railway time through the 1840s, and international standard zones followed in the 1880s. Synchronising clocks became infrastructure. Today to synchronize is to make things run at the same time, and swimmers, watches and soundtracks all answer to it."
   },
   "chronicle": {
     "v": "The monastery's ledger records the comet, the famine, and the king's death, year by patient year.",
-    "e": "Greek chronika, 'annals of time' — the medieval monk's year-by-year record; two books of the Bible bear the name."
+    "e": "Greek chronika, 'annals of time' — the medieval monk's year-by-year record; two books of the Bible bear the name.",
+    "s": "Greek chronika, the books of times — annals, and the word names a method rather than a subject. What distinguishes a chronicle from a history is its organising principle: the chronicler proceeds strictly by year, setting down what happened in each without arranging causes or shaping a narrative, so that a battle and a bad harvest may sit in the same entry with equal weight. The medieval monastic annals worked exactly this way, the Anglo-Saxon Chronicle among them. Today a chronicle is a record of events in order, and two books of the Hebrew Bible carry the name for the same reason."
   },
   "chronometer": {
     "v": "Sealed against damp and shock, the ship's clock lost two seconds in a month at sea.",
-    "e": "chronos + metron (measure) — John Harrison's sea-clocks solved longitude in the 1700s; a watch earns the title only by passing precision trials."
+    "e": "chronos + metron (measure) — John Harrison's sea-clocks solved longitude in the 1700s; a watch earns the title only by passing precision trials.",
+    "s": "Greek chronos with metron, 'measure' — and this instrument was built to solve a problem in geography rather than in timekeeping. Longitude at sea is a question about time: if you know the hour at a reference meridian and the local hour by the sun, the difference gives your position east or west. That made an accurate sea-going clock worth a fortune, and the British Board of Longitude offered one, which John Harrison spent decades of the eighteenth century earning with a succession of increasingly precise machines. Today a chronometer is an instrument for exact timekeeping, and a watch may only take the title after passing formal precision trials."
   },
   "temporize": {
     "v": "'Let me consult the committee,' he said again — buying a fourth week without once saying no.",
-    "e": "Latin tempus, temporis (time) — to deal in time itself, stalling until the weather of events changes."
+    "e": "Latin tempus, temporis (time) — to deal in time itself, stalling until the weather of events changes.",
+    "s": "Latin tempus, temporis, 'time' — to deal in time, and the English word began as a moral charge rather than a tactical one. In the sixteenth century to temporize was to trim one's conduct and professed beliefs to suit the times, a serious accusation in a century when the official religion changed four times and men were burned for holding to the previous one. It meant time-serving, and it meant cowardice. The sense narrowed later to mere delay. Today to temporize is to stall in order to gain time, which keeps the manoeuvre and has quietly dropped the dishonour."
   },
   "extemporaneous": {
     "v": "The projector died, so she gave the whole address from memory and nerve, better than the slides.",
-    "e": "Latin ex tempore, 'out of the time' — speech drawn from the moment itself, nothing prepared in advance."
+    "e": "Latin ex tempore, 'out of the time' — speech drawn from the moment itself, nothing prepared in advance.",
+    "s": "Latin ex tempore, 'out of the time' — drawn from the moment rather than from preparation, and Roman rhetoric took the skill seriously enough to teach it. Quintilian held that the ability to speak well without notes was the highest reach of the orator's training, the point at which method had become second nature, so extempore speech was the product of preparation rather than the absence of it. That distinction survives in the modern speech-training pair. Today extemporaneous means delivered without a script but from a plan, while impromptu means genuinely unprepared — a difference worth keeping, since the words are treated as synonyms and are not."
   },
   "contemporary": {
     "v": "Cervantes and Shakespeare wrote in the same decades — and died, by legend, in the same week.",
-    "e": "Latin con + tempus — sharing one time; the word looks both ways, meaning 'of that same era' or 'of ours.'"
+    "e": "Latin con + tempus — sharing one time; the word looks both ways, meaning 'of that same era' or 'of ours.'",
+    "s": "Latin con, 'with,' and tempus, 'time' — sharing a time, and the word faces two directions at once, which is a genuine practical nuisance. Contemporary accounts of a battle are those written at the time of the battle, whenever that was; contemporary art is art of our own moment. One use fixes the era by the subject, the other by the speaker, and the word gives no signal which is meant. Careful writers reach for coeval or for of the period when the first sense is wanted. Today contemporary means belonging to the same time, and which same time is left to the reader."
   },
   "temporal": {
     "v": "The bishop reminded the king which of them ruled bodies and taxes, and which ruled souls.",
-    "e": "Latin temporalis — of time, hence of this passing world; the Church split power into spiritual and temporal, eternity and the clock."
+    "e": "Latin temporalis — of time, hence of this passing world; the Church split power into spiritual and temporal, eternity and the clock.",
+    "s": "Latin temporalis, 'of time' — and therefore of this world, since what is in time is what passes. The medieval Church built its politics on that: authority divided into the spiritual and the temporal, the care of eternal souls against the government of earthly things, and a bishop who held lands held them in his temporal capacity. The word carried the whole argument about the two swords. Today temporal means of time or of this passing world, and the temples of the head are called the temporal bones by a tradition holding that time shows there first, in the greying at the sides."
   },
   "diachronic": {
     "v": "The linguist traced one word across eight centuries, watching 'silly' drift from 'blessed' to 'foolish.'",
-    "e": "Greek dia (through) + chronos — through time: Saussure's term for studying a language across its history rather than frozen at one moment."
+    "e": "Greek dia (through) + chronos — through time: Saussure's term for studying a language across its history rather than frozen at one moment.",
+    "s": "Greek dia, 'through,' with chronos, 'time' — and this word marks the moment linguistics divided in two. Before Ferdinand de Saussure, studying a language essentially meant tracing its history, since nineteenth-century philology was comparative and historical almost by definition. Saussure's lectures, published in 1916, insisted that a language is also a system at any given moment, whose parts are defined by their relations to each other rather than by their descent, and that the two enquiries must not be mixed. Today diachronic means studied through time, and its partner synchronic, the system frozen at one moment, is the study Saussure had to argue into existence."
   },
   "veracious": {
     "v": "In thirty years of testimony, no lawyer ever caught her in so much as a shaded fact.",
-    "e": "Latin verax, from verus (true) — truthful by habit and character; one letter from 'voracious,' a world apart in meaning."
+    "e": "Latin verax, from verus (true) — truthful by habit and character; one letter from 'voracious,' a world apart in meaning.",
+    "s": "Latin verax, from verus, 'true' — truthful as a standing quality of a person rather than of a statement, which is the distinction the word exists to make. A report may be accurate by luck; a veracious witness is one whose habit is to tell the truth. The root's most familiar descendant hides in plain sight: very comes from verus through Old French, and it once meant true, which is why the very God of the creeds is the true one and the very man is the actual one. Today veracious means habitually honest, and it sits one letter from voracious, which comes from devouring and is no relation at all."
   },
   "veridical": {
     "v": "The dream showed the barn burning; the telegram next morning said it had burned that night.",
-    "e": "Latin verus + dicere, 'truth-saying' — psychology's word for perceptions that match the facts they claim to report."
+    "e": "Latin verus + dicere, 'truth-saying' — psychology's word for perceptions that match the facts they claim to report.",
+    "s": "Latin verus, 'true,' with dicere, 'to say' — truth-telling, and unlike its neighbours this word never left the technical vocabulary. Philosophy and psychology use it for a perception, memory or report that actually corresponds to the facts it claims: a veridical experience is one that is not a hallucination, whatever it felt like from inside. Logic borrowed it for a further use, the veridical paradox, which is an argument that looks absurd and turns out to be true. Today veridical means coinciding with fact, and it is the precise word for the question the others in this gate only circle."
   },
   "verisimilitude": {
     "v": "The novel's invented village has train schedules, gossip, and weather so exact readers write asking to visit.",
-    "e": "Latin verus + similis, 'like the truth' — art's counterfeit of reality; Aristotle preferred a plausible impossibility to an implausible fact."
+    "e": "Latin verus + similis, 'like the truth' — art's counterfeit of reality; Aristotle preferred a plausible impossibility to an implausible fact.",
+    "s": "Latin verus, 'true,' with similis, 'like' — likeness to truth, and the gap between the likeness and the thing is the entire point. It is a term from poetics, not from epistemology. Aristotle argued in the Poetics that a poet should prefer a convincing impossibility to an unconvincing fact, because the audience must believe what it is shown, and neoclassical criticism hardened that into a rule. What art owes is plausibility, which is not the same debt as accuracy. Today verisimilitude is the semblance of truth, and the same similis gives the simile, the simulation and everything else built on likeness."
   },
   "fallacious": {
     "v": "'Every champion trains at dawn, so training at dawn makes champions' — the coach's logic sold shoes anyway.",
-    "e": "Latin fallere, 'to deceive' — reasoning built on a hidden trapdoor; 'fallacy,' 'fallible,' and 'false' are all children of the same cheat."
+    "e": "Latin fallere, 'to deceive' — reasoning built on a hidden trapdoor; 'fallacy,' 'fallible,' and 'false' are all children of the same cheat.",
+    "s": "Latin fallere, 'to deceive' — and the family this verb founded is large enough to be worth listing, since false, fail, fault, fallible and failure are all the same deceit in different clothes. The specialised sense is logical. A fallacy is not merely a wrong conclusion but a named defect in the form of an argument, and the cataloguing of them began with Aristotle's Sophistical Refutations and has never stopped. What makes reasoning fallacious is therefore a hidden trapdoor in its structure, which is why an argument can be fallacious and still arrive at something true. Today fallacious means resting on deceptive logic."
   },
   "infallible": {
     "v": "'The system cannot err,' said the brochure; the recall notice arrived in the same mail.",
-    "e": "Latin in- + fallere, 'that cannot deceive or fail' — claimed by popes (in strict conditions since 1870) and by salesmen (unconditionally)."
+    "e": "Latin in- + fallere, 'that cannot deceive or fail' — claimed by popes (in strict conditions since 1870) and by salesmen (unconditionally).",
+    "s": "Latin in-, 'not,' with fallere, 'to deceive or fail' — that which cannot go wrong, and the word's most famous application is far narrower than its popular use. Papal infallibility was defined at the First Vatican Council in 1870, and the definition is hedged at every joint: it applies only when the pope speaks ex cathedra, only on matters of faith or morals, and only when defining a doctrine for the whole Church. Two such definitions are generally counted since. The advertisement that calls a remedy infallible observes none of these conditions. Today infallible means incapable of error, claimed carefully by theologians and carelessly by everyone else."
   },
   "mendacious": {
     "v": "His memoir gave him a medal never issued, a regiment never formed, and a war he watched from a bar.",
-    "e": "Latin mendax, 'lying' — possibly kin to mendum, 'a fault or blemish'; the habitual liar as a flawed text."
+    "e": "Latin mendax, 'lying' — possibly kin to mendum, 'a fault or blemish'; the habitual liar as a flawed text.",
+    "s": "Latin mendax, 'given to lying,' probably built on mendum, 'a blemish or fault' — the same mendum that gives English emend and amend, which mean to take the blemish out. That connection is worth having, because it puts the liar and the corrected manuscript in one family: mendacity is being flawed, and amendment is the removal of the flaw. Like veracious opposite it, the word describes a habit rather than an occasion, so a mendacious witness is not one who lied but one who lies. Today mendacious means habitually false, and mendicant, the begging friar, is a different root entirely."
   },
   "duplicity": {
     "v": "He assured each partner, separately and warmly, that the other was the one being cut out.",
-    "e": "Latin duplex, 'twofold' — the doubled man: one face shown, one folded underneath, like a sheet bent double."
+    "e": "Latin duplex, 'twofold' — the doubled man: one face shown, one folded underneath, like a sheet bent double.",
+    "s": "Latin duplex, 'twofold,' from duo and plicare, 'to fold' — and the folding is the image the word lives on. A duplicitous man is a sheet doubled over: one face presented, the other pressed against it out of sight, and both genuinely his. That single verb plicare has furnished English with an unreasonable share of its abstract vocabulary, since what is complicated is folded together, what is explicit is folded out, what is implicit is folded in, and to reply is to fold back. Today duplicity is deceitful double-dealing, and duplex keeps the plain arithmetic the metaphor was built from."
   },
   "dissemble": {
     "v": "Ruined that morning, he poured the wine at dinner with a steady hand and talked of summer plans.",
-    "e": "Latin dissimulare, 'to conceal by pretense' — to un-seem: hiding what is truly there, where 'simulate' fakes what isn't."
+    "e": "Latin dissimulare, 'to conceal by pretense' — to un-seem: hiding what is truly there, where 'simulate' fakes what isn't.",
+    "s": "Latin dissimulare, 'to conceal by pretence,' reshaped in English under the pull of resemble — and it names one half of a distinction the sixteenth century thought important. To dissemble is to hide what is there; to simulate is to feign what is not. Francis Bacon set the whole scheme out in his essay on the subject, grading the arts of concealment from mere closeness, through dissimulation, to outright simulation, and judging them by how much each costs a man's credit. The pair still divides the ground exactly. Today to dissemble is to mask one's true feelings, which is the lesser and commoner of Bacon's two offences."
   },
   "prevaricate": {
     "v": "'Were you at the warehouse?' — 'I travel a great deal; my calendar is complex; define warehouse.'",
-    "e": "Latin praevaricari, 'to plow crooked; to straddle' — a plowman walking both sides of his furrow; Roman lawyers used it for advocates secretly serving the other side."
+    "e": "Latin praevaricari, 'to plow crooked; to straddle' — a plowman walking both sides of his furrow; Roman lawyers used it for advocates secretly serving the other side.",
+    "s": "Latin praevaricari, from varus, 'bent or knock-kneed' — and the picture is a ploughman who cannot hold a straight furrow, walking crookedly from one side of the line to the other. Roman law took the image and sharpened it into a specific offence. A praevaricator was a prosecutor who secretly worked for the defence, straddling the case he was supposed to press, and the word named a betrayal of one's own side rather than a general vagueness. English softened it considerably on the way in. Today to prevaricate is to speak evasively, which keeps the straddle and has dropped the treachery."
   },
   "specious": {
     "v": "The pitch deck's curves all rose smoothly; only in the footnotes did the numbers quietly confess.",
-    "e": "Latin species, 'appearance' — once meaning simply 'beautiful,' it soured into beauty that lies: fair-seeming, false within."
+    "e": "Latin species, 'appearance' — once meaning simply 'beautiful,' it soured into beauty that lies: fair-seeming, false within.",
+    "s": "Latin species, 'appearance,' from specere, 'to look' — what a thing looks like, and the English word began as a straightforward compliment. For its first century or so specious meant beautiful, handsome, pleasing to the eye, with no suggestion that the appearance was misleading; a specious building was a fine one. The souring happened through phrases like specious appearance and specious reasoning, where the word kept doing its old work of naming the surface while the context supplied the doubt about what lay under it. Today specious means plausible but false, and species itself is just a look, a kind of thing as it presents to the eye."
   },
   "symbiosis": {
     "v": "The clownfish shelters in the anemone's stinging arms and pays rent by chasing off its predators.",
-    "e": "Greek syn (together) + bios (life) — 'living together': a botanist coined it in 1877 for lichen, a fungus and an alga keeping house."
+    "e": "Greek syn (together) + bios (life) — 'living together': a botanist coined it in 1877 for lichen, a fungus and an alga keeping house.",
+    "s": "Greek syn, 'together,' with bios, 'life' — a living-together, and the word was coined to name a discovery that its own field refused to accept. In 1867 Simon Schwendener proposed that a lichen is not one organism but two, a fungus housing an alga, and the leading lichenologists rejected the idea as absurd for years. The vocabulary arrived with the vindication: Albert Frank and then Anton de Bary supplied symbiosis in the late 1870s for exactly this kind of intimate partnership. Today symbiosis is a close living-together to mutual gain, and biology now finds it nearly everywhere it looks, from coral to the human gut."
   },
   "biopsy": {
     "v": "The surgeon took a sliver of the lump no larger than a grain of rice and sent it to the lab.",
-    "e": "Greek bios (life) + opsis (sight) — a look at living tissue; its grim counterpart autopsy is the look taken afterward."
+    "e": "Greek bios (life) + opsis (sight) — a look at living tissue; its grim counterpart autopsy is the look taken afterward.",
+    "s": "Greek bios, 'life,' with opsis, 'sight' — a look at the living, coined in 1879 by the French dermatologist Ernest Besnier, and the whole force of the word is in the first half. Its counterpart is regularly misread. Autopsy is autos and opsis, a seeing for oneself, and it means first-hand examination rather than examination of the dead; the ancient sense was simply eyewitness knowledge, which is why the word can still be used of any personal inspection. The accurate term for the postmortem is necropsy. Today a biopsy is the examination of tissue taken from a living body, named against a word that never meant what it seems to."
   },
   "amphibious": {
     "v": "The landing craft crawled out of the surf and kept going up the beach on treads.",
-    "e": "Greek amphi (both) + bios — 'both lives': the frog's word, at home in water and on land, borrowed by the marines."
+    "e": "Greek amphi (both) + bios — 'both lives': the frog's word, at home in water and on land, borrowed by the marines.",
+    "s": "Greek amphi, 'both,' with bios, 'life' — having both lives, and the word has changed habitat twice. Seventeenth-century English used it broadly and often figuratively, for anything of double nature; Thomas Browne could call a man amphibious for living in two worlds at once. Linnaeus then pinned it to zoology and the class Amphibia. Its third career is military and recent, dating from the combined land-and-sea operations of the Second World War, which is why the word now suggests a landing craft as readily as a frog. Today amphibious means living or working on land and water alike."
   },
   "moribund": {
     "v": "Two trains a week, a shuttered mill, and a main street of plywood windows — the town was not dead, but dying.",
-    "e": "Latin mori, 'to die' — the -bund ending marks a state underway: not dead, but in death's outbound lane."
+    "e": "Latin mori, 'to die' — the -bund ending marks a state underway: not dead, but in death's outbound lane.",
+    "s": "Latin mori, 'to die,' with the ending -bundus, which marks an action in full course rather than a state achieved — so the moribund are not dead but actively dying, caught in the process. English took it as a physician's word for a patient beyond help, and only in the nineteenth century began applying it to institutions, industries and traditions running down. The metaphor is exact, since what is moribund is still there and still failing. Today moribund means at the point of death or dying out, and mori's strangest descendant is the mortgage, literally a dead pledge, killed off by payment or by default."
   },
   "mortify": {
     "v": "Halfway through the toast he realized he'd been calling the bride by his ex-wife's name.",
-    "e": "Latin mors, mortis (death) + facere (to make) — literally 'to make dead'; monks mortified the flesh, and embarrassment kills a little too."
+    "e": "Latin mors, mortis (death) + facere (to make) — literally 'to make dead'; monks mortified the flesh, and embarrassment kills a little too.",
+    "s": "Latin mors, mortis, 'death,' with facere, 'to make' — to put to death, and the word's history is a long weakening from that. Its first English sense was religious and severe: to mortify the flesh was to kill off appetite by fasting and discipline, a programme the New Testament recommends in as many words and the desert ascetics took literally. Medicine used it just as literally, mortification being the older name for gangrene, flesh actually dying on a living body. From killing the body to reddening the face is the whole distance travelled. Today to mortify is to humiliate, and embarrassment is what remains of a death."
   },
   "mortician": {
     "v": "He received the family at the door in gray, spoke softly of arrangements, and led them past the casket room.",
-    "e": "mors + the -ician of 'physician' — an American trade euphemism, coined by an undertakers' journal in 1895 to dignify the business."
+    "e": "mors + the -ician of 'physician' — an American trade euphemism, coined by an undertakers' journal in 1895 to dignify the business.",
+    "s": "Latin mors, 'death,' fitted with the -ician of physician — and this word is a documented act of rebranding rather than a natural growth. It was coined and pushed in 1895 by an American trade paper, Embalmers' Monthly, which wanted a title with the dignity of a learned profession attached to it. What it replaced was itself a euphemism: an undertaker is simply one who undertakes the arrangements, a delicate phrase that had grown too plain through use. The treadmill has not stopped since, and mortician has in turn been overtaken by funeral director. Today a mortician prepares the dead for burial, under the second of at least three softening names."
   },
   "necropolis": {
     "v": "Outside the ancient walls, the tombs line their own avenues — a suburb where no lights come on.",
-    "e": "Greek nekros (corpse) + polis (city) — 'city of the dead'; Alexandria's actually bore the name."
+    "e": "Greek nekros (corpse) + polis (city) — 'city of the dead'; Alexandria's actually bore the name.",
+    "s": "Greek nekros, 'corpse,' with polis, 'city' — the city of the dead, and it was a real address before it was a figure of speech, since ancient Alexandria had a western district actually called the Necropolis. The word came back into European use in the nineteenth century for a practical reason. Urban churchyards had become dangerously overfull, and the answer was the large planned cemetery outside the town, laid out with avenues and monuments like a city: Père Lachaise, the Glasgow Necropolis, the great ring of London burial grounds. Today a necropolis is a large city of the dead, a Greek word revived by a public-health crisis."
   },
   "necromancy": {
     "v": "By candlelight she called the dead captain up to name his murderer.",
-    "e": "nekros + manteia (divination) — prophecy by corpses; medieval scribes misspelled it 'nigromancy,' the black art, and the darkness stuck."
+    "e": "nekros + manteia (divination) — prophecy by corpses; medieval scribes misspelled it 'nigromancy,' the black art, and the darkness stuck.",
+    "s": "Greek nekros, 'corpse,' with manteia, 'divination' — prophecy obtained from the dead, which is what the Witch of Endor performs for Saul. The sinister colouring the word now carries was put there by a spelling mistake. Medieval Latin reshaped necromantia into nigromantia, under the influence of niger, 'black,' and the black art is what Europe called it for centuries; English had nigromancy well before it had the Greek form restored. Scholarship put the corpse back and left the darkness in place. Today necromancy is sorcery that divines through the dead, and its blackness is the residue of a scribe's error."
   },
   "necrosis": {
     "v": "Beneath the blackened edge of the wound, the tissue had simply stopped being alive.",
-    "e": "Greek nekrosis, 'a becoming dead' — medicine's word for death happening in one province while the body's empire lives on."
+    "e": "Greek nekrosis, 'a becoming dead' — medicine's word for death happening in one province while the body's empire lives on.",
+    "s": "Greek nekrosis, 'a becoming dead' — and modern biology has made the word half of a precise pair. Necrosis is death by injury: cells killed by trauma, infection or lost blood supply burst and spill their contents, which is what inflames the tissue around them. Against it stands apoptosis, named in 1972 from the Greek for a falling away, as leaves drop from a tree — the orderly, programmed self-dismantling by which a body disposes of cells it no longer needs, quietly and without alarm. Today necrosis is the death of tissue in a living body, and the distinction is between a death that is a wound and one that is housekeeping."
   },
   "internecine": {
     "v": "By the time the brothers' feud ended, the firm they were fighting over was worthless.",
-    "e": "Latin inter + necare (to kill) — Samuel Johnson misread the inter- as 'mutual' when he defined it in 1755; his mistake became the meaning."
+    "e": "Latin inter + necare (to kill) — Samuel Johnson misread the inter- as 'mutual' when he defined it in 1755; his mistake became the meaning.",
+    "s": "Latin internecinus, from internecare, 'to slaughter utterly,' where inter- is not the familiar between but an intensifier meaning to the death — the compound said thorough, not mutual. The modern English meaning is a mistake with a famous author. Samuel Johnson entered the word in his Dictionary of 1755 and glossed it as endeavouring mutual destruction, apparently reading inter- in its commoner sense, and his authority was such that the error propagated into general use and then into every dictionary after him. The wrong reading is now simply the meaning. Today internecine describes conflict that is mutually destructive within a group, on Johnson's misreading rather than Rome's."
   },
   "manacle": {
     "v": "The prisoner's wrists were locked before him in iron rings joined by a short chain.",
