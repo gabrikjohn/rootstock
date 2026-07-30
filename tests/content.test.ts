@@ -161,7 +161,7 @@ describe("runtime content", () => {
     }
     // Ratchets up as each batch lands: 10 (Gate 1) → 50 (Gates 2–5) → … → 416 (whole corpus).
     // Raise it per batch; never lower it.
-    expect(withStory).toBeGreaterThanOrEqual(90);
+    expect(withStory).toBeGreaterThanOrEqual(130);
     // Inference words are being given the example sentence they were authored without, so
     // their cards can render in full. Ratchets alongside the stories, ending at all 95.
     expect(inferenceWords.filter((word) => word.sentence).length).toBeGreaterThanOrEqual(0);

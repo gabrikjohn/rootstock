@@ -453,163 +453,203 @@ export const DEPTH = {
   },
   "monogamy": {
     "v": "Fifty-one years, one ring, and both still initialed the grocery list 'us.'",
-    "e": "Greek monos (one) + gamos (marriage) — one marriage at a time; the arithmetic of the heart's contracts."
+    "e": "Greek monos (one) + gamos (marriage) — one marriage at a time; the arithmetic of the heart's contracts.",
+    "s": "Greek monos, 'one,' with gamos, 'marriage' — and the one marriage it first counted was not the one you would expect. When the word entered English around 1600 it belonged to church controversy, and it meant marrying only once in a lifetime: the question was whether a widow or widower might decently remarry at all, and the monogamist was the one who did not. Counting spouses at a time rather than over a life is the later, looser sense that has entirely displaced it. Today monogamy means marriage to one person at a time, and the older meaning survives only in the theological corner it was minted for."
   },
   "bigamy": {
     "v": "The second wedding was lovely; the felony was that the first marriage had never legally ended.",
-    "e": "Latin bi (two) + Greek gamos (marriage) — a hybrid word for a doubled crime: two contracts running at once."
+    "e": "Latin bi (two) + Greek gamos (marriage) — a hybrid word for a doubled crime: two contracts running at once.",
+    "s": "Latin bi-, 'two,' bolted to Greek gamos, 'marriage' — a hybrid word, and like monogamy beside it, a word about succession before it was a word about crime. In medieval canon law a bigamist was a man who had married twice one after the other, most often a widower who remarried; the label mattered because it barred him from ordination and from claiming benefit of clergy. The felony we now mean was fixed by statute rather than by drift, when the English Bigamy Act of 1603 made a second marriage during the life of a first a capital offence. Today bigamy is the crime of marrying while already married."
   },
   "polygamy": {
     "v": "The patriarch's compound housed four wives and their separate kitchens, all lawful in that province.",
-    "e": "Greek polys (many) + gamos — many spouses at once, the umbrella over polygyny and its rare mirror."
+    "e": "Greek polys (many) + gamos — many spouses at once, the umbrella over polygyny and its rare mirror.",
+    "s": "Greek polys, 'many,' with gamos, 'marriage' — the umbrella term, and it entered English in the sixteenth century inside a theological argument about the Old Testament patriarchs, who plainly had more than one wife apiece. Precision arrived later, from anthropology: polygyny names many wives, polyandry many husbands, and polygamy properly covers both. Popular usage has never respected the distinction and uses polygamy when it means polygyny alone, which is the far commoner arrangement. Today polygamy is the custom of having several spouses at once, a word doing duty for a category it was meant only to head."
   },
   "polyandry": {
     "v": "In the high valley, one woman traditionally married a set of brothers, keeping the farm whole.",
-    "e": "Greek polys (many) + aner, andros (man) — many husbands; practiced where land could not be divided."
+    "e": "Greek polys (many) + aner, andros (man) — many husbands; practiced where land could not be divided.",
+    "s": "Greek polys, 'many,' with aner, andros, 'man' — many husbands, and the word was built in the nineteenth century by anthropologists who needed a mirror for polygyny. What they found was not a curiosity but an economic institution. In parts of Tibet and the Himalaya, fraternal polyandry marries a set of brothers to one wife precisely so that a holding of land passes intact instead of being split among heirs each generation; the arrangement follows the arithmetic of the soil. Today polyandry names one woman married to several husbands, and andros supplies the android, the misandrist and the very different polyandry of a plant's many stamens."
   },
   "misogamy": {
     "v": "He toasted at other people's weddings gladly, and swore, each time, never to hold one of his own.",
-    "e": "Greek misein (to hate) + gamos (marriage) — hatred of the institution itself, not of any person in it."
+    "e": "Greek misein (to hate) + gamos (marriage) — hatred of the institution itself, not of any person in it.",
+    "s": "Greek misein, 'to hate,' with gamos, 'marriage' — and the whole worth of this rare word is the letter that separates it from its neighbour. Misogamy is hatred of the institution: of the contract, the ceremony and the settled life, held by someone who may like people entirely well. Misogyny, one letter away and from the same misein, is hatred of women. Confusing them flatters the misogynist by lending him a merely philosophical objection, which is why the distinction is worth keeping even though the word is now mostly literary. Today misogamy is a hatred of marriage itself, and nothing else."
   },
   "agoraphobia": {
     "v": "She planned her whole week around avoiding the supermarket at busy hours; the open plaza was out of the question.",
-    "e": "Greek agora, 'marketplace' — fear of the open, crowded square where Athens gathered; phobos was the god Fear himself, Ares' son."
+    "e": "Greek agora, 'marketplace' — fear of the open, crowded square where Athens gathered; phobos was the god Fear himself, Ares' son.",
+    "s": "Greek agora, the marketplace and civic assembly where an Athenian went to be a citizen at all, joined to phobos, 'fear,' who was a god in his own right, the son of Ares. The compound is modern and datable: Carl Westphal coined Agoraphobie in German in 1871, from cases of men seized by panic while crossing open squares. Clinical understanding has since widened it well past open spaces, to any situation from which escape would be difficult or embarrassing. Today agoraphobia is an extreme fear of public places, and its commonest form is not fear of the square but refusal to leave the house."
   },
   "claustrophobia": {
     "v": "He took eleven flights of stairs daily rather than face the elevator's closing doors.",
-    "e": "Latin claustrum, 'a bolted place' — the monk's cloister and the panic of the shut door share one root."
+    "e": "Latin claustrum, 'a bolted place' — the monk's cloister and the panic of the shut door share one root.",
+    "s": "Latin claustrum, 'a bolt or enclosure,' fastened to Greek phobos, 'fear' — another of the deliberate hybrids the late nineteenth century produced, coined in the 1870s as the natural opposite of agoraphobia. The Latin half has a quieter descendant: claustrum gives cloister, the enclosure a monk chooses and enters by vow. So the same shut door is a vocation and a terror depending only on whether it was locked from the inside. Today claustrophobia is an extreme fear of enclosed spaces, and claustrum's other children include the closet, the close and the act of closing itself."
   },
   "xenophobia": {
     "v": "The new family's welcome lasted until their accent was heard; then the shutters of the town closed.",
-    "e": "Greek xenos, 'stranger' — but xenos also meant 'guest': the same word held welcome and threat, and fear chose."
+    "e": "Greek xenos, 'stranger' — but xenos also meant 'guest': the same word held welcome and threat, and fear chose.",
+    "s": "Greek xenos, 'stranger,' with phobos, 'fear' — and the root arrives carrying an obligation rather than a threat. Xenos meant guest as readily as stranger, and Greek xenia was the sacred duty of hospitality owed to whoever arrived at your door, enforced by Zeus in his aspect as Zeus Xenios, protector of guests; to mistreat a stranger was to offend the god. The word xenophobia is a late coinage, from around 1900, and it chose the other pole of a root that had held both. Today xenophobia is fear or hatred of foreigners, built from the very word that once obliged you to feed them."
   },
   "acrophobia": {
     "v": "Two rungs up the ladder his palms went slick; the roof might as well have been the moon.",
-    "e": "Greek akros, 'topmost' — the summit-root of acropolis and acrobat, the one who walks the heights."
+    "e": "Greek akros, 'topmost' — the summit-root of acropolis and acrobat, the one who walks the heights.",
+    "s": "Greek akros, 'topmost,' with phobos, 'fear' — the fear of the high place. The word was coined in 1887 by the Italian physician Andrea Verga, who described the condition from the inside, being a sufferer himself. The root has a good family: the acropolis is the high city, the acrobat is one who walks aloft, and an acronym is a word made from the tips of others. Today acrophobia is an extreme fear of heights, and it is worth separating from vertigo, which is not a fear at all but the spinning sensation that may or may not accompany one."
   },
   "kleptomania": {
     "v": "Her coat pockets held lipsticks, spoons, a doorknob — none needed, none paid for, none resistible.",
-    "e": "Greek kleptein, 'to steal' + mania — theft as compulsion, not profit; the diagnosis is Victorian, the urge older."
+    "e": "Greek kleptein, 'to steal' + mania — theft as compulsion, not profit; the diagnosis is Victorian, the urge older.",
+    "s": "Greek kleptein, 'to steal,' with mania, 'madness' — theft as compulsion rather than calculation, and the diagnosis was minted in French around 1816. Its nineteenth-century history is less a matter of medicine than of class. The condition was diagnosed overwhelmingly in wealthy women caught taking goods from the new department stores, whose vast open displays were themselves the novelty; the same act by a poor woman was charged as larceny. The rich were ill and the poor were criminal. Today kleptomania names an irresistible compulsion to steal, and kleptein's other modern child, the kleptocracy, applies the verb to governments."
   },
   "autocracy": {
     "v": "One signature started the war, ended the newspapers, and renamed the month of June.",
-    "e": "Greek autos (self) + kratos (power) — power answerable to the self alone; the Tsar's official title was Autocrat of all the Russias."
+    "e": "Greek autos (self) + kratos (power) — power answerable to the self alone; the Tsar's official title was Autocrat of all the Russias.",
+    "s": "Greek autos, 'self,' with kratos, 'power' — and the Greek word autokrateia meant self-rule in a sense far closer to autonomy than to tyranny: a man governing his own appetites, or a state answerable to no foreign power. The turn was imperial. Byzantine emperors took autokrator as a title, and the Russian court then rendered its own Samoderzhets the same way, so that Autocrat of All the Russias became the formal style of the Tsar. Absolute personal power, not self-command, is what the word carried out of that. Today autocracy is government by one of unlimited authority, a word that began by praising self-mastery."
   },
   "oligarchy": {
     "v": "Six families owned the port, the bank, and the votes, and dinner among them settled elections.",
-    "e": "Greek oligoi (few) + archein (to rule) — Aristotle's name for rule by the few in their own interest."
+    "e": "Greek oligoi (few) + archein (to rule) — Aristotle's name for rule by the few in their own interest.",
+    "s": "Greek oligoi, 'the few,' with archein, 'to rule' — and unlike most words of abuse this one was designed to condemn. Aristotle built it as a technical term in the Politics, where constitutions are sorted by how many rule and in whose interest: rule by the few for the common good is aristocracy, and rule by those same few for their own advantage is oligarchy. The corruption is in the definition, not in later usage. Today an oligarchy is rule by a small privileged class, and its honourable twin aristocracy, government by the best, has been dragged down by association into meaning merely the rich with titles."
   },
   "anarchy": {
     "v": "When the garrison left, the ministries emptied by noon and the intersections ran on honked horns and nerve.",
-    "e": "Greek an- (without) + archos (ruler) — no ruler: to Greeks a terror, to nineteenth-century idealists a program."
+    "e": "Greek an- (without) + archos (ruler) — no ruler: to Greeks a terror, to nineteenth-century idealists a program.",
+    "s": "Greek an-, 'without,' with archos, 'ruler' — no ruler, and for the Greeks that was not a proposal but a nightmare, the condition of a city that had come apart. English used it the same way for centuries: anarchy meant chaos, and to call something anarchic was to say it had collapsed. Then somebody claimed the insult. In 1840 Pierre-Joseph Proudhon answered his own question about what he was by declaring himself an anarchist, deliberately taking up the word to name a programme of order without rulers rather than the absence of order. Today anarchy carries both senses at once, and which one you hear depends on who is speaking."
   },
   "plutocracy": {
     "v": "Campaigns cost nine figures, so the legislature's real district was the donor list.",
-    "e": "Greek ploutos, 'wealth' — Pluto, lord of the underworld, owned everything under the earth: gold, silver, and the dead."
+    "e": "Greek ploutos, 'wealth' — Pluto, lord of the underworld, owned everything under the earth: gold, silver, and the dead.",
+    "s": "Greek ploutos, 'wealth,' with kratos, 'power' — rule by the rich, and the god behind the root has a story of his own. Ploutos was wealth personified, and the lord of the underworld came to be called Plouton, the wealth-giver, in part as a euphemism: crops and metals both come up from under the earth, and it was safer to name the god of the dead for his riches than to say his name outright. The planet, and after it the element plutonium, took the name from him. Today a plutocracy is government by the wealthy, named for a god who was flattered into it."
   },
   "theocracy": {
     "v": "The council of clerics reviewed every statute against scripture before the parliament could vote.",
-    "e": "Greek theos, 'god' — coined by the historian Josephus to describe Israel under Mosaic law: God as head of state."
+    "e": "Greek theos, 'god' — coined by the historian Josephus to describe Israel under Mosaic law: God as head of state.",
+    "s": "Greek theos, 'god,' with kratos, 'power' — and this word has an author, a date and a purpose. Josephus, the Jewish historian writing in Greek around AD 94, coined it in Against Apion to describe the constitution Moses gave Israel: other nations, he says, have entrusted power to monarchies, oligarchies or the people, but our lawgiver placed all sovereignty in God. He needed a word that did not exist, so he made one on the pattern of the others. Today a theocracy is government by religious authority, and the coinage has outlived by nineteen centuries the argument it was built to win."
   },
   "monarchy": {
     "v": "The crown passed at the moment of death — 'The king is dead; long live the king.'",
-    "e": "Greek monos (one) + archein (to rule) — one ruler; the throne as a single point of succession."
+    "e": "Greek monos (one) + archein (to rule) — one ruler; the throne as a single point of succession.",
+    "s": "Greek monos, 'one,' with archein, 'to rule' — one ruler, and the Greeks were careful about what the word did not mean. Monarchia named legitimate rule by a single person; tyrannis named rule by a single person who had seized it. The distinction was about title rather than conduct, so a tyrant might govern well and a monarch badly without either changing category. The hereditary element that now seems built into the word is a later European addition. Today a monarchy is government by a hereditary sovereign, and archein's other children — anarchy, oligarchy, hierarchy — count the rulers differently in every case."
   },
   "matriarchy": {
     "v": "Descent, property, and the family name all flowed through the mothers; the grandmothers' porch was the real courthouse.",
-    "e": "Latin mater + Greek archein — rule of the mothers; anthropology's contested category, built as patriarchy's mirror."
+    "e": "Latin mater + Greek archein — rule of the mothers; anthropology's contested category, built as patriarchy's mirror.",
+    "s": "Latin mater, 'mother,' joined to Greek archein, 'to rule' — a hybrid, and one built to order in the nineteenth century as the mirror of patriarchy. The occasion was Johann Jakob Bachofen's Das Mutterrecht of 1861 and the Victorian anthropology that followed it, which held that human society had passed through an early matriarchal stage before fathers took charge. That theory has not survived: no society has been documented in which women hold public authority as men do elsewhere. Today matriarchy names a contested category rather than an observed one, and it should be kept apart from matriliny, tracing descent through the mother, which is real and common."
   },
   "patriarchy": {
     "v": "The eldest man's word settled marriages, mortgages, and quarrels for four generations under one roof.",
-    "e": "Greek pater (father) + archein — the father-ruled house scaled up to a social order; the biblical Patriarchs carried the title first."
+    "e": "Greek pater (father) + archein — the father-ruled house scaled up to a social order; the biblical Patriarchs carried the title first.",
+    "s": "Greek pater, 'father,' with archein, 'to rule' — and its first English career was ecclesiastical. A patriarch was one of the senior bishops of the early Church, at Rome, Constantinople, Antioch, Alexandria and Jerusalem, and a patriarchy was his office or see; behind them stood the biblical Patriarchs, Abraham and Isaac and Jacob, fathers of a people. The word meant a jurisdiction. Its use for a whole social order came later, and its sharpest sense is recent: twentieth-century feminist analysis made patriarchy the name for a system of male authority rather than a churchman's title. Today it means a social order ruled by men."
   },
   "hierarchy": {
     "v": "Every request climbed five desks to be approved and descended five desks to be enacted.",
-    "e": "Greek hieros, 'sacred' — originally the ranked orders of angels and priests; the org chart is a secularized heaven."
+    "e": "Greek hieros, 'sacred' — originally the ranked orders of angels and priests; the org chart is a secularized heaven.",
+    "s": "Greek hieros, 'sacred,' with archein, 'to rule' — and the first things ever arranged in a hierarchy were angels. The writer known as Pseudo-Dionysius the Areopagite set out in the Celestial Hierarchy the nine ranked orders of the heavenly host, arranged in three triads, each receiving illumination from the rank above and passing it down; the word then transferred to the ranked orders of the clergy who mirrored them on earth. Only in the nineteenth century did it come loose and go to work on institutions with no angels in them at all. Today a hierarchy is any ranked order of authority, which makes the modern organisation chart a secularised heaven."
   },
   "demagogue": {
     "v": "He named the culprits — foreigners, bankers, professors — and the crowd roared; policy never came up.",
-    "e": "Greek demos (people) + agogos (leader) — once simply 'leader of the people'; Athens' experience with such leaders ruined the word."
+    "e": "Greek demos (people) + agogos (leader) — once simply 'leader of the people'; Athens' experience with such leaders ruined the word.",
+    "s": "Greek demos, 'the people,' with agogos, 'leader' — and for a while it was simply a job description, capable of being said with approval. What ruined it was Athenian experience. The generation of politicians after Pericles, Cleon above all, were remembered by Thucydides and mocked by Aristophanes as men who led the assembly by flattering its worst impulses, and the word never recovered from the portrait. English borrowed it in the seventeenth century already spoiled. Today a demagogue is a leader who exploits popular passion, and agogos's quieter relatives include the pedagogue, who leads children, and the synagogue, a leading-together."
   },
   "soliloquy": {
     "v": "Alone on the dark stage, the prince weighs being against not being, and the audience overhears.",
-    "e": "Latin solus (alone) + loqui (to speak) — speaking alone; Augustine coined it for conversations with his own soul."
+    "e": "Latin solus (alone) + loqui (to speak) — speaking alone; Augustine coined it for conversations with his own soul.",
+    "s": "Latin solus, 'alone,' with loqui, 'to speak' — and the word was made by a man who explained exactly why he needed it. Augustine, writing around 386, gave the title Soliloquia to a book of conversations with his own reason, and apologised for the coinage: what he was doing was neither a speech delivered to an audience nor a dialogue with another person, and Latin had no name for the third thing. The stage sense arrived much later, when English critics needed a word for the character left alone before the audience. Today a soliloquy is a speech voicing one's thoughts alone, which is the form Augustine invented before the theatre borrowed it."
   },
   "circumlocution": {
     "v": "'Revenue enhancement through workforce optimization' — it took the room a minute to hear 'layoffs.'",
-    "e": "Latin circum (around) + loqui (to speak) — talking in circles around the point; Dickens housed bureaucracy itself in the Circumlocution Office."
+    "e": "Latin circum (around) + loqui (to speak) — talking in circles around the point; Dickens housed bureaucracy itself in the Circumlocution Office.",
+    "s": "Latin circum, 'around,' with loqui, 'to speak' — talking round a thing, and it began as a neutral term of rhetoric, the Latin rendering of Greek periphrasis. Saying a thing indirectly was a recognised figure with legitimate uses, for delicacy or for emphasis, and the textbooks taught it. It became purely a fault when indirection came to be read as evasion. Dickens supplied the definitive English image in Little Dorrit in 1857, with the Circumlocution Office, the department of state devoted to the art of How Not To Do It. Today circumlocution is a roundabout way of speaking, and the compliment it once received is gone entirely."
   },
   "grandiloquent": {
     "v": "He could not say 'the budget failed'; he said 'our fiscal aspirations met the headwinds of destiny.'",
-    "e": "Latin grandis (grand) + loqui — grand speaking: eloquence inflated past its cargo."
+    "e": "Latin grandis (grand) + loqui — grand speaking: eloquence inflated past its cargo.",
+    "s": "Latin grandis, 'grand,' with loqui, 'to speak' — grand speaking, and the Romans were already using grandiloquus with a lifted eyebrow. The word names a mismatch rather than a manner: the grandeur has gone into the delivery and not into the matter, so that the style is writing cheques the substance cannot cover. That is precisely what separates it from eloquent, which never carries the charge, and it is why grandiloquent is always an accusation. Today grandiloquent means speaking in a pompous lofty style, and magniloquent, built from magnus rather than grandis, is the same complaint in a different size."
   },
   "eloquent": {
     "v": "Her closing argument used no notes and no ornament, and the jury sat forward for all of it.",
-    "e": "Latin e + loqui, 'to speak out' — speech that moves; Cicero made eloquentia Rome's supreme civic art."
+    "e": "Latin e + loqui, 'to speak out' — speech that moves; Cicero made eloquentia Rome's supreme civic art.",
+    "s": "Latin e-, 'out,' with loqui, 'to speak' — to speak out, and for Cicero this was the master art of a free state. Eloquentia meant the capacity to move an assembly of citizens by argument, and Cicero held that it was the orator, not the soldier, who held the republic together; the whole education of a Roman gentleman was aimed at it. When the republic ended, the art lost its function. Speech that had been a way of deciding public questions became a way of decorating them, and eloquence slid from power towards style. Today eloquent means speaking with fluent and moving force, and loqui's other children include the loquacious and the interlocutor."
   },
   "colloquial": {
     "v": "The professor writes 'children'; at home he says 'the kids' — both correct, one off duty.",
-    "e": "Latin con + loqui, 'to speak together' — the language of conversation; a colloquium is literally a talking-together."
+    "e": "Latin con + loqui, 'to speak together' — the language of conversation; a colloquium is literally a talking-together.",
+    "s": "Latin con-, 'together,' with loqui, 'to speak' — a speaking-together, which is all a conversation is. English formed colloquial in the seventeenth century, and for a long time the word carried a verdict rather than a description: to mark an expression as colloquial in an eighteenth or nineteenth-century dictionary was to warn the reader off it, since the written language was held to be the real one and speech a careless version. Linguistics reversed the judgement. Today colloquial simply names the register of everyday conversation, no longer a demotion, and a colloquium remains literally a talking-together."
   },
   "malediction": {
     "v": "The old woman spat on the courthouse steps and wished ruin on the judge and his line.",
-    "e": "Latin male (badly) + dicere (to say) — the formal curse; shortened through French, it became plain 'malison,' and its opposite 'blessing' kept the pair alive."
+    "e": "Latin male (badly) + dicere (to say) — the formal curse; shortened through French, it became plain 'malison,' and its opposite 'blessing' kept the pair alive.",
+    "s": "Latin male, 'badly,' with dicere, 'to say' — the bad-saying, and in the world that minted it a curse was an act rather than an insult. Words spoken in the right form were believed to do things, so a malediction was a deed performed by mouth, with an effect expected to follow. The word came into English twice, which is the interesting part: once whole from Latin as malediction, and once already worn down through French as malison, the same word with the centuries rubbed off it. Benediction and benison make the identical pair. Today a malediction is a curse, the learned form having outlasted its shorter twin."
   },
   "benediction": {
     "v": "Palms raised over the congregation, the priest sent them out with the ancient words of peace.",
-    "e": "Latin bene (well) + dicere — the good-saying; Benedict, 'the blessed,' carries it as a name."
+    "e": "Latin bene (well) + dicere — the good-saying; Benedict, 'the blessed,' carries it as a name.",
+    "s": "Latin bene, 'well,' with dicere, 'to say' — the good-saying, and like its opposite a performative: the blessing was understood to accomplish something and not merely to wish it. The English word it competes with hides a much stranger history. Bless comes from Old English bletsian, which meant to mark with blood, a word from pagan sacrifice that missionaries pressed into service to translate benedicere — so the gentlest verb in Christian English is built on an altar. Today a benediction is a blessing pronounced over someone, and Benedict, the blessed, carries the same two roots as a name."
   },
   "dictum": {
     "v": "'Buy when there's blood in the streets,' the old financier said — and three generations traded on it.",
-    "e": "Latin dictum, 'a thing said' — in law, an obiter dictum is the judge's aside, said in passing but quoted forever."
+    "e": "Latin dictum, 'a thing said' — in law, an obiter dictum is the judge's aside, said in passing but quoted forever.",
+    "s": "Latin dictum, 'a thing said,' the neuter participle of dicere — and in ordinary English it means a pronouncement with weight behind it. In law it means very nearly the reverse. A judge's obiter dictum is something said by the way, a remark not necessary to the decision of the case, and it is therefore explicitly not binding on any later court; only the ratio decidendi, the reason for deciding, has that force. So the word that suggests authority is the technical term for the part of a judgment you may safely ignore. Today a dictum is an authoritative saying everywhere except in the courtroom that defined it."
   },
   "edict": {
     "v": "Posted at every gate by royal seal: the borders close at midnight, no exceptions, no appeal.",
-    "e": "Latin e + dicere, 'to speak out' — law by proclamation; Rome's praetors opened each term by posting theirs."
+    "e": "Latin e + dicere, 'to speak out' — law by proclamation; Rome's praetors opened each term by posting theirs.",
+    "s": "Latin e-, 'out,' with dicere, 'to say' — a speaking-out, and the Roman institution behind it was administrative rather than despotic. A praetor entering his year of office posted an edictum setting out the rules by which he intended to decide cases, so that citizens knew in advance where they stood; successive praetors copied and amended their predecessors until the accumulation was consolidated as the edictum perpetuum. Published policy, in other words, was the point. Today an edict is an official decree, and the famous ones, at Milan and at Nantes, kept the older sense of a ruler publishing the terms he will observe."
   },
   "jurisdiction": {
     "v": "The sheriff stopped at the county line; past that sign, his badge was just a piece of tin.",
-    "e": "Latin jus, juris (law) + dicere (to say) — the power to 'say the law': where your word is law, and where it isn't."
+    "e": "Latin jus, juris (law) + dicere (to say) — the power to 'say the law': where your word is law, and where it isn't.",
+    "s": "Latin jus, juris, 'law,' with dictio, 'the saying' — literally the saying of the law, and the compound names a boundary rather than a power. To have jurisdiction is not to be strong but to be the one whose word counts here, over this matter, over these people; outside the line the same words carry nothing. That is why the term does so much work in a world of overlapping courts, states and treaties. Today jurisdiction is the range within which one's law applies, and the same two roots produce the judge himself, whose Latin title judex is jus and dicere compressed into a single man."
   },
   "jurisprudence": {
     "v": "Her shelf held no statutes, only the centuries of cases arguing what statutes are for.",
-    "e": "Latin juris + prudentia, 'foresight in law' — the Romans ranked prudentia a cardinal virtue; law's theory bears its name."
+    "e": "Latin juris + prudentia, 'foresight in law' — the Romans ranked prudentia a cardinal virtue; law's theory bears its name.",
+    "s": "Latin juris, 'of law,' with prudentia, 'foresight' — itself a contraction of providentia, seeing ahead. In Rome jurisprudentia named a craft rather than a philosophy: the practical skill of the jurisconsults who gave opinions on difficult cases, and whose collected responses became the material of the law itself. English kept that working sense for centuries. The turn came in the nineteenth century with Bentham and Austin, who took the word for the analytic study of what law is, as against what any particular law says. Today jurisprudence means the theory and philosophy of law, a discipline named for a practitioner's foresight."
   },
   "adjudicate": {
     "v": "Both neighbors presented their fence surveys; the magistrate measured, ruled, and closed the file.",
-    "e": "Latin ad + judicare, 'to judge to' — to award by judgment; the judex was literally the 'law-sayer' (jus + dicere)."
+    "e": "Latin ad + judicare, 'to judge to' — to award by judgment; the judex was literally the 'law-sayer' (jus + dicere).",
+    "s": "Latin ad, 'to,' with judicare, 'to judge' — to award something by judgment, and the judge inside the word is worth unpacking. Latin judex is a compression of jus, 'law,' and dicere, 'to say': the judge is quite literally the law-sayer, the same compound that gives jurisdiction its name. In the Roman system he was often not a professional at all but a private citizen appointed to hear one case and decide it. Today to adjudicate is to hear and settle a dispute, and the family around it is large: judicial, judicious, and prejudice, which is a judging-before the hearing has happened."
   },
   "litigious": {
     "v": "Fourteen suits in ten years — against the city, the florist, and twice against his own brother.",
-    "e": "Latin lis, litis, 'lawsuit' — given to going to law; Rome's courts knew the type well enough to name it."
+    "e": "Latin lis, litis, 'lawsuit' — given to going to law; Rome's courts knew the type well enough to name it.",
+    "s": "Latin lis, litis, 'a lawsuit or dispute' — and the English word first described the case rather than the person. A litigious question in the sixteenth and seventeenth centuries was one that was actually at issue, a matter properly subject to legal dispute, and there was no criticism in it. The word then shifted its target from the quarrel to the quarreller, and in doing so picked up the disapproval it now carries entirely. Today litigious means prone to suing and fond of lawsuits, a description of temperament rather than of the matter in hand, and the same lis gives litigate and litigant without the sneer."
   },
   "perjury": {
     "v": "Under oath she swore she'd never seen the ledger; the prosecution then produced her signature on it.",
-    "e": "Latin per- (falsely, away) + jurare (to swear) — an oath sworn crooked; the ancient world treated it as an offense against the gods."
+    "e": "Latin per- (falsely, away) + jurare (to swear) — an oath sworn crooked; the ancient world treated it as an offense against the gods.",
+    "s": "Latin per-, in its sense of away or to destruction as in pervert and perfidy, with jurare, 'to swear' — an oath sworn crooked, broken in the swearing. The gravity of the offence originally had nothing to do with the court. An oath was sworn to a god, so false swearing was sacrilege first and a legal wrong only incidentally, and the punishment expected was the god's rather than the magistrate's. English law had to rebuild it as a secular crime against the administration of justice. Today perjury is lying under oath, and jurare's other children include the abjured, the conjured and the jury itself."
   },
   "verdict": {
     "v": "After nine hours, the foreman stood and read the single word the room was waiting for.",
-    "e": "Latin vere dictum, 'truly said' — the jury's saying-of-truth; delivered into English through Norman French courts."
+    "e": "Latin vere dictum, 'truly said' — the jury's saying-of-truth; delivered into English through Norman French courts.",
+    "s": "Anglo-French verdit, from Latin vere dictum, 'truly said' — the sworn statement of what is true, delivered into English through the Norman courts. What the phrase meant in practice has since been turned inside out. A medieval English jury was drawn from the neighbourhood precisely because its members were expected to know the parties and the facts already; they came to court carrying the knowledge, and their verdict reported what they knew. The modern jury is chosen on the opposite principle, that it must know nothing beforehand and learn everything in the room. Today a verdict is a jury's formal finding of fact, under a name from when the jurors were the witnesses."
   },
   "culpable": {
     "v": "He didn't light the fire, but he locked the exits — the court found the deaths lay partly at his door.",
-    "e": "Latin culpa, 'fault, blame' — the confessional's mea culpa, 'through my fault,' keeps the root in daily use."
+    "e": "Latin culpa, 'fault, blame' — the confessional's mea culpa, 'through my fault,' keeps the root in daily use.",
+    "s": "Latin culpa, 'fault' — kept in daily circulation by the Confiteor, where mea culpa acknowledges the fault as one's own. Roman law used the word with more precision than English does, grading wrongdoing by the state of mind behind it: dolus was intent, culpa was mere negligence, and culpa was accordingly the lesser charge. English flattened the distinction and made culpable mean blameworthy in general. Today culpable means deserving blame, and the oddest thing culpa produced is the culprit, apparently frozen out of a clerk's Anglo-French court shorthand for guilty, ready to prove it — a formula misread as a form of address."
   },
   "exculpate": {
     "v": "The security footage showed her forty miles away at the hour of the theft.",
-    "e": "Latin ex (out of) + culpa (blame) — to lift someone out of fault; the evidence that does it is exculpatory."
+    "e": "Latin ex (out of) + culpa (blame) — to lift someone out of fault; the evidence that does it is exculpatory.",
+    "s": "Latin ex, 'out of,' with culpa, 'fault' — to lift someone clear of blame, a compound English assembled in the seventeenth century rather than inherited whole. The word does its hardest work as an adjective in criminal procedure, where exculpatory evidence is anything tending to show the accused did not do it, and where the interesting question has always been who is obliged to hand it over. American law answered in 1963 in Brady v. Maryland, which requires the prosecution to disclose it even when the defence has not asked. Today to exculpate is to clear of guilt, and inculpate, from the same culpa, does the reverse."
   },
   "incriminate": {
     "v": "The muddy boots by his door matched the prints at the scene exactly.",
-    "e": "Latin in + crimen, criminis (charge, crime) — to fold someone into the accusation; the Fifth Amendment guards against doing it to yourself."
+    "e": "Latin in + crimen, criminis (charge, crime) — to fold someone into the accusation; the Fifth Amendment guards against doing it to yourself.",
+    "s": "Latin in, 'against,' with crimen, criminis — and crimen in Latin was the accusation rather than the act. It meant the charge brought, the indictment laid, so the word pointed at a piece of legal procedure and not at anything the accused had done; the sense of crime as the deed itself came later and pushed the original aside. That older meaning is exactly what survives in this compound. To incriminate is to fold a person into an accusation, which is why self-incrimination is a coherent idea and the Fifth Amendment a guard against being made to do it to yourself. Today incriminate means to expose to a criminal charge."
   },
   "indict": {
     "v": "The grand jury heard two weeks of testimony and handed down charges on all six counts.",
-    "e": "Latin in + dicere, 'to declare against' — English respelled it to look Latin but kept the French sound, which is why the c is silent."
+    "e": "Latin in + dicere, 'to declare against' — English respelled it to look Latin but kept the French sound, which is why the c is silent.",
+    "s": "Anglo-French enditer, 'to accuse,' behind it Latin in and dicere — to declare against someone. For several centuries English wrote the word as it said it, endite or indite, and that was the whole of the matter. Then Renaissance scholars went through the language respelling French-worn borrowings to display their Latin parentage, and inserted a c that nobody had ever pronounced and nobody has pronounced since. The silent letter is deliberate antiquarian work, the same impulse that put the b into debt and doubt and the s into island. Today to indict is to charge formally with a crime, and indite survived separately, meaning to compose."
   },
   "theodicy": {
     "v": "The philosopher's book asks the oldest question: if God is good and mighty, why did the earthquake take the children?",
-    "e": "Greek theos (god) + dike (justice) — coined by Leibniz in 1710 as the title of his defense of God's justice; Voltaire's Candide is the mocking reply."
+    "e": "Greek theos (god) + dike (justice) — coined by Leibniz in 1710 as the title of his defense of God's justice; Voltaire's Candide is the mocking reply.",
+    "s": "Greek theos, 'god,' with dike, 'justice' — a justifying of God, and the word is one man's title. Leibniz published his Essais de Théodicée in 1710, arguing that a perfect God permitting a world containing evil must have chosen the best of all possible worlds, since any other choice would impugn him. The reply is as datable as the coinage. After the Lisbon earthquake of 1755 killed tens of thousands on a holy day, Voltaire wrote Candide, whose Dr Pangloss repeats the best of all possible worlds through one catastrophe after another. Today a theodicy is any defence of divine justice against the fact of suffering."
   },
   "apathy": {
     "v": "The third notice of eviction lay unopened on the mat beside the first two.",
