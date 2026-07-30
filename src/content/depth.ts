@@ -853,163 +853,203 @@ export const DEPTH = {
   },
   "manacle": {
     "v": "The prisoner's wrists were locked before him in iron rings joined by a short chain.",
-    "e": "Latin manicula, 'little hand' — from manus; the hand's own diminutive turned into the hand's cage."
+    "e": "Latin manicula, 'little hand' — from manus; the hand's own diminutive turned into the hand's cage.",
+    "s": "Latin manicula, 'a little hand,' the diminutive of manus — and the affection in that ending is entirely gone from what English made of it. The word came through Old French as the name for the iron that closes on a wrist, so the hand's own pet form became the hand's cage. Nothing in the Latin predicted the turn; it is simply what the object was called by the people who fitted it. Today a manacle is a shackle for the hands, and manus supplies a great deal of gentler vocabulary besides — the manual, the manuscript written by hand, manufacture, and the manicure that tends what the manacle holds."
   },
   "emancipate": {
     "v": "The decree was read at every courthouse: those held as property were, from that hour, free.",
-    "e": "Latin e + manus + capere — 'to take out of the hand': the Roman father's formal release of a son or slave from his literal grip."
+    "e": "Latin e + manus + capere — 'to take out of the hand': the Roman father's formal release of a son or slave from his literal grip.",
+    "s": "Latin e, 'out of,' with manus, 'hand,' and capere, 'to take' — to take out of the hand, and every word of that was legally exact in Rome. Mancipium was ownership, the hand-taking that made a thing yours, and emancipatio was the formal ceremony by which a father released a son from patria potestas, his absolute legal power; the ritual required three fictitious sales to be performed and undone. It was paperwork, not sentiment. The political weight came later, with Catholic Emancipation in 1829 and the Emancipation Proclamation of 1863. Today to emancipate is to free from bondage or control."
   },
   "mandate": {
     "v": "The landslide gave the new government cover to claim the voters had ordered the whole program.",
-    "e": "Latin manus + dare, 'to give into the hand' — a commission handed over; the same handing gives us 'command' and 'demand.'"
+    "e": "Latin manus + dare, 'to give into the hand' — a commission handed over; the same handing gives us 'command' and 'demand.'",
+    "s": "Latin manus, 'hand,' with dare, 'to give' — a giving into the hand, and Roman law used mandatum for a contract of agency, one man entrusting his business to another without payment. The word has since been handed around a great deal. Politics took it for the authority voters give a government, the League of Nations took it in 1919 for territories entrusted to other powers to administer, and the Church kept the oldest use of all: Maundy Thursday is named from the mandatum novum, the new commandment given at the Last Supper. Today a mandate is an authoritative command or charge."
   },
   "legerdemain": {
     "v": "The coin was in his fist, then behind the child's ear, then gone entirely.",
-    "e": "French léger de main, 'light of hand' — the conjuror's nimble fingers, imported whole into English in the fifteenth century."
+    "e": "French léger de main, 'light of hand' — the conjuror's nimble fingers, imported whole into English in the fifteenth century.",
+    "s": "French léger de main, 'light of hand' — and English never digested it. The phrase was borrowed whole in the fifteenth century and is still three French words wearing a single spelling, which is why it looks so unlike anything around it. Léger descends from Latin levis, 'light in weight,' the root that also gives levity, alleviate and the leger line that floats above a musical stave. English has its own perfectly good calque of the same idea in sleight of hand, sleight being an old Norse word for cunning. Today legerdemain is sleight of hand, or any skilful trickery."
   },
   "impede": {
     "v": "Every cart on the narrow bridge slowed the retreat by another hour.",
-    "e": "Latin in + pes, pedis (foot) — to shackle the feet; progress literally hobbled."
+    "e": "Latin in + pes, pedis (foot) — to shackle the feet; progress literally hobbled.",
+    "s": "Latin in, 'in,' with pes, pedis, 'foot' — and impedire meant literally to catch by the feet, to entangle or snare them. The picture is a hobble or a net rather than a wall: what impedes you does not block the road, it fastens itself to your legs so that you go slower. That is why impediment sits so naturally in the marriage service, where it names an entanglement rather than a barrier. Today to impede is to hinder or obstruct, and the word exists in an exact pair with expedite, which unfastens the same feet the same way."
   },
   "expedite": {
     "v": "One call from the director and the permit that took months cleared in a day.",
-    "e": "Latin ex + pes — to free the feet from the snare; the opposite shackle, removed."
+    "e": "Latin ex + pes — to free the feet from the snare; the opposite shackle, removed.",
+    "s": "Latin ex, 'out of,' with pes, pedis, 'foot' — to get the feet free, the precise reversal of impede's snare. Rome used the participle for soldiers: an expeditus was a man marching light, stripped of baggage and encumbrance so the column could move, and from that comes the expedition, which was originally not a journey of discovery but a force able to travel fast. Speed by subtraction is the idea in all of them. Today to expedite is to speed a thing's progress, and it does so by taking obstacles away rather than by adding effort."
   },
   "expedient": {
     "v": "Settling out of court was cheaper than being right, so they settled.",
-    "e": "From expedire — what frees the feet fastest; usefulness with the ethics left as an exercise."
+    "e": "From expedire — what frees the feet fastest; usefulness with the ethics left as an exercise.",
+    "s": "From the same Latin expedire, 'to free the feet' — and this word began without a shadow on it. For its first centuries in English expedient meant simply advantageous, fitting, suited to the purpose, and one could recommend a course as expedient with no suggestion of having cut a corner. The shadow arrived by contrast. Once expedient was habitually set against principled and right, it absorbed the difference, so that calling a decision expedient now concedes that it was not the honourable one. Today expedient means advantageous now if not principled, with the ethics left as an exercise for the reader."
   },
   "corporeal": {
     "v": "The estate divided cleanly: the paintings and land to one heir, the copyrights and debts to the other — only the first kind could be touched.",
-    "e": "Latin corpus, corporis, 'body' — of the body, having flesh; a corporation is the same root granted a legal body."
+    "e": "Latin corpus, corporis, 'body' — of the body, having flesh; a corporation is the same root granted a legal body.",
+    "s": "Latin corpus, corporis, 'body' — having flesh, and the word earns its keep by what it excludes. Theology and law both needed a term for the embodied as against the merely conceived: English law still divides corporeal hereditaments, which are land and things you can walk on, from incorporeal ones, which are rights you can only assert. The strangest child of the root is the corporation, a group granted a legal body so that it can act, own and be sued as one person. Today corporeal means of the physical body, and the corpse, the corps and corporal punishment all keep the flesh."
   },
   "corpulent": {
     "v": "The chair was reinforced before the alderman's visits, at his own discreet request.",
-    "e": "Latin corpulentus — full of body; the politest of the fat words precisely because the Latin keeps its distance."
+    "e": "Latin corpulentus — full of body; the politest of the fat words precisely because the Latin keeps its distance.",
+    "s": "Latin corpulentus, from corpus with the ending -ulentus, 'full of' — the same suffix that makes the opulent full of wealth and the fraudulent full of fraud. What is worth noticing is why this word survives at all. English keeps a blunt native word for the condition and reaches for the Latin one whenever it wants to be polite, which is a habit the language shows everywhere: the Anglo-Saxon word is the honest one and the Latin word is the courteous one, and the distance is the whole service being rendered. Today corpulent means fat, and obese, from a Latin verb meaning to have eaten oneself so, is the clinical cousin."
   },
   "capitulate": {
     "v": "After the third winter of siege, the garrison opened the gates under agreed terms.",
-    "e": "Latin capitulum, 'little heading' — surrender negotiated chapter by chapter; the caput (head) hiding inside also heads 'captain' and 'capital.'"
+    "e": "Latin capitulum, 'little heading' — surrender negotiated chapter by chapter; the caput (head) hiding inside also heads 'captain' and 'capital.'",
+    "s": "Latin capitulum, 'a little head,' the diminutive of caput and the ordinary word for a chapter heading — so to capitulate was to draw something up under headings. A capitulation was a document arranged in numbered articles, and the word described its format rather than its content. What such documents usually recorded was the terms on which a garrison would give up a town, and the surrender swallowed the paperwork whole. Today to capitulate is to surrender on agreed terms, and caput's family is enormous: the capital, the captain, the chief and the chef, the chapter and the cattle counted by the head."
   },
   "animus": {
     "v": "The statute required proof that the landlord acted from intent to discriminate, not mere neglect.",
-    "e": "Latin animus, 'mind, spirit, intention' — in law, the specific spirit behind an act; in Jung, the male figure in a woman's psyche."
+    "e": "Latin animus, 'mind, spirit, intention' — in law, the specific spirit behind an act; in Jung, the male figure in a woman's psyche.",
+    "s": "Latin animus, 'mind, spirit, intention' — and English borrowed the word without translating it, so it now works three different rooms at once. In law it is the element of intent: animus furandi is the intention to steal, and a finding of animus in a discrimination case means the act was done with hostile purpose. In Jung it is the masculine figure within a woman's psyche, paired with the anima. In ordinary use it is settled ill will. Today animus most often means hostile intent behind an act, and its sister anima keeps the older and gentler sense of the breath that animates anything alive."
   },
   "equanimity": {
     "v": "The results came in — half triumph, half disaster — and her voice never changed pitch reading either.",
-    "e": "Latin aequus (even) + animus (spirit) — the level soul; the Stoics' flat sea of mind in one word."
+    "e": "Latin aequus (even) + animus (spirit) — the level soul; the Stoics' flat sea of mind in one word.",
+    "s": "Latin aequus, 'level,' with animus, 'spirit' — the level mind, and the phrase behind it is a philosophical prescription rather than a description. Aequo animo, with a level mind, is how a Roman told you to meet whatever came; Horace's advice to keep an even mind in hard times is the best-known instance, and behind it stands the whole Stoic programme of training the reactions until nothing tips them. The word therefore names an achievement, not a temperament. Today equanimity is composure under pressure, and aequus supplies equity, the equator that levels the globe, and everything else that has to come out even."
   },
   "animosity": {
     "v": "Twenty years after the lawsuit, the two families still used separate church doors.",
-    "e": "From animus — spirit soured into settled hostility; the same breath, exhaled as ill will."
+    "e": "From animus — spirit soured into settled hostility; the same breath, exhaled as ill will.",
+    "s": "From Latin animus, 'spirit' — and its first English sense was not hostility at all but spiritedness, boldness, high courage, the quality one praised in a horse or a soldier. Vigour was the whole of it. The souring came through the observation that strong spirit directed at a person is rarely friendly, so the word narrowed from energy in general to energy aimed against someone, and the courage drained out of it entirely. Today animosity is strong active hostility, the same breath as equanimity and magnanimity beside it, exhaled as ill will rather than as level-headedness or generosity."
   },
   "pusillanimous": {
     "v": "He agreed with the last person to speak, always, and signed whatever avoided a scene.",
-    "e": "Latin pusillus (very small) + animus — 'tiny-souled': the exact opposite coin of magnanimous, great-souled."
+    "e": "Latin pusillus (very small) + animus — 'tiny-souled': the exact opposite coin of magnanimous, great-souled.",
+    "s": "Latin pusillus, 'very small,' with animus, 'spirit' — tiny-souled, and like its opposite it is a manufactured word. Latin built pusillanimis to render Greek mikropsychos, exactly as it built magnanimus to render megalopsychos, so Aristotle's paired virtue and vice were carried into Latin as a matching pair of calques and then into English through the Vulgate. The two words are designed to be read together. Today pusillanimous means contemptibly timid, and it is the precise coin whose other face is the magnanimous, great-souled man nine gates back — one Greek argument about the size of a soul, preserved in two English words."
   },
   "unanimity": {
     "v": "All twelve hands rose at once, on the first ballot.",
-    "e": "Latin unus (one) + animus — one spirit among many persons; the jury's required miracle."
+    "e": "Latin unus (one) + animus — one spirit among many persons; the jury's required miracle.",
+    "s": "Latin unus, 'one,' with animus, 'spirit' — many people holding a single mind, which is a considerable thing to require of anyone. English law required it of juries from the fourteenth century and enforced the demand with a method that would now be thought improper: the jurors were locked up without food, drink, fire or candle until they agreed, on the reasoning that hunger concentrates the reasoning faculties. Agreement so produced was still called unanimous. Today unanimity is complete agreement among all minds, and it remains the standard for a criminal verdict in most of the common-law world."
   },
   "animadversion": {
     "v": "The reviewer's closing paragraph did not critique the book so much as flog it in public.",
-    "e": "Latin animum advertere, 'to turn the mind toward' — official notice that turned punitive: attention as censure."
+    "e": "Latin animum advertere, 'to turn the mind toward' — official notice that turned punitive: attention as censure.",
+    "s": "Latin animum advertere, 'to turn the mind toward' — and this word is the hinge of its gate, since it contains both the animus of spirit and the vertere of turning that run through everything around it. Its first meaning was neutral: to animadvert on something was simply to notice it, to direct attention at it. But official attention is rarely idle, and to turn the mind towards an offence meant to take notice of it in the way that authority takes notice, which is to punish. Today an animadversion is a harsh critical remark, censure grown out of nothing worse than looking."
   },
   "aversion": {
     "v": "She could not say why, but she would leave a dinner rather than share the table with cilantro.",
-    "e": "Latin a + vertere, 'to turn away' — the body's swerve made into a noun; 'averse' is the leaning, aversion the settled turn."
+    "e": "Latin a + vertere, 'to turn away' — the body's swerve made into a noun; 'averse' is the leaning, aversion the settled turn.",
+    "s": "Latin a, 'away,' with vertere, 'to turn' — a turning away, and the earliest English use was physical and often transitive: one could speak of the aversion of a danger, meaning the act of turning it aside. The sense we now use, a settled dislike, is the bodily flinch made permanent and given a noun. The root's other survivors cause endless trouble. Averse means disinclined and describes a person's leaning; adverse means unfavourable and describes conditions, and they come from the same vertere with different prefixes. Today an aversion is a strong dislike, the swerve turned into a standing disposition."
   },
   "incontrovertible": {
     "v": "The defense conceded the fingerprints, the film, and the signed receipt — there was nothing left to argue.",
-    "e": "Latin in + contra + vertere — that cannot be turned against: proof no argument can rotate."
+    "e": "Latin in + contra + vertere — that cannot be turned against: proof no argument can rotate.",
+    "s": "Latin in-, 'not,' with contra, 'against,' and vertere, 'to turn' — that which cannot be turned against, and the picture is worth holding onto. An argument is imagined as a thing with faces, and controverting it means rotating it to show a different one; what is incontrovertible presents the same face however it is handled. The middle of the word is a live English verb in its own right, since to controvert is to turn against and a controversy is the turning under way. Today incontrovertible means impossible to dispute, the strongest claim this family of turning words can make."
   },
   "vertiginous": {
     "v": "From the glass floor of the tower, the street below swam and tilted.",
-    "e": "Latin vertigo, 'a whirling' — vertere again, the world itself turning when it shouldn't."
+    "e": "Latin vertigo, 'a whirling' — vertere again, the world itself turning when it shouldn't.",
+    "s": "Latin vertigo, 'a whirling,' from vertere — and medicine keeps the word far more exactly than English does. Clinical vertigo is not a fear of heights, which is acrophobia and belongs to another gate, nor is it simple dizziness; it is the specific illusion that you or the room is spinning, produced most often by a fault in the inner ear and quite possible while lying flat in a dark room. English has drifted from the sensation to its causes. Today vertiginous usually means dizzyingly high, describing the cliff rather than the whirling it might produce."
   },
   "subversive": {
     "v": "The pamphlet never called for revolt; it just asked, mildly, why the ministry's numbers never added up.",
-    "e": "Latin sub + vertere, 'to turn from beneath' — the sapper's word: walls overturned by digging under them."
+    "e": "Latin sub + vertere, 'to turn from beneath' — the sapper's word: walls overturned by digging under them.",
+    "s": "Latin sub, 'under,' with vertere, 'to turn' — and the original picture is an engineering technique. Besieging armies dug tunnels beneath a wall, propped the excavation with timber and then burned the props, so that the wall turned over from underneath without ever being struck; English calls the same operation undermining. Nothing about it is metaphorical in origin. The political sense arrives in the seventeenth century and keeps the method exactly: what is subversive works below the visible structure rather than against its face. Today subversive means tending to overturn from beneath, the last of the vertere words that have been turning through this corpus since the introvert."
   },
   "calligraphy": {
     "v": "Each wedding invitation took her four minutes a line, ink flaring and thinning with the nib's pressure.",
-    "e": "Greek kallos (beauty) + graphein (to write) — beautiful writing; in China and Islam, ranked above painting among the arts."
+    "e": "Greek kallos (beauty) + graphein (to write) — beautiful writing; in China and Islam, ranked above painting among the arts.",
+    "s": "Greek kallos, 'beauty,' with graphein, 'to write' — beautiful writing, and in two of the world's great artistic traditions it has ranked above painting rather than beneath it. In Islamic art the reticence about figurative images left the written word carrying the whole decorative and devotional burden, so the Qur'anic line became the supreme visual form. In China the reasoning was different: the brushstroke was held to record the movement and therefore the character of the person who made it, so handwriting was a portrait. Today calligraphy is the art of beautiful handwriting, and kallos also opens the kaleidoscope, a seeing of beautiful forms."
   },
   "epigraph": {
     "v": "Facing the first chapter stands a single borrowed line from Dante, setting the book's key.",
-    "e": "Greek epi (upon) + graphein — writing placed upon: a building's carved motto or the quotation at a book's threshold."
+    "e": "Greek epi (upon) + graphein — writing placed upon: a building's carved motto or the quotation at a book's threshold.",
+    "s": "Greek epi, 'upon,' with graphein, 'to write' — writing placed upon something, and for most of the word's life that something was stone. An epigraph was an inscription cut into a building, a statue base or a monument, and epigraphy is still the scholarly discipline that reads such inscriptions and dates them. The literary sense is a transfer from the wall to the page. A quotation set at the head of a book or chapter occupies the same position an inscription occupies on a facade, announcing the building before you enter it. Today an epigraph is that quotation, and epigram and epitaph are the same writing on other surfaces."
   },
   "monograph": {
     "v": "Two hundred pages on a single genus of beetle — exhaustive, definitive, and read by forty people.",
-    "e": "Greek monos + graphein — writing on one thing; scholarship's deepest and narrowest well."
+    "e": "Greek monos + graphein — writing on one thing; scholarship's deepest and narrowest well.",
+    "s": "Greek monos, 'one,' with graphein, 'to write' — a writing upon a single thing, and the word began in natural history. A nineteenth-century monograph was a treatise exhausting one genus or one family of organisms, the naturalist's undertaking to say everything currently knowable about a narrow group, and the form spread from there to every other discipline. What it names is a scope rather than a length. Today a monograph is a scholarly study of a single subject, and in much of academic life it has become the unit by which a career is measured, scholarship's deepest and narrowest well."
   },
   "ascribe": {
     "v": "For a century the unsigned sonata was credited to the master; the ink finally proved it was his student's.",
-    "e": "Latin ad + scribere, 'to write to' — authorship or cause written next to a name, rightly or not."
+    "e": "Latin ad + scribere, 'to write to' — authorship or cause written next to a name, rightly or not.",
+    "s": "Latin ad, 'to,' with scribere, 'to write' — to write a thing to someone, in the way an entry is written to an account. The bookkeeping image is exact, since what is ascribed is credited or charged: a painting is ascribed to a workshop, a motive is ascribed to a man, and in each case something is being entered against a name that may or may not deserve it. That faint provisionality is the word's whole usefulness. Today to ascribe is to attribute to a cause or an author, and scribere's other prefixed children divide the labour neatly — describe writes down, prescribe writes ahead, proscribe writes out."
   },
   "circumscribe": {
     "v": "The new charter let the mayor spend freely — within a budget line the council drew tight around him.",
-    "e": "Latin circum + scribere, 'to write around' — a boundary drawn as a circle is drawn, limiting by outline."
+    "e": "Latin circum + scribere, 'to write around' — a boundary drawn as a circle is drawn, limiting by outline.",
+    "s": "Latin circum, 'around,' with scribere, 'to write' — to draw a line around, and the oldest technical use is geometrical rather than figurative. To circumscribe a polygon is to draw the circle that passes through all its vertices, and the term is still used in exactly that sense; the boundary is literal, drawn with a compass. The metaphorical use follows the same logic, since what is circumscribed is not forbidden but bounded, permitted everything inside the line and nothing beyond it. Today to circumscribe is to confine within set limits, a restriction defined by its outline rather than by its prohibitions."
   },
   "conscription": {
     "v": "Every man between eighteen and forty found his name on the levy lists by autumn.",
-    "e": "Latin con + scribere, 'to write together' — enrollment by force of the pen: the army raised as a list of written names."
+    "e": "Latin con + scribere, 'to write together' — enrollment by force of the pen: the army raised as a list of written names.",
+    "s": "Latin con, 'together,' with scribere, 'to write' — a writing-together, meaning enrolment on a list, and its oldest use is not military in the least. The Roman Senate was addressed as patres conscripti, the conscript fathers, meaning simply the fathers whose names were written on the roll; it was a badge of standing. Compulsory military service took the word over during the French Revolution, when the levée en masse and then the Jourdan Law of 1798 made the register into a summons. Today conscription is compulsory enrolment for service, the army raised by the pen before it is raised by the drum."
   },
   "credence": {
     "v": "The rumor was absurd, but three papers ran it, and by Friday it had believers.",
-    "e": "Latin credere, 'to believe' — belief extended like credit; a credenza was the sideboard where food was tasted for poison first, belief tested."
+    "e": "Latin credere, 'to believe' — belief extended like credit; a credenza was the sideboard where food was tasted for poison first, belief tested.",
+    "s": "Latin credere, 'to believe or trust' — and the most surprising thing the root produced is a piece of furniture. Italian credenza meant belief and also the sideboard on which a lord's food was set out to be tasted for poison before it reached him, the act of trust and the table where trust was verified sharing one name; English took the table as a credence and the abstraction as credence too. To give credence is still to extend something like credit. Today credence is belief in a thing's truth, and credere's family includes the creed one recites, the credit one is given and the credentials that ask for it."
   },
   "credulous": {
     "v": "He wired the deposit to the prince's attorney within an hour of the email arriving.",
-    "e": "credere again — believing too easily; credulity is the purse held open."
+    "e": "credere again — believing too easily; credulity is the purse held open.",
+    "s": "Latin credere, 'to believe' — believing too easily, and the word belongs to a set that English keeps carefully apart. Credulous describes the believer and is always a fault; credible describes the thing believed and is a merit; creditable describes conduct that does one credit and is something else again. Mixing them produces the common error of calling a gullible person incredible. The distinction matters because the fault named here is not believing a falsehood, which anyone may do, but believing without asking for grounds. Today credulous means believing too readily, and credulity is the purse held open."
   },
   "incredulity": {
     "v": "She read the acceptance letter three times, then checked the envelope, then read it again.",
-    "e": "in- + credulus — the refusal of belief; the raised eyebrow in Latin."
+    "e": "in- + credulus — the refusal of belief; the raised eyebrow in Latin.",
+    "s": "Latin in-, 'not,' with credulus — the refusal of belief, and it maintains the same split as the words beside it: the incredulous are unwilling to believe, while the incredible is what cannot be believed, and only one of those is a state of mind. The distinction is the hinge of a famous formula. Coleridge described the reader's part in poetry as a willing suspension of disbelief, which is precisely an agreement to hold incredulity in check for a while without surrendering it. Today incredulity is unwillingness to believe, the raised eyebrow rendered in Latin."
   },
   "accredit": {
     "v": "After the inspection, the academy could finally issue diplomas the state would recognize.",
-    "e": "ad + credere — to supply with belief: official trust vested in an envoy, a school, a lab."
+    "e": "ad + credere — to supply with belief: official trust vested in an envoy, a school, a lab.",
+    "s": "Latin ad, 'to,' with credere, 'to believe' — to supply someone with belief, and the word began in diplomacy. An envoy is accredited to a foreign court, meaning he arrives carrying letters of credence that entitle him to be believed as his sovereign's voice; without them he is merely a traveller with opinions. The machinery spread from ambassadors to institutions. Schools, hospitals and laboratories are now accredited by bodies that vouch for them to strangers who cannot inspect them personally. Today to accredit is to certify officially, and the credentials involved are literally things that ask you to believe."
   },
   "pseudonym": {
     "v": "The Brontë sisters published as the brothers Bell, and the reviewers praised the young men's vigor.",
-    "e": "Greek pseudes (false) + onyma (name) — the false name; George Eliot, Mark Twain, and Dr. Seuss all lived behind one."
+    "e": "Greek pseudes (false) + onyma (name) — the false name; George Eliot, Mark Twain, and Dr. Seuss all lived behind one.",
+    "s": "Greek pseudes, 'false,' with onyma, 'name' — the false name, and the nineteenth century supplies its most pointed use. Mary Ann Evans published as George Eliot, and Charlotte, Emily and Anne Brontë as Currer, Ellis and Acton Bell, in each case because a novel by a woman was liable to be read as a woman's novel and reviewed accordingly; the name was a device for getting the book judged. Charlotte Brontë said as much. Today a pseudonym is an assumed name, adopted for privacy, for mischief or, as often as not, to be allowed a fair hearing."
   },
   "anonymous": {
     "v": "The tip that broke the case arrived typed, unsigned, postmarked from three states away.",
-    "e": "Greek an- (without) + onyma — nameless; the same onyma hides in 'synonym' and, vowel-shifted, in 'name' itself."
+    "e": "Greek an- (without) + onyma — nameless; the same onyma hides in 'synonym' and, vowel-shifted, in 'name' itself.",
+    "s": "Greek an-, 'without,' with onyma, 'name' — nameless, and this root is a rare case where the Greek, the Latin and the English are all visible at once, since onyma, Latin nomen and English name descend from the same distant ancestor and still look it. The word names the most prolific author in the language. Anonymous has written a great share of the ballads, prayers and proverbs English possesses, and Virginia Woolf's remark that Anon was often a woman is a serious point about who was permitted a byline. Today anonymous means bearing no name, and the same onyma builds the synonym and the pseudonym."
   },
   "misnomer": {
     "v": "The 'ten-minute oil change' took fifty; the koala bear, meanwhile, is no bear at all.",
-    "e": "Old French mesnomer, 'to misname' — Latin nomen through French law: a wrong name entered on the writ."
+    "e": "Old French mesnomer, 'to misname' — Latin nomen through French law: a wrong name entered on the writ.",
+    "s": "Old French mesnomer, 'to misname,' from Latin nomen — and the mis- here is not the Germanic one in mistake but French mes-, from Latin minus, which is a different prefix arriving at the same job. The word entered English as a term of law. A misnomer was an error in a name on a writ or an indictment, and under the strict pleading rules of medieval courts such a mistake could defeat the whole document, so it named a technical defect with real consequences. Today a misnomer is any unsuitable name for a thing, and the fatal precision it once had is gone."
   },
   "euphemism": {
     "v": "The company announced it was 'rightsizing'; four hundred people learned they'd been rightsized.",
-    "e": "Greek eu (good) + pheme (speech) — speaking fair: the Greeks called the avenging Furies 'the Kindly Ones' to avoid their true name."
+    "e": "Greek eu (good) + pheme (speech) — speaking fair: the Greeks called the avenging Furies 'the Kindly Ones' to avoid their true name.",
+    "s": "Greek eu, 'well,' with pheme, 'speech' — speaking fair, and the practice is older and more frightened than the polite modern word suggests. The Greeks called the Erinyes, the avenging Furies, the Eumenides or Kindly Ones, not out of delicacy but because naming such powers was thought to summon their attention; the good word was a piece of protective magic. What survives is the mechanism without the fear. A euphemism wears out as the thing it names seeps into it, which is why each one is replaced in turn, exactly as undertaker gave way to mortician and mortician to funeral director. Today a euphemism is a mild phrase substituted for a harsh one."
   },
   "eulogy": {
     "v": "At the service, her brother spoke for ten minutes, and the mourners laughed and wept in turns.",
-    "e": "Greek eu + logos, 'good words' — praise formalized; at funerals, the good words we owe the dead."
+    "e": "Greek eu + logos, 'good words' — praise formalized; at funerals, the good words we owe the dead.",
+    "s": "Greek eu, 'well,' with logos, 'word' — good words, and the funeral is a late narrowing rather than the original setting. A eulogy was formal praise of anyone, living or dead, and one could eulogise a city, a virtue or a patron without anybody having died. The word is constantly confused with elegy, which is unrelated: an elegy comes from Greek elegos, a lament, and mourns rather than praises, so a eulogy that only grieves has missed its own brief. Today a eulogy is a speech of high praise for the dead, and the distinction from the elegy beside it is worth keeping."
   },
   "euthanasia": {
     "v": "The old dog could no longer stand; the vet's injection was quiet, and the family stayed in the room.",
-    "e": "Greek eu + thanatos, 'a good death' — Thanatos was Death himself, twin brother of Sleep."
+    "e": "Greek eu + thanatos, 'a good death' — Thanatos was Death himself, twin brother of Sleep.",
+    "s": "Greek eu, 'well,' with thanatos, 'death' — a good death, and its first English use meant nothing like what it means now. Francis Bacon used it in 1605 for the physician's duty to ease a dying patient's passage, and for centuries the word named a gentle natural end rather than an induced one; the sense of deliberately causing death is a nineteenth-century development. The twentieth century then poisoned it outright, since the Nazi programme that murdered disabled people was officially called euthanasia, which is a large part of why the modern debate prefers assisted dying. Today euthanasia means a mercifully induced death, under a name that has been claimed by both sides."
   },
   "euphony": {
     "v": "The poet chose 'cellar door' for its sound alone — syllables that fall without a single hard edge.",
-    "e": "Greek eu + phone (sound) — good sound; languages themselves smooth words over time toward it."
+    "e": "Greek eu + phone (sound) — good sound; languages themselves smooth words over time toward it.",
+    "s": "Greek eu, 'well,' with phone, 'sound' — good sound, and languages pursue it without being asked. The reason the Latin prefix in- becomes im- before b, m and p, so that English has impossible and immortal rather than the forms the rule would predict, is simply that the tongue is already at the lips for the next consonant and the nasal follows it there. Sound changes of that kind accumulate over centuries, quietly smoothing words towards whatever is easiest to say. Today euphony means pleasing harmonious sound, and it is less an aesthetic ideal than a description of what mouths do when nobody is watching."
   },
   "cacophony": {
     "v": "Rehearsal began with forty instruments tuning at once against a fire alarm.",
-    "e": "Greek kakos (bad) + phone — bad sound; kakos is the ugliest root Greek offers, and it sounds like it."
+    "e": "Greek kakos (bad) + phone — bad sound; kakos is the ugliest root Greek offers, and it sounds like it.",
+    "s": "Greek kakos, 'bad,' with phone, 'sound' — and kakos may be the ugliest root Greek has to offer, doing duty in cacography for bad handwriting, in cachexia for a bad bodily condition and in cacoethes for a bad habit one cannot leave alone. The judgement inside the word is not stable, though. What one age files as cacophony the next may call music, as the audiences who rioted at the premiere of Stravinsky's Rite of Spring in 1913 demonstrated on behalf of a work now played as a classic. Today cacophony is harsh discordant sound, a verdict as much as a description."
   },
   "orthodox": {
     "v": "He kept the recipe exactly as his grandmother wrote it, and regarded oat-milk carbonara as a crime.",
-    "e": "Greek orthos (correct) + doxa (opinion) — right belief; its opposite, heterodoxy, is merely 'other' belief — the polite word for heresy."
+    "e": "Greek orthos (correct) + doxa (opinion) — right belief; its opposite, heterodoxy, is merely 'other' belief — the polite word for heresy.",
+    "s": "Greek orthos, 'correct,' with doxa, 'opinion' — right belief, and doxa is doing double duty, since it means glory as well as opinion, which is why a doxology gives glory rather than views. The awkwardness of the word is that it settles nothing by itself. Orthodoxy is whatever the councils, synods and majorities decided, so what is orthodox at one date may be heresy at another and the label follows the winner; heterodoxy means only other belief, which is the courteous word for the same disagreement. Today orthodox means holding the accepted beliefs, and which beliefs those are is a historical question rather than a doctrinal one."
   },
   "paradox": {
     "v": "'I always lie,' he said. If that's true, it's false; if false, true.",
-    "e": "Greek para (contrary) + doxa — against received opinion; Zeno's arrows and liars made contradiction a philosophical tool."
+    "e": "Greek para (contrary) + doxa — against received opinion; Zeno's arrows and liars made contradiction a philosophical tool.",
+    "s": "Greek para, 'contrary to,' with doxa, 'opinion' — against received opinion, and that was the whole of its first English meaning. A paradox in the sixteenth century was simply a statement most people would reject, and it might be perfectly consistent and even true; the word named an offence against consensus rather than against logic. The narrowing to self-contradiction came later, helped by the ancient puzzles that trade on it, Zeno's arrow that never arrives and the Cretan who says all Cretans lie. Today a paradox is a seeming self-contradiction that may yet be true, which is a much sharper instrument than the word began as."
   },
   "perspicacious": {
     "v": "From one line in the footnotes she saw the merger was doomed, eight months before the market did.",
