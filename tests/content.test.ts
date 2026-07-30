@@ -2,7 +2,7 @@ import { describe, expect, it } from "vitest";
 import { existsSync, readFileSync } from "node:fs";
 import { fileURLToPath } from "node:url";
 import { ContentCatalog } from "../src/domain/catalog";
-import type { InferenceWord } from "../src/types/content";
+import type { DrillWord, InferenceWord, Word } from "../src/types/content";
 import {
   AFFIX_DEEP,
   COGNATES,
@@ -159,14 +159,15 @@ describe("runtime content", () => {
       expect(story, word.word).not.toBe(depth[word.word]?.e);
       expect(story, word.word).not.toBe(depth[word.word]?.v);
     }
-    // Every gate word now carries one. This is a floor, not a ratchet — never weaken it.
-    const gateWordsWithoutStory = gateWords
-      .filter((word) => !catalog.wordStory(word))
-      .map((word) => word.word);
-    expect(gateWordsWithoutStory).toEqual([]);
-    // Ratchets up as each remaining batch lands: 240 (all gates) → … → 416 (whole corpus).
+    // Gate and Drill Hall words all carry one now. These are floors, not ratchets — the
+    // failure names the words that regressed. Never weaken them.
+    const missingStory = (pool: readonly (Word | DrillWord)[]) =>
+      pool.filter((word) => !catalog.wordStory(word)).map((word) => word.word);
+    expect(missingStory(gateWords)).toEqual([]);
+    expect(missingStory(DRILL_POOL)).toEqual([]);
+    // Ratchets up as each remaining batch lands: 321 (gates + drill) → 416 (whole corpus).
     // Raise it per batch; never lower it.
-    expect(withStory).toBeGreaterThanOrEqual(280);
+    expect(withStory).toBeGreaterThanOrEqual(321);
     // Inference words are being given the example sentence they were authored without, so
     // their cards can render in full. Ratchets alongside the stories, ending at all 95.
     expect(inferenceWords.filter((word) => word.sentence).length).toBeGreaterThanOrEqual(0);

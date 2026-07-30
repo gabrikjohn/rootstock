@@ -1307,6 +1307,7 @@ export const DRILL_POOL = [
       "A contradiction between two laws."
     ],
     "ety": "biblion (book) + kleptein (to steal) — the kleptomaniac at his most literate; the bibliomaniac buys, the biblioklept doesn't.",
+    "story": "Greek biblion, 'book,' with kleptein, 'to steal' — a nineteenth-century coinage for a crime with an unusually respectable clientele. Its most spectacular practitioner was Guglielmo Libri, an Italian mathematician and count appointed inspector of French libraries in 1841, who used the access to steal thousands of manuscripts and shipped them to England ahead of the warrant; his surname, fittingly, means books. The type has not died out. Today a biblioklept is a stealer of books, and the distinction from the bibliomaniac beside him is simply one of procurement, since the maniac buys what the klept carries away.",
     "kin": [
       "kleptomania",
       "bibliomania"
@@ -1340,6 +1341,7 @@ export const DRILL_POOL = [
       "A stealer of books."
     ],
     "ety": "en + pyr (fire) — the old cosmology's fiery topmost heaven; the pyromaniac's element, promoted.",
+    "story": "Greek en, 'in,' with pyr, 'fire' — the heaven made of fire, and it was once a location rather than a metaphor. Medieval cosmology stacked the universe in spheres, and beyond the outermost sphere of fixed stars lay the empyrean, motionless, of pure light and flame, the dwelling of God and the blessed; Dante's Paradiso climbs through the spheres and ends there. Then the spheres were dismantled and the address ceased to exist. The word survived the cosmology that gave it a place, which is why it now names an altitude of feeling. Today the empyrean is the highest heaven, or merely the sublime.",
     "kin": [
       "pyromania",
       "empyreal"
@@ -1373,6 +1375,7 @@ export const DRILL_POOL = [
       "A blessing; a benediction."
     ],
     "ety": "syn + dikē (justice together) — the syndic was a city's legal officer; his committee outgrew the law that named it.",
+    "story": "Greek syndikos, 'one who helps in a court of law,' from syn and dike, 'justice' — an advocate acting for another. A syndic was accordingly a civic officer who represented a town or a guild in legal business, and a body of such officers was a syndicate, which is what the word meant for centuries. Finance took it over in nineteenth-century France for any group combining capital in a venture. The root then split spectacularly: the same French syndicat gives syndicalism and the trade union, so one Greek word for legal representation now covers both organised labour and organised crime. Today a syndicate is a group combined for business.",
     "kin": [
       "theodicy",
       "syndication"
@@ -1402,6 +1405,7 @@ export const DRILL_POOL = [
       "Producing disease."
     ],
     "ety": "similis (like) — likeness as a noun; verisimilitude adds verus and claims the likeness is to truth.",
+    "story": "Latin similis, 'like' — likeness itself, made into a noun, and in older English the word did work that has since passed to other terms. A similitude was a comparison drawn out at length, and specifically a parable: the Authorised Version has Christ speaking in similitudes, where a modern translation would say parables. Theology used it for something weightier still, since Genesis makes man in the image and similitude of God, and centuries of argument turned on whether those two words meant the same thing. Today a similitude is a likeness or a parable, and adding verus to it produces verisimilitude, a likeness claiming to be to truth.",
     "kin": [
       "verisimilitude",
       "simile"
@@ -1431,6 +1435,7 @@ export const DRILL_POOL = [
       "A heated, noisy quarrel."
     ],
     "ety": "simulare (to pretend) — the pretended shape; to dissemble is to hide what is, a simulacrum shows what isn't.",
+    "story": "Latin simulare, 'to make like' — the pretended shape, and few words have had so distinguished a philosophical career. Lucretius used simulacra for the films of atoms he believed objects continually shed, which travel to the eye and are the mechanism of seeing; the word therefore began as a theory of perception. Two thousand years later Jean Baudrillard made it the centre of a theory of media, defining the simulacrum as a copy for which no original ever existed. Today a simulacrum is a hollow image or semblance, and it sits beside dissemble, which hides what is there, as the word that displays what is not.",
     "kin": [
       "dissemble",
       "simulate"
@@ -1464,6 +1469,7 @@ export const DRILL_POOL = [
       "A likeness; a parable."
     ],
     "ety": "dis (apart) + socius (companion) — companionship cut; the sociologist studies the bonds, dissociation undoes them.",
+    "story": "Latin dis, 'apart,' with socius, 'companion' — the cutting of companionship, and three disciplines have taken it in three directions. Chemistry uses dissociation for a compound coming apart into its ions, which is the most literal reading available. Psychiatry uses it for a mind detaching from its own experience, the defence that produces the dissociative disorders and the sense of watching oneself from outside. Ordinary usage keeps only the social meaning, of breaking off an association one no longer wishes to own. Today to dissociate is to break off association, and the socius at its root is the same companion the sociologist studies in the aggregate.",
     "kin": [
       "sociologist",
       "dissociation"
@@ -1497,6 +1503,7 @@ export const DRILL_POOL = [
       "A register of the dead."
     ],
     "ety": "inter (between) + loqui (to speak) — the between-speaker; the soliloquist needs none.",
+    "story": "Latin inter, 'between,' with loqui, 'to speak' — the one who speaks between, and the word describes a role rather than a person. Plato's dialogues are the classic demonstration: Socrates has an interlocutor in every one of them, and the argument only exists because somebody is there to answer, resist and be led. Remove him and the dialogue collapses into the soliloquy that needs nobody. Scots law keeps a quite separate use, where an interlocutor is an order pronounced by a judge in the course of a case. Today an interlocutor is one who takes part in a dialogue, defined entirely by the fact that someone else is talking.",
     "kin": [
       "soliloquy",
       "colloquial"
@@ -1526,6 +1533,7 @@ export const DRILL_POOL = [
       "One who takes part in a dialogue."
     ],
     "ety": "inter + dicere — the saying-between that bars the way; proscribe posts the ban in writing, the interdict pronounces it.",
+    "story": "Latin inter with dicere, 'to say' — a saying that comes between, and the Church made it a weapon. A papal interdict suspended the sacraments across an entire territory, punishing a ruler by depriving his subjects: Innocent III laid one on England in 1208 during King John's quarrel over the see of Canterbury, and for six years the churches were shut, the dead went unburied in consecrated ground and the population was held hostage to their king's obstinacy. It worked. Today to interdict is to forbid by authority, and modern militaries use interdiction for cutting an enemy's supply before it arrives.",
     "kin": [
       "proscribe",
       "edict"
@@ -1559,6 +1567,7 @@ export const DRILL_POOL = [
       "One who takes part in a dialogue."
     ],
     "ety": "necros (corpse) + logos (account) — the dead, listed; necromancy asks them questions, necrology only records their names.",
+    "story": "Greek nekros, 'corpse,' with logos, 'account' — the dead set down in a list, and the form was a monastic institution before it was a newspaper column. Religious houses kept necrologies recording the date of death of members, benefactors and associated families, so that each anniversary could be marked with prayers, and the obligation to remember produced meticulous record-keeping. Those registers are now among the best sources historians have for who was alive, related and connected in medieval Europe. Today a necrology is a register of the dead, and where necromancy questions them, necrology only writes their names down.",
     "kin": [
       "necromancy",
       "necropolis"
@@ -1588,6 +1597,7 @@ export const DRILL_POOL = [
       "To forbid by authority."
     ],
     "ety": "pyr (fire) + manteia (divination) — the necromancer consults the dead, the pyromancer the flames; the pyromaniac merely feeds them.",
+    "story": "Greek pyr, 'fire,' with manteia, 'divination' — reading the future in flames, and it belongs to a family so large that it is itself the point. Antiquity had a compound for divination by almost every available medium: entrails, birds in flight, smoke, water, lots, dreams, thunder, the twitching of a body. The vocabulary is enormous because the practice was universal and every medium demanded its own specialist. Today pyromancy is divination by fire, and its neighbours in this corpus mark out the range of the family, since the necromancer consults the dead and the pyromaniac merely enjoys the flames without asking them anything.",
     "kin": [
       "necromancy",
       "pyromania"
@@ -1621,6 +1631,7 @@ export const DRILL_POOL = [
       "Fond of catching at faults."
     ],
     "ety": "Latin servus a manu, the slave 'at hand' — manus again: the hand that writes what another mind speaks.",
+    "story": "Latin servus a manu, 'the slave at hand,' extended with -ensis — a person kept for writing what another dictates, and the office has produced some remarkable literature. Milton, blind from 1652, composed Paradise Lost in his head overnight and dictated it in the mornings to whoever was available, his daughters among them. Dostoevsky, facing a ruinous contract deadline in 1866, dictated The Gambler in twenty-six days to a young stenographer named Anna Snitkina and married her within months. Today an amanuensis is one hired to copy or take dictation, and manus, the hand, is the same one that gives the manuscript and the manacle.",
     "kin": [
       "manacle",
       "scrivener"
@@ -1650,6 +1661,7 @@ export const DRILL_POOL = [
       "Unimaginative; plodding and dull."
     ],
     "ety": "capere (to take) — the fault-catcher's adjective; the captivating takes your attention, the captious takes exception.",
+    "story": "Latin capere, 'to take or seize' — and the taking here is the catching of somebody out. A captious question is a trap laid to snare the answerer rather than an enquiry after information, and a captious critic hunts for the flaw as an end in itself. The word therefore describes a motive, not an accuracy: a captious objection may be perfectly correct and still be captious. Today captious means fond of catching at faults, and capere's other children divide the taking among them, since the captivating takes your attention, the captive is taken bodily, and the captious takes exception.",
     "kin": [
       "capacious",
       "captivate"
@@ -1679,6 +1691,7 @@ export const DRILL_POOL = [
       "Unimaginative; plodding and dull."
     ],
     "ety": "capere (to take) — what can keep taking; capacity is the measure, capacious the praise.",
+    "story": "Latin capere, 'to take or hold' — able to keep on taking, and this verb is one of the half-dozen most productive in English. It supplies capture, captive, capable and capacity directly, and then a second wave in disguise: when capere entered compounds its vowel weakened, giving -cipere and so anticipate, participate, municipal and recipient, and it weakened again through French into receive, deceive, conceive and perceive. The same rule turns facere into the -ficient of efficient. Today capacious means roomy and able to contain much, and capacity is the measurement of what capacious praises.",
     "kin": [
       "captious",
       "capacity"
@@ -1708,6 +1721,7 @@ export const DRILL_POOL = [
       "Able to contain much; roomy."
     ],
     "ety": "pes, pedis (foot) — going on foot, hence prose that never leaves the ground; impede shackles the same feet.",
+    "story": "Latin pes, pedis, 'foot' — going on foot, and the figurative insult is older than English. Roman critics used pedestris of prose, meaning writing that walks along the ground, in explicit contrast to poetry, which was imagined as mounted or winged; Horace calls his own conversational Satires pedestrian verse without embarrassment. The metaphor assumes a hierarchy of locomotion. What travels on foot is honest and unremarkable, what flies is inspired, and English kept the snobbery when it took the word. Today pedestrian means unimaginative and plodding, and the same foot is shackled in impede and freed in expedite.",
     "kin": [
       "impede",
       "expedite"
@@ -1741,6 +1755,7 @@ export const DRILL_POOL = [
       "Able to contain much; roomy."
     ],
     "ety": "Horace mocked sesquipedalia verba — words a foot and a half long; pes, the foot, turned against the pompous.",
+    "story": "Latin sesqui, 'one and a half,' with pes, 'foot' — words a foot and a half long, and the phrase is a joke by a named author. Horace, in the Ars Poetica, mocks tragic playwrights who reach for sesquipedalia verba when grief should make them plain, and English lifted his gibe out of the poem and froze it into a single adjective. The result is a word that performs its own meaning: nothing in the language is more sesquipedalian than sesquipedalian. Today it means given to very long learned words, and sesqui- counts the same half in the sesquicentennial, a hundred and fifty years.",
     "kin": [
       "pedestrian"
     ]
@@ -1773,6 +1788,7 @@ export const DRILL_POOL = [
       "Patient endurance of injury."
     ],
     "ety": "tergum (the back) + versare (to turn) — the deserter's pirouette; vacillate wobbles, prevaricate straddles, tergiversate turns and runs.",
+    "story": "Latin tergum, 'the back,' with versare, 'to turn' — to turn one's back, and Latin used it for the soldier who turns in battle and for anyone who evades a straight answer. English kept both senses and stacked them, so that to tergiversate is to desert a cause and to shift about in argument at once. The word is difficult enough that using it is itself a small act of display. Set beside its neighbours it is precise: vacillate wobbles between positions, prevaricate straddles the line, and tergiversate turns and leaves. Today to tergiversate is to desert a cause or shift evasively about.",
     "kin": [
       "prevaricate",
       "vacillate"
@@ -1802,6 +1818,7 @@ export const DRILL_POOL = [
       "To desert a cause; to shift about."
     ],
     "ety": "sub (under) + ornare (to equip) — equipped from beneath; perjury is the crime sworn, subornation the crime beneath it.",
+    "story": "Latin sub, 'under,' with ornare, 'to equip' — to fit somebody out secretly, and the verb is more interesting than it looks. Ornare did not mean to decorate but to furnish or supply, which is why an ornament was originally a piece of equipment rather than a flourish; the decorative sense is what English later made of it. To suborn is therefore to provide a person, from underneath, with what they need to commit a wrong. The law keeps the precision. Today to suborn is to induce secretly to do wrong, and subornation of perjury is the separate offence of arranging the lie that another swears.",
     "kin": [
       "perjury",
       "subversive"
@@ -1831,6 +1848,7 @@ export const DRILL_POOL = [
       "Patient endurance of injury."
     ],
     "ety": "contra (against) + tempus (time) — against-the-beat, a fencing term for the ill-timed thrust, kept for life's missteps.",
+    "story": "French contre, 'against,' with temps, 'time' — against the beat, and it began as a technical term in the salle. In fencing a contretemps is a thrust delivered on the wrong tempo, at the moment the opponent is also attacking, so that both are hit; dance took the word for a step made against the count. Both uses turn on timing rather than on error, which is what English preserved when it borrowed the word for a social mishap. A contretemps is not a disaster but an awkwardness caused by two things happening at once. Today it is an embarrassing mishap or clash.",
     "kin": [
       "temporize",
       "temporal"
@@ -1864,6 +1882,7 @@ export const DRILL_POOL = [
       "To desert a cause; to shift about."
     ],
     "ety": "longus (long) + animus (spirit) — the long-spirited virtue; equanimity keeps level, longanimity keeps on.",
+    "story": "Latin longus, 'long,' with animus, 'spirit' — long-spiritedness, and it exists in Latin only because a translator needed it. The Greek New Testament has makrothymia, long-temperedness, among the fruits of the Spirit, and the Vulgate rendered it piece for piece as longanimitas, exactly as Latin had calqued Aristotle's great-souled and small-souled. English took it from there. It is the most specialised member of a family this corpus has met repeatedly: equanimity keeps the mind level, magnanimity keeps it large, pusillanimity lets it shrink, and longanimity simply keeps it going. Today longanimity is patient endurance of injury.",
     "kin": [
       "equanimity",
       "magnanimous"
@@ -1897,6 +1916,7 @@ export const DRILL_POOL = [
       "To assert positively as true."
     ],
     "ety": "ad + grex (flock) — driven into one herd; the egregious stands out of the flock, the aggregate is the flock, summed.",
+    "story": "Latin ad, 'toward,' with grex, gregis, 'the flock' — driven into the herd, and this word completes a set. English holds five common words built on that single Latin flock, and each takes a different position relative to it: the gregarious stay in it, the congregation is gathered into it, the segregated are cut off from it, the egregious stands out of it, and the aggregate is the flock itself, counted. One agricultural noun has furnished the language with its whole vocabulary of belonging and exclusion. Today an aggregate is a total gathered into one whole.",
     "kin": [
       "egregious",
       "gregarious"
@@ -1930,6 +1950,7 @@ export const DRILL_POOL = [
       "Fond of catching at faults."
     ],
     "ety": "mis (wrongly) + credere (to believe) — first the unbeliever, then, by a crusader's logic, any villain at all; credence gone bad.",
+    "story": "Old French mescreant, from mis-, 'wrongly,' with credere, 'to believe' — and its first meaning was purely religious. A miscreant was an unbeliever, which in the vocabulary of the crusades meant a Muslim or a heretic, and the word was a statement about doctrine rather than about conduct. The slide that followed is the ugly part and it is worth naming: because wrong belief was assumed to entail wrong behaviour, the theological term drifted into a general word for a criminal. Today a miscreant is a villain or lawless wrongdoer, and nothing in the modern sense remembers that the original charge was heresy.",
     "kin": [
       "credence",
       "credulous"
@@ -1959,6 +1980,7 @@ export const DRILL_POOL = [
       "Fond of catching at faults."
     ],
     "ety": "Latin, 'I believe' — the creed's first word, standing for the whole; credence and the credulous keep the family faith.",
+    "story": "Latin for I believe, and it is the first word of the Latin creeds, standing in for the whole text that follows it. Naming a document by its opening word was standard practice: the Magnificat, the Paternoster, the Te Deum and the Requiem are all titles borrowed from an incipit rather than descriptions of contents, and the habit extends to papal encyclicals, which are still cited by their first two or three Latin words. The convention assumes a community that knows the text well enough to be reminded of it by a syllable. Today a credo is any statement of guiding beliefs, religious or not.",
     "kin": [
       "credence",
       "creed"
@@ -1992,6 +2014,7 @@ export const DRILL_POOL = [
       "To summon as if by magic."
     ],
     "ety": "epi (upon) + onyma (name) — the name laid upon the work; the pseudonym hides an author, the eponym advertises one.",
+    "story": "Greek epi, 'upon,' with onyma, 'name' — a name laid upon something, and the Athenians ran a calendar on the principle. Each year took the name of the eponymous archon who held office in it, so that dates were given not by a number but by a man: an event happened in the archonship of so-and-so. Rome did the same with its consuls. The word therefore begins in the machinery of record-keeping rather than in flattery. Today eponymous means giving one's name to a thing, and where a pseudonym conceals the author, an eponym stamps him on the work.",
     "kin": [
       "pseudonym",
       "misnomer"
@@ -2025,6 +2048,7 @@ export const DRILL_POOL = [
       "Giving one's name to a thing."
     ],
     "ety": "pater + onyma — the father worn as a name: Johnson, Ivanovich, ben Isaac; the matronymic answers from the mother's side.",
+    "story": "Latin pater with Greek onyma — the father worn as a name, and the systems built on it differ sharply. Iceland still uses live patronymics, so that Jón Einarsson's sister is Ása Einarsdóttir and neither shares a surname with the other or with their father, which is why Icelandic directories are alphabetised by first name. Russian inserts the patronymic as a formal middle name. English froze the practice into inherited surnames instead, which is what Johnson, MacDonald, O'Brien and Fitzgerald all are, patronymics that stopped updating generations ago. Today a patronymic is a name derived from one's father.",
     "kin": [
       "patriarchy",
       "pseudonym"
@@ -2058,6 +2082,7 @@ export const DRILL_POOL = [
       "To assert positively as true."
     ],
     "ety": "polys (many) + phone (voice) — many voices, none merely accompanying; cacophony is what happens when they stop listening.",
+    "story": "Greek polys, 'many,' with phone, 'voice' — many voices, and the technical sense is stricter than the etymology. Polyphony means several independent melodic lines sounding at once, each with its own shape, as against monophony, which is a single line, and homophony, which is one melody with the rest in support. Its great age runs from the Notre Dame school through Josquin to Palestrina, and the Council of Trent is said to have worried that the interweaving had made the sacred words impossible to hear. Today polyphony is music of many independent voices, and cacophony is what results when they stop listening to each other.",
     "kin": [
       "cacophony",
       "euphony"
@@ -2091,6 +2116,7 @@ export const DRILL_POOL = [
       "Penetratingly clear and direct."
     ],
     "ety": "intro (inside) + specere (to look) — the introvert's native discipline: the look turned inward.",
+    "story": "Latin intro, 'inside,' with specere, 'to look' — the look turned inward, and psychology once tried to build itself on the practice. In the laboratories of Wundt and Titchener, trained observers reported the contents of their own consciousness under controlled conditions, and this was the discipline's principal method for a generation. Behaviourism destroyed it on a simple objection: no second observer can check a report of an inner state, so the data could not be verified. The method was abandoned and the word survived. Today introspection is examination of one's own thoughts, and it is the native discipline of the introvert, built from the same intro.",
     "kin": [
       "introvert",
       "circumspect"
@@ -2124,6 +2150,7 @@ export const DRILL_POOL = [
       "Penetratingly clear and direct."
     ],
     "ety": "per (thoroughly) + nex, necare (slaughter) — killing all the way through; the internecine kills both sides, the pernicious kills slowly.",
+    "story": "Latin per, 'thoroughly,' with necare, 'to kill' — killing all the way through, and its commonest surviving use is a fossil of a lost prognosis. Pernicious anaemia was so named in the nineteenth century because it was reliably fatal and nobody knew why. Then in 1926 Minot and Murphy found that feeding patients large quantities of raw liver cured it, the missing factor turned out to be vitamin B12, and the disease became entirely manageable. The name never changed. Today pernicious means ruinously and quietly destructive, and it keeps a deadliness in one medical phrase that medicine removed a century ago.",
     "kin": [
       "internecine"
     ]
@@ -2156,6 +2183,7 @@ export const DRILL_POOL = [
       "Examination of one's own thoughts."
     ],
     "ety": "in + caedere (to cut) — the cut inward; the same blade as the -cides, honed for argument.",
+    "story": "Latin in, 'into,' with caedere, 'to cut' — a cutting inward, and it is the same blade that does the killing in every word ending in -cide. The root is more visible in the mouth than in the mind: the incisors are the front teeth, named for cutting, and they do to an apple exactly what an incisive question does to an evasion. The metaphor is about penetration rather than force. Today incisive means penetratingly clear and direct, and caedere's other quiet children are the concise, which has been cut short, and the decision, which cuts the alternatives away.",
     "kin": [
       "fratricide",
       "incision"
@@ -2185,6 +2213,7 @@ export const DRILL_POOL = [
       "Penetratingly clear and direct."
     ],
     "ety": "parens + -cida — the kin-killer, broadest of the -cides: patricide names the father, parricide the outrage.",
+    "story": "Latin parricida, the killer of a close kinsman, of disputed formation but joined early to pater — and Rome punished it with a ceremony rather than an execution. The poena cullei required the condemned to be sewn into a leather sack together with a dog, a cock, a viper and an ape, and the sack thrown into water. The reasoning was that a man who had destroyed his own blood should be denied earth and air and the company of anything human. Today parricide is the killing of a parent or near kinsman, broader than patricide, which names the father specifically, and it keeps a horror the other -cides do not.",
     "kin": [
       "fratricide",
       "regicide"
@@ -2218,6 +2247,7 @@ export const DRILL_POOL = [
       "Ruinously and quietly destructive."
     ],
     "ety": "inter (between) + regnum (reign, from rex) — the throne's empty chair; a regicide can open one.",
+    "story": "Latin inter, 'between,' with regnum, 'reign' — the gap between one ruler and the next, and English capitalises its own. The Interregnum runs from the execution of Charles I in 1649 to the Restoration of Charles II in 1660, eleven years in which England had no monarch and tried in succession a Commonwealth, a Protectorate and a second Protectorate before giving up. It is the gap a regicide opens. The Holy Roman Empire had a longer and messier one in the thirteenth century. Today an interregnum is the interval between two reigns, and by extension any suspension of normal authority.",
     "kin": [
       "regicide",
       "monarchy"
@@ -2247,6 +2277,7 @@ export const DRILL_POOL = [
       "The firstborn's right of inheritance."
     ],
     "ety": "in + generare (to beget) — gignere's workhorse: what the congenital is born with, something first had to engender.",
+    "story": "Latin in with generare, 'to beget,' arriving through Old French engendrer — and it is the worn twin of a word English also holds intact. Generate came straight from the Latin books, engender came the long way through France, and the pair sit beside benison and benediction as evidence of the language borrowing the same root twice by two roads. The French form kept the figurative work. One engenders resentment, suspicion or debate, rarely children, while generate handles electricity and revenue. Today to engender is to bring into being, and the gignere beneath it is the same begetting that makes the congenital and the progenitor.",
     "kin": [
       "congenital",
       "progenitor"
@@ -2280,6 +2311,7 @@ export const DRILL_POOL = [
       "The firstborn's right of inheritance."
     ],
     "ety": "pro (forth) + gignere (to beget) — the one who begets forward; every genealogy is his ledger.",
+    "story": "Latin pro, 'forth,' with gignere, 'to beget' — one who begets forward, the ancestor at the head of a line rather than anywhere along it. The word has since been given precise work in biology. A progenitor cell is one step downstream of a stem cell: already committed to a particular family of tissues and able to divide only a limited number of times, so it founds a line without being able to found any line. The metaphor holds exactly. Today a progenitor is a direct forefather, in a pedigree or in a culture dish, and every genealogy is an attempt to find one.",
     "kin": [
       "genealogy",
       "progeny"
@@ -2313,6 +2345,7 @@ export const DRILL_POOL = [
       "A direct forefather of a line."
     ],
     "ety": "primus (first) + genitura (birth) — the accident of being born first, made into law; the congenital's cousin with a title.",
+    "story": "Latin primus, 'first,' with genitura, 'birth' — the accident of being born first, converted into law, and in England the conversion had enormous consequences. Male primogeniture kept great estates undivided across generations, which preserved aristocratic wealth and simultaneously manufactured a permanent surplus of younger sons with rank and no land, who filled the Church, the army, the navy and the colonies. Austen's plots run on the resulting entails. The rule survived into living memory at the top. Today primogeniture is the firstborn's right of inheritance, and Britain removed male preference from the succession to its own crown only in 2013.",
     "kin": [
       "congenital",
       "patrimony"
@@ -2346,6 +2379,7 @@ export const DRILL_POOL = [
       "A direct forefather of a line."
     ],
     "ety": "hypnos (sleep) + agogos (leading) — the demagogue leads the people; hypnagogic images lead you under.",
+    "story": "Greek hypnos, 'sleep,' with agogos, 'leading' — leading into sleep, and it names the strange border country at the edge of consciousness where images arrive unbidden, a face, a falling, a voice saying your name. Its mirror is hypnopompic, the corresponding state on waking, and both were coined by Frederic Myers, the same psychical researcher who gave the language telepathy. He was cataloguing the mind's odder moments and needed vocabulary for them. Today hypnagogic describes the drowsy state before sleep, and agogos leads elsewhere too, since the demagogue leads the people and the pedagogue leads the child.",
     "kin": [
       "soporific",
       "demagogue"
@@ -2375,6 +2409,7 @@ export const DRILL_POOL = [
       "A jack of all trades, master of none."
     ],
     "ety": "non + par (equal), through French pareil — the unequaled; parity's proud negation.",
+    "story": "French non with pareil, 'equal,' from Latin par — the one without equal, and the superlative has been put to some very small uses. Printers gave the name nonpareil to a six-point type, on the grounds that nothing finer could be cut, so the word for unmatched excellence became the label on a drawer of extremely small letters. Confectioners then took it for the tiny sugar pellets scattered over chocolate. The pattern is common enough: a boast made about a product hardens into the product's plain name. Today a nonpareil is a person without equal, and par is the equality it denies.",
     "kin": [
       "consummate",
       "parity"
@@ -2408,6 +2443,7 @@ export const DRILL_POOL = [
       "A disorderly heap or jumble."
     ],
     "ety": "recredere, to yield in trial by combat — to take back one's pledge; the miscreant believes wrongly, the recreant gives belief up.",
+    "story": "Old French recreant, from recroire, 'to yield' — and the yielding was a specific legal act. In trial by combat a beaten fighter could end the ordeal by crying craven and admitting himself recreant, which saved his life and cost him everything else: he lost the case, forfeited his standing as a free man able to swear or testify, and carried the infamy permanently. The word named a formal surrender with formal consequences. It pairs neatly with its neighbour, since the miscreant believes the wrong thing and the recreant gives up believing. Today a recreant is a coward faithless to his cause.",
     "kin": [
       "miscreant",
       "pusillanimous"
@@ -2441,6 +2477,7 @@ export const DRILL_POOL = [
       "A coward faithless to his cause."
     ],
     "ety": "re (back) + crimen (charge) — the charge returned to sender; incriminate opens the volley, recrimination keeps it going.",
+    "story": "Latin re, 'back,' with crimen, 'a charge' — the accusation returned to its sender, and English divorce law made it a formal defence. Under the old rules a petitioner had to come to the court innocent, so if the respondent could prove that the petitioner had also committed adultery, the counter-charge defeated the suit entirely and the two guilty spouses stayed married to each other. It sat beside condonation, which barred a suit where the offence had already been forgiven, and between them they trapped a great many people. Today recrimination is an accusation flung back at an accuser.",
     "kin": [
       "incriminate",
       "indict"
@@ -2474,6 +2511,7 @@ export const DRILL_POOL = [
       "Lacking distinctive features."
     ],
     "ety": "ob (against) + loqui (to speak) — the speaking-against of a whole town; a malediction curses once, obloquy never stops.",
+    "story": "Latin ob, 'against,' with loqui, 'to speak' — the speaking-against, and its distinguishing feature is the number of mouths involved. A malediction is one voice cursing, a rebuke is one voice correcting, but obloquy is a town's worth of speech turned against a person and sustained, which is why the word carries disgrace rather than mere insult. It names a condition of reputation as much as an act. Today obloquy is public abuse or condemnation, and it joins the largest family in this corpus, since loqui also supplies the soliloquy, the circumlocution, the interlocutor and the eloquent.",
     "kin": [
       "malediction",
       "animadversion"
@@ -2503,6 +2541,7 @@ export const DRILL_POOL = [
       "A coward faithless to his cause."
     ],
     "ety": "sequi (to follow) — the follower's vice made adjective; the obsequious fawns face to face, the sequacious follows anywhere.",
+    "story": "Latin sequi, 'to follow' — and the word once had honest uses. In older English it could mean following in logical order, so that a sequacious argument was one whose steps came in proper sequence, and it was also applied to materials that were ductile, following the hand that shaped them. Both senses have gone. What remains is the pejorative, the mind that follows because following is easier than judging, and it is a sharper charge than obsequiousness because it needs no master present. Today sequacious means slavishly following another's lead, and the obsequious at least fawn on somebody in particular.",
     "kin": [
       "obsequious",
       "non sequitur"
@@ -2536,6 +2575,7 @@ export const DRILL_POOL = [
       "A coward faithless to his cause."
     ],
     "ety": "con + gerere (to carry together) — things carried into a pile; the belligerent carries on war, the congeries just accumulates.",
+    "story": "Latin con, 'together,' with gerere, 'to carry' — things carried into one pile, and the word is a grammatical trap. It looks plural and is not: a congeries is, never a congeries are, because it is a Latin fifth-declension noun taken into English whole and singular, exactly like series and species. The heap is one heap however many things are in it. Today a congeries is a disorderly jumble, and gerere is doing its ordinary work of carrying here, the same verb that makes the belligerent one who carries on a war and the gesture a carrying of the body.",
     "kin": [
       "belligerent",
       "aggregate"
@@ -2569,6 +2609,7 @@ export const DRILL_POOL = [
       "Public abuse or condemnation."
     ],
     "ety": "non + describere — 'not yet described,' a naturalist's label for the unclassified, demoted to meaning unremarkable.",
+    "story": "Latin non with describere, 'to write down' — not yet described, and this is the most complete reversal in the drill pool. It was a naturalist's technical label. A nondescript specimen was one not yet described in the scientific literature, meaning new to science and therefore the most exciting thing in the collecting box, the find that might carry your name. Naturalists used it as a boast. Then general usage took the word to mean lacking anything worth describing, and the sense inverted completely. Today nondescript means dull and featureless, having once meant unprecedented.",
     "kin": [
       "circumscribe",
       "ascribe"
