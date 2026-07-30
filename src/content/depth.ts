@@ -53,163 +53,203 @@ export const DEPTH = {
   },
   "internist": {
     "v": "No scalpel in her office — she reads bloodwork, listens to organs, and treats what's inside with medicine alone.",
-    "e": "From Latin internus, 'within' — a nineteenth-century coinage to separate the physician of inner organs from the surgeon."
+    "e": "From Latin internus, 'within' — a nineteenth-century coinage to separate the physician of inner organs from the surgeon.",
+    "s": "Latin internus, 'inward,' from inter, 'between' — what lies within the walls. The specialty was built in the German clinics of the 1880s as innere Medizin, and American doctors carried the label home around 1900 as internist, borrowed straight from German Internist. It was coined to mark a genuine divide: this was the physician who reasoned from the laboratory and the stethoscope rather than the one who opened the body with a knife. Today an internist is a physician of the internal organs, easily confused with the intern who trains beside him — though that word came by a different road, from French interne, one who lodges within the hospital."
   },
   "obstetrician": {
     "v": "Paged at 3 a.m., he arrived twenty minutes before the baby did.",
-    "e": "Latin obstetrix, 'midwife' — literally 'she who stands opposite' (ob + stare) the laboring mother, waiting."
+    "e": "Latin obstetrix, 'midwife' — literally 'she who stands opposite' (ob + stare) the laboring mother, waiting.",
+    "s": "Latin obstetrix, 'midwife,' built from ob, 'opposite,' and stare, 'to stand' — she who stands facing the labouring mother, waiting to receive the child. For most of its history the work and the word belonged to women. The turn came in the eighteenth and nineteenth centuries, when male physicians entered the birthing room and wanted a title grander than man-midwife; obstetrics gave them a Latin one, and obstetrician followed in the 1820s. Today an obstetrician is a physician of pregnancy and childbirth, while midwife keeps the older, plainer English of the same idea — with-woman."
   },
   "pediatrician": {
     "v": "Her waiting room has a fish tank and small chairs; her oldest patient is seventeen.",
-    "e": "Greek paidos (child) + iatreia (healing) — the same iatr- that hides in psychiatrist."
+    "e": "Greek paidos (child) + iatreia (healing) — the same iatr- that hides in psychiatrist.",
+    "s": "Greek pais, 'child' (stem paid-), joined to iatreia, 'healing' — the healing of children. The specialty was named in the German and American clinics of the 1880s, when it was first argued that children are not merely small adults and need medicine of their own. English took pediatrics first and the practitioner's title after. Today a pediatrician treats infants and children, and shares the paid- of pedagogue, the child-leader, and pedant, who was once merely a schoolmaster; the ped- of pedal and pedestrian is a different root entirely, Latin pes, 'foot,' which is why a pedicure is nothing to do with a pediatrician."
   },
   "dermatologist": {
     "v": "One glance at the mole through her loupe and she scheduled the biopsy.",
-    "e": "Greek derma, 'skin' — the hide-word that also gives us the hypodermic needle, which goes under it."
+    "e": "Greek derma, 'skin' — the hide-word that also gives us the hypodermic needle, which goes under it.",
+    "s": "Greek derma, 'skin,' from a root meaning to flay — the hide taken off, not the surface as we now think of it. English formed dermatology around 1819, and for much of the century the skin doctor was also the venereal doctor, the two trades bound together because both diseases announced themselves on the surface. Separating them, and treating the skin as an organ with its own pathology, is what made the modern specialty. Today a dermatologist treats the skin and its diseases, and the old flaying-word survives in the hypodermic needle that goes under it, the thick-skinned pachyderm, and taxidermy, the arranging of the hide."
   },
   "ophthalmologist": {
     "v": "Licensed to operate, she repaired the detached retina the same afternoon she diagnosed it.",
-    "e": "Greek ophthalmos, 'eye' — the word's thicket of consonants preserves the Greek intact, ph-th and all."
+    "e": "Greek ophthalmos, 'eye' — the word's thicket of consonants preserves the Greek intact, ph-th and all.",
+    "s": "Greek ophthalmos, 'eye' — a thicket of consonants that English borrowed whole, ph-th and all, and has been misspelling ever since. Ophthalmology was named in the early nineteenth century, but what made it a real specialty was a piece of equipment: Hermann von Helmholtz's ophthalmoscope of 1851, the first instrument to show the inside of a living eye. Before it, an eye doctor worked from the surface and from complaint; after it, he could see the disease. Today an ophthalmologist is an eye physician licensed to cut, the senior of a trio that also holds the sight-measuring optometrist and the lens-grinding optician."
   },
   "orthopedist": {
     "v": "He set the skier's fracture, pinned it, and had her walking by spring.",
-    "e": "Greek orthos (straight) + paidos (child) — the first orthopedists straightened children's crooked spines and legs; the bones stayed, the children didn't."
+    "e": "Greek orthos (straight) + paidos (child) — the first orthopedists straightened children's crooked spines and legs; the bones stayed, the children didn't.",
+    "s": "Greek orthos, 'straight,' joined to pais, 'child' — the straightening of children. The word is one man's invention: Nicolas Andry, a Paris physician, published L'Orthopédie in 1741 on correcting the deformities of the young, and gave the field an emblem still used today, a crooked sapling lashed to a straight stake. The children then quietly left. As the work grew into the surgery of bones and joints at every age, the name kept its infant half out of pure inertia. Today an orthopedist treats the skeleton entire, wearing a title that still promises to straighten a child; the orthodontist, straightening teeth, took the other half of Andry's idea."
   },
   "cardiologist": {
     "v": "She frowned at the EKG strip, tapped one jagged wave, and ordered a stress test.",
-    "e": "Greek kardia, 'heart' — cousin of Latin cor, cordis, so cardiac and cordial share one ancestral heartbeat."
+    "e": "Greek kardia, 'heart' — cousin of Latin cor, cordis, so cardiac and cordial share one ancestral heartbeat.",
+    "s": "Greek kardia, 'heart' — the beating organ, and by long habit the seat of courage and feeling. It is cousin to Latin cor, cordis, so a cordial greeting, the courage to act, and a cardiac arrest all trace one ancestral heartbeat. Cardiology was named in the nineteenth century, but the specialty was made by instruments: the stethoscope let the heart be heard, and Willem Einthoven's electrocardiograph of 1903 let it be drawn. Today a cardiologist is a physician of the heart, treating as a pump what the older language treated as the seat of the self."
   },
   "neurologist": {
     "v": "He tapped her knee, watched her eyes track his pen, and mapped where the tremor began.",
-    "e": "Greek neuron originally meant 'sinew, cord' — anatomists reused the string-word for the body's signal wires."
+    "e": "Greek neuron originally meant 'sinew, cord' — anatomists reused the string-word for the body's signal wires.",
+    "s": "Greek neuron, 'sinew, cord, string' — and at first it meant any of the body's tough white fibres, tendons and nerves alike, because ancient anatomists could not tell them apart. Both were simply strings. The turn came when the nerves were identified as carriers of signal rather than tension, and the string-word narrowed onto them alone, leaving the tendons to other names. Today a neurologist treats the nervous system, and neuron has narrowed a second time, from the whole cord to the single signalling cell; the old sense of raw fibre survives only in words like neuralgia, pain along a nerve."
   },
   "psychiatrist": {
     "v": "An M.D. after his name, he can prescribe — and adjusted her dosage at the monthly session.",
-    "e": "Greek psyche (mind, soul) + iatreia (healing) — Psyche was the mortal girl Eros loved; her name became the soul itself."
+    "e": "Greek psyche (mind, soul) + iatreia (healing) — Psyche was the mortal girl Eros loved; her name became the soul itself.",
+    "s": "Greek psyche, 'breath, soul,' with iatreia, 'healing' — literally the healing of the soul. Psyche was first the breath that leaves on the last exhalation, and only later the girl whom Eros loved, whose name became the inner self entire. The compound is modern and datable: Johann Christian Reil coined Psychiatrie in German in 1808, at a moment when madness was being claimed from the asylum keeper by the physician. That claim is the whole point of the word. Today a psychiatrist is a medical doctor who treats disorders of the mind and may prescribe for them, which is exactly what separates the -iatrist from the -ologist beside him."
   },
   "gynecologist": {
     "v": "Her annual exam found the cyst early, long before it could become anything worse.",
-    "e": "Greek gyne, gynaikos, 'woman' — the root that turns hostile in misogynist and regal in queen's cognates."
+    "e": "Greek gyne, gynaikos, 'woman' — the root that turns hostile in misogynist and regal in queen's cognates.",
+    "s": "Greek gyne, gynaikos, 'woman' — the plain word, carrying no charge of its own. English formed gynecology in the 1840s as the medicine of women's bodies became a field with a name rather than a corner of general practice. The root itself is old enough to have travelled far: through Germanic it surfaces as Old English cwen, the source of queen, so the same ancient syllable that opens a clinical title also crowns a monarch. Today a gynecologist attends the health of women, while misogynist turns the identical root to hatred — one root, and the whole distance between reverence and contempt."
   },
   "psychologist": {
     "v": "No prescription pad — she tests, measures, and talks the anxiety down across a dozen sessions.",
-    "e": "Greek psyche (mind) + logos (study) — the -logist studies the mind; the -iatrist, an M.D., medicates it."
+    "e": "Greek psyche (mind) + logos (study) — the -logist studies the mind; the -iatrist, an M.D., medicates it.",
+    "s": "Greek psyche, 'soul,' with logos, 'account' — and for its first two centuries the word meant just that. Psychologia was minted by German scholars in the sixteenth century for the study of the soul, a branch of philosophy sitting comfortably beside theology. The turn was the laboratory: when Wilhelm Wundt opened his experimental room at Leipzig in 1879 and began measuring reaction times, the soul became the mind, and the mind soon became behaviour that could be counted. Today a psychologist studies the mind and its behaviour without a medical degree, which is the working line between the -ologist and the psychiatrist, who holds one."
   },
   "psychoanalyst": {
     "v": "Five years on the couch, dreams and childhood excavated hour by fifty-minute hour.",
-    "e": "Freud's own compound: psyche + analysis, Greek 'loosening apart' — the mind taken gently to pieces to see what it is hiding."
+    "e": "Freud's own compound: psyche + analysis, Greek 'loosening apart' — the mind taken gently to pieces to see what it is hiding.",
+    "s": "Freud's own compound, first written as Psychoanalyse in 1896: psyche, 'soul,' joined to analysis, from Greek analyein, 'to loosen up' — ana, up, plus lyein, to loosen. Analysis was borrowed language, a term already at work in mathematics and chemistry for untying a whole into the parts that made it. Freud's claim was that a mind could be untied the same way, and that what fell out of the knot would be things the patient had not known were in it. Today a psychoanalyst treats the mind through the unconscious by that method, a narrower and much older trade than the psychologist's."
   },
   "orthodontist": {
     "v": "Two years of braces, tightened monthly, and the crooked smile came out straight.",
-    "e": "Greek orthos (straight) + odontos (tooth) — same orthos that straightened children's spines in the bone-doctor's title."
+    "e": "Greek orthos (straight) + odontos (tooth) — same orthos that straightened children's spines in the bone-doctor's title.",
+    "s": "Greek orthos, 'straight,' with odous, odontos, 'tooth' — the straightening of teeth. The word was formed in the mid-nineteenth century on the exact model of orthopedics, which had claimed the same orthos a century earlier for straightening children's bones, so the two specialties are named siblings that grew apart. Dentistry had long moved teeth with wire and thumb pressure; naming the practice is what turned it into a discipline with its own training. Today an orthodontist straightens teeth, and the odont- half survives elsewhere in the mastodon, a beast named for the nipple-shaped cusps of its own."
   },
   "optometrist": {
     "v": "Better one, or better two? She measures the eye's errors and writes the lens prescription — no surgery, no drugs.",
-    "e": "Greek opsis (vision) + metron (measure) — the measurer of sight, as distinct from the eye surgeon and the lens grinder."
+    "e": "Greek opsis (vision) + metron (measure) — the measurer of sight, as distinct from the eye surgeon and the lens grinder.",
+    "s": "Greek opsis, 'sight,' with metron, 'measure' — the measuring of vision, which is precisely and only what the word claims. It was coined around the turn of the twentieth century by American practitioners who refracted eyes and prescribed lenses but did not operate, and who needed a title that staked out that middle ground. The naming was a piece of professional boundary-drawing, and it worked: three Greek words now divide one field. Today an optometrist measures sight and fits lenses, below the surgical ophthalmologist and above the optician, who grinds what the prescription orders."
   },
   "optician": {
     "v": "He never examines an eye — he grinds the lenses to the prescription and fits the frames to your face.",
-    "e": "From Greek optikos, 'of sight' — the craftsman of the trio: the prescription stops at his bench."
+    "e": "From Greek optikos, 'of sight' — the craftsman of the trio: the prescription stops at his bench.",
+    "s": "Greek optikos, 'of sight,' from ops, 'eye' — and the English word began at the top rather than the bench. In the seventeenth century an optician was a student of optics, a natural philosopher of light and lenses; Newton would have answered to it. The turn was commercial: as spectacle-making became a trade in its own right, the learned title slid down to the craftsman who ground and fitted the glass, and the theory it once named went to the physicists. Today an optician fits corrective lenses and dispenses what others prescribe, while optics kept the science the word started out owning."
   },
   "osteopath": {
     "v": "Fully licensed to prescribe and operate, she still begins with hands on the spine, treating the body as one connected frame.",
-    "e": "Greek osteon (bone) + pathos (suffering) — founded 1874 by A. T. Still, who took the bones as the starting point of disease."
+    "e": "Greek osteon (bone) + pathos (suffering) — founded 1874 by A. T. Still, who took the bones as the starting point of disease.",
+    "s": "Greek osteon, 'bone,' with pathos, 'suffering' — a compound made, not inherited. Andrew Taylor Still coined it in 1874 for his system, which held that disease begins in the misalignment of the skeleton and can be corrected by manipulating it. The -path ending is genuinely ambiguous and always has been: in osteopath and homeopath it names the healer, though pathos means the suffering. The word has since split along a border. Today an osteopath in the United States holds a full medical licence and practises like any physician, while in Britain the title still names a manual therapist of the older kind — one word, two professions."
   },
   "chiropractor": {
     "v": "A sharp, practiced push between the shoulder blades — the vertebra popped back and the headache faded.",
-    "e": "Greek cheir (hand) + praktikos (doing) — literally 'one who works by hand'; the hand-root also writes chirography."
+    "e": "Greek cheir (hand) + praktikos (doing) — literally 'one who works by hand'; the hand-root also writes chirography.",
+    "s": "Greek cheir, 'hand,' with praktikos, 'doing' — one who works by hand. The word was manufactured to order in 1895, when Daniel David Palmer wanted a learned-sounding name for his new system of spinal adjustment and a patient, the Reverend Samuel Weed, supplied the Greek. That deliberate classicism is the whole story of the coinage: the practice was new, the vocabulary borrowed antiquity to lend it weight. Today a chiropractor works the spine by hand, sharing his root with an unlikelier relative — surgery itself is hidden Greek cheirourgia, hand-work, so the surgeon and the chiropractor are etymologically the same trade."
   },
   "podiatrist": {
     "v": "Bunions, fallen arches, an ingrown nail — everything below the ankle lands in his chair.",
-    "e": "Greek pous, podos (foot) + iatreia (healing) — the trade upgraded its name from the humbler 'corn-cutter' (chiropodist)."
+    "e": "Greek pous, podos (foot) + iatreia (healing) — the trade upgraded its name from the humbler 'corn-cutter' (chiropodist).",
+    "s": "Greek pous, podos, 'foot,' with iatreia, 'healing' — the healing of feet, and a name chosen to replace one its owners had come to dislike. The older English title was chiropodist, hand-and-foot, a word that promised more than the trade delivered and carried the whiff of the corn-cutter. American practitioners adopted podiatrist in the early twentieth century precisely to drop the hand and gain the -iatr- that marks a healer. Today a podiatrist specialises in care of the feet, and the renaming did its work so thoroughly that chiropodist now sounds like the archaism it was engineered to become."
   },
   "graphologist": {
     "v": "From the cramped loops and slashing t-bars, she ventured that the letter's author was under strain.",
-    "e": "Greek graphein, 'to write' — the reader of handwriting as character, a claim science regards with a raised eyebrow."
+    "e": "Greek graphein, 'to write' — the reader of handwriting as character, a claim science regards with a raised eyebrow.",
+    "s": "Greek graphein, 'to scratch, write' — first the stylus cut into wax, later any writing at all. Graphology was named in 1875 by the French abbé Jean-Hippolyte Michon, who systematised the reading of character from handwriting and gave it a Greek title to match the sciences. It belongs to a nineteenth-century family of disciplines that read the invisible self off a visible trace, alongside phrenology's skull-bumps and physiognomy's faces. Today a graphologist still reads handwriting for character, but the family it was born into has not aged well, and the claim now sits outside science rather than within it."
   },
   "gerontologist": {
     "v": "Her research ward studies why some ninety-year-olds garden daily and others fail at seventy.",
-    "e": "Greek geron, gerontos, 'old man' — the same elder who sits in gerontocracy, government by the old."
+    "e": "Greek geron, gerontos, 'old man' — the same elder who sits in gerontocracy, government by the old.",
+    "s": "Greek geron, gerontos, 'old man' — age itself, personified as the elder. The word is precisely datable: Élie Metchnikoff proposed gerontology in 1903 for a science of ageing, arguing that growing old was a process worth studying rather than merely a fate to be endured. Six years later Ignatz Nascher coined geriatrics for the medical care of old patients, and the pair have divided the ground ever since. Today a gerontologist studies ageing and the aged, often without a medical degree, while the geriatrician treats them — the same distinction the psychologist and psychiatrist keep one gate earlier."
   },
   "anthropologist": {
     "v": "She spent three years in the highland village, learning the kinship system from inside it.",
-    "e": "Greek anthropos, 'mankind' — the species-word, not the male: the study of humans as such."
+    "e": "Greek anthropos, 'mankind' — the species-word, not the male: the study of humans as such.",
+    "s": "Greek anthropos, 'human being' — the species, not the male, which is why philanthropy loves all of it and the misanthrope has given up on all of it. The English word did not start where it now stands: in the sixteenth and seventeenth centuries anthropology meant the study of the human body, close to anatomy, or of humans as body joined to soul. The turn came in the nineteenth century, when the comparative study of peoples and their customs claimed the name and the anatomy stayed behind. Today an anthropologist studies humankind and its cultures, keeping the body only as one branch among several."
   },
   "astronomer": {
     "v": "Night after night at the telescope, she charts the orbit with arc-second precision — and reads no horoscopes.",
-    "e": "Greek astron (star) + nomos (law, arrangement) — the lawful stars; her disreputable cousin the astrologer kept logos and lost the science."
+    "e": "Greek astron (star) + nomos (law, arrangement) — the lawful stars; her disreputable cousin the astrologer kept logos and lost the science.",
+    "s": "Greek astron, 'star,' with nomos, 'law, arrangement' — the ordering of the stars, from nemein, to distribute. For most of recorded history it named one discipline with astrology, and the same person cast horoscopes and predicted eclipses; Kepler drew charts for patrons while deriving the laws of planetary motion. The split came in the seventeenth century, and it split the vocabulary too, leaving the law-word to the science and the word-word to the rest. Today an astronomer is a scientist of the stars and planets, while disaster keeps the older cosmology intact — literally an ill-starred event."
   },
   "geologist": {
     "v": "He read the canyon wall like a page — each stripe of rock a chapter, millions of years thick.",
-    "e": "Greek ge, 'earth' — the same earth-mother syllable in geometry, which began as land-measuring."
+    "e": "Greek ge, 'earth' — the same earth-mother syllable in geometry, which began as land-measuring.",
+    "s": "Greek ge, 'earth,' worshipped as the goddess Gaia, joined to logos. The word's first English outings in the seventeenth century meant something nearly opposite to its present sense: the study of earthly as against heavenly things, a term of theology rather than of rock. It settled onto the ground itself in the late eighteenth century, and what fixed it there was James Hutton's argument that the earth's strata record an almost unimaginable depth of time. Today a geologist studies the earth and its rocks; geometry holds the same ge, and began as the far humbler business of measuring a field."
   },
   "biologist": {
     "v": "From whale to bacterium, if it lives, it falls inside her field.",
-    "e": "Greek bios, 'life' — coined around 1800 when the sciences of plants and animals fused into one study of life itself."
+    "e": "Greek bios, 'life' — coined around 1800 when the sciences of plants and animals fused into one study of life itself.",
+    "s": "Greek bios, 'life' — a life lived and its span, as distinct from zoe, bare animal existence. The science is younger than it looks: biology was coined around 1800, more or less at once by Lamarck, Treviranus and Burdach, and the coinage was itself an argument. Before it there was natural history, in which plants and animals were catalogued as separate kingdoms of curiosities; the new word asserted that everything alive shares something a single science could study. Today a biologist studies living things, and the same bios writes a biography, the account of one particular life."
   },
   "botanist": {
     "v": "He can name the weed by its leaf alone, in Latin, with the family attached.",
-    "e": "Greek botane, 'pasture, herb' — from boskein, 'to graze': the science named for what cattle eat."
+    "e": "Greek botane, 'pasture, herb' — from boskein, 'to graze': the science named for what cattle eat.",
+    "s": "Greek botane, 'pasture, herb,' from boskein, 'to graze' — the science is named, at bottom, for what cattle eat. That grazing sense is a fair record of how the subject began, since the first serious students of plants were physicians and the first botanical gardens were physic gardens, planted to supply the drug cabinet. Plants were studied for what they could cure. The turn came in the eighteenth century, when Linnaeus's system of classification gave the field a purpose independent of medicine. Today a botanist is a scientist of plants entire, useful or not, and the herb-word has long outgrown the pasture."
   },
   "zoologist": {
     "v": "Her specialty is animal behavior — why the flock turns as one, why the wolf pack tolerates a straggler.",
-    "e": "Greek zoion, 'animal' — the living beast, as in zodiac, the circle of little animals in the sky."
+    "e": "Greek zoion, 'animal' — the living beast, as in zodiac, the circle of little animals in the sky.",
+    "s": "Greek zoion, 'living creature' — an animal understood as an animate thing, from zoe, life. Zoology was in English by the seventeenth century as the study of animals, and the word is older than the place most people now associate with it. The zoo is a nineteenth-century clipping: London's Zoological Gardens opened in 1828, the public shortened the name, and by the 1840s zoo stood alone. So the garden was named after the science, not the science after the garden. Today a zoologist studies animals, and the same zoion circles overhead in the zodiac, the belt of little animals in the sky."
   },
   "entomologist": {
     "v": "He keeps four thousand pinned beetles in cabinets and can place any of them by wing-case alone.",
-    "e": "Greek entomon, 'insect' — literally 'cut into' (en + temnein), for the insect's notched, segmented body; Latin made the same picture in insectum."
+    "e": "Greek entomon, 'insect' — literally 'cut into' (en + temnein), for the insect's notched, segmented body; Latin made the same picture in insectum.",
+    "s": "Greek entomon, 'the notched one,' from en, in, and temnein, to cut — Aristotle's word for the insects, chosen for the deep segmentation that divides their bodies into visible sections. What makes it worth noticing is that Latin looked at the same creatures and made exactly the same picture: insectum, cut into. The two great classical languages named the bug independently and agreed. Today an entomologist studies insects, carrying the Greek half of that agreement, while the English insect carries the Latin — and etymologist, one letter away, is confused with him constantly."
   },
   "etymologist": {
     "v": "Asked where 'salary' comes from, she traced it back to Roman soldiers paid in salt.",
-    "e": "Greek etymon, 'the true sense' — the hunter of words' true origins, forever confused with the insect man one letter away."
+    "e": "Greek etymon, 'the true sense' — the hunter of words' true origins, forever confused with the insect man one letter away.",
+    "s": "Greek etymon, 'the true sense of a word,' from etymos, true — and that word encodes a theory now abandoned. Ancient etymology assumed a word's oldest form revealed the real nature of the thing it named, so that tracing the sound back far enough would tell you what a thing truly was; Plato's Cratylus is an argument about exactly this. Modern etymology gave up the assumption entirely and traces descent, not truth. Today an etymologist studies word origins under a title that misdescribes the discipline, which is a fitting joke on the trade — and is still, one letter from entomologist, mistaken for the insect man."
   },
   "philologist": {
     "v": "He compared the same psalm in Gothic, Old English, and Old Norse to watch one language become three.",
-    "e": "Greek philein (to love) + logos (word) — the lover of words; the nineteenth century's name for what became linguistics."
+    "e": "Greek philein (to love) + logos (word) — the lover of words; the nineteenth century's name for what became linguistics.",
+    "s": "Greek philein, 'to love,' with logos, 'word' — the lover of words, and originally of learning in general. For a long time philology named a broad literary cultivation rather than a method. The turn was the discovery, in the early nineteenth century, that Sanskrit, Greek, Latin and the Germanic languages descend from a common ancestor; suddenly the love of words had laws, sound changes and a comparative method, and philology became the prestige science of the age. Then it lost the name. Today a philologist studies language and old texts, while most of what the nineteenth century built under that banner now answers to linguistics."
   },
   "sociologist": {
     "v": "Her survey of ten thousand households asked one question: who eats dinner together, and why.",
-    "e": "A Latin-Greek hybrid — socius (companion) + logos — coined by Comte, who also gave us altruism; purists winced at the mixed marriage."
+    "e": "A Latin-Greek hybrid — socius (companion) + logos — coined by Comte, who also gave us altruism; purists winced at the mixed marriage.",
+    "s": "Latin socius, 'ally, companion,' bolted to Greek logos — a mongrel, and its maker knew it. Auguste Comte wanted social physics for his new science of society, but the statistician Adolphe Quetelet had taken the term, so in 1838 Comte assembled a hybrid from two languages that classical purists insisted should not be mixed. They winced; the word won anyway, as useful words do. Today a sociologist studies society and its forms, under a name coined by the same man who gave the language altruism — Comte's second contribution to this corpus, and the one he had to build out of spare parts."
   },
   "notorious": {
     "v": "Everyone in three counties knew his name, and not one of them for a good reason.",
-    "e": "Latin notus, 'known' — famous soured: known widely, and badly."
+    "e": "Latin notus, 'known' — famous soured: known widely, and badly.",
+    "s": "Latin notus, 'known,' the participle of noscere, to get to know — and the English word began as neutral as its root. In the sixteenth century a notorious fact was simply a publicly known one, and a notorious truth was a plain one; the word carried no more judgement than notable does now. What soured it was company. The things that became widely known tended to be scandals, and after a century of that association the disapproval migrated from the news into the word itself. Today notorious means widely known for something bad, while noted and notable kept the neutrality their sibling lost."
   },
   "consummate": {
     "v": "Not one wasted motion in the forgery — the work of a master at the height of his craft.",
-    "e": "Latin con + summa, 'the highest total' — brought to the very sum and summit of an art, even a bad one."
+    "e": "Latin con + summa, 'the highest total' — brought to the very sum and summit of an art, even a bad one.",
+    "s": "Latin consummare, 'to sum up, complete,' from con and summa, the highest total — the top line of a Roman ledger, where the sum was written. To consummate a thing was to bring it to its full amount, nothing more moral than arithmetic. The adjective drifted from completed to perfected, and from perfected to supremely skilled, which is where the trouble starts: perfection is indifferent to what is being perfected. Today a consummate performer is complete in skill, and the same word will crown a consummate liar without flinching — while the verb kept a narrower duty, completing a marriage."
   },
   "incorrigible": {
     "v": "Three schools, two counselors, one probation officer — and he was picking locks again by Friday.",
-    "e": "Latin in- (not) + corrigere (to set straight) — past straightening; corrigere also gives us 'correct.'"
+    "e": "Latin in- (not) + corrigere (to set straight) — past straightening; corrigere also gives us 'correct.'",
+    "s": "Latin in-, 'not,' with corrigere, 'to set straight,' itself com plus regere, to rule or guide straight — that which cannot be straightened. It entered English as a hard word in hard institutions: first a theological verdict on the sinner past the Church's correction, then a legal category, with incorrigible rogues named in the vagrancy statutes and incorrigible offenders sent to houses of correction. The verdict was serious and the consequences were real. Today the word has gone soft in general use, an affectionate scolding for a child who will not behave, and only the law still means it the old way."
   },
   "inveterate": {
     "v": "Forty years of the same Tuesday poker game; he could no more skip it than skip breathing.",
-    "e": "Latin vetus, veteris, 'old' — grown old in the habit, like a veteran grown old in service."
+    "e": "Latin vetus, veteris, 'old' — grown old in the habit, like a veteran grown old in service.",
+    "s": "Latin inveteratus, from in and vetus, veteris, 'old' — literally made old, grown old in something. Its first English use was medical, and precisely so: an inveterate ulcer or fever was one that had aged in the body and grown hard to shift, the physician's word for a complaint past easy remedy. The transfer from chronic illness to chronic habit followed the obvious likeness, since a habit long kept resists treatment the same way. Today an inveterate gambler is fixed by long practice rather than by disease, and the veteran, grown old in service, is the same word worn honourably."
   },
   "congenital": {
     "v": "The heart murmur was there at the first examination, hours after birth.",
-    "e": "Latin con + genitus, 'born with' — carried from the womb, of bodies or, figuratively, of liars."
+    "e": "Latin con + genitus, 'born with' — carried from the womb, of bodies or, figuratively, of liars.",
+    "s": "Latin congenitus, from con, 'with,' and the participle of gignere, to beget — born together with, present at the very beginning. The word is medical by birth and was coined to draw one line only: a congenital condition arrives with the child, as against one acquired by living. That is a statement about timing, not about blame. The figurative use is a nineteenth-century borrowing of the term's fatedness, and it is doing rhetorical work: to call a man a congenital liar is to say the fault was installed before he could consent to it. Today gignere's other children include progeny, genius and the genital itself."
   },
   "chronic": {
     "v": "The cough was never dramatic and never gone — fifteen years of it, wet Novembers and dry Junes alike.",
-    "e": "Greek chronos, 'time' — Time the Titan devouring his children; a chronic ailment devours slowly, on schedule."
+    "e": "Greek chronos, 'time' — Time the Titan devouring his children; a chronic ailment devours slowly, on schedule.",
+    "s": "Greek chronos, 'time,' through chronikos, 'of time' — and the word arrives carrying one half of a medical pair. Greek physicians divided illness by its shape in time: acute diseases were sharp and short, chronic ones long and slow, and the distinction governed what a doctor could hope to do. Chronic was therefore a prognosis before it was a complaint. The colloquial use came later, borrowing the medical sense of something that will not resolve and applying it to lateness, complaint and every enduring nuisance. Today a chronic ailment persists over long time, and its true opposite is not mild but acute."
   },
   "pathological": {
     "v": "He lied when the truth would have served him better — the habit had stopped being a choice.",
-    "e": "Greek pathos, 'suffering, disease' — a fault promoted to an illness: lying as a condition, not a strategy."
+    "e": "Greek pathos, 'suffering, disease' — a fault promoted to an illness: lying as a condition, not a strategy.",
+    "s": "Greek pathos, 'suffering,' with logos — pathology being the science of disease, and pathological meaning, at first, nothing more than belonging to that science. The turn is exact and late. Around 1891 the German physician Anton Delbrück described a compulsive, purposeless lying he called pseudologia fantastica, and the pathological liar entered the language: a fault reclassified as an illness. That reclassification does two things at once, lifting blame from the liar and taking away his agency along with it. Today pathological means compulsive as if from disease, while sympathy and apathy keep the older pathos, which is feeling rather than sickness."
   },
   "unconscionable": {
     "v": "The lender's fine print took the widow's house over a debt of four hundred dollars.",
-    "e": "Latin conscientia, 'inner knowledge' — a deed done as if no conscience were present in the room."
+    "e": "Latin conscientia, 'inner knowledge' — a deed done as if no conscience were present in the room.",
+    "s": "Latin conscientia, 'knowing with' — con plus scire, to know — the inner witness that knows alongside you. English built conscionable from conscience in the sixteenth century by misreading the noun as though a verb lay inside it, and then found the negative far more useful than the positive. It began as a term of art: the courts of equity refused to enforce an unconscionable bargain, one so lopsided that no conscience could approve it. That legal sense is still live in contract law today, sitting alongside the general moral one, and the scire at its root is the same knowing that gives us science."
   },
   "glib": {
     "v": "He had a smooth answer for every objection before it finished being asked — none of them, on reflection, true.",
-    "e": "From a Germanic root meaning 'slippery' — fluency so frictionless it slides right past sincerity."
+    "e": "From a Germanic root meaning 'slippery' — fluency so frictionless it slides right past sincerity.",
+    "s": "A Germanic word, kin to Dutch glibberig and German glatt, meaning slippery or smooth — and alone in this gate it has no classical pedigree at all, no Latin parts to take apart, which is why the corpus records it as a single unanalysed morpheme. Its earliest English sense in the sixteenth century was physical: a glib surface was a slick one, and ice was glib. The word then narrowed almost entirely onto speech, and in narrowing it acquired a moral charge the surfaces never carried. Today glib means smooth in speech and too smooth to trust, the fluency itself having become the fault."
   },
   "egregious": {
     "v": "Of all the blunders in the report, misspelling the client's name on the cover stood alone.",
-    "e": "Latin e + grege, 'out of the flock' — once meant outstandingly good; irony marched it to outstandingly bad."
+    "e": "Latin e + grege, 'out of the flock' — once meant outstandingly good; irony marched it to outstandingly bad.",
+    "s": "Latin egregius, from e, 'out of,' and grex, gregis, 'the flock' — one who stands out from the herd, and originally a compliment. English borrowed it in the sixteenth century meaning distinguished, remarkable, conspicuously fine, and an egregious scholar was one to be envied. Within about a hundred years it had flipped to the opposite, almost certainly worn down by sarcasm: call enough scoundrels egregious in mockery and the mockery sticks to the word. Today egregious means conspicuously and outrageously bad, while the flock it left behind still grazes in gregarious, congregation and segregate."
   },
   "disparage": {
     "v": "With one shrug he dismissed her thesis as 'a decent term paper.'",

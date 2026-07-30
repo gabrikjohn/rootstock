@@ -1,6 +1,7 @@
 import type {
   DepthEntry,
   DrillWord,
+  InferenceWord,
   RuntimeGate,
   Root,
   StringListMap,
@@ -64,7 +65,7 @@ export class ContentCatalog {
     return "";
   }
 
-  wordDepth(word: Word | DrillWord): Partial<DepthEntry> {
+  wordDepth(word: Word | DrillWord | InferenceWord): Partial<DepthEntry> {
     return this.depth[word.word] ?? {};
   }
 
@@ -76,10 +77,12 @@ export class ContentCatalog {
     return this.wordDepth(word).e ?? word.ety ?? "";
   }
 
-  // The paragraph-length sense-history, where one has been authored. No fallback to the
-  // epigram: a missing story yields "" so the disclosure simply omits the block.
-  wordStory(word: Word | DrillWord): string {
-    return this.wordDepth(word).s ?? "";
+  // The paragraph-length sense-history, where one has been authored. Gate words file theirs
+  // in DEPTH; Drill Hall and inference words carry their own, the same split `wordEtymology`
+  // already makes for `ety`. Never falls back to the epigram — a missing story yields "" so
+  // the disclosure simply omits the block.
+  wordStory(word: Word | DrillWord | InferenceWord): string {
+    return this.wordDepth(word).s ?? word.story ?? "";
   }
 
   definition(headword: string): string {

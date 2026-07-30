@@ -2,6 +2,7 @@ import { describe, expect, it } from "vitest";
 import { existsSync, readFileSync } from "node:fs";
 import { fileURLToPath } from "node:url";
 import { ContentCatalog } from "../src/domain/catalog";
+import type { InferenceWord } from "../src/types/content";
 import {
   AFFIX_DEEP,
   COGNATES,
@@ -137,11 +138,15 @@ describe("runtime content", () => {
     // sentence that ends on a gloss still counts. Abbreviations may over-count — that is a
     // safe direction for a floor. Soft by design.
     const sentences = (text: string) => (text.match(/[.!?]['"’”)\]]*(\s|$)/g) ?? []).length;
-    let withStory = 0;
+    // The epigram doubles as the masked ETY drill prompt, where the headword is the answer;
+    // a paragraph there would be an unreadable, answer-leaking prompt. Keep it a caption.
+    // Only gate and drill words carry an epigram at all; inference words never had one.
     for (const word of [...gateWords, ...DRILL_POOL]) {
-      // The epigram doubles as the masked ETY drill prompt, where the headword is the answer;
-      // a paragraph there would be an unreadable, answer-leaking prompt. Keep it a caption.
       expect(catalog.wordEtymology(word).length, word.word).toBeLessThanOrEqual(200);
+    }
+    const inferenceWords: readonly InferenceWord[] = INFER_POOL;
+    let withStory = 0;
+    for (const word of [...gateWords, ...DRILL_POOL, ...inferenceWords]) {
       const story = catalog.wordStory(word);
       if (!story) continue;
       withStory += 1;
@@ -154,8 +159,12 @@ describe("runtime content", () => {
       expect(story, word.word).not.toBe(depth[word.word]?.e);
       expect(story, word.word).not.toBe(depth[word.word]?.v);
     }
-    // Ratchets up as each gate's stories land. Raise it per batch; never lower it.
-    expect(withStory).toBeGreaterThanOrEqual(10);
+    // Ratchets up as each batch lands: 10 (Gate 1) → 50 (Gates 2–5) → … → 416 (whole corpus).
+    // Raise it per batch; never lower it.
+    expect(withStory).toBeGreaterThanOrEqual(50);
+    // Inference words are being given the example sentence they were authored without, so
+    // their cards can render in full. Ratchets alongside the stories, ending at all 95.
+    expect(inferenceWords.filter((word) => word.sentence).length).toBeGreaterThanOrEqual(0);
   });
 
   it("keeps similar roots symmetric and cognates meaningful", () => {

@@ -29,7 +29,6 @@ import { normalizeRoot, rootForms as getRootForms, rootMatches } from "../domain
 import type { DocketSummary } from "../domain/scheduling";
 import { DOCKET_SESSION_CAP, docketBlocks, docketSummary, initialReview, retiresFromDocket, scheduleReview, selectDocketSitting, tierOf } from "../domain/scheduling";
 import { BAR_FORMS, barComposition, buildBarItems, buildTrialOneItems, selectInference } from "../domain/sessions";
-import { pronLine } from "../platform/audio";
 import type { AppDependencies } from "../platform/contracts";
 import { ProgressStore } from "../platform/progress-store";
 import { renderOnboarding, renderPaywall } from "./features/access-screens";
@@ -66,6 +65,7 @@ import {
 } from "./features/prompt-interactions";
 import { buildPromptView } from "./features/prompt-view";
 import { installDeepDisclosure, installGhostDefinitions, posTag, renderStudyCard } from "./features/study-card";
+import type { StudyCardWord } from "./features/study-card";
 import { renderTrialScreen, wireComposeInteraction, wireTypedInteraction } from "./features/trial-screen";
 import { showBackupModal, showRestoreModal } from "./features/progress-modals";
 import { appearanceName, renderSettings } from "./features/settings-screen";
@@ -709,14 +709,18 @@ function rootDrillItem():void{
   });
 }
 
-function cardHtml(word:Word|DrillWord):string{
-  return renderStudyCard(word,{gates:LEVELS,etymology:etyOf,deepPanel});
+function cardHtml(word:StudyCardWord):string{
+  return renderStudyCard(word,{gates:LEVELS,etymology:etyOf,deepPanel,nearNote:inferRoots});
+}
+// Inference words teach by their roots line; it takes the slot a gate word gives its kin.
+function inferRoots(word:StudyCardWord):string{
+  return "roots" in word && word.roots ? esc(word.roots) : '';
 }
 // The deep-study panel for a whole word: each piece explained in turn — the authored affix
 // note or the root's own paragraph — then the family that root grows into. Almost all of
 // this prose already existed; only the affix notes were missing, and nothing called it from
 // the study card.
-function deepPanel(word:Word|DrillWord):string{
+function deepPanel(word:StudyCardWord):string{
   const seen=new Set<string>(); let out='';
   // The word's own sense-history leads the panel, above the per-piece notes. Seeding `out`
   // here also lets a story-only word open the panel: the empty-guard below sits after the
@@ -1191,14 +1195,9 @@ function lexicon(q:string):void{
 function inferView(fi:number,q:string):void{
   const f:InferenceWord|undefined=INFER_POOL[fi];
   if(!f) throw new Error(`Missing inference word ${fi}`);
-  const morph=f.parts.map((p,i)=>{
-    const seg=`<div class="seg ${p[1]===''?'empty':''}"><div class="sy">${p[0]}</div>${p[1]?`<div class="mn">${p[1]}</div>`:''}</div>`;
-    return i<f.parts.length-1?seg+'<span class="plus">+</span>':seg;}).join('');
   renderLexiconDetailScreen({
     app, backLabel:'The Lexicon', stageLabel:'Inference · a meaning built from roots',
-    contentHtml:`<div class="card"><div class="headword">${f.word}</div>${pronLine(f.word, f.pron||'')}
-      <div class="morph">${morph}</div><div class="def">${f.def}</div>
-      <div class="near">${esc(f.roots)}</div></div>`,
+    contentHtml:cardHtml(f),
     onBack:()=>lexicon(q||'')
   });
 }

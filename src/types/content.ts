@@ -22,6 +22,9 @@ export interface Word {
   distractors: string[];
   kin?: string[];
   ety?: string;
+  // The sense-history paragraph, for words that carry their own rather than one filed in
+  // DEPTH. Gate words use DEPTH.s; Drill Hall words keep theirs here beside `ety`.
+  story?: string;
   pos?: PartOfSpeech;
 }
 
@@ -46,6 +49,10 @@ export interface InferenceWord {
   distractors: string[];
   roots: string;
   pron?: string;
+  // Inference words entered the corpus without an example sentence or a history; both are
+  // being authored, so both stay optional until every entry carries them.
+  sentence?: string;
+  story?: string;
   pos?: PartOfSpeech;
 }
 
