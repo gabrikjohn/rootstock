@@ -235,6 +235,169 @@ test("serves a due review and advances its Leitner box", async ({ page }) => {
   )).toBe(1);
 });
 
+test("nudges on a small docket but only bars progression on a backlog", async ({ page }) => {
+  const dueReview = (count: number) => {
+    const due = Date.now() - 60 * 60 * 1000;
+    const review: Record<string, { box: number; due: number }> = {};
+    for (let index = 0; index < count; index += 1) {
+      review[`${Math.floor(index / 10)}-${index % 10}`] = { box: 0, due };
+    }
+    return review;
+  };
+
+  // Seeded once; the reload below re-runs this script, so later edits must survive it.
+  await page.addInitScript((fixture) => {
+    if (!localStorage.getItem("rootstock_v2")) {
+      localStorage.setItem("rootstock_v2", JSON.stringify(fixture));
+    }
+    localStorage.setItem("rootstock_sub", JSON.stringify({
+      source: "dev",
+      active: true,
+      plan: "annual",
+      expiresAt: null
+    }));
+  }, { ...admittedProgress, review: dueReview(3) });
+
+  // A handful of fresh due words: the home card asks, the Drill Hall stays open.
+  await page.goto("/");
+  await expect(page.locator(".session-title")).toHaveText("The Review Docket");
+  await expect(page.locator("#drill-btn")).toBeEnabled();
+  await expect(page.locator("#drill-btn")).toContainText("Drill");
+
+  // Past a sitting's worth, the docket bars the way again.
+  await page.evaluate((review) => {
+    const saved = JSON.parse(localStorage.getItem("rootstock_v2") ?? "{}");
+    localStorage.setItem("rootstock_v2", JSON.stringify({ ...saved, review }));
+  }, dueReview(25));
+  await page.reload();
+  await expect(page.locator("#drill-btn")).toBeDisabled();
+  await expect(page.locator("#drill-btn")).toContainText("Docket first");
+});
+
+test("caps a docket sitting and leaves the remainder for the next one", async ({ page }) => {
+  test.setTimeout(60_000);
+  const due = Date.now() - 60 * 60 * 1000;
+  const review: Record<string, { box: number; due: number }> = {};
+  for (let index = 0; index < 25; index += 1) {
+    review[`${Math.floor(index / 10)}-${index % 10}`] = { box: 0, due: due - index };
+  }
+  await page.addInitScript((fixture) => {
+    localStorage.setItem("rootstock_v2", JSON.stringify(fixture));
+    localStorage.setItem("rootstock_sub", JSON.stringify({
+      source: "dev",
+      active: true,
+      plan: "annual",
+      expiresAt: null
+    }));
+  }, { ...admittedProgress, review });
+
+  await page.goto("/");
+  // 25 due is over the cap, so the CTA promises a sitting rather than the whole backlog.
+  await expect(page.locator(".session-meta")).toHaveText("20 of 25 this sitting");
+  await page.locator("#cta").click();
+  await expect(page.locator(".queue-meta span").first()).toHaveText("20 in queue");
+
+  for (let index = 0; index < 20; index += 1) await answerChoiceAndWait(page);
+
+  await expect(page.getByText("Sitting Cleared")).toBeVisible();
+  await expect(page.getByText(/5 words still due/)).toBeVisible();
+  await page.locator("#h2").click();
+
+  // 25 → 5 remaining drops back under the blocking threshold, so the way forward reopens.
+  await expect(page.locator("#drill-btn")).toBeEnabled();
+  await expect(page.locator("#cta")).toContainText("5 words ready for recall");
+  await page.locator("#cta").click();
+  await expect(page.locator(".queue-meta span").first()).toHaveText("5 in queue");
+});
+
+test("retires a word that has climbed the whole ladder", async ({ page }) => {
+  const word = LEVELS[0]!.words[0]!;
+  const top = 5;
+  await page.addInitScript(({ fixture, top }) => {
+    localStorage.setItem("rootstock_v2", JSON.stringify({
+      ...fixture,
+      // Top of the ladder, and well clear on the tally: this answer should be its last.
+      review: { "0-0": { box: top, due: 1 } },
+      ledger: { "0-0": { r: 6, w: 0 } }
+    }));
+  }, { fixture: admittedProgress, top });
+
+  await page.goto("/");
+  await page.locator("#cta").click();
+  // The top tier is a bank — assembly or typed production — so answer whichever came up.
+  const typed = page.locator("#ans");
+  if (await typed.count()) {
+    await typed.fill(word.word);
+    await page.locator("#sub").click();
+  } else {
+    for (const [segment] of word.parts) {
+      await page.locator(`.chip[data-seg="${segment}"]`).first().click();
+    }
+  }
+
+  await expect(page.getByText("Docket Cleared")).toBeVisible();
+  await expect(page.getByText(/left the Docket for good/)).toBeVisible();
+  expect(await page.evaluate(() =>
+    JSON.parse(localStorage.getItem("rootstock_v2") ?? "{}").review["0-0"]
+  )).toBeUndefined();
+});
+
+test("a lapse resets the calendar but drops difficulty only one rung", async ({ page }) => {
+  await page.addInitScript((fixture) => {
+    localStorage.setItem("rootstock_v2", JSON.stringify({
+      ...fixture,
+      // Tier 2 is the typed bank, so every mode in it is answered the same way.
+      review: { "0-0": { box: 3, tier: 2, due: 1 } }
+    }));
+  }, admittedProgress);
+
+  await page.goto("/");
+  await page.locator("#cta").click();
+  await page.locator("#ans").fill("notthewordatall");
+  await page.locator("#sub").click();
+  await expect(page.locator(".verdict")).toBeVisible();
+
+  const after = await page.evaluate(() =>
+    JSON.parse(localStorage.getItem("rootstock_v2") ?? "{}").review["0-0"]
+  );
+  expect(after.box).toBe(0);
+  expect(after.tier).toBe(1);
+});
+
+test("withholds the letter cue where production is the test", async ({ page }) => {
+  await page.addInitScript((fixture) => {
+    localStorage.setItem("rootstock_v2", JSON.stringify({
+      ...fixture,
+      // Tier 2 is the typed bank: PROD, CLOZE and VIGT all used to leak "p·······".
+      review: { "0-0": { box: 3, tier: 2, due: 1 } }
+    }));
+  }, admittedProgress);
+
+  await page.goto("/");
+  await page.locator("#cta").click();
+  await expect(page.locator("#ans")).toBeVisible();
+  await expect(page.locator(".cue")).toHaveCount(0);
+});
+
+test("opens a deep etymology panel on a study card", async ({ page }) => {
+  await page.addInitScript((fixture) => {
+    localStorage.setItem("rootstock_v2", JSON.stringify(fixture));
+  }, admittedProgress);
+
+  // The sealed-gate lexicon renders the same card the Study stage does.
+  await page.goto("/");
+  await page.locator("#sealed-toggle").click();
+  await page.locator('.lvl-card[data-lvl="0"]').click();
+  await page.locator(".lex-row[data-wi]").first().click();
+
+  const panel = page.locator(".deep-body");
+  await expect(panel).toBeHidden();
+  await page.locator("[data-deep]").click();
+  await expect(panel).toBeVisible();
+  // Not an empty disclosure: it must actually explain a piece of the word.
+  await expect(panel.locator(".deep-part").first()).not.toBeEmpty();
+});
+
 test("opens the root and word lexicons from sealed content", async ({ page }) => {
   await page.addInitScript((fixture) => {
     localStorage.setItem("rootstock_v2", JSON.stringify(fixture));

@@ -13,6 +13,12 @@ interface PromptViewOptions {
   random: RandomSource;
   vignette(word: Word | DrillWord): string;
   literal(word: Word | DrillWord): string;
+  // Resolves an option's text — a definition or a headword — to its part of speech.
+  posOf(text: string): string | null;
+  // Wrong headwords for a word-choice prompt, ranked by confusability.
+  wordFoils(word: Word | DrillWord, gateIndex: number | undefined, count: number): string[];
+  // Whether typed prompts show the first-letter cue. False where production is the test.
+  cue: boolean;
   rootForms(root: Root): string[];
   rootCue(root: Root): string;
   rootAudio(root: string): string;
@@ -27,6 +33,21 @@ export interface PromptView {
 
 const labels = ["A", "B", "C", "D"];
 
+// The part-of-speech tag is teaching, but on a prompt it is also a filter: label the
+// question "adj." while three of the four options are noun phrases and you have crossed
+// them off for the learner. So it appears only when every option shares a part of speech
+// and the tag therefore eliminates nothing. Any option that cannot be resolved suppresses
+// it too — an unknown is not evidence of agreement.
+function sharedPosTag(
+  options: readonly string[],
+  posOf: (text: string) => string | null
+): string {
+  const first = posOf(options[0] ?? "");
+  if (!first) return "";
+  for (const option of options) if (posOf(option) !== first) return "";
+  return `<span class="pos">${first}</span> `;
+}
+
 export function buildPromptView(options: PromptViewOptions): PromptView {
   const { item } = options;
   switch (item.m) {
@@ -36,25 +57,23 @@ export function buildPromptView(options: PromptViewOptions): PromptView {
         { text: word.def, correct: true },
         ...word.distractors.map((text) => ({ text, correct: false }))
       ], options.random);
+      const tag = sharedPosTag(choices.map((choice) => choice.text), options.posOf);
       return {
-        promptHtml: `<div class="q-ask">What does it mean?</div><div class="q-word">${word.word}</div>`,
+        promptHtml: `<div class="q-ask">What does it mean?</div><div class="q-word">${tag}${word.word}</div>`,
         bodyHtml: renderObjectChoices(choices),
         typed: false
       };
     }
     case "REV": {
       const word = requireWord(options.word, item.m);
-      const gate = requireGate(options.gates, item.gi);
-      const others = shuffle(
-        gate.words.filter((candidate) => candidate.word !== word.word),
-        options.random
-      ).slice(0, 3).map((candidate) => candidate.word);
+      const others = options.wordFoils(word, item.gi, 3);
       const choices = shuffle([
         { text: word.word, correct: true },
         ...others.map((text) => ({ text, correct: false }))
       ], options.random);
+      const tag = sharedPosTag(choices.map((choice) => choice.text), options.posOf);
       return {
-        promptHtml: `<div class="q-ask">Which word fits?</div><div class="q-def">“${word.def}”</div>`,
+        promptHtml: `<div class="q-ask">Which word fits?</div><div class="q-def">${tag}“${word.def}”</div>`,
         bodyHtml: renderObjectChoices(choices, true),
         typed: false
       };
@@ -165,12 +184,8 @@ export function buildPromptView(options: PromptViewOptions): PromptView {
     }
     case "VIG": {
       const word = requireWord(options.word, item.m);
-      const gate = requireGate(options.gates, item.gi);
       const scene = options.vignette(word) || word.def;
-      const others = shuffle(
-        gate.words.filter((candidate) => candidate.word !== word.word),
-        options.random
-      ).slice(0, 3).map((candidate) => candidate.word);
+      const others = options.wordFoils(word, item.gi, 3);
       const choices = shuffle([
         { text: word.word, correct: true },
         ...others.map((text) => ({ text, correct: false }))
@@ -187,13 +202,16 @@ export function buildPromptView(options: PromptViewOptions): PromptView {
     case "LITT": {
       const word = requireWord(options.word, item.m);
       const vignette = options.vignette(word);
+      // The letter cue earns its place in low-stakes practice and gives the answer away
+      // where production is the point. Its owner is the caller's context, not the mode.
+      const cue = options.cue ? `<div class="cue">${letterCue(word.word)}</div>` : "";
       const promptHtml = item.m === "VIGT" && vignette
-        ? `<div class="q-ask">Name the word the scene calls for — exact spelling</div><div class="q-sentence">“${escapeHtml(vignette)}”</div><div class="cue">${letterCue(word.word)}</div>`
+        ? `<div class="q-ask">Name the word the scene calls for — exact spelling</div><div class="q-sentence">“${escapeHtml(vignette)}”</div>${cue}`
         : item.m === "CLOZE"
-          ? `<div class="q-ask">Complete the sentence — exact spelling</div><div class="q-sentence">“${blankWord(word)}”</div><div class="cue">${letterCue(word.word)}</div>`
+          ? `<div class="q-ask">Complete the sentence — exact spelling</div><div class="q-sentence">“${blankWord(word)}”</div>${cue}`
           : item.m === "LITT"
-            ? `<div class="q-ask">Its pieces read, in order — type the word</div><div class="q-def" style="font-family:'IBM Plex Mono',monospace;font-size:16.5px;line-height:1.7">${options.literal(word)}</div><div class="cue">${letterCue(word.word)}</div>`
-            : `<div class="q-ask">Type the word — exact spelling</div><div class="q-def">“${word.def}”</div>${item.drill ? `<div class="cue">${letterCue(word.word)}</div>` : ""}`;
+            ? `<div class="q-ask">Its pieces read, in order — type the word</div><div class="q-def" style="font-family:'IBM Plex Mono',monospace;font-size:16.5px;line-height:1.7">${options.literal(word)}</div>${cue}`
+            : `<div class="q-ask">Type the word — exact spelling</div><div class="q-def">“${word.def}”</div>${cue}`;
       return {
         promptHtml,
         bodyHtml: '<div class="typebox"><input id="ans" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="the word…"><button class="btn" id="sub">Submit</button></div>',

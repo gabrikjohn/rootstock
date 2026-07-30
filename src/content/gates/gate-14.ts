@@ -59,6 +59,7 @@ export const gate14 = {
   "words": [
     {
       "word": "apathy",
+      "pos": "n.",
       "parts": [
         [
           "a",
@@ -88,6 +89,7 @@ export const gate14 = {
     },
     {
       "word": "empathy",
+      "pos": "n.",
       "parts": [
         [
           "em",
@@ -117,6 +119,7 @@ export const gate14 = {
     },
     {
       "word": "antipathy",
+      "pos": "n.",
       "parts": [
         [
           "anti",
@@ -145,6 +148,7 @@ export const gate14 = {
     },
     {
       "word": "telepathy",
+      "pos": "n.",
       "parts": [
         [
           "tele",
@@ -173,6 +177,7 @@ export const gate14 = {
     },
     {
       "word": "pathology",
+      "pos": "n.",
       "parts": [
         [
           "patho",
@@ -202,6 +207,7 @@ export const gate14 = {
     },
     {
       "word": "psychosomatic",
+      "pos": "adj.",
       "parts": [
         [
           "psycho",
@@ -230,6 +236,7 @@ export const gate14 = {
     },
     {
       "word": "megalomania",
+      "pos": "n.",
       "parts": [
         [
           "megalo",
@@ -255,6 +262,7 @@ export const gate14 = {
     },
     {
       "word": "pyromania",
+      "pos": "n.",
       "parts": [
         [
           "pyro",
@@ -279,6 +287,7 @@ export const gate14 = {
     },
     {
       "word": "dipsomania",
+      "pos": "n.",
       "parts": [
         [
           "dipso",
@@ -303,6 +312,7 @@ export const gate14 = {
     },
     {
       "word": "bibliomania",
+      "pos": "n.",
       "parts": [
         [
           "biblio",

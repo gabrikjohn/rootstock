@@ -54,6 +54,7 @@ export const gate13 = {
   "words": [
     {
       "word": "jurisprudence",
+      "pos": "n.",
       "parts": [
         [
           "juris",
@@ -83,6 +84,7 @@ export const gate13 = {
     },
     {
       "word": "adjudicate",
+      "pos": "v.",
       "parts": [
         [
           "ad",
@@ -112,6 +114,7 @@ export const gate13 = {
     },
     {
       "word": "litigious",
+      "pos": "adj.",
       "parts": [
         [
           "litig",
@@ -137,6 +140,7 @@ export const gate13 = {
     },
     {
       "word": "perjury",
+      "pos": "n.",
       "parts": [
         [
           "per",
@@ -166,6 +170,7 @@ export const gate13 = {
     },
     {
       "word": "verdict",
+      "pos": "n.",
       "parts": [
         [
           "ver",
@@ -190,6 +195,7 @@ export const gate13 = {
     },
     {
       "word": "culpable",
+      "pos": "adj.",
       "parts": [
         [
           "culp",
@@ -215,6 +221,7 @@ export const gate13 = {
     },
     {
       "word": "exculpate",
+      "pos": "v.",
       "parts": [
         [
           "ex",
@@ -244,6 +251,7 @@ export const gate13 = {
     },
     {
       "word": "incriminate",
+      "pos": "v.",
       "parts": [
         [
           "in",
@@ -273,6 +281,7 @@ export const gate13 = {
     },
     {
       "word": "indict",
+      "pos": "v.",
       "parts": [
         [
           "in",
@@ -298,6 +307,7 @@ export const gate13 = {
     },
     {
       "word": "theodicy",
+      "pos": "n.",
       "parts": [
         [
           "theo",

@@ -89,6 +89,7 @@ export const gate06 = {
   "words": [
     {
       "word": "disparage",
+      "pos": "v.",
       "parts": [
         [
           "dis",
@@ -118,6 +119,7 @@ export const gate06 = {
     },
     {
       "word": "equivocate",
+      "pos": "v.",
       "parts": [
         [
           "equi",
@@ -147,6 +149,7 @@ export const gate06 = {
     },
     {
       "word": "placate",
+      "pos": "v.",
       "parts": [
         [
           "plac",
@@ -172,6 +175,7 @@ export const gate06 = {
     },
     {
       "word": "proscribe",
+      "pos": "v.",
       "parts": [
         [
           "pro",
@@ -197,6 +201,7 @@ export const gate06 = {
     },
     {
       "word": "obviate",
+      "pos": "v.",
       "parts": [
         [
           "ob",
@@ -225,6 +230,7 @@ export const gate06 = {
     },
     {
       "word": "militate",
+      "pos": "v.",
       "parts": [
         [
           "milit",
@@ -249,6 +255,7 @@ export const gate06 = {
     },
     {
       "word": "malign",
+      "pos": "v.",
       "parts": [
         [
           "mal",
@@ -274,6 +281,7 @@ export const gate06 = {
     },
     {
       "word": "condone",
+      "pos": "v.",
       "parts": [
         [
           "con",
@@ -298,6 +306,7 @@ export const gate06 = {
     },
     {
       "word": "adulate",
+      "pos": "v.",
       "parts": [
         [
           "adul",
@@ -323,6 +332,7 @@ export const gate06 = {
     },
     {
       "word": "vacillate",
+      "pos": "v.",
       "parts": [
         [
           "vacill",

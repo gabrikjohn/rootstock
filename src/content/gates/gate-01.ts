@@ -54,6 +54,7 @@ export const gate01 = {
   "words": [
     {
       "word": "egoist",
+      "pos": "n.",
       "parts": [
         [
           "ego",
@@ -79,6 +80,7 @@ export const gate01 = {
     },
     {
       "word": "egotist",
+      "pos": "n.",
       "parts": [
         [
           "ego",
@@ -108,6 +110,7 @@ export const gate01 = {
     },
     {
       "word": "egocentric",
+      "pos": "adj.",
       "parts": [
         [
           "ego",
@@ -136,6 +139,7 @@ export const gate01 = {
     },
     {
       "word": "altruist",
+      "pos": "n.",
       "parts": [
         [
           "altru",
@@ -161,6 +165,7 @@ export const gate01 = {
     },
     {
       "word": "introvert",
+      "pos": "n.",
       "parts": [
         [
           "intro",
@@ -186,6 +191,7 @@ export const gate01 = {
     },
     {
       "word": "extrovert",
+      "pos": "n.",
       "parts": [
         [
           "extro",
@@ -211,6 +217,7 @@ export const gate01 = {
     },
     {
       "word": "ambivert",
+      "pos": "n.",
       "parts": [
         [
           "ambi",
@@ -235,6 +242,7 @@ export const gate01 = {
     },
     {
       "word": "misanthrope",
+      "pos": "n.",
       "parts": [
         [
           "mis",
@@ -264,6 +272,7 @@ export const gate01 = {
     },
     {
       "word": "misogynist",
+      "pos": "n.",
       "parts": [
         [
           "miso",
@@ -293,6 +302,7 @@ export const gate01 = {
     },
     {
       "word": "ascetic",
+      "pos": "n.",
       "parts": [
         [
           "ascet",

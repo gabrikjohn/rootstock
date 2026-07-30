@@ -59,6 +59,7 @@ export const gate23 = {
   "words": [
     {
       "word": "disingenuous",
+      "pos": "adj.",
       "parts": [
         [
           "dis",
@@ -92,6 +93,7 @@ export const gate23 = {
     },
     {
       "word": "indigenous",
+      "pos": "adj.",
       "parts": [
         [
           "indi",
@@ -121,6 +123,7 @@ export const gate23 = {
     },
     {
       "word": "congenial",
+      "pos": "adj.",
       "parts": [
         [
           "con",
@@ -150,6 +153,7 @@ export const gate23 = {
     },
     {
       "word": "genealogy",
+      "pos": "n.",
       "parts": [
         [
           "gene",
@@ -183,6 +187,7 @@ export const gate23 = {
     },
     {
       "word": "puerile",
+      "pos": "adj.",
       "parts": [
         [
           "puer",
@@ -207,6 +212,7 @@ export const gate23 = {
     },
     {
       "word": "senile",
+      "pos": "adj.",
       "parts": [
         [
           "sen",
@@ -232,6 +238,7 @@ export const gate23 = {
     },
     {
       "word": "senescent",
+      "pos": "adj.",
       "parts": [
         [
           "sen",
@@ -257,6 +264,7 @@ export const gate23 = {
     },
     {
       "word": "virile",
+      "pos": "adj.",
       "parts": [
         [
           "vir",
@@ -282,6 +290,7 @@ export const gate23 = {
     },
     {
       "word": "nostalgia",
+      "pos": "n.",
       "parts": [
         [
           "nost",
@@ -311,6 +320,7 @@ export const gate23 = {
     },
     {
       "word": "soporific",
+      "pos": "adj.",
       "parts": [
         [
           "sopor",

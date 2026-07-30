@@ -2,6 +2,111 @@ import type { ConfusablePair } from "../types/content";
 
 export const CONFUSABLES = [
   {
+    "s": "A ___ by temperament, he left the reception before the toasts.",
+    "a": "introvert",
+    "b": "misanthrope",
+    "ans": "introvert",
+    "why": "introvert = turned inward by disposition; misanthrope = hates humankind"
+  },
+  {
+    "s": "The ___ gave the estate away and would not have her name on it.",
+    "a": "altruist",
+    "b": "ascetic",
+    "ans": "altruist",
+    "why": "altruist = lives for others; ascetic = renounces comfort for himself"
+  },
+  {
+    "s": "Rule had passed to a handful of families — a settled ___.",
+    "a": "oligarchy",
+    "b": "autocracy",
+    "ans": "oligarchy",
+    "why": "oligarchy = rule by a few; autocracy = rule by one"
+  },
+  {
+    "s": "His ___ complaint flared each winter and never wholly left him.",
+    "a": "chronic",
+    "b": "congenital",
+    "ans": "chronic",
+    "why": "chronic = lasting over time; congenital = present from birth"
+  },
+  {
+    "s": "The speech was polished, quotable, and entirely ___.",
+    "a": "banal",
+    "b": "terse",
+    "ans": "banal",
+    "why": "banal = worn out by overuse; terse = short to the point of curtness"
+  },
+  {
+    "s": "One ___ remark and the whole table fell silent.",
+    "a": "egregious",
+    "b": "notorious",
+    "ans": "egregious",
+    "why": "egregious = conspicuously bad in itself; notorious = widely known to be bad"
+  },
+  {
+    "s": "Public ___ , not hostility, is what killed the proposal.",
+    "a": "apathy",
+    "b": "antipathy",
+    "ans": "apathy",
+    "why": "apathy = no feeling either way; antipathy = active dislike"
+  },
+  {
+    "s": "He is ___ at any gathering and restless without one.",
+    "a": "gregarious",
+    "b": "convivial",
+    "ans": "gregarious",
+    "why": "gregarious = seeks company; convivial = good company once there"
+  },
+  {
+    "s": "The court will ___ the matter and hand down its finding.",
+    "a": "adjudicate",
+    "b": "indict",
+    "ans": "adjudicate",
+    "why": "adjudicate = hear and decide; indict = formally accuse"
+  },
+  {
+    "s": "Every attempt to soothe him only ___ the quarrel further.",
+    "a": "militated",
+    "b": "placated",
+    "ans": "militated",
+    "why": "militate = work against; placate = calm down"
+  },
+  {
+    "s": "A ___ reading of the memo put her own desk at its center.",
+    "a": "egocentric",
+    "b": "egoistic",
+    "ans": "egocentric",
+    "why": "egocentric = sees everything in relation to self; egoistic = acts from self-interest"
+  },
+  {
+    "s": "The ___ of the old regime were held at dawn, without mourners.",
+    "a": "obsequies",
+    "b": "obsequious",
+    "ans": "obsequies",
+    "why": "obsequies = funeral rites; obsequious = fawning"
+  },
+  {
+    "s": "He would ___ under questioning rather than answer straight.",
+    "a": "equivocate",
+    "b": "obviate",
+    "ans": "equivocate",
+    "why": "equivocate = evade with ambiguous words; obviate = make unnecessary"
+  },
+  {
+    "s": "Her argument was ___ — it went straight to the point and held.",
+    "a": "cogent",
+    "b": "sententious",
+    "ans": "cogent",
+    "why": "cogent = compelling by force of reason; sententious = moralizing in tone"
+  },
+  {
+    "s": "A ___ observer, she had read the whole room before sitting down.",
+    "a": "perspicacious",
+    "b": "perspicuous",
+    "ans": "perspicacious",
+    "why": "perspicacious = keen-sighted in mind; perspicuous = clearly expressed"
+  },
+  {
     "s": "Bragging through the whole dinner, he was every inch the ___.",
     "a": "egotist",
     "b": "egoist",

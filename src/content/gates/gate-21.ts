@@ -59,6 +59,7 @@ export const gate21 = {
   "words": [
     {
       "word": "pseudonym",
+      "pos": "n.",
       "parts": [
         [
           "pseudo",
@@ -84,6 +85,7 @@ export const gate21 = {
     },
     {
       "word": "anonymous",
+      "pos": "adj.",
       "parts": [
         [
           "an",
@@ -113,6 +115,7 @@ export const gate21 = {
     },
     {
       "word": "misnomer",
+      "pos": "n.",
       "parts": [
         [
           "mis",
@@ -142,6 +145,7 @@ export const gate21 = {
     },
     {
       "word": "euphemism",
+      "pos": "n.",
       "parts": [
         [
           "eu",
@@ -171,6 +175,7 @@ export const gate21 = {
     },
     {
       "word": "eulogy",
+      "pos": "n.",
       "parts": [
         [
           "eu",
@@ -200,6 +205,7 @@ export const gate21 = {
     },
     {
       "word": "euthanasia",
+      "pos": "n.",
       "parts": [
         [
           "eu",
@@ -229,6 +235,7 @@ export const gate21 = {
     },
     {
       "word": "euphony",
+      "pos": "n.",
       "parts": [
         [
           "eu",
@@ -258,6 +265,7 @@ export const gate21 = {
     },
     {
       "word": "cacophony",
+      "pos": "n.",
       "parts": [
         [
           "caco",
@@ -286,6 +294,7 @@ export const gate21 = {
     },
     {
       "word": "orthodox",
+      "pos": "adj.",
       "parts": [
         [
           "ortho",
@@ -312,6 +321,7 @@ export const gate21 = {
     },
     {
       "word": "paradox",
+      "pos": "n.",
       "parts": [
         [
           "para",

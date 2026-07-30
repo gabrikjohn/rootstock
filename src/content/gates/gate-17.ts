@@ -54,6 +54,7 @@ export const gate17 = {
   "words": [
     {
       "word": "symbiosis",
+      "pos": "n.",
       "parts": [
         [
           "sym",
@@ -83,6 +84,7 @@ export const gate17 = {
     },
     {
       "word": "biopsy",
+      "pos": "n.",
       "parts": [
         [
           "bi",
@@ -107,6 +109,7 @@ export const gate17 = {
     },
     {
       "word": "amphibious",
+      "pos": "adj.",
       "parts": [
         [
           "amphi",
@@ -135,6 +138,7 @@ export const gate17 = {
     },
     {
       "word": "moribund",
+      "pos": "adj.",
       "parts": [
         [
           "mori",
@@ -159,6 +163,7 @@ export const gate17 = {
     },
     {
       "word": "mortify",
+      "pos": "v.",
       "parts": [
         [
           "mort",
@@ -184,6 +189,7 @@ export const gate17 = {
     },
     {
       "word": "mortician",
+      "pos": "n.",
       "parts": [
         [
           "mort",
@@ -208,6 +214,7 @@ export const gate17 = {
     },
     {
       "word": "necropolis",
+      "pos": "n.",
       "parts": [
         [
           "necro",
@@ -232,6 +239,7 @@ export const gate17 = {
     },
     {
       "word": "necromancy",
+      "pos": "n.",
       "parts": [
         [
           "necro",
@@ -257,6 +265,7 @@ export const gate17 = {
     },
     {
       "word": "necrosis",
+      "pos": "n.",
       "parts": [
         [
           "necr",
@@ -281,6 +290,7 @@ export const gate17 = {
     },
     {
       "word": "internecine",
+      "pos": "adj.",
       "parts": [
         [
           "inter",

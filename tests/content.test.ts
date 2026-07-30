@@ -1,7 +1,9 @@
 import { describe, expect, it } from "vitest";
 import { existsSync, readFileSync } from "node:fs";
 import { fileURLToPath } from "node:url";
+import { ContentCatalog } from "../src/domain/catalog";
 import {
+  AFFIX_DEEP,
   COGNATES,
   CONFUSABLES,
   DEPTH,
@@ -140,6 +142,67 @@ describe("runtime content", () => {
       expect(cognates.length, root).toBeGreaterThan(1);
     }
     for (const pair of CONFUSABLES) expect([pair.a, pair.b]).toContain(pair.ans);
+  });
+
+  it("tags every headword with the part of speech its definition uses", () => {
+    for (const word of allWords) {
+      expect(word.pos, word.word).toBeTruthy();
+      expect(["n.", "v.", "adj.", "adv."], word.word).toContain(word.pos);
+    }
+    // A definition opening "To …" names an action; anything else tagged as a verb is a slip.
+    for (const word of allWords) {
+      if (word.pos === "v.") expect(word.def, word.word).toMatch(/^[Tt]o\s/);
+      if (/^[Tt]o\s/.test(word.def)) expect(word.pos, word.word).toBe("v.");
+    }
+  });
+
+  it("only offers a part-of-speech tag when it eliminates no option", () => {
+    // The tag is shown on a prompt only when every option shares a part of speech, so it
+    // teaches without narrowing the field. Most authored sets are mixed, which is fine —
+    // what must never happen is a tag appearing over a set it could be used to filter.
+    const posByText = new Map<string, string>();
+    for (const word of allWords) {
+      if (!word.pos) continue;
+      posByText.set(word.word, word.pos);
+      posByText.set(word.def, word.pos);
+    }
+    const shared = (options: string[]): string | null => {
+      const first = posByText.get(options[0] ?? "");
+      if (!first) return null;
+      return options.every((option) => posByText.get(option) === first) ? first : null;
+    };
+    for (const word of allWords) {
+      const tag = shared([word.def, ...word.distractors]);
+      if (tag === null) continue;
+      // Where a tag would show, it must match the answer and every foil alike.
+      expect(tag, word.word).toBe(word.pos);
+      for (const distractor of word.distractors) {
+        expect(posByText.get(distractor), `${word.word} / ${distractor}`).toBe(word.pos);
+      }
+    }
+  });
+
+  it("can explain at least one piece of every word built from pieces", () => {
+    // The deep panel omits what it cannot resolve, so the failure mode is a card whose
+    // "Learn more" opens onto nothing. Words the corpus records as a single unanalysed
+    // morpheme — glib, tyro, gauche, sinister — have nothing to decompose and simply show
+    // no panel; every word that *is* built from parts must reach at least one note.
+    // Known gaps: words whose pieces are spelled as stems the root corpus files under a
+    // different form (man- for manus, chiro- for cheir, urb- for urbs). They show no panel
+    // rather than a wrong one. Shrink this list; never grow it without a reason.
+    const KNOWN_GAPS = new Set([
+      "taciturn", "urbane", "manacle", "mandate", "chiropody", "ambit", "cognoscenti"
+    ]);
+    const catalog = new ContentCatalog(LEVELS, DRILL_POOL, DEPTH, ROOT_DEEP, ETYM, COGNATES);
+    const unexplained: string[] = [];
+    for (const word of allWords) {
+      if (word.parts.length < 2 || KNOWN_GAPS.has(word.word)) continue;
+      const explained = word.parts.some(([surface]) =>
+        catalog.partDepth(surface, AFFIX_DEEP) !== ""
+      );
+      if (!explained) unexplained.push(word.word);
+    }
+    expect(unexplained).toEqual([]);
   });
 
   it("prevents answer length from revealing the correct option", () => {

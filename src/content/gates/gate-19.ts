@@ -59,6 +59,7 @@ export const gate19 = {
   "words": [
     {
       "word": "animus",
+      "pos": "n.",
       "parts": [
         [
           "animus",
@@ -79,6 +80,7 @@ export const gate19 = {
     },
     {
       "word": "equanimity",
+      "pos": "n.",
       "parts": [
         [
           "equ",
@@ -107,6 +109,7 @@ export const gate19 = {
     },
     {
       "word": "animosity",
+      "pos": "n.",
       "parts": [
         [
           "anim",
@@ -131,6 +134,7 @@ export const gate19 = {
     },
     {
       "word": "pusillanimous",
+      "pos": "adj.",
       "parts": [
         [
           "pusill",
@@ -159,6 +163,7 @@ export const gate19 = {
     },
     {
       "word": "unanimity",
+      "pos": "n.",
       "parts": [
         [
           "un",
@@ -188,6 +193,7 @@ export const gate19 = {
     },
     {
       "word": "animadversion",
+      "pos": "n.",
       "parts": [
         [
           "anim",
@@ -216,6 +222,7 @@ export const gate19 = {
     },
     {
       "word": "aversion",
+      "pos": "n.",
       "parts": [
         [
           "a",
@@ -245,6 +252,7 @@ export const gate19 = {
     },
     {
       "word": "incontrovertible",
+      "pos": "adj.",
       "parts": [
         [
           "in",
@@ -277,6 +285,7 @@ export const gate19 = {
     },
     {
       "word": "vertiginous",
+      "pos": "adj.",
       "parts": [
         [
           "vertigin",
@@ -301,6 +310,7 @@ export const gate19 = {
     },
     {
       "word": "subversive",
+      "pos": "adj.",
       "parts": [
         [
           "sub",

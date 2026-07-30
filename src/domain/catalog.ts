@@ -19,6 +19,12 @@ export interface RootFamilyEntry {
   def: string;
 }
 
+function sharedPrefix(left: string, right: string): number {
+  let index = 0;
+  while (index < left.length && index < right.length && left[index] === right[index]) index += 1;
+  return index;
+}
+
 export class ContentCatalog {
   constructor(
     private readonly gates: readonly RuntimeGate[],
@@ -31,6 +37,31 @@ export class ContentCatalog {
 
   rootEtymology(root: Root): string {
     return this.deepRoots[root.root] ?? this.etymology[root.root] ?? "";
+  }
+
+  /**
+   * The deep note for a single piece of a word. Tries the authored affix list first, then
+   * the root paragraphs — including their combining forms, since a word spells a root as
+   * `psycho-` where ROOT_DEEP files it under `psyche`. Returns "" when nothing matches, so
+   * the panel simply omits a piece rather than inventing one.
+   */
+  partDepth(surface: string, affixes: StringMap): string {
+    const form = normalizeRoot(surface);
+    if (!form) return "";
+    const affix = affixes[form] ?? affixes[surface.toLowerCase()];
+    if (affix) return affix;
+    for (const [key, note] of Object.entries(this.deepRoots)) {
+      for (const variant of key.split(/[/,]/)) {
+        const candidate = normalizeRoot(variant.trim());
+        if (!candidate) continue;
+        if (candidate === form) return note;
+        // Combining forms: psycho / psyche, grapho / graphein. Require a real stem in
+        // common so that short endings cannot collide with unrelated roots.
+        const shared = sharedPrefix(candidate, form);
+        if (shared >= 4 && shared >= Math.min(candidate.length, form.length) - 2) return note;
+      }
+    }
+    return "";
   }
 
   wordDepth(word: Word | DrillWord): Partial<DepthEntry> {

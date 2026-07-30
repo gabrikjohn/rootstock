@@ -1,4 +1,4 @@
-import { COGNATES, CONFUSABLES, DEPTH, DRILL_POOL, ETYM, INFER_POOL, LEVELS, ROOT_DEEP, SIMILARS, SIMILAR_GLOSSES } from "../content";
+import { AFFIX_DEEP, COGNATES, CONFUSABLES, DEPTH, DRILL_POOL, ETYM, INFER_POOL, LEVELS, ROOT_DEEP, SIMILARS, SIMILAR_GLOSSES } from "../content";
 import { avoidRepeat as avoidRepeatItems, requeueMiss as requeueMissItems, roman, shuffle as shuffleValues } from "../domain/collections";
 import { deserializeQuizItem, serializeQuizItem } from "../domain/bookmarks";
 import { ContentCatalog } from "../domain/catalog";
@@ -21,12 +21,14 @@ import {
   sigmoid,
   updateAbility
 } from "../domain/drill";
+import { scoreDistractors } from "../domain/distractors";
 import { selectLexiconEntries } from "../domain/lexicon";
 import { deserializeProgress, serializeProgress } from "../domain/persistence";
 import { canAccessGate, temperUnlock as calculateTemperUnlock } from "../domain/progression";
 import { normalizeRoot, rootForms as getRootForms, rootMatches } from "../domain/roots";
-import { initialReview, REVIEW_INTERVALS, scheduleReview } from "../domain/scheduling";
-import { buildBarItems, buildTrialOneItems, selectInference } from "../domain/sessions";
+import type { DocketSummary } from "../domain/scheduling";
+import { DOCKET_SESSION_CAP, docketBlocks, docketSummary, initialReview, retiresFromDocket, scheduleReview, selectDocketSitting, tierOf } from "../domain/scheduling";
+import { BAR_FORMS, barComposition, buildBarItems, buildTrialOneItems, selectInference } from "../domain/sessions";
 import { pronLine } from "../platform/audio";
 import type { AppDependencies } from "../platform/contracts";
 import { ProgressStore } from "../platform/progress-store";
@@ -63,7 +65,7 @@ import {
   wireChoices as wirePromptChoices
 } from "./features/prompt-interactions";
 import { buildPromptView } from "./features/prompt-view";
-import { installGhostDefinitions, renderStudyCard } from "./features/study-card";
+import { installDeepDisclosure, installGhostDefinitions, posTag, renderStudyCard } from "./features/study-card";
 import { renderTrialScreen, wireComposeInteraction, wireTypedInteraction } from "./features/trial-screen";
 import { showBackupModal, showRestoreModal } from "./features/progress-modals";
 import { appearanceName, renderSettings } from "./features/settings-screen";
@@ -98,14 +100,16 @@ const mount = document.getElementById('app');
   const app: HTMLElement = mount;
   deps.audio.install();
   installGhostDefinitions();
+  installDeepDisclosure();
 // Tempering unlocks after a night's sleep: first 4 AM local strictly after (t1 + 8h floor).
 const TEMPER_MIN_MS = 8 * 60 * 60 * 1000, TEMPER_WAKE_HR = 4;
 function temperUnlock(t1:number):number{
   return calculateTemperUnlock(t1, TEMPER_MIN_MS, TEMPER_WAKE_HR);
 }
-const BAR_SIZE = 50, BAR_PASS = 45;
+// 30% of the Bar is now never-taught material, up from 20%, so the pass mark comes down:
+// 45/50 was calibrated against an exam that was four-fifths recall.
+const BAR_SIZE = 50, BAR_PASS = 40;
 const DAY = 24*60*60*1000;
-const INTERVALS = REVIEW_INTERVALS; // Leitner boxes 0..3
 
 const appearanceController = new AppearanceController(deps.random, deps.storage);
 const progressStore = new ProgressStore(deps.storage);
@@ -189,6 +193,33 @@ function inferDeep(inf:InferenceWord|null|undefined):string{
 }
 function esc(s:string):string{ return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/"/g,'&quot;'); }
 function rootHint(w:Word|DrillWord):string{ return w.parts.filter(p=>p[1]).map(p=>p[0]+'='+p[1]).join('  ·  '); }
+// Wrong headwords for a word-choice prompt. The old rule took three at random from the
+// target's own gate, so ten words made a small, quickly-memorised pool and elimination beat
+// meaning. Now the whole taught corpus competes and the nearest are chosen: same root
+// family first, then shared morphemes and authored near-twins, with same part of speech
+// required throughout.
+function wordFoils(w:Word|DrillWord,gi:number|undefined,count:number):string[]{
+  const pool:(Word|DrillWord)[]=[];
+  LEVELS.forEach((l,i)=>{ if(G(l.id).sealed||i===gi) pool.push(...l.words); });
+  pool.push(...drillWords());
+  const family=new Set(catalog.rootFamily({root:w.parts.map(p=>p[0]).join(' / '),lang:'',gloss:''},12).map(x=>x.word));
+  return scoreDistractors({
+    target:w,candidates:pool,count,random:deps.random,family,
+    similars:SIMILARS,...(gi===undefined?{}:{gate:gi}),gateOf:x=>gateIdxOfWord(x.word)
+  }).map(x=>x.word);
+}
+// Option text → part of speech, keyed by both headword and definition so the same lookup
+// serves word-choice and meaning-choice prompts. Built once; the corpus is immutable.
+let _posIndex:Map<string,string>|null=null;
+function posOf(text:string):string|null{
+  if(!_posIndex){
+    _posIndex=new Map();
+    const add=(w:{word:string;def:string;pos?:string})=>{ if(!w.pos) return;
+      _posIndex!.set(w.word,w.pos); _posIndex!.set(w.def,w.pos); };
+    LEVELS.forEach(l=>l.words.forEach(add)); INFER_POOL.forEach(add); DRILL_POOL.forEach(add);
+  }
+  return _posIndex.get(text)??_posIndex.get(text.replace(/^[“"]|[”"]$/g,''))??null;
+}
 function vigOf(w:Word|DrillWord):string{ return catalog.vignette(w); }
 function etyOf(w:Word|DrillWord):string{ return catalog.wordEtymology(w); }
 function defOfWord(name:string):string{ return catalog.definition(name); }
@@ -226,7 +257,8 @@ function requiredButton(id:string):HTMLButtonElement{
   if(!(button instanceof HTMLButtonElement)) throw new Error(`Missing button #${id}`);
   return button;
 }
-function tally(gi:number,wi:number,ok:boolean):void{ const k=gi+'-'+wi; const t=P.ledger[k]||(P.ledger[k]={r:0,w:0}); ok?t.r++:t.w++; save(); }
+function tallyKey(k:string,ok:boolean):void{ const t=P.ledger[k]||(P.ledger[k]={r:0,w:0}); ok?t.r++:t.w++; save(); }
+function tally(gi:number,wi:number,ok:boolean):void{ tallyKey(gi+'-'+wi,ok); }
 function gateIdxOfWord(name:string):number{ for(let gi=0;gi<LEVELS.length;gi++){ const wi=LEVELS[gi]!.words.findIndex(w=>w.word.toLowerCase()===name.toLowerCase()); if(wi>=0) return gi; } return -1; }
 // Intelligent near-twin sampling. Mirrors inferPick's fresh-first logic so the
 // same twins don't recur every sitting: unseen-this-cycle pairs come first, and
@@ -241,13 +273,67 @@ function pairPick(maxGi:number, n:number):ConfusablePair[]{
 }
 
 /* ---- Review Docket (Leitner) ---- */
+// Retrieval banks by difficulty tier: recognize → read in context → produce → assemble.
+// A bank rather than one fixed mode per tier, so a word met twice at the same tier is
+// attacked from different sides. Roots have only two angles, so they climb more slowly.
+const DOCKET_WORD_TIERS:readonly (readonly QuizMode[])[] = [
+  ['REC','ROOTQ'],
+  ['VIG','DSENT','LIT','KIN'],
+  ['VIGT','CLOZE','PROD'],
+  ['COMPOSE','LITT','PROD']
+];
+const DOCKET_ROOT_TIERS:readonly (readonly QuizMode[])[] = [['ROOTS'],['ROOTS'],['ROOTT'],['ROOTT']];
+
 function enqueueGateReview(gi:number):void{
+  const now=deps.clock.now();
   LEVELS[gi]!.words.forEach((_,wi)=>{ const k=gi+'-'+wi;
-    if(!P.review[k]) P.review[k]=initialReview(deps.clock.now()); });
+    if(!P.review[k]) P.review[k]=initialReview(now,deps.random); });
+  // The roots the gate taught enter the Docket too. The words are built from them, and
+  // nothing outside the Drill Hall was scheduling roots for spaced recall at all.
+  LEVELS[gi]!.quizRoots.forEach(r=>{ const k=rootReviewKey(r);
+    if(!P.review[k]) P.review[k]=initialReview(now,deps.random); });
   save();
 }
-function dueKeys():string[]{ const now=deps.clock.now(); return Object.keys(P.review).filter(k=>P.review[k]!.due<=now); }
-function nextDueMs():number{ const t=Object.values(P.review).map(r=>r.due); return t.length? Math.min(...t)-deps.clock.now() : Infinity; }
+function rootReviewKey(r:Root):string{ return 'r:'+(r.key||r.root); }
+// A docket key is "gi-wi" for a gate word or "r:<rootKey>" for a root. Returns null when
+// the key no longer resolves — a stale entry is dropped rather than crashing the sitting.
+function docketEntry(key:string):FocusEntry|null{
+  if(key.startsWith('r:')){
+    const rk=key.slice(2);
+    const found=sealedRoots().find(x=>(x.root.key||x.root.root)===rk);
+    return found?{key,kind:'root',root:found.root,gate:found.gate}:null;
+  }
+  const [gi,wi]=key.split('-').map(Number);
+  if(gi===undefined||wi===undefined) return null;
+  const word=LEVELS[gi]?.words[wi];
+  return word?{key,kind:'word',d:word,gi,wi}:null;
+}
+function docketMode(e:FocusEntry,tier:number):QuizMode{
+  const banks = e.kind==='root'?DOCKET_ROOT_TIERS:DOCKET_WORD_TIERS;
+  const start=Math.min(Math.max(tier,0),banks.length-1);
+  // Drop a tier at a time until the item can actually support something in the bank.
+  for(let t=start;t>=0;t--){
+    const bank=(banks[t]||[]).filter(m=>feasible(e,m));
+    if(bank.length) return bank[Math.floor(deps.random.next()*bank.length)]!;
+  }
+  return e.kind==='root'?'ROOTS':'REC';
+}
+function docketItem(e:FocusEntry,mode:QuizMode):QuizItem{
+  const neighbours = e.kind==='word'&&e.gi!=null ? gateAt(e.gi).words : [];
+  const {it}=mkItem(e,mode,neighbours);
+  // The Docket is not the Drill Hall: no letter cue on typed production, and COMPOSE
+  // draws its decoy morphemes from the gate rather than the advanced stock.
+  delete it.drill;
+  return it;
+}
+// Due count and longest-waiting due date in one pass. home() re-renders every second
+// while a gate tempers, so the docket is counted once per render, not twice.
+function docket():DocketSummary{ return docketSummary(P.review, deps.clock.now()); }
+// Does the docket bar progression? The home card nudges whenever anything is due,
+// but the gates, the Bar, and the Drill Hall only lock once the backlog outgrows a
+// single sitting or a word has sat unanswered for a week. Two due words used to
+// hold the entire app hostage; now they only ask.
+function docketDebt(d:DocketSummary):boolean{ return docketBlocks(d.due, d.oldestDue, deps.clock.now()); }
 
 // The controller owns a single mutable session at a time. Each session constructor
 // below writes its own shape; feature renderers and domain helpers remain fully typed.
@@ -353,7 +439,12 @@ function primaryAction(due:number, debtBlocks:boolean):PrimaryAction{
       return gateLocked(mk.idx) ? membersAction(mk.idx)
         : {kicker:'Resume', label:'Gate '+rom(gate.id)+' \u00b7 '+gate.title, sub:'Pick up where you left off', fn:()=>enterGate(mk.idx)};
   }
-  if(due>0) return {kicker:'Review', label:'The Review Docket', sub:due+' word'+(due>1?'s':'')+' ready for recall', fn:startReview};
+  // Above the cap the sitting serves only part of the backlog; promise what the tap delivers.
+  if(due>0) return {kicker:'Review', label:'The Review Docket',
+    sub: due>DOCKET_SESSION_CAP
+      ? DOCKET_SESSION_CAP+' of '+due+' this sitting'
+      : due+' word'+(due>1?'s':'')+' ready for recall',
+    fn:startReview};
   for(let idx=0; idx<LEVELS.length; idx++){
     const gate=gateAt(idx);
     const g=G(gate.id); if(g.sealed) continue;
@@ -370,7 +461,7 @@ function primaryAction(due:number, debtBlocks:boolean):PrimaryAction{
   if(P.bar.passed) return {kicker:'Admitted \u2726', label:'The Drill Hall stands open', sub:'Adaptive drilling on the advanced stock \u2014 for as long as you like', fn:startDrill};
   if(debtBlocks) return {kicker:'Review', label:'The Review Docket', sub:'Clear the docket, then the Bar sits open', fn:startReview};
   if(P.bar.lockedUntil>deps.clock.now()) return {kicker:'The Bar', label:'Doors locked', sub:'Reopens in '+fmtDur(P.bar.lockedUntil-deps.clock.now()), fn:null};
-  return {kicker:'The Bar', label:'The Bar sits open', sub:'Fifty items \u00b7 '+BAR_PASS+' to pass \u00b7 one attempt', fn:startBar};
+  return {kicker:'The Bar', label:'The Bar sits open', sub:BAR_SIZE+' items \u00b7 '+BAR_PASS+' to pass \u00b7 form '+rom((P.bar.form??0)+1), fn:startBar};
 }
 
 /* ================= HOME ================= */
@@ -378,8 +469,9 @@ let _sealedOpen=false;
 function home():void{
   stopClock(); S=null; P=load();
   const sealedCt = LEVELS.filter(l=>G(l.id).sealed).length;
-  const due = dueKeys().length;
-  const debtBlocks = due>0;
+  const summary = docket();
+  const due = summary.due;
+  const debtBlocks = docketDebt(summary);
 
   const currentIdx = previewFlag("burnt") ? LEVELS.findIndex((l,i)=> !G(l.id).sealed && (i===0 || G(gateAt(i-1).id).sealed)) : -1;
   const gateCards:HomeGateCard[] = LEVELS.map((lv,idx)=>{
@@ -432,7 +524,7 @@ function home():void{
     summary:sealedCt?sealedCt+' of '+LEVELS.length+' gates sealed':'Twenty-four gates await their first root.',
     streak:P.streak||0,
     lexiconCount:lexCount,
-    drill:drillStat(due),
+    drill:drillStat(debtBlocks),
     session,
     sealedCount:sealedCt,
     gateCount:LEVELS.length,
@@ -458,43 +550,71 @@ function home():void{
 }
 
 /* ================= REVIEW DOCKET SESSION ================= */
+// One sitting at a time. selectDocketSitting takes the most overdue words first and
+// caps the batch, so a long absence is worked off in rounds instead of one wall of
+// items. Clearing a round drops the remainder under the blocking threshold, which is
+// what reopens the gates — so the cap is a stopping point, never a lockout.
 function startReview():void{
   stopClock();
-  const keys = dueKeys();
+  const keys = selectDocketSitting(P.review, deps.clock.now(), deps.random);
   if(!keys.length) return home();
-  const items = keys.map(k=>{ const [gi=0,wi=0]=k.split('-').map(Number); return {k,gi,wi,m:"REC" as const}; });
-  S = { kind:'DOCKET', queue: shuffle(items), debt:0, done:0, sit:{cleared:0,ahead:0} };
+  // Placeholders: reviewItem() builds the real item when the key reaches the head of the
+  // queue, so a word requeued after a miss comes back at its new tier, from a new angle.
+  const items:QuizItem[] = keys.map(k=>({k,m:"REC"}));
+  S = { kind:'DOCKET', queue: items, debt:0, done:0, sit:{cleared:0,ahead:0}, retired:0 };
   reviewItem();
 }
 function reviewItem():void{
   const session=requireSession("DOCKET");
   if(session.queue.length===0){
     save();
-    sealScreen({seal:'⚖',title:'Docket Cleared',score:(session.debt?session.debt+' lapses reset':'no lapses'),
-      note:'Every due word answered. Lapsed words return in two days; the rest climb the calendar.',
+    // Anything still due was held back by the sitting cap, not left unanswered — say so
+    // plainly rather than claiming the docket is clear when it isn't.
+    const left = docket().due;
+    const sealed = session.retired
+      ? ` ${session.retired} word${session.retired>1?'s have':' has'} climbed the whole calendar and left the Docket for good — the Drill Hall still keeps ${session.retired>1?'them':'it'} sharp.`
+      : '';
+    sealScreen({seal:'⚖',title:left?'Sitting Cleared':'Docket Cleared',score:(session.debt?session.debt+' lapses reset':'no lapses'),
+      note:(left
+        ? `${left} word${left>1?'s':''} still due — the Docket is there whenever you want another sitting. Lapsed words return in about a day; the rest climb the calendar.`
+        : 'Every due word answered. Lapsed words return in about a day; the rest climb the calendar.')+sealed,
       actions:'<button class="btn" id="h2">Return to the gates</button>'});
     requiredButton("h2").onclick=home;
     return;
   }
-  const it=session.queue[0];
-  if(!it || it.gi===undefined || it.wi===undefined || !it.k) throw new Error("Invalid docket item");
-  const gi=it.gi, wi=it.wi, reviewKey=it.k;
-  const w=wordAt(gi,wi);
-  // retrieval depth escalates with the Leitner box: recognize → spell in context → produce → assemble
+  const head=session.queue[0];
+  if(!head || !head.k) throw new Error("Invalid docket item");
+  const reviewKey=head.k;
   const review=P.review[reviewKey];
   if(!review) throw new Error(`Missing review state for ${reviewKey}`);
-  const MODES:QuizItem["m"][]=['REC','VIG','VIGT','COMPOSE'];
-  it.m = MODES[Math.min(review.box, MODES.length-1)]!;
+  const entry=docketEntry(reviewKey);
+  if(!entry){ session.queue.shift(); delete P.review[reviewKey]; save(); return reviewItem(); }
+  // Retrieval depth follows the tier, not the box: a lapse resets the calendar but only
+  // steps difficulty down one rung.
+  const it=docketItem(entry, docketMode(entry, tierOf(review)));
+  it.k=reviewKey;
+  session.queue[0]=it;
+  const w = entry.kind==='word' ? entry.d : null;
+  const gateId = entry.kind==='word' ? gateAt(entry.gi!).id : entry.gate;
   renderTrialPrompt({
-    label:'The Review Docket', gateLabel:'Gate '+rom(gateAt(gi).id)+' · box '+(review.box+1), it, w,
+    label:'The Review Docket', gateLabel:'Gate '+rom(gateId)+' · box '+(review.box+1), it, w,
     onResolve: (ok:boolean)=>{
       const r=P.review[reviewKey];
       if(!r) throw new Error(`Missing review state for ${reviewKey}`);
-      tally(gi,wi,ok);
-      if(ok){ session.queue.shift(); session.done++; session.sit.cleared++; Object.assign(r,scheduleReview(r,true,deps.clock.now())); }
-      else { const f=session.queue.shift(); if(f)session.queue.push(f); session.debt++; Object.assign(r,scheduleReview(r,false,deps.clock.now())); }
+      tallyKey(reviewKey,ok);
+      if(ok){
+        session.queue.shift(); session.done++; session.sit.cleared++;
+        const next=scheduleReview(r,true,deps.clock.now(),deps.random);
+        const t=P.ledger[reviewKey];
+        // Top of the ladder and well ahead on the tally: the word leaves the Docket
+        // for good rather than returning forever. tally() ran above, so this counts
+        // the answer just given.
+        if(retiresFromDocket(next.box, t? t.r-t.w : 0)){ delete P.review[reviewKey]; session.retired++; }
+        else Object.assign(r,next);
+      }
+      else { const f=session.queue.shift(); if(f)session.queue.push(f); session.debt++; Object.assign(r,scheduleReview(r,false,deps.clock.now(),deps.random)); }
       save();
-      return ok?null:'lapse — box reset to two days; it returns this session until correct';
+      return ok?null:'lapse — box reset to about a day; it returns this session until correct';
     },
     onNext: reviewItem
   });
@@ -590,7 +710,29 @@ function rootDrillItem():void{
 }
 
 function cardHtml(word:Word|DrillWord):string{
-  return renderStudyCard(word,{gates:LEVELS,etymology:etyOf});
+  return renderStudyCard(word,{gates:LEVELS,etymology:etyOf,deepPanel});
+}
+// The deep-study panel for a whole word: each piece explained in turn — the authored affix
+// note or the root's own paragraph — then the family that root grows into. Almost all of
+// this prose already existed; only the affix notes were missing, and nothing called it from
+// the study card.
+function deepPanel(word:Word|DrillWord):string{
+  const seen=new Set<string>(); let out='';
+  for(const [surface,gloss] of word.parts){
+    const note=catalog.partDepth(surface,AFFIX_DEEP);
+    if(!note||seen.has(note)) continue;
+    seen.add(note);
+    out+=`<div class="deep-part"><span class="deep-seg">${esc(surface)}${gloss?` — ${esc(gloss)}`:''}</span>${note}</div>`;
+  }
+  if(!out) return '';
+  const root=LEVELS.flatMap(l=>l.quizRoots).find(r=>word.parts.some(p=>normRoot(p[0])&&rootForms(r).some(f=>normRoot(f)===normRoot(p[0]))));
+  if(root){
+    const fam=rootFamily(root,4).filter(k=>k.word!==word.word);
+    if(fam.length) out+=`<div class="deep-part"><span class="deep-seg">grows into</span>${fam.map(k=>`<b>${k.word}</b>${k.def?` — ${esc(k.def).toLowerCase().replace(/\.$/,'')}`:''}`).join(' · ')}</div>`;
+    const near=similarRootNote(root);
+    if(near) out+=`<div class="deep-part">${near}</div>`;
+  }
+  return out;
 }
 
 function studyScreen(idx:number,w:number):void{
@@ -648,7 +790,11 @@ function startTrial2(idx:number):void{
   lv.quizRoots.forEach(r=>items.push({m:'ROOTT',root:r}));   // the roots again, this time recalled by typing
   const pairs = pairPick(idx,3);
   pairs.forEach(p=>items.push({m:'PAIR',pair:p}));
-  S={idx,kind:'T2',queue:shuffle(items),debt:0,done:0,sit:{cleared:0,ahead:0},missed:[]};
+  // Trial II is the production trial, so it opens with production. Typed items first,
+  // each block shuffled, rather than one flat shuffle that can lead with a multiple choice.
+  const TYPED:ReadonlySet<QuizMode>=new Set(['PROD','VIGT','CLOZE','LITT','ROOTT']);
+  const queue=[...shuffle(items.filter(i=>TYPED.has(i.m))),...shuffle(items.filter(i=>!TYPED.has(i.m)))];
+  S={idx,kind:'T2',queue,debt:0,done:0,sit:{cleared:0,ahead:0},missed:[]};
   trialItem();
 }
 
@@ -701,9 +847,13 @@ function renderTrialPrompt({label,gateLabel,it,w,onResolve,onNext,oneShot=false,
   const position=():number=>"pos" in session?session.pos:0;
   if(it.inf){ P.seenInfer[it.inf.word]=true; save(); }
   if(it.pair){ P.seenPair[String(CONFUSABLES.indexOf(it.pair))]=true; save(); }
+  // Practice shows the letter cue; anything that is testing production does not. The gate
+  // trials, the Docket and the Bar all ask the learner to produce the word cold, and a cue
+  // reading "p·······" hands over its length and first letter.
+  const cue = session.kind==='DRILL'||session.kind==='FORGE'||session.kind==='FORGENOW';
   const view=buildPromptView({
     item:it,word:w,gates:LEVELS,inferencePool:INFER_POOL,drillWords:drillWords(),
-    random:deps.random,vignette:vigOf,literal:litOf,rootForms,rootCue,rootAudio:rootSay
+    random:deps.random,vignette:vigOf,literal:litOf,posOf,wordFoils,cue,rootForms,rootCue,rootAudio:rootSay
   });
   const {promptHtml,bodyHtml,typed}=view;
   if(view.compose) it._compose=view.compose;
@@ -737,10 +887,10 @@ function renderTrialPrompt({label,gateLabel,it,w,onResolve,onNext,oneShot=false,
       if(it.root){ deep = rootDeepHtml(it.root); }
       else if(it.inf){
         const src=it.inf;
-        deep+=`<span class="fb-line fb-contrast">${src.word} ${saySmall(src.word)} — ${src.def.toLowerCase()}</span>`;
+        deep+=`<span class="fb-line fb-contrast">${src.word} ${saySmall(src.word)} — ${posTag(src)}${src.def.toLowerCase()}</span>`;
         deep+=inferDeep(src);
       } else if(w) {
-            deep+=`<span class="fb-line fb-contrast">${w.word} ${saySmall(w.word)} — ${w.def.toLowerCase()}</span>`;
+            deep+=`<span class="fb-line fb-contrast">${w.word} ${saySmall(w.word)} — ${posTag(w)}${w.def.toLowerCase()}</span>`;
             const story = etyOf(w);
             if(story) deep+=`<span class="fb-line fb-ety">${story}</span>`;
             if(vigOf(w) && it.m!=='VIG' && it.m!=='VIGT') deep+=`<span class="fb-line fb-scene">“${esc(vigOf(w))}”</span>`;
@@ -867,9 +1017,11 @@ function startBar():void{
   stopClock();
   if(!RS.active()) return paywall('bar');
   const pool:{gi:number;wi:number}[]=[]; LEVELS.forEach((lv,gi)=>lv.words.forEach((_,wi)=>pool.push({gi,wi})));
-  const pairs = pairPick(LEVELS.length-1,5);
-  const inf10 = inferPick(LEVELS.length-1,10);
-  S={kind:'BAR',queue:buildBarItems(pool,pairs,inf10,deps.random),pos:0,correct:0,debt:0};
+  const plan=barComposition(BAR_SIZE);
+  const pairs = pairPick(LEVELS.length-1,plan.pairs);
+  const infer = inferPick(LEVELS.length-1,plan.meaning+plan.compose);
+  const form = P.bar.form ?? 0;
+  S={kind:'BAR',queue:buildBarItems(pool,pairs,infer,deps.random,BAR_SIZE,form),pos:0,correct:0,debt:0};
   barItem();
 }
 function barItem():void{
@@ -892,18 +1044,21 @@ function renderBarPrompt(it:QuizItem,w:Word|null):void{
   });
   // patch the meta line for one-shot display
   const qm=document.querySelector('.queue-meta');
-  if(qm) qm.innerHTML=`<span>${session.correct} correct</span><span class="debt">${BAR_PASS} needed · no second chances</span>`;
+  if(qm) qm.innerHTML=`<span>${session.correct} correct</span><span class="debt">${BAR_PASS} needed to pass</span>`;
 }
 function barDone():void{
   const session=requireSession("BAR");
   const passed=session.correct>=BAR_PASS;
-  if(passed){ P.bar.passed=true; P.bar.passedAt=deps.clock.now(); } else P.bar.lockedUntil=deps.clock.now()+TEMPER_MIN_MS;
+  if(passed){ P.bar.passed=true; P.bar.passedAt=deps.clock.now(); }
+  else { P.bar.lockedUntil=deps.clock.now()+TEMPER_MIN_MS;
+    // A retake is a different form, not a reshuffle of the same one.
+    P.bar.form=((P.bar.form??0)+1)%BAR_FORMS; }
   save();
   sealScreen({gold:true,seal:passed?'✦':'—',
     title:passed?'Admitted':'Not This Sitting',
     score:session.correct+' of '+BAR_SIZE+' · '+BAR_PASS+' required',
-    note:passed?'Forty produced from memory, five twins told apart, five strangers read by their roots. The method is yours.'
-               :'The doors lock for eight hours. Work the Docket and the cards — the Bar re-samples when it reopens.',
+    note:passed?'Thirty produced from memory, five twins told apart, and fifteen strangers read by their roots alone. The method is yours.'
+               :'The doors lock for eight hours. Work the Docket and the cards — a different form sits waiting when they open.',
     actions:`<button class="btn" id="h2">Return to the gates</button>`});
   requiredButton('h2').onclick=home;
 }
@@ -1060,7 +1215,7 @@ function sealedGateView(idx:number):void{
   const words=lv.words.map((w,wi)=>{
     const t=P.ledger[idx+'-'+wi];
     const led=t?`<span class="lex-led ${t.w>t.r?'bad':''}">${t.r}–${t.w}</span>`:'';
-    return `<button class="lex-row" data-wi="${wi}"><span class="lex-w">${w.word}</span><span class="lex-d">${esc(w.def)}</span>${led}</button>`;
+    return `<button class="lex-row" data-wi="${wi}"><span class="lex-w">${w.word}</span><span class="lex-d">${posTag(w)}${esc(w.def)}</span>${led}</button>`;
   }).join('');
   renderSealedGateScreen({
     app, gate:lv, gateNumber:rom(lv.id), rootRowsHtml:rows, wordRowsHtml:words,
@@ -1214,10 +1369,10 @@ function rootsItem():QuizItem|null{
   if(foils.length<3) return null;
   return {m:'ROOTS',root:r,gate:g.id,opts:shuffle([r.gloss,...foils])};
 }
-function drillStat(due:number):HomeDrillStat{
+function drillStat(blocked:boolean):HomeDrillStat{
   const open=drillWords();
-  const ok=open.length&&due===0;
-  return {enabled:!!ok,visible:open.length>0,label:due>0?'Docket first':'Drill'};
+  const ok=open.length&&!blocked;
+  return {enabled:!!ok,visible:open.length>0,label:blocked?'Docket first':'Drill'};
 }
 function startDrill():void{
   stopClock();
@@ -1457,7 +1612,9 @@ function pickMode(f:FocusDefinition,e:FocusEntry):QuizMode{
   if(!mode) throw new Error(`Focus ${f.id} has no feasible mode`);
   return mode;
 }
-function mkItem(e:FocusEntry,mode:QuizMode):{it:QuizItem;w:Word|DrillWord|null;b:number}{
+// `neighbours` supplies DSENT's wrong-word choices. Passing them in rather than reaching
+// for the focus session's pool is what lets the Docket build items with this too.
+function mkItem(e:FocusEntry,mode:QuizMode,neighbours:readonly (Word|DrillWord)[]):{it:QuizItem;w:Word|DrillWord|null;b:number}{
   if(e.kind==='root'){
     const r=e.root; let it:QuizItem;
     if(mode==='ROOTT') it={m:'ROOTT',root:r};
@@ -1472,7 +1629,7 @@ function mkItem(e:FocusEntry,mode:QuizMode):{it:QuizItem;w:Word|DrillWord|null;b
   if(e.gi!=null){ it.gi=e.gi; if(e.wi!=null) it.wi=e.wi; }
   if(mode==='PROD'||mode==='CLOZE'||mode==='VIGT'||mode==='LITT') it.drill=d;
   else if(mode==='DSENT'){
-    const near=requireFocusSession().pool.filter((x):x is Extract<FocusEntry,{kind:"word"}>=>x.kind==='word'&&x.d.word!==d.word).map((x)=>x.d)
+    const near=neighbours.filter(x=>x.word!==d.word)
       .sort((a,c)=>Math.abs(("b" in a?a.b:0)-("b" in d?d.b:0))-Math.abs(("b" in c?c.b:0)-("b" in d?d.b:0))).slice(0,6);
     it.opts=shuffle([d.word,...shuffle(near).slice(0,3).map(x=>x.word)]);
   }
@@ -1495,7 +1652,7 @@ function focusItem():void{
   const session=requireFocusSession();
   const e=focusPick();
   const mode=pickMode(session.fdef,e);
-  const {it,w,b}=mkItem(e,mode);
+  const {it,w,b}=mkItem(e,mode,session.pool.flatMap(x=>x.kind==='word'?[x.d]:[]));
   const cd=Math.min(session.pool.length-1,5);
   session.recent.push(e.key); while(session.recent.length>cd) session.recent.shift();
   session.queue=[1];

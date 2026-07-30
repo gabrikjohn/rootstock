@@ -84,6 +84,7 @@ export const gate08 = {
   "words": [
     {
       "word": "martinet",
+      "pos": "n.",
       "parts": [
         [
           "martinet",
@@ -104,6 +105,7 @@ export const gate08 = {
     },
     {
       "word": "sycophant",
+      "pos": "n.",
       "parts": [
         [
           "syco",
@@ -129,6 +131,7 @@ export const gate08 = {
     },
     {
       "word": "dilettante",
+      "pos": "n.",
       "parts": [
         [
           "dilett",
@@ -153,6 +156,7 @@ export const gate08 = {
     },
     {
       "word": "virago",
+      "pos": "n.",
       "parts": [
         [
           "vir",
@@ -177,6 +181,7 @@ export const gate08 = {
     },
     {
       "word": "chauvinist",
+      "pos": "n.",
       "parts": [
         [
           "chauvin",
@@ -202,6 +207,7 @@ export const gate08 = {
     },
     {
       "word": "monomaniac",
+      "pos": "n.",
       "parts": [
         [
           "mono",
@@ -231,6 +237,7 @@ export const gate08 = {
     },
     {
       "word": "iconoclast",
+      "pos": "n.",
       "parts": [
         [
           "icono",
@@ -256,6 +263,7 @@ export const gate08 = {
     },
     {
       "word": "hypochondriac",
+      "pos": "n.",
       "parts": [
         [
           "hypo",
@@ -284,6 +292,7 @@ export const gate08 = {
     },
     {
       "word": "charlatan",
+      "pos": "n.",
       "parts": [
         [
           "charlat",
@@ -309,6 +318,7 @@ export const gate08 = {
     },
     {
       "word": "philistine",
+      "pos": "n.",
       "parts": [
         [
           "philistine",

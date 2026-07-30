@@ -64,6 +64,7 @@ export const gate02 = {
   "words": [
     {
       "word": "internist",
+      "pos": "n.",
       "parts": [
         [
           "intern",
@@ -88,6 +89,7 @@ export const gate02 = {
     },
     {
       "word": "obstetrician",
+      "pos": "n.",
       "parts": [
         [
           "obstetr",
@@ -113,6 +115,7 @@ export const gate02 = {
     },
     {
       "word": "pediatrician",
+      "pos": "n.",
       "parts": [
         [
           "ped",
@@ -142,6 +145,7 @@ export const gate02 = {
     },
     {
       "word": "dermatologist",
+      "pos": "n.",
       "parts": [
         [
           "dermato",
@@ -171,6 +175,7 @@ export const gate02 = {
     },
     {
       "word": "ophthalmologist",
+      "pos": "n.",
       "parts": [
         [
           "ophthalmo",
@@ -200,6 +205,7 @@ export const gate02 = {
     },
     {
       "word": "orthopedist",
+      "pos": "n.",
       "parts": [
         [
           "ortho",
@@ -229,6 +235,7 @@ export const gate02 = {
     },
     {
       "word": "cardiologist",
+      "pos": "n.",
       "parts": [
         [
           "cardio",
@@ -258,6 +265,7 @@ export const gate02 = {
     },
     {
       "word": "neurologist",
+      "pos": "n.",
       "parts": [
         [
           "neuro",
@@ -287,6 +295,7 @@ export const gate02 = {
     },
     {
       "word": "psychiatrist",
+      "pos": "n.",
       "parts": [
         [
           "psych",
@@ -316,6 +325,7 @@ export const gate02 = {
     },
     {
       "word": "gynecologist",
+      "pos": "n.",
       "parts": [
         [
           "gyneco",

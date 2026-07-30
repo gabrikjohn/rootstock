@@ -54,6 +54,7 @@ export const gate18 = {
   "words": [
     {
       "word": "manacle",
+      "pos": "n.",
       "parts": [
         [
           "man",
@@ -78,6 +79,7 @@ export const gate18 = {
     },
     {
       "word": "emancipate",
+      "pos": "v.",
       "parts": [
         [
           "e",
@@ -111,6 +113,7 @@ export const gate18 = {
     },
     {
       "word": "mandate",
+      "pos": "n.",
       "parts": [
         [
           "man",
@@ -136,6 +139,7 @@ export const gate18 = {
     },
     {
       "word": "legerdemain",
+      "pos": "n.",
       "parts": [
         [
           "leger",
@@ -164,6 +168,7 @@ export const gate18 = {
     },
     {
       "word": "impede",
+      "pos": "v.",
       "parts": [
         [
           "im",
@@ -189,6 +194,7 @@ export const gate18 = {
     },
     {
       "word": "expedite",
+      "pos": "v.",
       "parts": [
         [
           "ex",
@@ -218,6 +224,7 @@ export const gate18 = {
     },
     {
       "word": "expedient",
+      "pos": "adj.",
       "parts": [
         [
           "ex",
@@ -247,6 +254,7 @@ export const gate18 = {
     },
     {
       "word": "corporeal",
+      "pos": "adj.",
       "parts": [
         [
           "corpor",
@@ -272,6 +280,7 @@ export const gate18 = {
     },
     {
       "word": "corpulent",
+      "pos": "adj.",
       "parts": [
         [
           "corpul",
@@ -296,6 +305,7 @@ export const gate18 = {
     },
     {
       "word": "capitulate",
+      "pos": "v.",
       "parts": [
         [
           "capitul",

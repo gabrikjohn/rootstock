@@ -99,6 +99,7 @@ export const gate05 = {
   "words": [
     {
       "word": "notorious",
+      "pos": "adj.",
       "parts": [
         [
           "not",
@@ -124,6 +125,7 @@ export const gate05 = {
     },
     {
       "word": "consummate",
+      "pos": "adj.",
       "parts": [
         [
           "con",
@@ -153,6 +155,7 @@ export const gate05 = {
     },
     {
       "word": "incorrigible",
+      "pos": "adj.",
       "parts": [
         [
           "in",
@@ -182,6 +185,7 @@ export const gate05 = {
     },
     {
       "word": "inveterate",
+      "pos": "adj.",
       "parts": [
         [
           "in",
@@ -210,6 +214,7 @@ export const gate05 = {
     },
     {
       "word": "congenital",
+      "pos": "adj.",
       "parts": [
         [
           "con",
@@ -238,6 +243,7 @@ export const gate05 = {
     },
     {
       "word": "chronic",
+      "pos": "adj.",
       "parts": [
         [
           "chron",
@@ -263,6 +269,7 @@ export const gate05 = {
     },
     {
       "word": "pathological",
+      "pos": "adj.",
       "parts": [
         [
           "patho",
@@ -292,6 +299,7 @@ export const gate05 = {
     },
     {
       "word": "unconscionable",
+      "pos": "adj.",
       "parts": [
         [
           "un",
@@ -320,6 +328,7 @@ export const gate05 = {
     },
     {
       "word": "glib",
+      "pos": "adj.",
       "parts": [
         [
           "glib",
@@ -341,6 +350,7 @@ export const gate05 = {
     },
     {
       "word": "egregious",
+      "pos": "adj.",
       "parts": [
         [
           "e",

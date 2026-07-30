@@ -79,6 +79,7 @@ export const gate10 = {
   "words": [
     {
       "word": "monogamy",
+      "pos": "n.",
       "parts": [
         [
           "mono",
@@ -108,6 +109,7 @@ export const gate10 = {
     },
     {
       "word": "bigamy",
+      "pos": "n.",
       "parts": [
         [
           "bi",
@@ -137,6 +139,7 @@ export const gate10 = {
     },
     {
       "word": "polygamy",
+      "pos": "n.",
       "parts": [
         [
           "poly",
@@ -166,6 +169,7 @@ export const gate10 = {
     },
     {
       "word": "polyandry",
+      "pos": "n.",
       "parts": [
         [
           "poly",
@@ -194,6 +198,7 @@ export const gate10 = {
     },
     {
       "word": "misogamy",
+      "pos": "n.",
       "parts": [
         [
           "miso",
@@ -222,6 +227,7 @@ export const gate10 = {
     },
     {
       "word": "agoraphobia",
+      "pos": "n.",
       "parts": [
         [
           "agora",
@@ -250,6 +256,7 @@ export const gate10 = {
     },
     {
       "word": "claustrophobia",
+      "pos": "n.",
       "parts": [
         [
           "claustro",
@@ -278,6 +285,7 @@ export const gate10 = {
     },
     {
       "word": "xenophobia",
+      "pos": "n.",
       "parts": [
         [
           "xeno",
@@ -307,6 +315,7 @@ export const gate10 = {
     },
     {
       "word": "acrophobia",
+      "pos": "n.",
       "parts": [
         [
           "acro",
@@ -335,6 +344,7 @@ export const gate10 = {
     },
     {
       "word": "kleptomania",
+      "pos": "n.",
       "parts": [
         [
           "klepto",

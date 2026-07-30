@@ -15,6 +15,7 @@ export interface GateProgress {
 export interface ReviewProgress {
   due: number;
   box: number;
+  tier?: number;
 }
 
 export interface DrillHistory {
@@ -32,7 +33,7 @@ export interface DrillProgress {
 
 export interface ProgressV2 {
   gates: Record<string, GateProgress>;
-  bar: { passed: boolean; lockedUntil: number; passedAt?: number };
+  bar: { passed: boolean; lockedUntil: number; passedAt?: number; form?: number };
   review: Record<string, ReviewProgress>;
   prompted: Record<string, boolean>;
   seenInfer: Record<string, boolean>;
@@ -139,6 +140,7 @@ export interface DocketSessionState extends SessionBase {
   queue: QuizItem[];
   done: number;
   sit: SittingProgress;
+  retired: number;
 }
 
 export interface BarSessionState extends SessionBase {

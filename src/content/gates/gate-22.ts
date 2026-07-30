@@ -59,6 +59,7 @@ export const gate22 = {
   "words": [
     {
       "word": "perspicacious",
+      "pos": "adj.",
       "parts": [
         [
           "per",
@@ -87,6 +88,7 @@ export const gate22 = {
     },
     {
       "word": "perspicuous",
+      "pos": "adj.",
       "parts": [
         [
           "per",
@@ -115,6 +117,7 @@ export const gate22 = {
     },
     {
       "word": "conspicuous",
+      "pos": "adj.",
       "parts": [
         [
           "con",
@@ -144,6 +147,7 @@ export const gate22 = {
     },
     {
       "word": "circumspect",
+      "pos": "adj.",
       "parts": [
         [
           "circum",
@@ -168,6 +172,7 @@ export const gate22 = {
     },
     {
       "word": "myopia",
+      "pos": "n.",
       "parts": [
         [
           "my",
@@ -196,6 +201,7 @@ export const gate22 = {
     },
     {
       "word": "presbyopia",
+      "pos": "n.",
       "parts": [
         [
           "presby",
@@ -225,6 +231,7 @@ export const gate22 = {
     },
     {
       "word": "fratricide",
+      "pos": "n.",
       "parts": [
         [
           "fratr",
@@ -254,6 +261,7 @@ export const gate22 = {
     },
     {
       "word": "regicide",
+      "pos": "n.",
       "parts": [
         [
           "reg",
@@ -284,6 +292,7 @@ export const gate22 = {
     },
     {
       "word": "genocide",
+      "pos": "n.",
       "parts": [
         [
           "geno",
@@ -310,6 +319,7 @@ export const gate22 = {
     },
     {
       "word": "uxoricide",
+      "pos": "n.",
       "parts": [
         [
           "uxor",

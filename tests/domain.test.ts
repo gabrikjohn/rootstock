@@ -24,6 +24,7 @@ import {
   sigmoid,
   updateAbility
 } from "../src/domain/drill";
+import { scoreDistractors } from "../src/domain/distractors";
 import { isEntitlementActive } from "../src/domain/entitlement";
 import { selectLexiconEntries } from "../src/domain/lexicon";
 import {
@@ -34,8 +35,24 @@ import {
 } from "../src/domain/persistence";
 import { canAccessGate, TEMPER_MIN_MS, temperUnlock } from "../src/domain/progression";
 import { normalizeRoot, rootForms, rootMatches, splitRootEntry } from "../src/domain/roots";
-import { initialReview, REVIEW_INTERVALS, scheduleReview } from "../src/domain/scheduling";
-import { buildBarItems, buildTrialOneItems, selectInference } from "../src/domain/sessions";
+import {
+  DAY_MS,
+  DOCKET_SESSION_CAP,
+  DOCKET_TIERS,
+  docketBlocks,
+  docketSummary,
+  fuzzInterval,
+  selectDocketSitting,
+  tierOf,
+  initialReview,
+  retiresFromDocket,
+  REVIEW_FUZZ_MIN,
+  REVIEW_FUZZ_RANGE,
+  REVIEW_INTERVALS,
+  REVIEW_RETIRE_NET,
+  scheduleReview
+} from "../src/domain/scheduling";
+import { BAR_FORMS, barComposition, buildBarItems, buildTrialOneItems, selectInference } from "../src/domain/sessions";
 import { COGNATES, DEPTH, ETYM, ROOT_DEEP } from "../src/content";
 
 const zeroRandom = { next: () => 0 };
@@ -73,12 +90,185 @@ describe("entitlement", () => {
 describe("Leitner scheduling", () => {
   it("advances, caps, and resets review boxes from an injected clock value", () => {
     const now = 1_000;
-    expect(initialReview(now)).toEqual({ box: 0, due: now + REVIEW_INTERVALS[0]! });
-    expect(scheduleReview({ box: 0, due: 0 }, true, now))
-      .toEqual({ box: 1, due: now + REVIEW_INTERVALS[1]! });
-    expect(scheduleReview({ box: 3, due: 0 }, true, now).box).toBe(3);
-    expect(scheduleReview({ box: 3, due: 0 }, false, now))
-      .toEqual({ box: 0, due: now + REVIEW_INTERVALS[0]! });
+    const flat = { next: () => 0.5 };
+    const rung = (box: number) => now + REVIEW_INTERVALS[box]!;
+    expect(initialReview(now, flat)).toEqual({ box: 0, tier: 0, due: rung(0) });
+    expect(scheduleReview({ box: 0, due: 0 }, true, now, flat))
+      .toEqual({ box: 1, tier: 1, due: rung(1) });
+    const top = REVIEW_INTERVALS.length - 1;
+    expect(scheduleReview({ box: top, due: 0 }, true, now, flat).box).toBe(top);
+    expect(scheduleReview({ box: top, due: 0 }, false, now, flat).box).toBe(0);
+  });
+
+  it("resets timing on a lapse but steps difficulty down only one rung", () => {
+    const now = 1_000;
+    const flat = { next: () => 0.5 };
+    const hard = { box: 4, tier: 3, due: 0 };
+
+    // The calendar goes back to the first rung; the tier gives up one step, not all of them.
+    const lapsed = scheduleReview(hard, false, now, flat);
+    expect(lapsed.box).toBe(0);
+    expect(lapsed.tier).toBe(2);
+    expect(scheduleReview(lapsed, false, now, flat).tier).toBe(1);
+    expect(scheduleReview({ box: 0, tier: 0, due: 0 }, false, now, flat).tier).toBe(0);
+
+    // Climbing caps at the hardest bank even as the box keeps rising.
+    expect(scheduleReview(hard, true, now, flat).tier).toBe(DOCKET_TIERS - 1);
+  });
+
+  it("reads a pre-tier save at its old box-indexed difficulty", () => {
+    // Saves written before tiers existed must not jump in difficulty on upgrade.
+    expect(tierOf({ box: 0, due: 0 })).toBe(0);
+    expect(tierOf({ box: 2, due: 0 })).toBe(2);
+    expect(tierOf({ box: 5, due: 0 })).toBe(DOCKET_TIERS - 1);
+    // An explicit tier always wins over the box.
+    expect(tierOf({ box: 5, due: 0, tier: 0 })).toBe(0);
+  });
+
+  it("retires a word only from the top of the ladder with a clear tally", () => {
+    const top = REVIEW_INTERVALS.length - 1;
+    expect(retiresFromDocket(top, REVIEW_RETIRE_NET)).toBe(true);
+    // One short on either axis keeps the word in rotation.
+    expect(retiresFromDocket(top, REVIEW_RETIRE_NET - 1)).toBe(false);
+    expect(retiresFromDocket(top - 1, REVIEW_RETIRE_NET)).toBe(false);
+    expect(retiresFromDocket(top - 1, 99)).toBe(false);
+    // A word answered right four times but missed as often has not earned it.
+    expect(retiresFromDocket(top, 8 - 8)).toBe(false);
+  });
+
+  it("fuzzes each interval so a gate's cohort fans out instead of clumping", () => {
+    const now = 1_000;
+    const base = REVIEW_INTERVALS[0]!;
+    expect(fuzzInterval(base, { next: () => 0 })).toBe(Math.round(base * REVIEW_FUZZ_MIN));
+    expect(fuzzInterval(base, { next: () => 1 }))
+      .toBe(Math.round(base * (REVIEW_FUZZ_MIN + REVIEW_FUZZ_RANGE)));
+
+    // Ten words enrolled by one sealed gate at the same instant must not share a due date.
+    let step = 0;
+    const spread = { next: () => (step++ % 10) / 10 };
+    const dues = new Set(
+      Array.from({ length: 10 }, () => initialReview(now, spread).due)
+    );
+    expect(dues.size).toBe(10);
+
+    // The ladder must stay ordered: no fuzzed rung may overtake the one above it.
+    REVIEW_INTERVALS.forEach((interval, box) => {
+      const next = REVIEW_INTERVALS[box + 1];
+      if (next === undefined) return;
+      expect(fuzzInterval(interval, { next: () => 1 }))
+        .toBeLessThan(fuzzInterval(next, { next: () => 0 }));
+    });
+  });
+
+  it("serves one capped sitting, most overdue first", () => {
+    const now = 100 * DAY_MS;
+    // 30 words, staggered: "w0" is the most overdue, "w29" the freshest.
+    const review = Object.fromEntries(
+      Array.from({ length: 30 }, (_, index) => [
+        `w${index}`,
+        { box: 0, due: now - (30 - index) * 1_000 }
+      ])
+    );
+
+    expect(selectDocketSitting({}, now, zeroRandom)).toEqual([]);
+
+    const sitting = selectDocketSitting(review, now, zeroRandom);
+    expect(sitting).toHaveLength(DOCKET_SESSION_CAP);
+    // The cap must take the oldest, not an arbitrary slice: the 10 freshest stay behind.
+    const held = new Set(sitting);
+    for (let index = 0; index < DOCKET_SESSION_CAP; index += 1) {
+      expect(held.has(`w${index}`), `w${index} should be served`).toBe(true);
+    }
+    for (let index = DOCKET_SESSION_CAP; index < 30; index += 1) {
+      expect(held.has(`w${index}`), `w${index} should be held back`).toBe(false);
+    }
+
+    // Under the cap, everything due is served; nothing not yet due ever is.
+    const few = { a: { box: 0, due: now - 1 }, b: { box: 0, due: now - 2 }, later: { box: 0, due: now + 1 } };
+    expect(selectDocketSitting(few, now, zeroRandom).sort()).toEqual(["a", "b"]);
+  });
+
+  it("summarizes the docket in one pass", () => {
+    const now = 100 * DAY_MS;
+    const review = {
+      old: { box: 0, due: now - 5 * DAY_MS },
+      recent: { box: 1, due: now - 1 },
+      future: { box: 2, due: now + DAY_MS }
+    };
+    expect(docketSummary(review, now)).toEqual({ due: 2, oldestDue: now - 5 * DAY_MS });
+    expect(docketSummary({}, now)).toEqual({ due: 0, oldestDue: null });
+    expect(docketSummary({ future: review.future }, now)).toEqual({ due: 0, oldestDue: null });
+  });
+
+  it("bars progression only on a real docket backlog", () => {
+    const now = 100 * DAY_MS;
+    expect(docketBlocks(0, null, now)).toBe(false);
+    expect(docketBlocks(DOCKET_SESSION_CAP, now - DAY_MS, now)).toBe(false);
+    expect(docketBlocks(DOCKET_SESSION_CAP + 1, now - DAY_MS, now)).toBe(true);
+    expect(docketBlocks(1, now - 7 * DAY_MS, now)).toBe(true);
+    expect(docketBlocks(1, now - 6 * DAY_MS, now)).toBe(false);
+  });
+});
+
+describe("confusable pairs", () => {
+  it("keeps every pair servable, so none is dead content", () => {
+    // pickConfusables only offers a pair when both members resolve to a taught headword.
+    // "ingenious" is not one — that pair predates this suite and can never be drawn.
+    const KNOWN_UNSERVABLE = new Set(["ingenious"]);
+    const dead = CONFUSABLES.filter((pair) =>
+      gateIndexForForm(LEVELS, pair.a) < 0 || gateIndexForForm(LEVELS, pair.b) < 0
+    ).map((pair) => `${pair.a}/${pair.b}`);
+    expect(dead.filter((name) => !KNOWN_UNSERVABLE.has(name.split("/")[0]!))).toEqual([]);
+  });
+
+  it("holds enough pairs that the Bar need not repeat them", () => {
+    // The Bar draws 5 per sitting; a pool this side of 20 guarantees heavy overlap.
+    expect(CONFUSABLES.length).toBeGreaterThanOrEqual(30);
+  });
+});
+
+describe("distractor scoring", () => {
+  const gate = LEVELS[0]!;
+  const target = gate.words[0]!;
+  const corpus = LEVELS.flatMap((level) => level.words);
+
+  it("never offers a foil of a different part of speech", () => {
+    for (const word of corpus) {
+      const foils = scoreDistractors({
+        target: word, candidates: corpus, count: 3, random: zeroRandom
+      });
+      for (const foil of foils) {
+        expect(foil.pos, `${word.word} / ${foil.word}`).toBe(word.pos);
+      }
+    }
+  });
+
+  it("prefers foils that share a root over unrelated ones", () => {
+    // egoist's kin should beat a word from an unrelated semantic field.
+    const family = new Set(["egotist", "egocentric"]);
+    const picked = scoreDistractors({
+      target, candidates: corpus, count: 2, random: zeroRandom, family
+    }).map((word) => word.word);
+    expect(picked).toContain("egotist");
+  });
+
+  it("reaches beyond the target's own gate", () => {
+    // The old rule could only ever draw from the target's ten-word gate.
+    const own = new Set(gate.words.map((word) => word.word));
+    const foreign = corpus.filter((word) => !own.has(word.word));
+    const picked = scoreDistractors({
+      target, candidates: foreign, count: 3, random: zeroRandom
+    });
+    expect(picked.length).toBeGreaterThan(0);
+    expect(picked.every((word) => !own.has(word.word))).toBe(true);
+  });
+
+  it("excludes the target and anything sharing its definition", () => {
+    const picked = scoreDistractors({
+      target, candidates: corpus, count: 3, random: zeroRandom
+    });
+    expect(picked.some((word) => word.word === target.word)).toBe(false);
+    expect(picked.some((word) => word.def === target.def)).toBe(false);
   });
 });
 
@@ -170,16 +360,47 @@ describe("session construction", () => {
     expect(items.filter((item) => item.m === "ROOTS")).toHaveLength(gate.quizRoots!.length);
   });
 
-  it("samples the Bar as 35 production, 5 pairs, and 10 inference tasks", () => {
-    const words = Array.from({ length: 60 }, (_, index) => ({ gi: 0, wi: index }));
-    const pairs = CONFUSABLES.slice(0, 5);
-    const inference = INFER_POOL.slice(0, 10);
-    const items = buildBarItems(words, pairs, inference, zeroRandom);
+  it("samples the Bar as 30 production, 5 pairs, and 15 never-taught tasks", () => {
+    const words = Array.from({ length: 240 }, (_, index) => ({ gi: 0, wi: index }));
+    const items = buildBarItems(words, CONFUSABLES, INFER_POOL, zeroRandom);
     expect(items).toHaveLength(50);
-    expect(items.filter((item) => item.m === "PROD" || item.m === "VIGT")).toHaveLength(35);
+    expect(items.filter((item) => item.m === "PROD" || item.m === "VIGT")).toHaveLength(30);
     expect(items.filter((item) => item.m === "PAIR")).toHaveLength(5);
-    expect(items.filter((item) => item.m === "INFER")).toHaveLength(5);
+    expect(items.filter((item) => item.m === "INFER")).toHaveLength(10);
     expect(items.filter((item) => item.m === "COMPOSE")).toHaveLength(5);
+  });
+
+  it("derives its split from the size it is given", () => {
+    // The label, the pass mark and the queue all read from one number now.
+    const words = Array.from({ length: 240 }, (_, index) => ({ gi: 0, wi: index }));
+    for (const size of [30, 50, 60]) {
+      const items = buildBarItems(words, CONFUSABLES, INFER_POOL, zeroRandom, size);
+      expect(items, `size ${size}`).toHaveLength(size);
+    }
+  });
+
+  it("gives each form a disjoint set of production words", () => {
+    const words = Array.from({ length: 240 }, (_, index) => ({ gi: 0, wi: index }));
+    const locations = (form: number): Set<string> => new Set(
+      buildBarItems(words, CONFUSABLES, INFER_POOL, zeroRandom, 50, form)
+        .filter((item) => item.m === "PROD" || item.m === "VIGT")
+        .map((item) => `${item.gi}-${item.wi}`)
+    );
+    const [one, two, three] = [locations(0), locations(1), locations(2)];
+    // A retake must be a different exam, not a reshuffle of the same one.
+    for (const location of one) expect(two.has(location), location).toBe(false);
+    for (const location of two) expect(three.has(location), location).toBe(false);
+    for (const location of one) expect(three.has(location), location).toBe(false);
+    // And the form index wraps rather than running off the end of the corpus.
+    expect(locations(BAR_FORMS)).toEqual(one);
+  });
+
+  it("still fills the exam when a pool is too small to partition", () => {
+    // Fewer confusable pairs than three forms' worth must not shrink the sitting.
+    const words = Array.from({ length: 240 }, (_, index) => ({ gi: 0, wi: index }));
+    const items = buildBarItems(words, CONFUSABLES.slice(0, 4), INFER_POOL, zeroRandom, 50, 2);
+    expect(items).toHaveLength(50);
+    expect(items.filter((item) => item.m === "PAIR").length).toBeGreaterThan(0);
   });
 });
 

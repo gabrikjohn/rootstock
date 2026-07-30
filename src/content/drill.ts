@@ -3,6 +3,7 @@ import type { DrillWord } from "../types/content";
 export const DRILL_POOL = [
   {
     "word": "altercation",
+    "pos": "n.",
     "req": 1,
     "b": -0.6,
     "parts": [
@@ -34,6 +35,7 @@ export const DRILL_POOL = [
   },
   {
     "word": "adulterate",
+    "pos": "v.",
     "req": 1,
     "b": 0.1,
     "parts": [
@@ -66,6 +68,7 @@ export const DRILL_POOL = [
   },
   {
     "word": "ambit",
+    "pos": "n.",
     "req": 1,
     "b": 1.7,
     "parts": [
@@ -94,6 +97,7 @@ export const DRILL_POOL = [
   },
   {
     "word": "anthropocentric",
+    "pos": "adj.",
     "req": 1,
     "b": 0.3,
     "parts": [
@@ -125,6 +129,7 @@ export const DRILL_POOL = [
   },
   {
     "word": "analysand",
+    "pos": "n.",
     "req": 3,
     "b": 2.4,
     "parts": [
@@ -152,6 +157,7 @@ export const DRILL_POOL = [
   },
   {
     "word": "misology",
+    "pos": "n.",
     "req": 4,
     "b": 2.1,
     "parts": [
@@ -184,6 +190,7 @@ export const DRILL_POOL = [
   },
   {
     "word": "osteology",
+    "pos": "n.",
     "req": 4,
     "b": 0.9,
     "parts": [
@@ -215,6 +222,7 @@ export const DRILL_POOL = [
   },
   {
     "word": "logorrhea",
+    "pos": "n.",
     "req": 4,
     "b": 1.9,
     "parts": [
@@ -242,6 +250,7 @@ export const DRILL_POOL = [
   },
   {
     "word": "cognizant",
+    "pos": "adj.",
     "req": 5,
     "b": -0.3,
     "parts": [
@@ -274,6 +283,7 @@ export const DRILL_POOL = [
   },
   {
     "word": "cognoscenti",
+    "pos": "n.",
     "req": 5,
     "b": 2.2,
     "parts": [
@@ -301,6 +311,7 @@ export const DRILL_POOL = [
   },
   {
     "word": "corrigendum",
+    "pos": "n.",
     "req": 5,
     "b": 2.5,
     "parts": [
@@ -329,6 +340,7 @@ export const DRILL_POOL = [
   },
   {
     "word": "iatrogenic",
+    "pos": "adj.",
     "req": 5,
     "b": 2.3,
     "parts": [
@@ -361,6 +373,7 @@ export const DRILL_POOL = [
   },
   {
     "word": "nescience",
+    "pos": "n.",
     "req": 5,
     "b": 2.6,
     "parts": [
@@ -393,6 +406,7 @@ export const DRILL_POOL = [
   },
   {
     "word": "pathogenic",
+    "pos": "adj.",
     "req": 5,
     "b": 0.2,
     "parts": [
@@ -425,6 +439,7 @@ export const DRILL_POOL = [
   },
   {
     "word": "prescience",
+    "pos": "n.",
     "req": 5,
     "b": 1,
     "parts": [
@@ -456,6 +471,7 @@ export const DRILL_POOL = [
   },
   {
     "word": "disparate",
+    "pos": "adj.",
     "req": 6,
     "b": 0.5,
     "parts": [
@@ -488,6 +504,7 @@ export const DRILL_POOL = [
   },
   {
     "word": "parity",
+    "pos": "n.",
     "req": 6,
     "b": -0.5,
     "parts": [
@@ -516,6 +533,7 @@ export const DRILL_POOL = [
   },
   {
     "word": "malinger",
+    "pos": "v.",
     "req": 6,
     "b": 1.2,
     "parts": [
@@ -544,6 +562,7 @@ export const DRILL_POOL = [
   },
   {
     "word": "scrivener",
+    "pos": "n.",
     "req": 6,
     "b": 1.9,
     "parts": [
@@ -572,6 +591,7 @@ export const DRILL_POOL = [
   },
   {
     "word": "reticent",
+    "pos": "adj.",
     "req": 7,
     "b": 0.4,
     "parts": [
@@ -604,6 +624,7 @@ export const DRILL_POOL = [
   },
   {
     "word": "verbiage",
+    "pos": "n.",
     "req": 7,
     "b": 0.8,
     "parts": [
@@ -631,6 +652,7 @@ export const DRILL_POOL = [
   },
   {
     "word": "avocation",
+    "pos": "n.",
     "req": 7,
     "b": 1.5,
     "parts": [
@@ -663,6 +685,7 @@ export const DRILL_POOL = [
   },
   {
     "word": "convoluted",
+    "pos": "adj.",
     "req": 7,
     "b": -0.2,
     "parts": [
@@ -695,6 +718,7 @@ export const DRILL_POOL = [
   },
   {
     "word": "exogamy",
+    "pos": "n.",
     "req": 10,
     "b": 1.7,
     "parts": [
@@ -727,6 +751,7 @@ export const DRILL_POOL = [
   },
   {
     "word": "endogamy",
+    "pos": "n.",
     "req": 10,
     "b": 1.9,
     "parts": [
@@ -759,6 +784,7 @@ export const DRILL_POOL = [
   },
   {
     "word": "androgynous",
+    "pos": "adj.",
     "req": 10,
     "b": 0.6,
     "parts": [
@@ -791,6 +817,7 @@ export const DRILL_POOL = [
   },
   {
     "word": "apotheosis",
+    "pos": "n.",
     "req": 11,
     "b": 2,
     "parts": [
@@ -823,6 +850,7 @@ export const DRILL_POOL = [
   },
   {
     "word": "hierophant",
+    "pos": "n.",
     "req": 11,
     "b": 2.7,
     "parts": [
@@ -851,6 +879,7 @@ export const DRILL_POOL = [
   },
   {
     "word": "demotic",
+    "pos": "adj.",
     "req": 11,
     "b": 2.3,
     "parts": [
@@ -878,6 +907,7 @@ export const DRILL_POOL = [
   },
   {
     "word": "patrimony",
+    "pos": "n.",
     "req": 11,
     "b": 1.1,
     "parts": [
@@ -906,6 +936,7 @@ export const DRILL_POOL = [
   },
   {
     "word": "matrilineal",
+    "pos": "adj.",
     "req": 11,
     "b": 1.3,
     "parts": [
@@ -938,6 +969,7 @@ export const DRILL_POOL = [
   },
   {
     "word": "elocution",
+    "pos": "n.",
     "req": 12,
     "b": 0.9,
     "parts": [
@@ -970,6 +1002,7 @@ export const DRILL_POOL = [
   },
   {
     "word": "valedictory",
+    "pos": "adj.",
     "req": 12,
     "b": 1.2,
     "parts": [
@@ -1002,6 +1035,7 @@ export const DRILL_POOL = [
   },
   {
     "word": "benison",
+    "pos": "n.",
     "req": 12,
     "b": 2.4,
     "parts": [
@@ -1030,6 +1064,7 @@ export const DRILL_POOL = [
   },
   {
     "word": "conjure",
+    "pos": "v.",
     "req": 13,
     "b": 0.3,
     "parts": [
@@ -1058,6 +1093,7 @@ export const DRILL_POOL = [
   },
   {
     "word": "mea culpa",
+    "pos": "n.",
     "req": 13,
     "b": 0.8,
     "parts": [
@@ -1086,6 +1122,7 @@ export const DRILL_POOL = [
   },
   {
     "word": "aver",
+    "pos": "v.",
     "req": 13,
     "b": 1.4,
     "parts": [
@@ -1114,6 +1151,7 @@ export const DRILL_POOL = [
   },
   {
     "word": "indite",
+    "pos": "v.",
     "req": 13,
     "b": 2.9,
     "parts": [
@@ -1141,6 +1179,7 @@ export const DRILL_POOL = [
   },
   {
     "word": "antinomy",
+    "pos": "n.",
     "req": 14,
     "b": 2.6,
     "parts": [
@@ -1173,6 +1212,7 @@ export const DRILL_POOL = [
   },
   {
     "word": "acromegaly",
+    "pos": "n.",
     "req": 14,
     "b": 2.5,
     "parts": [
@@ -1205,6 +1245,7 @@ export const DRILL_POOL = [
   },
   {
     "word": "biblioklept",
+    "pos": "n.",
     "req": 14,
     "b": 2.8,
     "parts": [
@@ -1233,6 +1274,7 @@ export const DRILL_POOL = [
   },
   {
     "word": "empyrean",
+    "pos": "n.",
     "req": 14,
     "b": 2.4,
     "parts": [
@@ -1265,6 +1307,7 @@ export const DRILL_POOL = [
   },
   {
     "word": "syndicate",
+    "pos": "n.",
     "req": 15,
     "b": 0.2,
     "parts": [
@@ -1297,6 +1340,7 @@ export const DRILL_POOL = [
   },
   {
     "word": "similitude",
+    "pos": "n.",
     "req": 16,
     "b": 1.1,
     "parts": [
@@ -1325,6 +1369,7 @@ export const DRILL_POOL = [
   },
   {
     "word": "simulacrum",
+    "pos": "n.",
     "req": 16,
     "b": 2.2,
     "parts": [
@@ -1353,6 +1398,7 @@ export const DRILL_POOL = [
   },
   {
     "word": "dissociate",
+    "pos": "v.",
     "req": 16,
     "b": 0.1,
     "parts": [
@@ -1385,6 +1431,7 @@ export const DRILL_POOL = [
   },
   {
     "word": "interlocutor",
+    "pos": "n.",
     "req": 17,
     "b": 1.3,
     "parts": [
@@ -1417,6 +1464,7 @@ export const DRILL_POOL = [
   },
   {
     "word": "interdict",
+    "pos": "v.",
     "req": 17,
     "b": 1.5,
     "parts": [
@@ -1445,6 +1493,7 @@ export const DRILL_POOL = [
   },
   {
     "word": "necrology",
+    "pos": "n.",
     "req": 17,
     "b": 1.6,
     "parts": [
@@ -1477,6 +1526,7 @@ export const DRILL_POOL = [
   },
   {
     "word": "pyromancy",
+    "pos": "n.",
     "req": 17,
     "b": 1.9,
     "parts": [
@@ -1505,6 +1555,7 @@ export const DRILL_POOL = [
   },
   {
     "word": "amanuensis",
+    "pos": "n.",
     "req": 18,
     "b": 2.6,
     "parts": [
@@ -1537,6 +1588,7 @@ export const DRILL_POOL = [
   },
   {
     "word": "captious",
+    "pos": "adj.",
     "req": 18,
     "b": 1.8,
     "parts": [
@@ -1565,6 +1617,7 @@ export const DRILL_POOL = [
   },
   {
     "word": "capacious",
+    "pos": "adj.",
     "req": 18,
     "b": 0.6,
     "parts": [
@@ -1593,6 +1646,7 @@ export const DRILL_POOL = [
   },
   {
     "word": "pedestrian",
+    "pos": "adj.",
     "req": 18,
     "b": 0,
     "parts": [
@@ -1621,6 +1675,7 @@ export const DRILL_POOL = [
   },
   {
     "word": "sesquipedalian",
+    "pos": "adj.",
     "req": 18,
     "b": 2.3,
     "parts": [
@@ -1652,6 +1707,7 @@ export const DRILL_POOL = [
   },
   {
     "word": "tergiversate",
+    "pos": "v.",
     "req": 19,
     "b": 2.9,
     "parts": [
@@ -1684,6 +1740,7 @@ export const DRILL_POOL = [
   },
   {
     "word": "suborn",
+    "pos": "v.",
     "req": 19,
     "b": 1.9,
     "parts": [
@@ -1712,6 +1769,7 @@ export const DRILL_POOL = [
   },
   {
     "word": "contretemps",
+    "pos": "n.",
     "req": 19,
     "b": 1.7,
     "parts": [
@@ -1740,6 +1798,7 @@ export const DRILL_POOL = [
   },
   {
     "word": "longanimity",
+    "pos": "n.",
     "req": 19,
     "b": 2.8,
     "parts": [
@@ -1772,6 +1831,7 @@ export const DRILL_POOL = [
   },
   {
     "word": "aggregate",
+    "pos": "adj.",
     "req": 20,
     "b": -0.1,
     "parts": [
@@ -1804,6 +1864,7 @@ export const DRILL_POOL = [
   },
   {
     "word": "miscreant",
+    "pos": "n.",
     "req": 20,
     "b": 1,
     "parts": [
@@ -1836,6 +1897,7 @@ export const DRILL_POOL = [
   },
   {
     "word": "credo",
+    "pos": "n.",
     "req": 20,
     "b": 0.2,
     "parts": [
@@ -1864,6 +1926,7 @@ export const DRILL_POOL = [
   },
   {
     "word": "eponymous",
+    "pos": "adj.",
     "req": 21,
     "b": 0.8,
     "parts": [
@@ -1896,6 +1959,7 @@ export const DRILL_POOL = [
   },
   {
     "word": "patronymic",
+    "pos": "n.",
     "req": 21,
     "b": 1.4,
     "parts": [
@@ -1928,6 +1992,7 @@ export const DRILL_POOL = [
   },
   {
     "word": "polyphony",
+    "pos": "n.",
     "req": 21,
     "b": 1.1,
     "parts": [
@@ -1960,6 +2025,7 @@ export const DRILL_POOL = [
   },
   {
     "word": "introspection",
+    "pos": "n.",
     "req": 22,
     "b": -0.4,
     "parts": [
@@ -1992,6 +2058,7 @@ export const DRILL_POOL = [
   },
   {
     "word": "pernicious",
+    "pos": "adj.",
     "req": 22,
     "b": 0.7,
     "parts": [
@@ -2023,6 +2090,7 @@ export const DRILL_POOL = [
   },
   {
     "word": "incisive",
+    "pos": "adj.",
     "req": 22,
     "b": 0.4,
     "parts": [
@@ -2055,6 +2123,7 @@ export const DRILL_POOL = [
   },
   {
     "word": "parricide",
+    "pos": "n.",
     "req": 22,
     "b": 1.5,
     "parts": [
@@ -2083,6 +2152,7 @@ export const DRILL_POOL = [
   },
   {
     "word": "interregnum",
+    "pos": "n.",
     "req": 22,
     "b": 1.9,
     "parts": [
@@ -2115,6 +2185,7 @@ export const DRILL_POOL = [
   },
   {
     "word": "engender",
+    "pos": "v.",
     "req": 23,
     "b": 0.7,
     "parts": [
@@ -2143,6 +2214,7 @@ export const DRILL_POOL = [
   },
   {
     "word": "progenitor",
+    "pos": "n.",
     "req": 23,
     "b": 1,
     "parts": [
@@ -2175,6 +2247,7 @@ export const DRILL_POOL = [
   },
   {
     "word": "primogeniture",
+    "pos": "n.",
     "req": 23,
     "b": 2.2,
     "parts": [
@@ -2207,6 +2280,7 @@ export const DRILL_POOL = [
   },
   {
     "word": "hypnagogic",
+    "pos": "adj.",
     "req": 23,
     "b": 2.8,
     "parts": [
@@ -2239,6 +2313,7 @@ export const DRILL_POOL = [
   },
   {
     "word": "nonpareil",
+    "pos": "n.",
     "req": 24,
     "b": 2.1,
     "parts": [
@@ -2267,6 +2342,7 @@ export const DRILL_POOL = [
   },
   {
     "word": "recreant",
+    "pos": "n.",
     "req": 24,
     "b": 2.6,
     "parts": [
@@ -2299,6 +2375,7 @@ export const DRILL_POOL = [
   },
   {
     "word": "recrimination",
+    "pos": "n.",
     "req": 24,
     "b": 0.8,
     "parts": [
@@ -2331,6 +2408,7 @@ export const DRILL_POOL = [
   },
   {
     "word": "obloquy",
+    "pos": "n.",
     "req": 24,
     "b": 2.3,
     "parts": [
@@ -2363,6 +2441,7 @@ export const DRILL_POOL = [
   },
   {
     "word": "sequacious",
+    "pos": "adj.",
     "req": 24,
     "b": 2.7,
     "parts": [
@@ -2391,6 +2470,7 @@ export const DRILL_POOL = [
   },
   {
     "word": "congeries",
+    "pos": "n.",
     "req": 24,
     "b": 2.5,
     "parts": [
@@ -2423,6 +2503,7 @@ export const DRILL_POOL = [
   },
   {
     "word": "nondescript",
+    "pos": "adj.",
     "req": 24,
     "b": 0.1,
     "parts": [
