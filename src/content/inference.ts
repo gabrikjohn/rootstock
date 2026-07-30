@@ -1029,7 +1029,9 @@ export const INFER_POOL = [
       "skillful with the hands; deft",
       "socially awkward; tactless"
     ],
-    "roots": "ambi- (both) + dexter (right hand) — literally 'right-handed on both sides'"
+    "roots": "ambi- (both) + dexter (right hand) — literally 'right-handed on both sides'",
+    "sentence": "Ambidextrous since childhood, he signed with one hand and kept writing with the other.",
+    "story": "Latin ambi-, 'both,' with dexter, 'the right hand' — and the compound does not say skilled with both hands. It says right-handed on both sides, which quietly concedes that only one hand is properly the able one and pays the other the compliment of pretending it is the first. The bias is inside the praise. Latin could have built the word from manus and made it neutral, and did not. Today ambidextrous means able to use both hands equally, under a name that hands the credit for the left hand's competence to the right."
   },
   {
     "word": "adroit",
@@ -1051,7 +1053,9 @@ export const INFER_POOL = [
       "able to use both hands equally",
       "socially awkward; tactless"
     ],
-    "roots": "French à droit (to the right) — the right hand as the able hand"
+    "roots": "French à droit (to the right) — the right hand as the able hand",
+    "sentence": "One adroit question from the back of the room and the whole proposal came apart.",
+    "story": "French à droit, 'to the right' — the right hand as the capable one, and French built the same prejudice Latin had. What makes droit worth pausing on is its range. It means the right hand, the direction right, and a legal right or entitlement, all in one word, exactly as Latin ius and rectus overlap and as English right does. The hand, the correct and the lawful are the same idea in several unrelated languages. Today adroit means skilful and clever in handling, and its opposite number in French supplies the awkwardness in gauche."
   },
   {
     "word": "gauche",
@@ -1069,7 +1073,9 @@ export const INFER_POOL = [
       "threatening evil; ominous",
       "able to use both hands equally"
     ],
-    "roots": "French gauche (left) — the left hand as the clumsy hand"
+    "roots": "French gauche (left) — the left hand as the clumsy hand",
+    "sentence": "His gauche attempt at a compliment left the table studying the tablecloth.",
+    "story": "French gauche, 'left' — the left hand as the clumsy one, completing a prejudice that Latin, French and English each built separately. The political sense arrived by pure accident of furniture. In the French National Assembly of 1789 the supporters of the king sat to the president's right and the revolutionaries to his left, and Europe has called its politics left and right ever since on no better basis than where people happened to sit. The older moral colouring then attached itself to the newer arrangement. Today gauche means socially awkward and tactless."
   },
   {
     "word": "sinister",
@@ -1087,7 +1093,9 @@ export const INFER_POOL = [
       "skillful with the hands; deft",
       "able to use both hands equally"
     ],
-    "roots": "sinister (Latin: left) — the left side, read as unlucky by Roman augurs"
+    "roots": "sinister (Latin: left) — the left side, read as unlucky by Roman augurs",
+    "sentence": "There was something sinister in how quickly the paperwork had been prepared.",
+    "story": "Latin sinister, 'left' — and the ominous sense comes from a disagreement about which way to stand. Roman augurs faced south to read the flight of birds, which put the auspicious east on their left, so sinister in Latin could mean favourable. Greek diviners faced north, which put the east on the right and made the left unlucky, and it was the Greek convention that Roman literary usage eventually followed. The word carries the losing side of a professional dispute. Today sinister means threatening evil, and it is ominous because of an argument about compass bearings."
   },
   {
     "word": "vivisection",
@@ -1113,7 +1121,9 @@ export const INFER_POOL = [
       "an inscription on a tomb",
       "government by the old"
     ],
-    "roots": "vivus (living) + secare (to cut)"
+    "roots": "vivus (living) + secare (to cut)",
+    "sentence": "The lecture on vivisection emptied half the hall before the demonstration began.",
+    "story": "Latin vivus, 'living,' with secare, 'to cut' — cutting the living, and the word is inseparable from the campaign against the thing it names. Victorian Britain argued about it ferociously, and Frances Power Cobbe's anti-vivisection movement produced the Cruelty to Animals Act of 1876, the first law anywhere to regulate experiments on animals. The word was the campaigners' rather than the physiologists', who preferred to speak of experimental medicine. Today vivisection means surgery on living animals, and the term still carries the accusation it was sharpened for."
   },
   {
     "word": "misandry",
@@ -1135,7 +1145,9 @@ export const INFER_POOL = [
       "one drawn to foreign cultures",
       "one who abstains from marriage"
     ],
-    "roots": "misein (to hate) + aner, andros (man)"
+    "roots": "misein (to hate) + aner, andros (man)",
+    "sentence": "The pamphlet's misandry was as unmeasured as the misogyny it set out to answer.",
+    "story": "Greek misein, 'to hate,' with aner, andros, 'man' — the exact structural mirror of misogyny, and it entered English far later and stayed far rarer. The Greek elements were available all along; what was missing was the demand. Attestations creep in from the 1870s but the word stayed a curiosity until the late twentieth century, when it was taken up mainly in argument about the other term rather than on its own account. Today misandry is hatred of men, and its history is largely a history of being cited rather than of being needed."
   },
   {
     "word": "monandry",
@@ -1157,7 +1169,9 @@ export const INFER_POOL = [
       "one who abstains from marriage",
       "one drawn to foreign cultures"
     ],
-    "roots": "monos (one) + aner, andros (man)"
+    "roots": "monos (one) + aner, andros (man)",
+    "sentence": "The species practises monandry, and the female drives off every suitor after the first.",
+    "story": "Greek monos, 'one,' with aner, andros, 'man' — one husband, and unlike its neighbours this word does most of its work outside human affairs. Botany uses monandrous for a flower with a single stamen, and zoology uses monandry for a female that mates with only one male in a breeding season, which is a measurable fact about a population rather than a rule anybody imposed. The human case is covered by monogamy. Today monandry is the practice of having one husband, and it is the technical mirror of the polyandry that Himalayan inheritance produced."
   },
   {
     "word": "xenophile",
@@ -1179,7 +1193,9 @@ export const INFER_POOL = [
       "a man who trifles with women",
       "the practice of having one husband"
     ],
-    "roots": "xenos (stranger) + philein (to love)"
+    "roots": "xenos (stranger) + philein (to love)",
+    "sentence": "A xenophile by temperament, she learned the language of every country that delayed her.",
+    "story": "Greek xenos, 'stranger,' with philein, 'to love' — and this word takes the pole that its better-known relative declined. Xenos meant guest as readily as stranger, and Greek religion made hospitality to arrivals a sacred duty enforced by Zeus himself, so the root arrived carrying an obligation to welcome. Xenophobia chose the fear; xenophile chose the welcome, which was there all along. Both are modern coinages from the same ancient ambivalence. Today a xenophile is one drawn to foreign cultures, and between the two words the whole range of the Greek original is finally accounted for."
   },
   {
     "word": "philanderer",
@@ -1205,7 +1221,9 @@ export const INFER_POOL = [
       "one drawn to foreign cultures",
       "the practice of having one husband"
     ],
-    "roots": "philein (to love) + aner, andros (man)"
+    "roots": "philein (to love) + aner, andros (man)",
+    "sentence": "The philanderer was charming to everyone and faithful to no one in particular.",
+    "story": "Greek philein, 'to love,' with aner, andros, 'man' — and this word arrived at its meaning by a series of accidents. Greek philandros described a woman devoted to her husband, a term of praise applied to wives. Seventeenth-century pastoral literature then used Philander as a stock name for a male lover, apparently without much attention to what it had meant, and English made a verb of the character. A word for wifely fidelity thus became a word for male infidelity. Today a philanderer is a man who trifles with women, under a name that once complimented the woman he is failing."
   },
   {
     "word": "Anglophile",
@@ -1227,7 +1245,9 @@ export const INFER_POOL = [
       "one who abstains from marriage",
       "one drawn to foreign cultures"
     ],
-    "roots": "Anglus (English) + philein (to love)"
+    "roots": "Anglus (English) + philein (to love)",
+    "sentence": "An unembarrassed Anglophile, he took tea at four and pronounced the schedule with a sh.",
+    "story": "Latin Anglus, 'English,' with Greek philein, 'to love' — and the first element is a very small place. The Angles were one of the Germanic peoples who crossed into Britain, and they came from Angeln, a district of the Jutland peninsula in what is now Schleswig, so England is Angle-land and the English are named for a corner of Denmark. The word for loving the country therefore contains a German promontory. Today an Anglophile is an admirer of England and English ways, and the philo- root at its other end supplies the whole family from philosophy to bibliophile."
   },
   {
     "word": "celibate",
@@ -1249,7 +1269,9 @@ export const INFER_POOL = [
       "one drawn to foreign cultures",
       "a man who trifles with women"
     ],
-    "roots": "caelebs (Latin: unmarried)"
+    "roots": "caelebs (Latin: unmarried)",
+    "sentence": "He remained celibate for forty years, which the parish took, wrongly, to settle the other question.",
+    "story": "Latin caelebs, 'unmarried' — and the word means only that, which is a distinction worth keeping. Celibacy is the state of being unmarried; chastity is abstention from sexual relations, and for most of the word's history a celibate person was simply a single one. The sexual sense is a twentieth-century development that has now almost displaced the original. The rule that made the word famous is datable: the Second Lateran Council of 1139 made clerical marriage invalid in the Western Church. Today a celibate is one who abstains from marriage, and the other abstention is strictly a separate promise."
   },
   {
     "word": "kleptocracy",
@@ -1271,7 +1293,9 @@ export const INFER_POOL = [
       "the delusion one is divine",
       "government by the old"
     ],
-    "roots": "kleptein (to steal) + kratos (rule)"
+    "roots": "kleptein (to steal) + kratos (rule)",
+    "sentence": "It was less a government than a kleptocracy with a flag and a national anthem.",
+    "story": "Greek kleptein, 'to steal,' with kratos, 'power' — rule by thieves, and the word draws a distinction ordinary corruption does not. A corrupt state has officials stealing despite the system; a kleptocracy is one where extraction is the system, and the machinery of government exists in order to move wealth to those running it. The difference is between a failure and a design. The term was rare until the twentieth century gave it plenty of application. Today a kleptocracy is rule by plunder, and kleptein's other English child is the kleptomaniac, who steals without any of the profit."
   },
   {
     "word": "androcracy",
@@ -1293,7 +1317,9 @@ export const INFER_POOL = [
       "government by priests or clergy",
       "one who holds God unknowable"
     ],
-    "roots": "aner, andros (man) + kratos (rule)"
+    "roots": "aner, andros (man) + kratos (rule)",
+    "sentence": "The guild was a frank androcracy, and had recorded no woman's name in three hundred years.",
+    "story": "Greek aner, andros, 'man,' with kratos, 'power' — rule by men as men, and it is the rarer and more literal of two overlapping terms. Patriarchy is rule by fathers, and its force comes from the household model extended outward, with authority attached to a role that has dependants in it. Androcracy makes no reference to fatherhood at all and simply names male rule as such. The two are often used interchangeably and are not quite the same claim. Today androcracy is social and political rule by men, and its mirror gynarchy is as rare as matriarchy is contested."
   },
   {
     "word": "demography",
@@ -1315,7 +1341,9 @@ export const INFER_POOL = [
       "one who holds God unknowable",
       "the delusion one is divine"
     ],
-    "roots": "demos (people) + graphein (to write)"
+    "roots": "demos (people) + graphein (to write)",
+    "sentence": "The demography of the valley changed twice in a generation, and the school closed with it.",
+    "story": "Greek demos, 'people,' with graphein, 'to write' — the writing-down of populations, coined in French by Achille Guillard in 1855. The practice preceded the name by two centuries. John Graunt published his observations on the London Bills of Mortality in 1662, working from parish death records to build the first life table and estimate the city's population, and in doing so invented the discipline out of plague statistics kept for quite another purpose. Today demography is the study of human populations, and it remains a science built on registers that were never compiled to be studied."
   },
   {
     "word": "hierocracy",
@@ -1337,7 +1365,9 @@ export const INFER_POOL = [
       "the study of human populations",
       "rule by thieves and plunder"
     ],
-    "roots": "hieros (sacred) + kratos (rule)"
+    "roots": "hieros (sacred) + kratos (rule)",
+    "sentence": "What followed the revolution was a hierocracy in which every ministry answered to a cleric.",
+    "story": "Greek hieros, 'sacred,' with kratos, 'power' — rule by priests, and the distinction from its neighbour is worth holding. A theocracy, in Josephus's coinage, is rule by God, with the divine as the actual sovereign and law given rather than made. A hierocracy is rule by a priesthood, meaning by men who claim to speak for the divine, which is a claim about who administers rather than about who reigns. Every actual theocracy is in practice a hierocracy. Today hierocracy is government by clergy, and hieros also ranks the angels in the hierarchy."
   },
   {
     "word": "gerontocracy",
@@ -1359,7 +1389,9 @@ export const INFER_POOL = [
       "a narrow, dogmatic teacher",
       "government by a noble class"
     ],
-    "roots": "geron (old man) + kratos (rule)"
+    "roots": "geron (old man) + kratos (rule)",
+    "sentence": "The committee was a gerontocracy, and its youngest member had served for thirty years.",
+    "story": "Greek geron, gerontos, 'old man,' with kratos, 'power' — government by the old, and Sparta ran one as a matter of constitution. The Gerousia was a council of twenty-eight men over the age of sixty, joined by the two kings, and it prepared every question before the assembly could vote on it, which gave the old a formal veto over what the young were permitted to decide. Membership was for life. Today a gerontocracy is government by the old, and the same geron gives the gerontologist who studies age rather than exercising it."
   },
   {
     "word": "theomania",
@@ -1381,7 +1413,9 @@ export const INFER_POOL = [
       "a narrow, dogmatic teacher",
       "government by the old"
     ],
-    "roots": "theos (god) + mania (madness)"
+    "roots": "theos (god) + mania (madness)",
+    "sentence": "The theomania arrived in his fortieth year, and he began signing letters with a new name.",
+    "story": "Greek theos, 'god,' with mania, 'madness' — the delusion of being divine, and it belongs to the nineteenth-century family of manias sorted by their single subject. The condition has a well-documented modern setting. Jerusalem syndrome describes visitors to the city who become convinced they are biblical figures, typically recovering within days of leaving, and the Jerusalem hospitals see a reliable number each year. The content of the delusion follows the culture that supplies it. Today theomania is the delusion that one is divine, and megalomania is the same structure with the throne left vacant."
   },
   {
     "word": "agnostic",
@@ -1403,7 +1437,9 @@ export const INFER_POOL = [
       "government by a noble class",
       "the delusion one is divine"
     ],
-    "roots": "a- (without) + gnosis (knowledge)"
+    "roots": "a- (without) + gnosis (knowledge)",
+    "sentence": "He called himself agnostic, meaning not that he had no view but that he thought the question closed to him.",
+    "story": "Greek a-, 'without,' with gnosis, 'knowledge' — and Thomas Huxley built it in 1869 because he needed a label. Everyone at the Metaphysical Society, he said, had a name for their position and he alone had none, so he made one on the model of the Gnostics, who claimed knowledge of the ultimate, and took the opposite. His point was epistemological rather than religious: the claim is that certain questions cannot be settled, not that they have been settled against belief. Today an agnostic holds that God is unknowable, which is a claim about the limits of knowing."
   },
   {
     "word": "prognosis",
@@ -1425,7 +1461,9 @@ export const INFER_POOL = [
       "one who reads fate in the stars",
       "an abnormal fear of the dead"
     ],
-    "roots": "pro- (before) + gnosis (knowledge)"
+    "roots": "pro- (before) + gnosis (knowledge)",
+    "sentence": "The prognosis was cautious, and the consultant was careful to say what he could not promise.",
+    "story": "Greek pro-, 'before,' with gnosis, 'knowledge' — knowing beforehand, and in ancient medicine it mattered more than diagnosis does now. The Hippocratic treatise called the Prognostics argues that the physician's first business is to foretell the course of an illness, because a doctor who can say what will happen wins the confidence of the household, and because there was little he could do to alter it in any case. Naming the disease helped nobody. Today a prognosis is a forecast of a disease's course, and the same gnosis is denied in agnostic and possessed in diagnosis."
   },
   {
     "word": "atheist",
@@ -1451,7 +1489,9 @@ export const INFER_POOL = [
       "an epidemic across whole countries",
       "native and constant to a region"
     ],
-    "roots": "a- (without) + theos (god)"
+    "roots": "a- (without) + theos (god)",
+    "sentence": "The charge of atheist was laid against him for refusing the sacrifice, not for what he believed.",
+    "story": "Greek a-, 'without,' with theos, 'god' — and in the ancient world the accusation was civic rather than metaphysical. To be atheos was to refuse the gods of the city, which meant refusing the sacrifices that held the community's fortune together, so the charge was one of endangering everybody. Socrates faced a version of it. Early Christians were then called atheists by Roman officials for declining the imperial cult, which shows how little the word had to do with holding no belief. Today an atheist denies the existence of God, a position rather than a refusal to participate."
   },
   {
     "word": "pedagogue",
@@ -1473,7 +1513,9 @@ export const INFER_POOL = [
       "the delusion one is divine",
       "government by the old"
     ],
-    "roots": "paidos (child) + agogos (leader) — originally the slave who led children to school"
+    "roots": "paidos (child) + agogos (leader) — originally the slave who led children to school",
+    "sentence": "The pedagogue drilled them in the ablative and left them hating a language he loved.",
+    "story": "Greek pais, paidos, 'child,' with agogos, 'leader' — and the paidagogos in Athens was not the teacher. He was a household slave whose job was to walk the boy to school, carry his things and keep him out of trouble on the way, while the teaching was done by the didaskalos when they arrived. The escort has since been promoted. English took the word for a teacher, then let it sour into a teacher of the narrow and dogmatic kind. Today a pedagogue is a pedantic instructor, a title descended from a servant's errand."
   },
   {
     "word": "pedant",
@@ -1495,7 +1537,9 @@ export const INFER_POOL = [
       "one who holds God unknowable",
       "the delusion one is divine"
     ],
-    "roots": "from pedagogue — the teacher's learning worn as ostentation"
+    "roots": "from pedagogue — the teacher's learning worn as ostentation",
+    "sentence": "It took a pedant to notice, and the pedant was right, and the meeting lost an hour.",
+    "story": "From the same paidos, 'child,' by way of Italian pedante, a schoolmaster — and the first thing to say is which ped- this is. It is the child of pediatrics and not the foot of pedestrian, so a pedant has nothing etymologically to do with plodding, though the coincidence has helped the word along. What it names is the schoolroom manner exported into adult life: rules enforced for their own sake, and learning displayed rather than used. Today a pedant is one who parades petty learning, and the accuracy of the pedantry is beside the point."
   },
   {
     "word": "aristocracy",
@@ -1517,7 +1561,9 @@ export const INFER_POOL = [
       "the delusion one is divine",
       "government by the old"
     ],
-    "roots": "aristos (best) + kratos (rule)"
+    "roots": "aristos (best) + kratos (rule)",
+    "sentence": "It called itself an aristocracy, which required believing that merit had been hereditary for four centuries.",
+    "story": "Greek aristos, 'best,' with kratos, 'power' — rule by the best, and Aristotle meant it as a technical term with a definition. In the Politics, aristocracy is rule by the few in the common interest, and its corrupt counterpart, rule by the same few in their own interest, is oligarchy; the distinction is entirely about whom the government serves. The word then drifted from merit to birth. Today aristocracy means government by a noble class, so a term that originally claimed excellence now names an accident of parentage, which is exactly the slide Aristotle built oligarchy to describe."
   },
   {
     "word": "pandemic",
@@ -1543,7 +1589,9 @@ export const INFER_POOL = [
       "social and political rule by men",
       "one who parades petty learning"
     ],
-    "roots": "pan (all) + demos (people)"
+    "roots": "pan (all) + demos (people)",
+    "sentence": "What began as a local outbreak was a pandemic before the ministries had agreed on a name for it.",
+    "story": "Greek pan, 'all,' with demos, 'people' — affecting everybody, and the trio it belongs to is defined by geography rather than by severity, which is the point most often missed. An endemic disease is constantly present in a population at a baseline rate; an epidemic is a rise above that baseline in a region; a pandemic is an epidemic that has crossed continents. None of the three says anything about how dangerous the illness is. A mild disease can be pandemic and a lethal one merely endemic. Today a pandemic is an epidemic across whole countries."
   },
   {
     "word": "epidemic",
@@ -1569,7 +1617,9 @@ export const INFER_POOL = [
       "a short, pointed, witty saying",
       "an inscription on a tomb"
     ],
-    "roots": "epi- (upon) + demos (people)"
+    "roots": "epi- (upon) + demos (people)",
+    "sentence": "The epidemic was traced to a single pump, and the parish removed its handle the next morning.",
+    "story": "Greek epi, 'upon,' with demos, 'people' — falling upon a population, and the word is Hippocratic, the title of a set of treatises recording the course of illnesses through particular towns season by season. Those case books are the ancestor of epidemiology. Its most famous modern demonstration is John Snow's in London in 1854, when he mapped cholera deaths onto the Broad Street pump and argued the disease travelled in water rather than air, some decades before anyone could show the organism. Today an epidemic is a disease spreading among a people."
   },
   {
     "word": "endemic",
@@ -1595,7 +1645,9 @@ export const INFER_POOL = [
       "the study of human populations",
       "government by a noble class"
     ],
-    "roots": "en- (in) + demos (people)"
+    "roots": "en- (in) + demos (people)",
+    "sentence": "Malaria was endemic in the marshes, a constant low fever nobody any longer called an outbreak.",
+    "story": "Greek en, 'in,' with demos, 'people' — in the population and staying there, and the word is regularly misused to mean rampant. Endemic says the opposite of alarming: it means a disease is constantly present at a stable, expected level, so calling corruption endemic is to say it is the settled baseline rather than a crisis. Ecology uses the word differently again, for a species found in one place and nowhere else, which is why so much of what is endemic to an island is also fragile. Today endemic means native and constant to a region."
   },
   {
     "word": "autopsy",
@@ -1617,7 +1669,9 @@ export const INFER_POOL = [
       "an epidemic across whole countries",
       "native and constant to a region"
     ],
-    "roots": "autos (self) + opsis (sight) — a seeing for oneself"
+    "roots": "autos (self) + opsis (sight) — a seeing for oneself",
+    "sentence": "The autopsy answered the question in an hour that the inquest had spent three days approaching.",
+    "story": "Greek autos, 'self,' with opsis, 'sight' — a seeing for oneself, and the word does not mean what almost everyone takes it to mean. Nothing in it refers to death. An autopsy in Greek was first-hand observation of any kind, the knowledge you have because you were there and looked, as against what you were told, and the sense survives in phrases like a political autopsy of an election. Medicine narrowed it. Today an autopsy is the examination of a corpse, and the precise word for that is necropsy, which puts the dead where the self is standing."
   },
   {
     "word": "juridical",
@@ -1647,7 +1701,9 @@ export const INFER_POOL = [
       "given to talking at length",
       "wishing others well; kindly"
     ],
-    "roots": "jus, juris (law) + dicere (to say)"
+    "roots": "jus, juris (law) + dicere (to say)",
+    "sentence": "The question was juridical rather than moral, and the court declined to be drawn on the difference.",
+    "story": "Latin jus, juris, 'law,' with dicere, 'to say' — pertaining to the saying of law, and English holds three close adjectives it is worth separating. Judicial belongs to judges and courts; juristic belongs to jurists and legal theory; juridical belongs to law itself, its forms and its procedures, and is the broadest of the three. The compound at its root is the same one that makes the judge a law-sayer and jurisdiction a boundary of saying. Today juridical means relating to law and justice, and its precision is mostly kept alive by academic writing."
   },
   {
     "word": "loquacious",
@@ -1669,7 +1725,9 @@ export const INFER_POOL = [
       "relating to law and justice",
       "one who throws the voice elsewhere"
     ],
-    "roots": "loqui (to speak)"
+    "roots": "loqui (to speak)",
+    "sentence": "Loquacious even by the standards of the department, he could fill a silence before it formed.",
+    "story": "Latin loqui, 'to speak,' with the -acious ending that marks a disposition — inclined to talk, which is a temperament rather than an occasion. The verb has been unusually productive in this corpus. It gives the soliloquy spoken alone, the circumlocution that goes round, the colloquial that goes between equals, the interlocutor who answers, the obloquy of a whole town speaking against, the elocution that polishes and the eloquent that persuades. Seven positions on one act of speaking. Today loquacious means given to talking at length, and it names the quantity where garrulous names the emptiness."
   },
   {
     "word": "ventriloquist",
@@ -1695,7 +1753,9 @@ export const INFER_POOL = [
       "relating to law and justice",
       "given to talking at length"
     ],
-    "roots": "venter, ventris (belly) + loqui (to speak)"
+    "roots": "venter, ventris (belly) + loqui (to speak)",
+    "sentence": "The ventriloquist held a conversation with a suitcase and the audience forgot to watch his mouth.",
+    "story": "Latin venter, ventris, 'belly,' with loqui, 'to speak' — speaking from the belly, and the name records a theory rather than a technique. Antiquity and the Middle Ages understood the voice that seemed to come from elsewhere as the voice of a spirit lodged in the body, and Greek called such a person an engastrimythos, a belly-speaker; some translations of scripture accordingly describe the Witch of Endor in those terms. It was possession before it was performance. Today a ventriloquist throws the voice for entertainment, a stage trade since the eighteenth century, under a name given it by demonology."
   },
   {
     "word": "benevolent",
@@ -1721,7 +1781,9 @@ export const INFER_POOL = [
       "given to talking at length",
       "relating to law and justice"
     ],
-    "roots": "bene (well) + velle, volo (to wish)"
+    "roots": "bene (well) + velle, volo (to wish)",
+    "sentence": "The benevolent fund paid for the widow's coal, and asked her nothing about her husband's politics.",
+    "story": "Latin bene, 'well,' with velle, 'to wish' — wishing well, the exact counterpart of malevolent and built by Latin as a deliberate pair. Its most concrete English life is institutional. The eighteenth and nineteenth centuries produced thousands of benevolent societies and benevolent funds, mutual associations in which members paid small sums against sickness, burial or a family's ruin, and they were the practical welfare system before there was a public one. Today benevolent means wishing others well, and velle also supplies the volition and the voluntary that made those societies work."
   },
   {
     "word": "inculpate",
@@ -1747,7 +1809,9 @@ export const INFER_POOL = [
       "having no material body",
       "knowing all things"
     ],
-    "roots": "in- (against) + culpa (fault)"
+    "roots": "in- (against) + culpa (fault)",
+    "sentence": "The letter was meant to explain his absence and served instead to inculpate him entirely.",
+    "story": "Latin in, 'against,' with culpa, 'fault' — to fasten blame onto someone, and it is the rarer half of a pair. Exculpate and exculpatory are ordinary words in criminal procedure, where the prosecution's duty to disclose evidence favourable to the accused keeps them in daily use; inculpate is the mirror and appears far less often, because English prefers to say incriminate. The distinction between them is fine. Incriminate points at a criminal charge; inculpate points at blame of any kind. Today to inculpate is to accuse of wrongdoing, and culpa is the same fault a mea culpa admits."
   },
   {
     "word": "adjure",
@@ -1769,7 +1833,9 @@ export const INFER_POOL = [
       "a descriptive word tied to a name",
       "the fortified height of a city"
     ],
-    "roots": "ad- (to) + jurare (to swear)"
+    "roots": "ad- (to) + jurare (to swear)",
+    "sentence": "She adjured him to say nothing, and he understood that this was not a request.",
+    "story": "Latin ad, 'to,' with jurare, 'to swear' — to put someone under oath, and the force of the word is that it commands by invoking something sacred rather than by claiming authority. To adjure a person is to charge them as if they had sworn, which is why it survives chiefly in scripture and in solemn writing. It is regularly confused with abjure, which is its near opposite: to abjure is to renounce something on oath, so one adjures a person and abjures a belief. Today to adjure is to command solemnly, and jurare also supplies the jury, the perjury and the conjuring."
   },
   {
     "word": "telemetry",
@@ -1791,7 +1857,9 @@ export const INFER_POOL = [
       "abnormal, excessive thirst",
       "having no material body"
     ],
-    "roots": "tele- (far) + metron (measure)"
+    "roots": "tele- (far) + metron (measure)",
+    "sentence": "The telemetry showed the fault twelve seconds before the driver felt anything through the wheel.",
+    "story": "Greek tele, 'far off,' with metron, 'measure' — measuring at a distance, and the practice began with snow. Engineers in the Alps in the 1870s wired instruments to send depth readings down telegraph lines to stations that could not be reached in winter, which is telemetry in every essential respect. Spaceflight then made it indispensable, since a probe can send back nothing but measurements. Motor racing turned it into a live conversation between a car and a garage. Today telemetry is remote measurement of data, and tele- puts the same distance into the telephone and the telescope."
   },
   {
     "word": "polydipsia",
@@ -1817,7 +1885,9 @@ export const INFER_POOL = [
       "remote measurement of data",
       "having no material body"
     ],
-    "roots": "polys (many) + dipsa (thirst)"
+    "roots": "polys (many) + dipsa (thirst)",
+    "sentence": "The polydipsia was the first sign, and the endless thirst sent him to the doctor before anything else did.",
+    "story": "Greek polys, 'much,' with dipsa, 'thirst' — excessive thirst, and it is a cardinal symptom rather than a complaint on its own. Untreated diabetes produces it because sugar spilling into the urine drags water out with it, so the patient passes fluid continuously and is continuously thirsty. The disease is named for exactly that: diabetes is Greek for a siphon, something water passes straight through, and mellitus is Latin for honeyed, because the urine is sweet. Today polydipsia is abnormal thirst, and dipsa also supplies the dipsomaniac's very different craving."
   },
   {
     "word": "somatology",
@@ -1839,7 +1909,9 @@ export const INFER_POOL = [
       "abnormal, excessive thirst",
       "remote measurement of data"
     ],
-    "roots": "soma (body) + logos (study)"
+    "roots": "soma (body) + logos (study)",
+    "sentence": "His somatology filled a shelf with measurements of skulls that later scholarship set quietly aside.",
+    "story": "Greek soma, 'body,' with logos, 'study' — the study of the human body, and it is the older name for what is now called physical or biological anthropology. That change of name was not merely fashion. Nineteenth-century somatology was heavily occupied with measuring and classifying human bodies by type, an enterprise that supplied a great deal of pseudo-scientific support to racial hierarchy, and the discipline has spent a century separating itself from it. Today somatology is the scientific study of the human body, and soma also gives the psychosomatic and the chromosome."
   },
   {
     "word": "asomatous",
@@ -1865,7 +1937,9 @@ export const INFER_POOL = [
       "remote measurement of data",
       "a lover and collector of books"
     ],
-    "roots": "a- (without) + soma (body)"
+    "roots": "a- (without) + soma (body)",
+    "sentence": "The treatise argued that angels are asomatous, and spent forty pages on where they might be said to stand.",
+    "story": "Greek a-, 'without,' with soma, 'body' — bodiless, and the word belongs to a specific argument. Scholastic theology needed a vocabulary for beings held to exist without matter, and the problems it generated were genuine rather than frivolous: an asomatous being occupies no space, so questions about where it is and how it acts on anything physical had to be answered rather than waved away. Descartes inherited the whole difficulty. Today asomatous means having no material body, and it is the Greek counterpart of the Latin incorporeal, from the corpus that the corporeal keeps."
   },
   {
     "word": "bibliophile",
@@ -1887,7 +1961,9 @@ export const INFER_POOL = [
       "abnormal, excessive thirst",
       "remote measurement of data"
     ],
-    "roots": "biblion (book) + philein (to love)"
+    "roots": "biblion (book) + philein (to love)",
+    "sentence": "A bibliophile of the worst kind, he bought the book twice rather than disturb the first copy.",
+    "story": "Greek biblion, 'book,' with philein, 'to love' — and it is the temperate member of a set this corpus has assembled from three directions. The bibliophile loves books, often as objects, for their printing and binding and provenance as much as their contents. The bibliomaniac has lost proportion about it. The biblioklept has stopped paying. The distinctions are real and collectors make them about each other with some care. Today a bibliophile is a lover and collector of books, and the biblion at the root is a place name, Byblos, the port that shipped the papyrus."
   },
   {
     "word": "syndic",
@@ -1909,7 +1985,9 @@ export const INFER_POOL = [
       "one who rejects the faith",
       "having no material body"
     ],
-    "roots": "syn (together) + dikē (justice)"
+    "roots": "syn (together) + dikē (justice)",
+    "sentence": "The syndic argued the town's case in a court four days' ride from anyone it concerned.",
+    "story": "Greek syndikos, 'one who helps in court,' from syn and dike, 'justice' — an advocate acting for a community, and the office is older than the business word built on it. A syndic represented a city, a guild or a university in legal matters, and a body of them was a syndicate before finance borrowed the term. The office has not entirely gone. Cambridge University Press is still governed by a board called the Syndics, a piece of medieval municipal vocabulary surviving in a modern publisher. Today a syndic is an agent for a city in law."
   },
   {
     "word": "dialysis",
@@ -1931,7 +2009,9 @@ export const INFER_POOL = [
       "an abnormal fear of the dead",
       "one who rejects the faith"
     ],
-    "roots": "dia- (through) + lyein (to loosen)"
+    "roots": "dia- (through) + lyein (to loosen)",
+    "sentence": "Three mornings a week of dialysis did the work of an organ he no longer had.",
+    "story": "Greek dia, 'through,' with lyein, 'to loosen' — a loosening apart through something, and the word was a chemist's before it was a clinician's. Thomas Graham coined it in 1861 for the separation of substances by their different rates of diffusion through a membrane, a laboratory technique with no medical application in view. The machine came eighty years later. Willem Kolff built the first working artificial kidney in the occupied Netherlands in 1943 out of sausage casing, a wooden drum and salvaged parts. Today dialysis is separation through a membrane, and the same lyein loosens the knot in analysis."
   },
   {
     "word": "megalopolis",
@@ -1953,7 +2033,9 @@ export const INFER_POOL = [
       "at home anywhere in the world",
       "the chief city of a region"
     ],
-    "roots": "megas, megalo- (great) + polis (city)"
+    "roots": "megas, megalo- (great) + polis (city)",
+    "sentence": "The drive from one end of the megalopolis to the other never once left the streetlights behind.",
+    "story": "Greek megas, in its combining form megalo-, 'great,' with polis, 'city' — the great city, and there was an actual one, which is the joke. Megalopolis was founded in Arcadia around 371 BC as a deliberate federal capital for the Arcadian League, given an ambitious name to match its intended importance, and it never grew into it; ancient writers used it as an example of a place whose title outran its population. Jean Gottmann revived the word in 1961 for the continuous urban belt of the American northeast. Today a megalopolis is a vast sprawling urban region."
   },
   {
     "word": "mantic",
@@ -1975,7 +2057,9 @@ export const INFER_POOL = [
       "a vast, sprawling urban region",
       "at home anywhere in the world"
     ],
-    "roots": "manteia (divination)"
+    "roots": "manteia (divination)",
+    "sentence": "The priest's mantic reputation rested on predictions vague enough to survive any outcome.",
+    "story": "Greek manteia, 'divination,' from mantis, 'a seer' — and this word is the head of a family this corpus has met in pieces. Every method of divination took the same ending: necromancy questions the dead, pyromancy reads flames, and antiquity had dozens more for smoke, water, entrails and lots. The seer at the root has one further descendant nobody expects. The praying mantis is named for him, since the insect's folded forelimbs were taken for the attitude of a prophet at prayer. Today mantic means relating to prophecy or divination."
   },
   {
     "word": "amortize",
@@ -2001,7 +2085,9 @@ export const INFER_POOL = [
       "the chief city of a region",
       "an abnormal fear of the dead"
     ],
-    "roots": "ad- (to) + mors, mort- (death)"
+    "roots": "ad- (to) + mors, mort- (death)",
+    "sentence": "They amortized the press over twelve years, by which time it had already been replaced twice.",
+    "story": "Latin ad, 'to,' with mors, mortis, 'death,' by way of French amortir — to put a debt to death, and the killing is the whole metaphor. An amortized loan is one being deliberately extinguished by instalments rather than merely serviced, so each payment kills a further portion of the principal until nothing survives. Accounting borrowed the same idea for writing down the value of an asset across its useful life. Today to amortize is to pay off a debt over time, and the mort- in it is the same death that stiffens the mortgage and the mortmain."
   },
   {
     "word": "acropolis",
@@ -2023,7 +2109,9 @@ export const INFER_POOL = [
       "at home anywhere in the world",
       "the chief city of a region"
     ],
-    "roots": "akros (highest) + polis (city)"
+    "roots": "akros (highest) + polis (city)",
+    "sentence": "The acropolis had been a fort long before it was a temple, and the walls still showed it.",
+    "story": "Greek akros, 'topmost,' with polis, 'city' — the high city, and it is a common noun rather than a name. Most Greek cities had an acropolis, the defensible height they had originally been built around and where the treasury and the principal temples stood; Athens has simply monopolised the word by having the most famous one. The height came first and the sanctity followed it. Today an acropolis is the fortified height of a city, and akros supplies the acrobat who walks high, the acrophobe who cannot, and the acromegaly that overgrows the body's extremities."
   },
   {
     "word": "cosmopolitan",
@@ -2049,7 +2137,9 @@ export const INFER_POOL = [
       "an abnormal fear of the dead",
       "the chief city of a region"
     ],
-    "roots": "kosmos (world) + polites (citizen)"
+    "roots": "kosmos (world) + polites (citizen)",
+    "sentence": "Cosmopolitan by conviction, he was equally unimpressed by every flag on the row of poles.",
+    "story": "Greek kosmos, 'world,' with polites, 'citizen' — a citizen of the world, and the first recorded use is a refusal. Diogenes the Cynic, asked where he came from, is said to have answered that he was a kosmopolites, which in a society organised entirely around the claims of one's own city was not a pleasantry but a rejection of the whole basis of belonging. The Stoics then made it a serious doctrine. Today cosmopolitan means at home anywhere in the world, and kosmos, which means order as much as world, also gives the cosmetic that puts a face in order."
   },
   {
     "word": "metropolis",
@@ -2071,7 +2161,9 @@ export const INFER_POOL = [
       "to pay off a debt over time",
       "at home anywhere in the world"
     ],
-    "roots": "meter, metros (mother) + polis (city)"
+    "roots": "meter, metros (mother) + polis (city)",
+    "sentence": "Everything was decided in the metropolis, and the province learned of it by newspaper.",
+    "story": "Greek meter, metros, 'mother,' with polis, 'city' — the mother city, and the term is colonial before it is architectural. When a Greek city sent out settlers to found a colony, it was their metropolis, and the daughter city owed it religious observances and a certain deference for centuries afterwards; the relationship, not the size, was what the word named. Later empires used it in exactly the same way for the home country against its possessions. Today a metropolis is the chief city of a region, and the mother in it has been almost entirely forgotten."
   },
   {
     "word": "necrophobia",
@@ -2093,7 +2185,9 @@ export const INFER_POOL = [
       "to pay off a debt over time",
       "the chief city of a region"
     ],
-    "roots": "necros (corpse) + phobos (fear)"
+    "roots": "necros (corpse) + phobos (fear)",
+    "sentence": "His necrophobia kept him out of the churchyard and, in the end, away from his own father's funeral.",
+    "story": "Greek nekros, 'corpse,' with phobos, 'fear' — fear of the dead, and it sits at the intersection of two families this corpus has built out separately. The nekros side supplies the necropolis, the necromancy that questions corpses and the necrosis that names tissue dying in a living body. The phobos side supplies the agoraphobe, the claustrophobe and the acrophobe, all coined in the same clinical wave of the later nineteenth century. Today necrophobia is an abnormal fear of the dead, and phobos himself was a god, the son of Ares who rode beside him into battle."
   },
   {
     "word": "mortmain",
@@ -2115,7 +2209,9 @@ export const INFER_POOL = [
       "the fortified height of a city",
       "to pay off a debt over time"
     ],
-    "roots": "mors, mort- (death) + manus (hand)"
+    "roots": "mors, mort- (death) + manus (hand)",
+    "sentence": "The land had passed into mortmain three centuries earlier and had not been sold since.",
+    "story": "Latin mors, 'death,' with manus, 'hand' — the dead hand, and it names a real problem in feudal law rather than a metaphor. When land passed to a corporation, above all to the Church, it never changed hands again by death, so the dues and reliefs a lord collected whenever an heir inherited simply stopped coming; the corporation did not die. The Crown legislated against it repeatedly, in the Statutes of Mortmain of 1279 and 1290. Today mortmain is property held inalienably by a body, and the dead hand is the grip of the past on land the living cannot move."
   },
   {
     "word": "capitation",
@@ -2137,7 +2233,9 @@ export const INFER_POOL = [
       "disease or disorder of the nerves",
       "the fortified height of a city"
     ],
-    "roots": "caput, capitis (head)"
+    "roots": "caput, capitis (head)",
+    "sentence": "The capitation fell on rich and poor alike, which was precisely what emptied the villages into the road.",
+    "story": "Latin caput, capitis, 'head' — a tax counted by heads, and English has the same idea twice, since a poll tax is the identical levy with the Germanic word for head instead of the Latin one. Its political history is remarkably consistent. A head tax takes the same sum from everyone regardless of means, which makes it heaviest on the poorest, and the English rising of 1381 and the resistance to the Community Charge in 1990 were both provoked by one. Today capitation is a fee levied on each person, and medicine uses it for payment per patient rather than per treatment."
   },
   {
     "word": "legerity",
@@ -2159,7 +2257,9 @@ export const INFER_POOL = [
       "one who reads fate in the stars",
       "an abnormal fear of the dead"
     ],
-    "roots": "léger (light, nimble)"
+    "roots": "léger (light, nimble)",
+    "sentence": "He crossed the scaffolding with a legerity that made the foreman look away.",
+    "story": "French léger, 'light, nimble,' from Latin levis — lightness of body, and it is the quiet relative of a much better-known phrase. Legerdemain is léger de main, light of hand, borrowed whole for the conjuror's dexterity; legerity took the same lightness and applied it to the whole body, meaning agility rather than trickery. The Latin root spreads widely: levis gives levity, alleviate, elevate and the leger line in music. Today legerity means lightness and nimbleness of body, and it is rare enough that using it is itself a small performance."
   },
   {
     "word": "univocal",
@@ -2185,7 +2285,9 @@ export const INFER_POOL = [
       "the belief all things have a spirit",
       "social and political rule by men"
     ],
-    "roots": "unus (one) + vox (voice)"
+    "roots": "unus (one) + vox (voice)",
+    "sentence": "The clause was univocal, and both sides had to look elsewhere for their disagreement.",
+    "story": "Latin unus, 'one,' with vox, 'voice' — speaking with one voice, meaning one thing and not another, and the word belongs to a scholastic set of three. A term is univocal when it means the same in every use, equivocal when it carries two senses at once, and analogical when its senses are related but not identical. The distinction did serious work. Aquinas needed it to ask whether calling God good says the same thing as calling a man good, and concluded it does not. Today univocal means having a single unambiguous meaning, and equivocate is what its opposite does on purpose."
   },
   {
     "word": "controvert",
@@ -2207,7 +2309,9 @@ export const INFER_POOL = [
       "one who walks in his sleep",
       "having no material body"
     ],
-    "roots": "contra- (against) + vertere (to turn)"
+    "roots": "contra- (against) + vertere (to turn)",
+    "sentence": "Nobody rose to controvert the figures, which the chairman took, too quickly, for agreement.",
+    "story": "Latin contra, 'against,' with vertere, 'to turn' — to turn a thing against itself, and this is the live verb inside a much commoner adjective. What is incontrovertible is what cannot be so turned, and controversy is the turning under way, a dispute in which each side rotates the matter to show a different face. The image assumes that a question has more than one aspect and that arguing consists of presenting them. Today to controvert is to dispute or argue against, and vertere is the root that has been turning through this corpus since the introvert of Gate I."
   },
   {
     "word": "epigram",
@@ -2229,7 +2333,9 @@ export const INFER_POOL = [
       "an inscription on a tomb",
       "a disease spreading among a people"
     ],
-    "roots": "epi- (upon) + graphein (to write)"
+    "roots": "epi- (upon) + graphein (to write)",
+    "sentence": "The epigram took four words to say what the speech had failed to say in twenty minutes.",
+    "story": "Greek epi, 'upon,' with graphein, 'to write' — writing upon something, and it began as an inscription cut into stone, the same origin as epigraph. Brevity was imposed by the material before it became a literary virtue: a mason charges by the letter and a monument has one face, so the form had to be short, and what was short had to be pointed. The Greek Anthology and then Martial made a genre of the constraint. Today an epigram is a short pointed witty saying, and its compression is a property of stone that outlived the stone."
   },
   {
     "word": "epitaph",
@@ -2251,7 +2357,9 @@ export const INFER_POOL = [
       "a descriptive word tied to a name",
       "a disease spreading among a people"
     ],
-    "roots": "epi- (upon) + taphos (tomb)"
+    "roots": "epi- (upon) + taphos (tomb)",
+    "sentence": "The epitaph named no dates and no offices, and everyone who read it knew exactly who was meant.",
+    "story": "Greek epi, 'upon,' with taphos, 'tomb' — written upon a grave, and the form has produced some of the most compressed writing in any language. The Spartan dead at Thermopylae were given two lines telling the passer-by to report to Lacedaemon that they lie here obedient to her orders, and nothing else. The best English one is in St Paul's, where Christopher Wren's son wrote that if you seek his monument, look about you — using the same circumspice that gives English circumspect. Today an epitaph is an inscription on a tomb."
   },
   {
     "word": "epithet",
@@ -2273,6 +2381,8 @@ export const INFER_POOL = [
       "a short, pointed, witty saying",
       "an inscription on a tomb"
     ],
-    "roots": "epi- (upon) + tithenai (to place)"
+    "roots": "epi- (upon) + tithenai (to place)",
+    "sentence": "The epithet followed him for thirty years, and the achievement that earned it was forgotten in ten.",
+    "story": "Greek epi, 'upon,' with tithenai, 'to place' — a word placed upon a name, and its technical home is the oral poetry of Homer. Swift-footed Achilles, grey-eyed Athena and the wine-dark sea are formulaic epithets, and Milman Parry showed in the 1920s that they exist to fill particular metrical positions, giving a singer composing aloud a ready phrase of the right length. They are tools of performance rather than description. The word has since gone downhill: an epithet now usually means a slur. Today an epithet is a descriptive word tied to a name, complimentary or not."
   }
 ] satisfies InferenceWord[];

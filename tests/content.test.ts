@@ -159,18 +159,17 @@ describe("runtime content", () => {
       expect(story, word.word).not.toBe(depth[word.word]?.e);
       expect(story, word.word).not.toBe(depth[word.word]?.v);
     }
-    // Gate and Drill Hall words all carry one now. These are floors, not ratchets — the
-    // failure names the words that regressed. Never weaken them.
-    const missingStory = (pool: readonly (Word | DrillWord)[]) =>
+    // Every headword in every pool now carries one. The ratchet this replaced is finished:
+    // these are floors, and the failure names the words that regressed. Never weaken them.
+    const missingStory = (pool: readonly (Word | DrillWord | InferenceWord)[]) =>
       pool.filter((word) => !catalog.wordStory(word)).map((word) => word.word);
     expect(missingStory(gateWords)).toEqual([]);
     expect(missingStory(DRILL_POOL)).toEqual([]);
-    // Ratchets up as each remaining batch lands: 321 (gates + drill) → 416 (whole corpus).
-    // Raise it per batch; never lower it.
-    expect(withStory).toBeGreaterThanOrEqual(361);
-    // Inference words are being given the example sentence they were authored without, so
-    // their cards can render in full. Ratchets alongside the stories, ending at all 95.
-    expect(inferenceWords.filter((word) => word.sentence).length).toBeGreaterThanOrEqual(40);
+    expect(missingStory(inferenceWords)).toEqual([]);
+    expect(withStory).toBe(allWords.length);
+    // Inference words were authored without the example sentence the study card renders.
+    // All of them have one now, so the card never falls back to omitting the line.
+    expect(inferenceWords.filter((word) => !word.sentence).map((word) => word.word)).toEqual([]);
   });
 
   it("keeps similar roots symmetric and cognates meaningful", () => {
