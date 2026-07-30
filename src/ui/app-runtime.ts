@@ -765,7 +765,11 @@ function startTrial2(idx:number):void{
   lv.quizRoots.forEach(r=>items.push({m:'ROOTT',root:r}));   // the roots again, this time recalled by typing
   const pairs = pairPick(idx,3);
   pairs.forEach(p=>items.push({m:'PAIR',pair:p}));
-  S={idx,kind:'T2',queue:shuffle(items),debt:0,done:0,sit:{cleared:0,ahead:0},missed:[]};
+  // Trial II is the production trial, so it opens with production. Typed items first,
+  // each block shuffled, rather than one flat shuffle that can lead with a multiple choice.
+  const TYPED:ReadonlySet<QuizMode>=new Set(['PROD','VIGT','CLOZE','LITT','ROOTT']);
+  const queue=[...shuffle(items.filter(i=>TYPED.has(i.m))),...shuffle(items.filter(i=>!TYPED.has(i.m)))];
+  S={idx,kind:'T2',queue,debt:0,done:0,sit:{cleared:0,ahead:0},missed:[]};
   trialItem();
 }
 
@@ -818,9 +822,13 @@ function renderTrialPrompt({label,gateLabel,it,w,onResolve,onNext,oneShot=false,
   const position=():number=>"pos" in session?session.pos:0;
   if(it.inf){ P.seenInfer[it.inf.word]=true; save(); }
   if(it.pair){ P.seenPair[String(CONFUSABLES.indexOf(it.pair))]=true; save(); }
+  // Practice shows the letter cue; anything that is testing production does not. The gate
+  // trials, the Docket and the Bar all ask the learner to produce the word cold, and a cue
+  // reading "p·······" hands over its length and first letter.
+  const cue = session.kind==='DRILL'||session.kind==='FORGE'||session.kind==='FORGENOW';
   const view=buildPromptView({
     item:it,word:w,gates:LEVELS,inferencePool:INFER_POOL,drillWords:drillWords(),
-    random:deps.random,vignette:vigOf,literal:litOf,posOf,wordFoils,rootForms,rootCue,rootAudio:rootSay
+    random:deps.random,vignette:vigOf,literal:litOf,posOf,wordFoils,cue,rootForms,rootCue,rootAudio:rootSay
   });
   const {promptHtml,bodyHtml,typed}=view;
   if(view.compose) it._compose=view.compose;

@@ -17,6 +17,8 @@ interface PromptViewOptions {
   posOf(text: string): string | null;
   // Wrong headwords for a word-choice prompt, ranked by confusability.
   wordFoils(word: Word | DrillWord, gateIndex: number | undefined, count: number): string[];
+  // Whether typed prompts show the first-letter cue. False where production is the test.
+  cue: boolean;
   rootForms(root: Root): string[];
   rootCue(root: Root): string;
   rootAudio(root: string): string;
@@ -200,13 +202,16 @@ export function buildPromptView(options: PromptViewOptions): PromptView {
     case "LITT": {
       const word = requireWord(options.word, item.m);
       const vignette = options.vignette(word);
+      // The letter cue earns its place in low-stakes practice and gives the answer away
+      // where production is the point. Its owner is the caller's context, not the mode.
+      const cue = options.cue ? `<div class="cue">${letterCue(word.word)}</div>` : "";
       const promptHtml = item.m === "VIGT" && vignette
-        ? `<div class="q-ask">Name the word the scene calls for — exact spelling</div><div class="q-sentence">“${escapeHtml(vignette)}”</div><div class="cue">${letterCue(word.word)}</div>`
+        ? `<div class="q-ask">Name the word the scene calls for — exact spelling</div><div class="q-sentence">“${escapeHtml(vignette)}”</div>${cue}`
         : item.m === "CLOZE"
-          ? `<div class="q-ask">Complete the sentence — exact spelling</div><div class="q-sentence">“${blankWord(word)}”</div><div class="cue">${letterCue(word.word)}</div>`
+          ? `<div class="q-ask">Complete the sentence — exact spelling</div><div class="q-sentence">“${blankWord(word)}”</div>${cue}`
           : item.m === "LITT"
-            ? `<div class="q-ask">Its pieces read, in order — type the word</div><div class="q-def" style="font-family:'IBM Plex Mono',monospace;font-size:16.5px;line-height:1.7">${options.literal(word)}</div><div class="cue">${letterCue(word.word)}</div>`
-            : `<div class="q-ask">Type the word — exact spelling</div><div class="q-def">“${word.def}”</div>${item.drill ? `<div class="cue">${letterCue(word.word)}</div>` : ""}`;
+            ? `<div class="q-ask">Its pieces read, in order — type the word</div><div class="q-def" style="font-family:'IBM Plex Mono',monospace;font-size:16.5px;line-height:1.7">${options.literal(word)}</div>${cue}`
+            : `<div class="q-ask">Type the word — exact spelling</div><div class="q-def">“${word.def}”</div>${cue}`;
       return {
         promptHtml,
         bodyHtml: '<div class="typebox"><input id="ans" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="the word…"><button class="btn" id="sub">Submit</button></div>',

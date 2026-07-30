@@ -364,6 +364,21 @@ test("a lapse resets the calendar but drops difficulty only one rung", async ({ 
   expect(after.tier).toBe(1);
 });
 
+test("withholds the letter cue where production is the test", async ({ page }) => {
+  await page.addInitScript((fixture) => {
+    localStorage.setItem("rootstock_v2", JSON.stringify({
+      ...fixture,
+      // Tier 2 is the typed bank: PROD, CLOZE and VIGT all used to leak "p·······".
+      review: { "0-0": { box: 3, tier: 2, due: 1 } }
+    }));
+  }, admittedProgress);
+
+  await page.goto("/");
+  await page.locator("#cta").click();
+  await expect(page.locator("#ans")).toBeVisible();
+  await expect(page.locator(".cue")).toHaveCount(0);
+});
+
 test("opens the root and word lexicons from sealed content", async ({ page }) => {
   await page.addInitScript((fixture) => {
     localStorage.setItem("rootstock_v2", JSON.stringify(fixture));
