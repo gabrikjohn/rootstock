@@ -28,7 +28,7 @@ import { canAccessGate, temperUnlock as calculateTemperUnlock } from "../domain/
 import { normalizeRoot, rootForms as getRootForms, rootMatches } from "../domain/roots";
 import type { DocketSummary } from "../domain/scheduling";
 import { DOCKET_SESSION_CAP, docketBlocks, docketSummary, initialReview, retiresFromDocket, scheduleReview, selectDocketSitting, tierOf } from "../domain/scheduling";
-import { buildBarItems, buildTrialOneItems, selectInference } from "../domain/sessions";
+import { BAR_FORMS, barComposition, buildBarItems, buildTrialOneItems, selectInference } from "../domain/sessions";
 import { pronLine } from "../platform/audio";
 import type { AppDependencies } from "../platform/contracts";
 import { ProgressStore } from "../platform/progress-store";
@@ -106,7 +106,9 @@ const TEMPER_MIN_MS = 8 * 60 * 60 * 1000, TEMPER_WAKE_HR = 4;
 function temperUnlock(t1:number):number{
   return calculateTemperUnlock(t1, TEMPER_MIN_MS, TEMPER_WAKE_HR);
 }
-const BAR_SIZE = 50, BAR_PASS = 45;
+// 30% of the Bar is now never-taught material, up from 20%, so the pass mark comes down:
+// 45/50 was calibrated against an exam that was four-fifths recall.
+const BAR_SIZE = 50, BAR_PASS = 40;
 const DAY = 24*60*60*1000;
 
 const appearanceController = new AppearanceController(deps.random, deps.storage);
@@ -459,7 +461,7 @@ function primaryAction(due:number, debtBlocks:boolean):PrimaryAction{
   if(P.bar.passed) return {kicker:'Admitted \u2726', label:'The Drill Hall stands open', sub:'Adaptive drilling on the advanced stock \u2014 for as long as you like', fn:startDrill};
   if(debtBlocks) return {kicker:'Review', label:'The Review Docket', sub:'Clear the docket, then the Bar sits open', fn:startReview};
   if(P.bar.lockedUntil>deps.clock.now()) return {kicker:'The Bar', label:'Doors locked', sub:'Reopens in '+fmtDur(P.bar.lockedUntil-deps.clock.now()), fn:null};
-  return {kicker:'The Bar', label:'The Bar sits open', sub:'Fifty items \u00b7 '+BAR_PASS+' to pass \u00b7 one attempt', fn:startBar};
+  return {kicker:'The Bar', label:'The Bar sits open', sub:BAR_SIZE+' items \u00b7 '+BAR_PASS+' to pass \u00b7 form '+rom((P.bar.form??0)+1), fn:startBar};
 }
 
 /* ================= HOME ================= */
@@ -1015,9 +1017,11 @@ function startBar():void{
   stopClock();
   if(!RS.active()) return paywall('bar');
   const pool:{gi:number;wi:number}[]=[]; LEVELS.forEach((lv,gi)=>lv.words.forEach((_,wi)=>pool.push({gi,wi})));
-  const pairs = pairPick(LEVELS.length-1,5);
-  const inf10 = inferPick(LEVELS.length-1,10);
-  S={kind:'BAR',queue:buildBarItems(pool,pairs,inf10,deps.random),pos:0,correct:0,debt:0};
+  const plan=barComposition(BAR_SIZE);
+  const pairs = pairPick(LEVELS.length-1,plan.pairs);
+  const infer = inferPick(LEVELS.length-1,plan.meaning+plan.compose);
+  const form = P.bar.form ?? 0;
+  S={kind:'BAR',queue:buildBarItems(pool,pairs,infer,deps.random,BAR_SIZE,form),pos:0,correct:0,debt:0};
   barItem();
 }
 function barItem():void{
@@ -1040,18 +1044,21 @@ function renderBarPrompt(it:QuizItem,w:Word|null):void{
   });
   // patch the meta line for one-shot display
   const qm=document.querySelector('.queue-meta');
-  if(qm) qm.innerHTML=`<span>${session.correct} correct</span><span class="debt">${BAR_PASS} needed · no second chances</span>`;
+  if(qm) qm.innerHTML=`<span>${session.correct} correct</span><span class="debt">${BAR_PASS} needed to pass</span>`;
 }
 function barDone():void{
   const session=requireSession("BAR");
   const passed=session.correct>=BAR_PASS;
-  if(passed){ P.bar.passed=true; P.bar.passedAt=deps.clock.now(); } else P.bar.lockedUntil=deps.clock.now()+TEMPER_MIN_MS;
+  if(passed){ P.bar.passed=true; P.bar.passedAt=deps.clock.now(); }
+  else { P.bar.lockedUntil=deps.clock.now()+TEMPER_MIN_MS;
+    // A retake is a different form, not a reshuffle of the same one.
+    P.bar.form=((P.bar.form??0)+1)%BAR_FORMS; }
   save();
   sealScreen({gold:true,seal:passed?'✦':'—',
     title:passed?'Admitted':'Not This Sitting',
     score:session.correct+' of '+BAR_SIZE+' · '+BAR_PASS+' required',
-    note:passed?'Forty produced from memory, five twins told apart, five strangers read by their roots. The method is yours.'
-               :'The doors lock for eight hours. Work the Docket and the cards — the Bar re-samples when it reopens.',
+    note:passed?'Thirty produced from memory, five twins told apart, and fifteen strangers read by their roots alone. The method is yours.'
+               :'The doors lock for eight hours. Work the Docket and the cards — a different form sits waiting when they open.',
     actions:`<button class="btn" id="h2">Return to the gates</button>`});
   requiredButton('h2').onclick=home;
 }

@@ -52,7 +52,7 @@ import {
   REVIEW_RETIRE_NET,
   scheduleReview
 } from "../src/domain/scheduling";
-import { buildBarItems, buildTrialOneItems, selectInference } from "../src/domain/sessions";
+import { BAR_FORMS, barComposition, buildBarItems, buildTrialOneItems, selectInference } from "../src/domain/sessions";
 import { COGNATES, DEPTH, ETYM, ROOT_DEEP } from "../src/content";
 
 const zeroRandom = { next: () => 0 };
@@ -210,6 +210,23 @@ describe("Leitner scheduling", () => {
   });
 });
 
+describe("confusable pairs", () => {
+  it("keeps every pair servable, so none is dead content", () => {
+    // pickConfusables only offers a pair when both members resolve to a taught headword.
+    // "ingenious" is not one — that pair predates this suite and can never be drawn.
+    const KNOWN_UNSERVABLE = new Set(["ingenious"]);
+    const dead = CONFUSABLES.filter((pair) =>
+      gateIndexForForm(LEVELS, pair.a) < 0 || gateIndexForForm(LEVELS, pair.b) < 0
+    ).map((pair) => `${pair.a}/${pair.b}`);
+    expect(dead.filter((name) => !KNOWN_UNSERVABLE.has(name.split("/")[0]!))).toEqual([]);
+  });
+
+  it("holds enough pairs that the Bar need not repeat them", () => {
+    // The Bar draws 5 per sitting; a pool this side of 20 guarantees heavy overlap.
+    expect(CONFUSABLES.length).toBeGreaterThanOrEqual(30);
+  });
+});
+
 describe("distractor scoring", () => {
   const gate = LEVELS[0]!;
   const target = gate.words[0]!;
@@ -343,16 +360,47 @@ describe("session construction", () => {
     expect(items.filter((item) => item.m === "ROOTS")).toHaveLength(gate.quizRoots!.length);
   });
 
-  it("samples the Bar as 35 production, 5 pairs, and 10 inference tasks", () => {
-    const words = Array.from({ length: 60 }, (_, index) => ({ gi: 0, wi: index }));
-    const pairs = CONFUSABLES.slice(0, 5);
-    const inference = INFER_POOL.slice(0, 10);
-    const items = buildBarItems(words, pairs, inference, zeroRandom);
+  it("samples the Bar as 30 production, 5 pairs, and 15 never-taught tasks", () => {
+    const words = Array.from({ length: 240 }, (_, index) => ({ gi: 0, wi: index }));
+    const items = buildBarItems(words, CONFUSABLES, INFER_POOL, zeroRandom);
     expect(items).toHaveLength(50);
-    expect(items.filter((item) => item.m === "PROD" || item.m === "VIGT")).toHaveLength(35);
+    expect(items.filter((item) => item.m === "PROD" || item.m === "VIGT")).toHaveLength(30);
     expect(items.filter((item) => item.m === "PAIR")).toHaveLength(5);
-    expect(items.filter((item) => item.m === "INFER")).toHaveLength(5);
+    expect(items.filter((item) => item.m === "INFER")).toHaveLength(10);
     expect(items.filter((item) => item.m === "COMPOSE")).toHaveLength(5);
+  });
+
+  it("derives its split from the size it is given", () => {
+    // The label, the pass mark and the queue all read from one number now.
+    const words = Array.from({ length: 240 }, (_, index) => ({ gi: 0, wi: index }));
+    for (const size of [30, 50, 60]) {
+      const items = buildBarItems(words, CONFUSABLES, INFER_POOL, zeroRandom, size);
+      expect(items, `size ${size}`).toHaveLength(size);
+    }
+  });
+
+  it("gives each form a disjoint set of production words", () => {
+    const words = Array.from({ length: 240 }, (_, index) => ({ gi: 0, wi: index }));
+    const locations = (form: number): Set<string> => new Set(
+      buildBarItems(words, CONFUSABLES, INFER_POOL, zeroRandom, 50, form)
+        .filter((item) => item.m === "PROD" || item.m === "VIGT")
+        .map((item) => `${item.gi}-${item.wi}`)
+    );
+    const [one, two, three] = [locations(0), locations(1), locations(2)];
+    // A retake must be a different exam, not a reshuffle of the same one.
+    for (const location of one) expect(two.has(location), location).toBe(false);
+    for (const location of two) expect(three.has(location), location).toBe(false);
+    for (const location of one) expect(three.has(location), location).toBe(false);
+    // And the form index wraps rather than running off the end of the corpus.
+    expect(locations(BAR_FORMS)).toEqual(one);
+  });
+
+  it("still fills the exam when a pool is too small to partition", () => {
+    // Fewer confusable pairs than three forms' worth must not shrink the sitting.
+    const words = Array.from({ length: 240 }, (_, index) => ({ gi: 0, wi: index }));
+    const items = buildBarItems(words, CONFUSABLES.slice(0, 4), INFER_POOL, zeroRandom, 50, 2);
+    expect(items).toHaveLength(50);
+    expect(items.filter((item) => item.m === "PAIR").length).toBeGreaterThan(0);
   });
 });
 

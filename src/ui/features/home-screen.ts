@@ -74,7 +74,7 @@ export function renderHome(options: HomeScreenOptions): void {
   cards += openGates.map(renderGateCard).join("");
   cards += `<button class="lvl-card bar-card" ${options.bar.enabled ? "" : "disabled"} id="bar-btn">
     <div class="lvl-num" style="color:var(--gild)">☙</div>
-    <div class="lvl-body"><h3>The Bar</h3><p>Fifty items: forty produced from memory, five confusable pairs, five words you have never seen — meanings built from roots alone. ${options.bar.passScore} to pass; one attempt, then an eight-hour lock.</p></div>${renderStatus(options.bar.status)}</button>`;
+    <div class="lvl-body"><h3>The Bar</h3><p>Fifty items: thirty produced from memory, five confusable pairs, and fifteen words you have never seen — read from their roots alone. ${options.bar.passScore} to pass; fail and a different form opens after eight hours.</p></div>${renderStatus(options.bar.status)}</button>`;
   const docketHtml = options.docketDue > 0
     ? `<button class="lvl-card" style="border-left-color:var(--ox-bright);padding:10px 16px" id="docket-btn">
       <div class="lvl-num" style="color:var(--ox-bright);font-size:18px;min-width:42px">⚖</div>

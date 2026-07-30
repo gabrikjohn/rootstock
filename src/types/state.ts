@@ -33,7 +33,7 @@ export interface DrillProgress {
 
 export interface ProgressV2 {
   gates: Record<string, GateProgress>;
-  bar: { passed: boolean; lockedUntil: number; passedAt?: number };
+  bar: { passed: boolean; lockedUntil: number; passedAt?: number; form?: number };
   review: Record<string, ReviewProgress>;
   prompted: Record<string, boolean>;
   seenInfer: Record<string, boolean>;

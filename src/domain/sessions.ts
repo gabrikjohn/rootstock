@@ -56,18 +56,75 @@ export function buildTrialOneItems(
   return items;
 }
 
+export const BAR_FORMS = 3;
+
+export interface BarComposition {
+  size: number;
+  pairs: number;
+  meaning: number;
+  compose: number;
+}
+
+/** Derived from the total so the "N of SIZE" label and the pass mark can never disagree. */
+export function barComposition(size: number): BarComposition {
+  const pairs = Math.round(size * 0.1);
+  const meaning = Math.round(size * 0.2);
+  const compose = Math.round(size * 0.1);
+  return { size, pairs, meaning, compose };
+}
+
+/**
+ * One of BAR_FORMS fixed forms, not a fresh sample each sitting.
+ *
+ * Every attempt used to re-draw from the whole corpus, so "one attempt" was never true and
+ * two sittings could repeat most of their items. Partitioning by form index means Form I,
+ * II and III share no production words and no inference words at all: a retake is genuinely
+ * a different exam, and it is stable enough to be worth preparing for.
+ *
+ * The never-taught share is 30% here rather than the old 20%. Those items are the only ones
+ * that test the method instead of the memory, and they cost nothing extra — every inference
+ * word already has a recording.
+ */
 export function buildBarItems(
   wordPool: readonly WordLocation[],
   pairs: readonly ConfusablePair[],
   inference: readonly InferenceWord[],
-  random: RandomSource
+  random: RandomSource,
+  size = 50,
+  form = 0
 ): SessionItem[] {
-  const production: SessionItem[] = shuffle(wordPool, random).slice(0, 35).map((location) => ({
+  const plan = barComposition(size);
+  const production = plan.size - plan.pairs - plan.meaning - plan.compose;
+  const slice = <T,>(items: readonly T[], count: number): T[] => {
+    if (!items.length) return [];
+    const share = Math.floor(items.length / BAR_FORMS) || items.length;
+    const start = (form % BAR_FORMS) * share;
+    const block = items.slice(start, start + share);
+    const pool = block.length >= count ? block : items;
+    return shuffle(pool, random).slice(0, count);
+  };
+
+  const productionItems: SessionItem[] = slice(wordPool, production).map((location) => ({
     ...location,
     m: random.next() < 0.6 ? "PROD" : "VIGT"
   }));
-  const pairItems: SessionItem[] = pairs.slice(0, 5).map((pair) => ({ m: "PAIR", pair }));
-  const meaningItems: SessionItem[] = inference.slice(0, 5).map((inf) => ({ m: "INFER", inf }));
-  const composeItems: SessionItem[] = inference.slice(5, 10).map((inf) => ({ m: "COMPOSE", inf }));
-  return shuffle([...production, ...pairItems, ...meaningItems, ...composeItems], random);
+  const meaningPool = slice(inference, plan.meaning + plan.compose);
+  const pairItems: SessionItem[] = slice(pairs, plan.pairs).map((pair) => ({ m: "PAIR", pair }));
+  const meaningItems: SessionItem[] = meaningPool.slice(0, plan.meaning)
+    .map((inf) => ({ m: "INFER", inf }));
+  const composeItems: SessionItem[] = meaningPool.slice(plan.meaning, plan.meaning + plan.compose)
+    .map((inf) => ({ m: "COMPOSE", inf }));
+
+  const built: SessionItem[] = [...productionItems, ...pairItems, ...meaningItems, ...composeItems];
+  // A pool too small to fill its share must not shrink the exam: the size, the "N of SIZE"
+  // label and the pass mark are one number, so a short draw would quietly move the goalposts.
+  // Top up from production, which is the only pool guaranteed to be large enough.
+  if (built.length < plan.size) {
+    const used = new Set(productionItems.map((item) => `${item.gi}-${item.wi}`));
+    const spare = wordPool.filter((location) => !used.has(`${location.gi}-${location.wi}`));
+    for (const location of shuffle(spare, random).slice(0, plan.size - built.length)) {
+      built.push({ ...location, m: random.next() < 0.6 ? "PROD" : "VIGT" });
+    }
+  }
+  return shuffle(built, random);
 }
