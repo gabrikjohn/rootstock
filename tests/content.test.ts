@@ -166,7 +166,7 @@ describe("runtime content", () => {
     expect(gateWordsWithoutStory).toEqual([]);
     // Ratchets up as each remaining batch lands: 240 (all gates) → … → 416 (whole corpus).
     // Raise it per batch; never lower it.
-    expect(withStory).toBeGreaterThanOrEqual(240);
+    expect(withStory).toBeGreaterThanOrEqual(280);
     // Inference words are being given the example sentence they were authored without, so
     // their cards can render in full. Ratchets alongside the stories, ending at all 95.
     expect(inferenceWords.filter((word) => word.sentence).length).toBeGreaterThanOrEqual(0);
