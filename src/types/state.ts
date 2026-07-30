@@ -139,6 +139,7 @@ export interface DocketSessionState extends SessionBase {
   queue: QuizItem[];
   done: number;
   sit: SittingProgress;
+  retired: number;
 }
 
 export interface BarSessionState extends SessionBase {

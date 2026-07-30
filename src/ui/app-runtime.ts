@@ -26,7 +26,7 @@ import { deserializeProgress, serializeProgress } from "../domain/persistence";
 import { canAccessGate, temperUnlock as calculateTemperUnlock } from "../domain/progression";
 import { normalizeRoot, rootForms as getRootForms, rootMatches } from "../domain/roots";
 import type { DocketSummary } from "../domain/scheduling";
-import { DOCKET_SESSION_CAP, docketBlocks, docketSummary, initialReview, scheduleReview, selectDocketSitting } from "../domain/scheduling";
+import { DOCKET_SESSION_CAP, docketBlocks, docketSummary, initialReview, retiresFromDocket, scheduleReview, selectDocketSitting } from "../domain/scheduling";
 import { buildBarItems, buildTrialOneItems, selectInference } from "../domain/sessions";
 import { pronLine } from "../platform/audio";
 import type { AppDependencies } from "../platform/contracts";
@@ -479,7 +479,7 @@ function startReview():void{
   const keys = selectDocketSitting(P.review, deps.clock.now(), deps.random);
   if(!keys.length) return home();
   const items = keys.map(k=>{ const [gi=0,wi=0]=k.split('-').map(Number); return {k,gi,wi,m:"REC" as const}; });
-  S = { kind:'DOCKET', queue: items, debt:0, done:0, sit:{cleared:0,ahead:0} };
+  S = { kind:'DOCKET', queue: items, debt:0, done:0, sit:{cleared:0,ahead:0}, retired:0 };
   reviewItem();
 }
 function reviewItem():void{
@@ -489,10 +489,13 @@ function reviewItem():void{
     // Anything still due was held back by the sitting cap, not left unanswered — say so
     // plainly rather than claiming the docket is clear when it isn't.
     const left = docket().due;
+    const sealed = session.retired
+      ? ` ${session.retired} word${session.retired>1?'s have':' has'} climbed the whole calendar and left the Docket for good — the Drill Hall still keeps ${session.retired>1?'them':'it'} sharp.`
+      : '';
     sealScreen({seal:'⚖',title:left?'Sitting Cleared':'Docket Cleared',score:(session.debt?session.debt+' lapses reset':'no lapses'),
-      note:left
-        ? `${left} word${left>1?'s':''} still due — the Docket is there whenever you want another sitting. Lapsed words return in about two days; the rest climb the calendar.`
-        : 'Every due word answered. Lapsed words return in about two days; the rest climb the calendar.',
+      note:(left
+        ? `${left} word${left>1?'s':''} still due — the Docket is there whenever you want another sitting. Lapsed words return in about a day; the rest climb the calendar.`
+        : 'Every due word answered. Lapsed words return in about a day; the rest climb the calendar.')+sealed,
       actions:'<button class="btn" id="h2">Return to the gates</button>'});
     requiredButton("h2").onclick=home;
     return;
@@ -512,10 +515,19 @@ function reviewItem():void{
       const r=P.review[reviewKey];
       if(!r) throw new Error(`Missing review state for ${reviewKey}`);
       tally(gi,wi,ok);
-      if(ok){ session.queue.shift(); session.done++; session.sit.cleared++; Object.assign(r,scheduleReview(r,true,deps.clock.now(),deps.random)); }
+      if(ok){
+        session.queue.shift(); session.done++; session.sit.cleared++;
+        const next=scheduleReview(r,true,deps.clock.now(),deps.random);
+        const t=P.ledger[reviewKey];
+        // Top of the ladder and well ahead on the tally: the word leaves the Docket
+        // for good rather than returning forever. tally() ran above, so this counts
+        // the answer just given.
+        if(retiresFromDocket(next.box, t? t.r-t.w : 0)){ delete P.review[reviewKey]; session.retired++; }
+        else Object.assign(r,next);
+      }
       else { const f=session.queue.shift(); if(f)session.queue.push(f); session.debt++; Object.assign(r,scheduleReview(r,false,deps.clock.now(),deps.random)); }
       save();
-      return ok?null:'lapse — box reset to about two days; it returns this session until correct';
+      return ok?null:'lapse — box reset to about a day; it returns this session until correct';
     },
     onNext: reviewItem
   });

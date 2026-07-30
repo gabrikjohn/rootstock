@@ -310,6 +310,32 @@ test("caps a docket sitting and leaves the remainder for the next one", async ({
   await expect(page.locator(".queue-meta span").first()).toHaveText("5 in queue");
 });
 
+test("retires a word that has climbed the whole ladder", async ({ page }) => {
+  const word = LEVELS[0]!.words[0]!;
+  const top = 5;
+  await page.addInitScript(({ fixture, top }) => {
+    localStorage.setItem("rootstock_v2", JSON.stringify({
+      ...fixture,
+      // Top of the ladder, and well clear on the tally: this answer should be its last.
+      review: { "0-0": { box: top, due: 1 } },
+      ledger: { "0-0": { r: 6, w: 0 } }
+    }));
+  }, { fixture: admittedProgress, top });
+
+  await page.goto("/");
+  await page.locator("#cta").click();
+  // At the top box the docket asks for assembly, so build the word from its morphemes.
+  for (const [segment] of word.parts) {
+    await page.locator(`.chip[data-seg="${segment}"]`).first().click();
+  }
+
+  await expect(page.getByText("Docket Cleared")).toBeVisible();
+  await expect(page.getByText(/left the Docket for good/)).toBeVisible();
+  expect(await page.evaluate(() =>
+    JSON.parse(localStorage.getItem("rootstock_v2") ?? "{}").review["0-0"]
+  )).toBeUndefined();
+});
+
 test("opens the root and word lexicons from sealed content", async ({ page }) => {
   await page.addInitScript((fixture) => {
     localStorage.setItem("rootstock_v2", JSON.stringify(fixture));

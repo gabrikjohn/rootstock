@@ -8,9 +8,10 @@ export interface DocketSummary {
 }
 
 export const DAY_MS = 24 * 60 * 60 * 1000;
-export const REVIEW_INTERVALS = [2, 5, 12, 30].map((days) => days * DAY_MS);
+export const REVIEW_INTERVALS = [1, 3, 7, 16, 35, 75].map((days) => days * DAY_MS);
 export const REVIEW_FUZZ_MIN = 0.85;
 export const REVIEW_FUZZ_RANGE = 0.3;
+export const REVIEW_RETIRE_NET = 4;
 export const DOCKET_SESSION_CAP = 20;
 export const DOCKET_BACKLOG_MS = 7 * DAY_MS;
 
@@ -69,4 +70,11 @@ export function scheduleReview(
     ? Math.min(current.box + 1, REVIEW_INTERVALS.length - 1)
     : 0;
   return { box, due: now + fuzzInterval(REVIEW_INTERVALS[box]!, random) };
+}
+
+// A word that has climbed the whole ladder and is well ahead on the tally has
+// nothing left to prove in the Docket. It leaves for good — the Drill Hall and
+// the Forge still reach it, so retiring costs no coverage, only repetitions.
+export function retiresFromDocket(box: number, net: number): boolean {
+  return box >= REVIEW_INTERVALS.length - 1 && net >= REVIEW_RETIRE_NET;
 }

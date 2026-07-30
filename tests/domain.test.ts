@@ -42,9 +42,11 @@ import {
   fuzzInterval,
   selectDocketSitting,
   initialReview,
+  retiresFromDocket,
   REVIEW_FUZZ_MIN,
   REVIEW_FUZZ_RANGE,
   REVIEW_INTERVALS,
+  REVIEW_RETIRE_NET,
   scheduleReview
 } from "../src/domain/scheduling";
 import { buildBarItems, buildTrialOneItems, selectInference } from "../src/domain/sessions";
@@ -90,9 +92,21 @@ describe("Leitner scheduling", () => {
     expect(initialReview(now, flat)).toEqual({ box: 0, due: rung(0) });
     expect(scheduleReview({ box: 0, due: 0 }, true, now, flat))
       .toEqual({ box: 1, due: rung(1) });
-    expect(scheduleReview({ box: 3, due: 0 }, true, now, flat).box).toBe(3);
-    expect(scheduleReview({ box: 3, due: 0 }, false, now, flat))
+    const top = REVIEW_INTERVALS.length - 1;
+    expect(scheduleReview({ box: top, due: 0 }, true, now, flat).box).toBe(top);
+    expect(scheduleReview({ box: top, due: 0 }, false, now, flat))
       .toEqual({ box: 0, due: rung(0) });
+  });
+
+  it("retires a word only from the top of the ladder with a clear tally", () => {
+    const top = REVIEW_INTERVALS.length - 1;
+    expect(retiresFromDocket(top, REVIEW_RETIRE_NET)).toBe(true);
+    // One short on either axis keeps the word in rotation.
+    expect(retiresFromDocket(top, REVIEW_RETIRE_NET - 1)).toBe(false);
+    expect(retiresFromDocket(top - 1, REVIEW_RETIRE_NET)).toBe(false);
+    expect(retiresFromDocket(top - 1, 99)).toBe(false);
+    // A word answered right four times but missed as often has not earned it.
+    expect(retiresFromDocket(top, 8 - 8)).toBe(false);
   });
 
   it("fuzzes each interval so a gate's cohort fans out instead of clumping", () => {
