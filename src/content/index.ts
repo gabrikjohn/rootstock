@@ -24,6 +24,7 @@ import { gate23 } from "./gates/gate-23";
 import { gate24 } from "./gates/gate-24";
 import { splitRootEntry, withRootKeys } from "../domain/roots";
 import type { Gate, RuntimeGate } from "../types/content";
+export { AFFIX_DEEP } from "./affix-deep";
 export { COGNATES } from "./cognates";
 export { CONFUSABLES } from "./confusables";
 export { DEPTH } from "./depth";

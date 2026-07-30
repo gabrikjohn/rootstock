@@ -1,7 +1,9 @@
 import { describe, expect, it } from "vitest";
 import { existsSync, readFileSync } from "node:fs";
 import { fileURLToPath } from "node:url";
+import { ContentCatalog } from "../src/domain/catalog";
 import {
+  AFFIX_DEEP,
   COGNATES,
   CONFUSABLES,
   DEPTH,
@@ -178,6 +180,29 @@ describe("runtime content", () => {
         expect(posByText.get(distractor), `${word.word} / ${distractor}`).toBe(word.pos);
       }
     }
+  });
+
+  it("can explain at least one piece of every word built from pieces", () => {
+    // The deep panel omits what it cannot resolve, so the failure mode is a card whose
+    // "Learn more" opens onto nothing. Words the corpus records as a single unanalysed
+    // morpheme — glib, tyro, gauche, sinister — have nothing to decompose and simply show
+    // no panel; every word that *is* built from parts must reach at least one note.
+    // Known gaps: words whose pieces are spelled as stems the root corpus files under a
+    // different form (man- for manus, chiro- for cheir, urb- for urbs). They show no panel
+    // rather than a wrong one. Shrink this list; never grow it without a reason.
+    const KNOWN_GAPS = new Set([
+      "taciturn", "urbane", "manacle", "mandate", "chiropody", "ambit", "cognoscenti"
+    ]);
+    const catalog = new ContentCatalog(LEVELS, DRILL_POOL, DEPTH, ROOT_DEEP, ETYM, COGNATES);
+    const unexplained: string[] = [];
+    for (const word of allWords) {
+      if (word.parts.length < 2 || KNOWN_GAPS.has(word.word)) continue;
+      const explained = word.parts.some(([surface]) =>
+        catalog.partDepth(surface, AFFIX_DEEP) !== ""
+      );
+      if (!explained) unexplained.push(word.word);
+    }
+    expect(unexplained).toEqual([]);
   });
 
   it("prevents answer length from revealing the correct option", () => {

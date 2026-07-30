@@ -1,4 +1,4 @@
-import { COGNATES, CONFUSABLES, DEPTH, DRILL_POOL, ETYM, INFER_POOL, LEVELS, ROOT_DEEP, SIMILARS, SIMILAR_GLOSSES } from "../content";
+import { AFFIX_DEEP, COGNATES, CONFUSABLES, DEPTH, DRILL_POOL, ETYM, INFER_POOL, LEVELS, ROOT_DEEP, SIMILARS, SIMILAR_GLOSSES } from "../content";
 import { avoidRepeat as avoidRepeatItems, requeueMiss as requeueMissItems, roman, shuffle as shuffleValues } from "../domain/collections";
 import { deserializeQuizItem, serializeQuizItem } from "../domain/bookmarks";
 import { ContentCatalog } from "../domain/catalog";
@@ -65,7 +65,7 @@ import {
   wireChoices as wirePromptChoices
 } from "./features/prompt-interactions";
 import { buildPromptView } from "./features/prompt-view";
-import { installGhostDefinitions, posTag, renderStudyCard } from "./features/study-card";
+import { installDeepDisclosure, installGhostDefinitions, posTag, renderStudyCard } from "./features/study-card";
 import { renderTrialScreen, wireComposeInteraction, wireTypedInteraction } from "./features/trial-screen";
 import { showBackupModal, showRestoreModal } from "./features/progress-modals";
 import { appearanceName, renderSettings } from "./features/settings-screen";
@@ -100,6 +100,7 @@ const mount = document.getElementById('app');
   const app: HTMLElement = mount;
   deps.audio.install();
   installGhostDefinitions();
+  installDeepDisclosure();
 // Tempering unlocks after a night's sleep: first 4 AM local strictly after (t1 + 8h floor).
 const TEMPER_MIN_MS = 8 * 60 * 60 * 1000, TEMPER_WAKE_HR = 4;
 function temperUnlock(t1:number):number{
@@ -707,7 +708,29 @@ function rootDrillItem():void{
 }
 
 function cardHtml(word:Word|DrillWord):string{
-  return renderStudyCard(word,{gates:LEVELS,etymology:etyOf});
+  return renderStudyCard(word,{gates:LEVELS,etymology:etyOf,deepPanel});
+}
+// The deep-study panel for a whole word: each piece explained in turn — the authored affix
+// note or the root's own paragraph — then the family that root grows into. Almost all of
+// this prose already existed; only the affix notes were missing, and nothing called it from
+// the study card.
+function deepPanel(word:Word|DrillWord):string{
+  const seen=new Set<string>(); let out='';
+  for(const [surface,gloss] of word.parts){
+    const note=catalog.partDepth(surface,AFFIX_DEEP);
+    if(!note||seen.has(note)) continue;
+    seen.add(note);
+    out+=`<div class="deep-part"><span class="deep-seg">${esc(surface)}${gloss?` — ${esc(gloss)}`:''}</span>${note}</div>`;
+  }
+  if(!out) return '';
+  const root=LEVELS.flatMap(l=>l.quizRoots).find(r=>word.parts.some(p=>normRoot(p[0])&&rootForms(r).some(f=>normRoot(f)===normRoot(p[0]))));
+  if(root){
+    const fam=rootFamily(root,4).filter(k=>k.word!==word.word);
+    if(fam.length) out+=`<div class="deep-part"><span class="deep-seg">grows into</span>${fam.map(k=>`<b>${k.word}</b>${k.def?` — ${esc(k.def).toLowerCase().replace(/\.$/,'')}`:''}`).join(' · ')}</div>`;
+    const near=similarRootNote(root);
+    if(near) out+=`<div class="deep-part">${near}</div>`;
+  }
+  return out;
 }
 
 function studyScreen(idx:number,w:number):void{

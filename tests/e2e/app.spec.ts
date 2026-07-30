@@ -379,6 +379,25 @@ test("withholds the letter cue where production is the test", async ({ page }) =
   await expect(page.locator(".cue")).toHaveCount(0);
 });
 
+test("opens a deep etymology panel on a study card", async ({ page }) => {
+  await page.addInitScript((fixture) => {
+    localStorage.setItem("rootstock_v2", JSON.stringify(fixture));
+  }, admittedProgress);
+
+  // The sealed-gate lexicon renders the same card the Study stage does.
+  await page.goto("/");
+  await page.locator("#sealed-toggle").click();
+  await page.locator('.lvl-card[data-lvl="0"]').click();
+  await page.locator(".lex-row[data-wi]").first().click();
+
+  const panel = page.locator(".deep-body");
+  await expect(panel).toBeHidden();
+  await page.locator("[data-deep]").click();
+  await expect(panel).toBeVisible();
+  // Not an empty disclosure: it must actually explain a piece of the word.
+  await expect(panel.locator(".deep-part").first()).not.toBeEmpty();
+});
+
 test("opens the root and word lexicons from sealed content", async ({ page }) => {
   await page.addInitScript((fixture) => {
     localStorage.setItem("rootstock_v2", JSON.stringify(fixture));

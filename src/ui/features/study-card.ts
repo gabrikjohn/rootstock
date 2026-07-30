@@ -10,6 +10,8 @@ export function posTag(word: Word | DrillWord | InferenceWord): string {
 interface StudyCardContext {
   gates: readonly Gate[];
   etymology(word: Word): string;
+  // Deep note per word piece, plus the family a root grows into. Empty string = omit.
+  deepPanel?(word: Word): string;
 }
 
 interface GhostRange {
@@ -27,7 +29,29 @@ export function renderStudyCard(word: Word, context: StudyCardContext): string {
   const etymology = context.etymology(word);
   return `<div class="card"><div class="headword">${word.word}</div>${pronLine(word.word, word.pron)}
     <div class="morph">${morphology}</div><div class="def">${posTag(word)}${word.def}</div>
-    <div class="exline">“${ghostify(word, context.gates)}”<div class="ghost-note" style="display:none"></div></div>${etymology ? `<div class="ety">${etymology}</div>` : ""}${kin}</div>`;
+    <div class="exline">“${ghostify(word, context.gates)}”<div class="ghost-note" style="display:none"></div></div>${etymology ? `<div class="ety">${etymology}</div>` : ""}${kin}${deepDisclosure(word, context)}</div>`;
+}
+
+// An in-card expander rather than a screen: the study stage bookmarks by word index, and a
+// navigation would need mark state that opening a panel does not.
+function deepDisclosure(word: Word, context: StudyCardContext): string {
+  const body = context.deepPanel?.(word) ?? "";
+  if (!body) return "";
+  return `<div class="deep-wrap"><button class="deep-toggle" data-deep>Learn more ▾</button>
+    <div class="deep-body" style="display:none">${body}</div></div>`;
+}
+
+export function installDeepDisclosure(root: Document = document): void {
+  root.addEventListener("click", (event) => {
+    const target = event.target;
+    if (!(target instanceof Element)) return;
+    const toggle = target.closest<HTMLButtonElement>("[data-deep]");
+    const body = toggle?.parentElement?.querySelector<HTMLElement>(".deep-body");
+    if (!toggle || !body) return;
+    const open = body.style.display !== "none";
+    body.style.display = open ? "none" : "block";
+    toggle.textContent = open ? "Learn more ▾" : "Less ▴";
+  });
 }
 
 export function installGhostDefinitions(root: Document = document): void {
