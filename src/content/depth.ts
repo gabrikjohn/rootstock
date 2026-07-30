@@ -253,163 +253,203 @@ export const DEPTH = {
   },
   "disparage": {
     "v": "With one shrug he dismissed her thesis as 'a decent term paper.'",
-    "e": "Old French desparagier, 'to marry beneath one's rank' (par, equal) — to lower something from its proper station."
+    "e": "Old French desparagier, 'to marry beneath one's rank' (par, equal) — to lower something from its proper station.",
+    "s": "Old French desparagier, from des-, 'away,' and parage, 'rank or lineage,' which rests on Latin par, 'equal' — and its first English sense was strictly feudal. To disparage was to marry a ward beneath their station, a real and actionable injury, since an unequal match cost a family its standing and its heirs their inheritance. The word therefore began as a matter of blood and property rather than of speech. The turn came when the lowering stopped being a marriage and became a remark. Today to disparage is to belittle in words, though par and parity still keep the equality the offence was measured against."
   },
   "equivocate": {
     "v": "Asked point-blank if he'd approved the payment, he answered with a definition of 'approval.'",
-    "e": "Latin aequus (equal) + vox (voice) — speaking with two equal voices at once, so neither can be pinned."
+    "e": "Latin aequus (equal) + vox (voice) — speaking with two equal voices at once, so neither can be pinned.",
+    "s": "Latin aequus, 'equal,' with vox, 'voice' — a word of equal voices, saying two things at once. It began as a term of logic: medieval schoolmen used aequivocatio for the fallacy of shifting a word's sense mid-argument, a technical fault with no moral charge attached. What moralised it was the Gunpowder Plot era, when Jesuit teaching on mental reservation was read in England as licence to lie under oath; Shakespeare's Porter in Macbeth is already joking about the equivocator who committed treason for God's sake. Today to equivocate is to evade the truth by ambiguity, the fallacy having hardened into a charge of bad faith."
   },
   "placate": {
     "v": "He arrived with flowers, apologies, and courtside tickets, and slowly her fury cooled.",
-    "e": "Latin placare, 'to soothe' — kin to placidus (calm) and to the placebo, 'I shall please.'"
+    "e": "Latin placare, 'to soothe' — kin to placidus (calm) and to the placebo, 'I shall please.'",
+    "s": "Latin placare, 'to soothe or appease,' the causative of placere, 'to please' — to make a thing pleased. In Roman use it was chiefly religious: one placated an angry god, and the verb belonged with sacrifice and the altar rather than with ordinary quarrels. English borrowed it late, in the nineteenth century, and took the god out of it, leaving the technique. Today to placate is to soothe someone's anger, usually by giving them something, which is the sacrifice in a smaller key; the same placere gives the placid, the complacent, and the placebo, 'I shall please,' once the opening word of a funeral psalm and now a sham remedy."
   },
   "proscribe": {
     "v": "The new regime posted the list: these books may not be printed, sold, or owned.",
-    "e": "Latin proscribere, 'to post in writing' — Sulla's Rome posted the names of citizens anyone might kill; to be listed was to be doomed."
+    "e": "Latin proscribere, 'to post in writing' — Sulla's Rome posted the names of citizens anyone might kill; to be listed was to be doomed.",
+    "s": "Latin proscribere, from pro-, 'publicly,' and scribere, 'to write' — nothing worse, at first, than to post a public notice. Sulla filled it with blood in 82 BC: he posted lists in the Roman Forum naming citizens who might be killed on sight and whose property fell to the killer, and to find your name written up was a death sentence with a reward attached. The clerical word never recovered from the association. Today to proscribe is to forbid or outlaw by decree, and its constant victim is prescribe, built from the same scribere — one writes a thing down to order it, the other to ban it."
   },
   "obviate": {
     "v": "They raised the bridge two meters, and the yearly flood repairs simply stopped being needed.",
-    "e": "Latin ob viam, 'in the way' — to step into the path of a difficulty before it arrives."
+    "e": "Latin ob viam, 'in the way' — to step into the path of a difficulty before it arrives.",
+    "s": "Latin obviare, 'to meet in the way,' from the phrase ob viam — to go and stand in the path of something. The image is of interception: you do not endure the difficulty, you step out to meet it before it arrives, and so it never does. That same ob viam gives English a much commoner word, since what lies in your way is what you cannot help seeing — obvious. The two words are one phrase taken in opposite directions, one meeting the obstacle to remove it, the other naming the thing too plainly in the road to miss. Today to obviate is to make a difficulty unnecessary by forestalling it."
   },
   "militate": {
     "v": "His spotless record and three alibis all weighed heavily against the prosecution's story.",
-    "e": "Latin miles, militis, 'soldier' — evidence campaigning like an army against a conclusion; no connection to 'mitigate,' its habitual victim."
+    "e": "Latin miles, militis, 'soldier' — evidence campaigning like an army against a conclusion; no connection to 'mitigate,' its habitual victim.",
+    "s": "Latin militare, 'to serve as a soldier,' from miles, militis — and the figure inside the English verb is a campaign. Facts do not merely sit against a conclusion; they take the field against it, and the metaphor is worth keeping because it explains the word's grammar: things militate against, never simply militate. Its whole modern history is a case of mistaken identity. Mitigate, from mitis, 'mild,' means to soften, takes no against, and comes from an entirely unrelated root — yet mitigate against is now among the commonest errors in English prose. Today evidence militates against a case, and the soldier is still in the word."
   },
   "malign": {
     "v": "The anonymous letter called her a thief and a fraud; neither charge survived a day's checking.",
-    "e": "Latin malus + gignere, 'born bad' — evil-natured speech; the tumor sense of malignant is the same badness in flesh."
+    "e": "Latin malus + gignere, 'born bad' — evil-natured speech; the tumor sense of malignant is the same badness in flesh.",
+    "s": "Latin malignus, 'evil-natured,' from malus, 'bad,' joined to the begetting root that gives genus and generate — born bad, ill-made from the start. English took it as an adjective first, of stars that shed a malign influence and of diseases that would not yield, and the verb followed from the adjective rather than the other way round. The medical branch kept the literal sense: a malignant tumour is one whose nature is bad, growing as it was born to grow. Today to malign is to speak evil of someone, while benign, well-natured from the same construction, remains its exact and untroubled opposite."
   },
   "condone": {
     "v": "He saw the ledger's false entries, said nothing, and signed at the bottom.",
-    "e": "Latin condonare, 'to give up wholly, forgive' — a gift (donum) of unearned pardon, silence included."
+    "e": "Latin condonare, 'to give up wholly, forgive' — a gift (donum) of unearned pardon, silence included.",
+    "s": "Latin condonare, 'to give up wholly, to remit,' from con- and donare, 'to give' — pardon handed over as a gift rather than earned. English had the word only faintly until the law fetched it: the Divorce and Matrimonial Causes Act of 1857 made condonation a term of art, meaning a spouse's forgiveness of adultery, which once given barred any later suit on that ground. From the divorce courts of the 1850s it spread rapidly into ordinary speech. Today to condone an offence is to overlook it, and the legal ghost still shows in the word's faint suggestion that silence is itself the pardon."
   },
   "adulate": {
     "v": "The staff applauded his every memo and laughed at every joke twice — he never learned which flattery was false.",
-    "e": "Latin adulari, 'to fawn like a dog' — the tail-wagging word for worship without judgment."
+    "e": "Latin adulari, 'to fawn like a dog' — the tail-wagging word for worship without judgment.",
+    "s": "Latin adulari, 'to fawn upon' — and the Romans meant it of a dog, tail going, pressing itself against its master's leg. That animal picture is the entire content of the word: praise offered from below, without judgement, in hope of favour. English took the noun adulation first in the fifteenth century and only later worked the verb back out of it. Today to adulate is to flatter servilely, and the word is worth keeping apart from adulterate, which looks like a relative and is not — that one comes from alter, 'the other,' and corrupts by mixing rather than by fawning."
   },
   "vacillate": {
     "v": "Monday it was the Boston offer, Tuesday the Chicago one, Wednesday Boston again — until both expired.",
-    "e": "Latin vacillare, 'to sway' — the drunkard's walk applied to the will."
+    "e": "Latin vacillare, 'to sway' — the drunkard's walk applied to the will.",
+    "s": "Latin vacillare, 'to sway or totter' — a physical word for anything unsteady on its base, a wobbling table or a man who has drunk too much. English took it in that literal sense in the sixteenth century, of things that would not stand still, and only afterwards moved it inward to the will. The metaphor is exact and unflattering: the vacillating mind is not weighing alternatives but tipping between them, moved by whatever last pushed it. Today to vacillate is to waver indecisively, and its near-twin oscillate took the same road — from oscillum, a little swinging mask hung in Roman vineyards, to any regular indecision."
   },
   "taciturn": {
     "v": "Dinner with him passed in nods and the sound of cutlery; he had opinions, but you would never collect them.",
-    "e": "Latin tacere, 'to be silent' — the temperament of silence, kin to 'tacit,' the unspoken understanding."
+    "e": "Latin tacere, 'to be silent' — the temperament of silence, kin to 'tacit,' the unspoken understanding.",
+    "s": "Latin taciturnus, from tacere, 'to be silent' — silence not as an event but as a standing disposition. The Latin word already meant habitually rather than occasionally quiet, and English kept that precision when it borrowed the word in the eighteenth century: a taciturn man is not one who happens to be silent now, but one who is silent by constitution. The same tacere gives tacit, and the pair divide the ground neatly between them. Today taciturn describes the person disinclined to talk, while a tacit agreement is the understanding that never needed saying — one silence belonging to a temperament, the other to a contract."
   },
   "laconic": {
     "v": "'Did you win?' — 'Yes.' — 'How?' — 'Fast.' The whole interview ran nine words.",
-    "e": "From Lakonia, home of Sparta. Philip of Macedon warned, 'If I enter Lakonia, I will raze it.' The Spartans replied: 'If.'"
+    "e": "From Lakonia, home of Sparta. Philip of Macedon warned, 'If I enter Lakonia, I will raze it.' The Spartans replied: 'If.'",
+    "s": "Lakonia was the region of the Peloponnese that Sparta governed, and the Spartans made brevity a discipline rather than a habit — terse speech was trained alongside the spear. The most famous demonstration is a single word: Philip of Macedon sent word that if he entered Lakonia he would raze Sparta to the ground, and the Spartans wrote back one syllable, If. English took laconic in the sixteenth century as a word about style, and the place-name has long outlived the state that earned it. Today laconic means using few words to pointed effect, and it is praise in a way that terse and curt are not."
   },
   "garrulous": {
     "v": "Trapped by the fence, the neighbor heard forty minutes on gallstones, grandchildren, and the price of mulch.",
-    "e": "Latin garrire, 'to chatter' — the jaybird verb; endless talk about nothing in particular."
+    "e": "Latin garrire, 'to chatter' — the jaybird verb; endless talk about nothing in particular.",
+    "s": "Latin garrire, 'to chatter,' which is an imitative word — the Romans built it out of the noise itself, the gargling racket of a jaybird or a jackdaw. Its relatives across the languages are the same kind of invention, and English gargle belongs to the family; the sound is doing the defining. English borrowed garrulous in the seventeenth century and kept the birds in it. Today garrulous means chattering tediously about trifles, and the word is precise about which fault it names: not the volume of the speech, which is verbose, nor its speed, which is voluble, but its emptiness."
   },
   "voluble": {
     "v": "The auctioneer's patter rolled on without a breath — fluent, rapid, unstoppable.",
-    "e": "Latin volvere, 'to roll' — speech that turns and rolls like a wheel; kin to revolve and volume, the rolled scroll."
+    "e": "Latin volvere, 'to roll' — speech that turns and rolls like a wheel; kin to revolve and volume, the rolled scroll.",
+    "s": "Latin volubilis, 'turning, rolling,' from volvere, 'to roll' — and the first English sense was literal, of anything that turned on its axis, a voluble sphere or a wheel. The metaphor that displaced it is a good one: fluent speech rolls, each word carrying the next round with it, gathering pace by its own motion. That is why voluble names an ease rather than a quantity. Today voluble means speaking in a rapid and rolling flow, and the same volvere gives revolve, evolve and volume — a volume being, before it was a book, simply a scroll rolled up."
   },
   "verbose": {
     "v": "The memo used four hundred words to reschedule a meeting.",
-    "e": "Latin verbum, 'word' — simply too full of words; quantity as the vice itself."
+    "e": "Latin verbum, 'word' — simply too full of words; quantity as the vice itself.",
+    "s": "Latin verbosus, straightforwardly 'full of words,' from verbum — and the plainness is the point, because the fault it names is quantity and nothing else. A verbose passage need not be unclear, pompous or slow; it is merely longer than it had to be, and that is the whole charge. English took it in the seventeenth century, when the new prose of the Royal Society was making concision a virtue and the older copious style was starting to look like padding. Today verbose means using more words than needed, and the same verbum gives the verb, the proverb, and verbatim, word for exact word."
   },
   "cogent": {
     "v": "Her three-minute argument moved the board from skeptical to unanimous.",
-    "e": "Latin cogere, 'to drive together, compel' — reasoning that herds the listener to one conclusion."
+    "e": "Latin cogere, 'to drive together, compel' — reasoning that herds the listener to one conclusion.",
+    "s": "Latin cogere, 'to drive together,' contracted from co- and agere, 'to drive' — the verb a Roman used for herding cattle into one place. Compulsion is built into it: what is cogent does not invite agreement but rounds you up and delivers you at a conclusion with nowhere else to stand. English borrowed it in the seventeenth century meaning constraining in general, and it narrowed onto argument, which is the only thing it now drives. Today a cogent case compels by clear force of logic, and agere's other children — act, agent, agenda, exact — all keep some of the same driving."
   },
   "vociferous": {
     "v": "The gallery drowned out the referee's whistle for a full minute after the call.",
-    "e": "Latin vox (voice) + ferre (to carry) — carrying the voice, loudly and insistently, over everyone else's."
+    "e": "Latin vox (voice) + ferre (to carry) — carrying the voice, loudly and insistently, over everyone else's.",
+    "s": "Latin vociferari, 'to cry out,' built from vox, 'voice,' and ferre, 'to carry' — the voice not merely raised but carried, thrown far enough to reach past everyone else. The compound names projection rather than mere volume, which is why vociferous fits a crowd, a protest or a complaint better than it fits a single loud remark. English took it in the seventeenth century and has kept it faintly disapproving ever since. Today vociferous means loud and clamorous in expression, and its two halves are among the hardest-working roots in the language: vox gives vocal, vowel and advocate, ferre gives transfer, refer and fertile."
   },
   "sententious": {
     "v": "'Character is destiny,' he intoned over coffee, the fourth maxim before nine o'clock.",
-    "e": "Latin sententia, 'opinion, maxim' — once praise for pithiness, now the smell of the pulpit on ordinary talk."
+    "e": "Latin sententia, 'opinion, maxim' — once praise for pithiness, now the smell of the pulpit on ordinary talk.",
+    "s": "Latin sententia, 'an opinion or maxim,' from sentire, 'to feel' — and this word has turned completely around. To be sententious was once high praise: it meant a style packed with sententiae, the memorable compressed judgements that Renaissance readers copied into commonplace books, and Bacon was admired for exactly that density. The turn came when the taste changed. Once the aphorism came to seem a way of sounding wise rather than being wise, the same quality was heard as preaching, and by the nineteenth century the word had crossed the line. Today sententious means given to pompous moralising, and sentence, once simply an opinion, took the calmer road."
   },
   "terse": {
     "v": "The whole review: 'Accurate, complete, on time.' Nothing to add, nothing wasted.",
-    "e": "Latin tersus, 'wiped clean, polished' — brevity as polish, every extra word rubbed away."
+    "e": "Latin tersus, 'wiped clean, polished' — brevity as polish, every extra word rubbed away.",
+    "s": "Latin tersus, 'wiped clean, polished,' the participle of tergere, 'to wipe' — and its earliest English use, in the seventeenth century, was unmixed praise. A terse style was a burnished one, with every superfluity rubbed off, and the compliment was about finish rather than length. Brevity came in as the means and then took over as the meaning. Something of an edge came with it, so that a terse reply may now be an abrupt or even a rude one, which the polished original never was. Today terse means brief to the point of curtness, while tergere's other survivor, the detergent, still does the literal wiping."
   },
   "banal": {
     "v": "'At the end of the day, it is what it is' — the room nodded and remembered nothing.",
-    "e": "Old French ban — the lord's communal mill and oven all villagers had to use; what everyone uses grows stale."
+    "e": "Old French ban — the lord's communal mill and oven all villagers had to use; what everyone uses grows stale.",
+    "s": "Old French ban was the feudal proclamation, and what was banal belonged to the compulsory services a lord could summon — above all the mill, the oven and the winepress that every tenant on the estate was obliged to use and pay for. The word therefore began meaning common in the strict sense of held in common, with no shade of contempt in it. The slide is easy to follow: what everyone must use is what everyone has used, and what everyone has used is worn. French carried it the whole distance and English borrowed the finished product in the nineteenth century. Today banal means trite through overuse, and the marriage banns keep the old proclamation intact."
   },
   "martinet": {
     "v": "Two demerits for a crooked lanyard; the inspection ran to the millimeter, joylessly.",
-    "e": "Jean Martinet, Louis XIV's drillmaster, whose drills made France's army modern — and his name a synonym for rigid discipline. He was shot (perhaps not accidentally) by his own troops."
+    "e": "Jean Martinet, Louis XIV's drillmaster, whose drills made France's army modern — and his name a synonym for rigid discipline. He was shot (perhaps not accidentally) by his own troops.",
+    "s": "Jean Martinet was an infantry officer under Louis XIV and one of the most consequential drillmasters in European history, the man who turned the French infantry into a uniformly trained force and set the standard the rest of the continent copied. His reward was to become an insult. The drill was relentless enough that his name attached to the severity rather than the achievement, helped by the manner of his death: he was killed by his own artillery at Duisburg in 1672, and the suspicion that his men were not sorry has clung to the word ever since. Today a martinet is a rigid and petty disciplinarian, an eponym that remembers the harshness and forgets the reform."
   },
   "sycophant": {
     "v": "He laughed before the director finished the joke and agreed before the sentence ended.",
-    "e": "Greek sykon (fig) + phainein (to show) — the 'fig-shower': in one telling, an informer against fig-smugglers in Athens; flattery and informing both serve power."
+    "e": "Greek sykon (fig) + phainein (to show) — the 'fig-shower': in one telling, an informer against fig-smugglers in Athens; flattery and informing both serve power.",
+    "s": "Greek sykophantes, from sykon, 'fig,' and phainein, 'to show' — the fig-shower, and nobody now knows why. The ancient explanation, that it named informers who denounced illegal fig exports from Attica, is unverifiable and probably invented after the fact; a rival guess points to an obscene hand gesture called the fig. What is certain is the Greek meaning, which was not flatterer at all but malicious accuser, the professional denouncer of Athenian courts. English borrowed that sense in the sixteenth century and had shifted to the modern one by the seventeenth. Today a sycophant is a servile flatterer, the informer and the toady having proved to be the same man serving power from two directions."
   },
   "dilettante": {
     "v": "Four lessons of cello, half a novel drafted, a kiln bought and cooling — each abandoned by June.",
-    "e": "Italian dilettare, 'to delight' — one who takes the delight of an art but not its discipline; once a neutral word for an art-lover."
+    "e": "Italian dilettare, 'to delight' — one who takes the delight of an art but not its discipline; once a neutral word for an art-lover.",
+    "s": "Italian dilettante, 'one who delights,' from dilettare and behind it Latin delectare — and for a century the word was a credential rather than a slur. The Society of Dilettanti, founded in London in 1734 by gentlemen who loved and funded the arts, wore the name proudly, and to be a dilettante meant loving a thing for itself rather than for a living. The turn came with professionalism. Once expertise required training and credentials, love without discipline stopped being a mark of freedom and became a mark of shallowness. Today a dilettante is a dabbler, and amateur, which likewise means one who loves, was dragged downhill in exactly the same cart."
   },
   "virago": {
     "v": "The landlady's bellow emptied the stairwell; grown tenants hid until the storm passed.",
-    "e": "Latin vir, 'man' — literally a man-like woman; once a compliment for warrior women, curdled by centuries into a scold."
+    "e": "Latin vir, 'man' — literally a man-like woman; once a compliment for warrior women, curdled by centuries into a scold.",
+    "s": "Latin virago, formed from vir, 'man,' and it enters the tradition on dignified terms. Jerome used it in the Vulgate for Eve, who should be called virago because she was taken out of vir, an attempt to reproduce in Latin the Hebrew wordplay between ish and ishshah. Early English kept the honour, using virago of heroic and warlike women, Amazons and saints. Then it curdled, as words for forceful women reliably do, from warrior to scold to shrew, the strength revalued as noise. Today a virago is a loud and domineering woman, and vir's other children, virile and virtue, kept the compliment the woman lost."
   },
   "chauvinist": {
     "v": "No wine but his country's, no history but its victories, no fault it could ever commit.",
-    "e": "Nicolas Chauvin, a (possibly legendary) soldier so fanatically devoted to Napoleon that vaudeville made him a running joke."
+    "e": "Nicolas Chauvin, a (possibly legendary) soldier so fanatically devoted to Napoleon that vaudeville made him a running joke.",
+    "s": "Nicolas Chauvin was a soldier of Napoleon, wounded seventeen times and devoted to the Emperor long after devotion had stopped being sensible — and he may never have existed at all. Whether or not there was a man, there was certainly a stock character: French vaudeville of the 1830s put him on stage as a figure of fun, and chauvinisme was coined for the excessive, unreasoning patriotism he embodied. English took it in that national sense. The second turn is recent and decisive: mid-twentieth-century feminism extended the word to the male chauvinist, and that use now so dominates that the patriotic original sounds like the borrowing. Today a chauvinist is a blind partisan of his own side, whichever side that is."
   },
   "monomaniac": {
     "v": "Whatever the conversation began as, within five minutes it was about the canal again.",
-    "e": "Greek monos (one) + mania (madness) — the nineteenth century's diagnosis for minds sane everywhere but one white-hot point; Ahab is its portrait."
+    "e": "Greek monos (one) + mania (madness) — the nineteenth century's diagnosis for minds sane everywhere but one white-hot point; Ahab is its portrait.",
+    "s": "Greek monos, 'one,' with mania, 'madness' — and unlike most of this gate the word began as a precise clinical term. Jean-Étienne Esquirol coined monomanie in French around 1810 for an insanity confined to a single subject, the patient rational in every other quarter, and the diagnosis mattered because courts used it: a man could be held mad on one point and sane on the rest. Psychiatry abandoned the category by the late nineteenth century as too crude to survive examination. Literature kept it. Today a monomaniac is anyone irrationally fixed on one idea, and Melville's Ahab, sane in all seamanship and mad in one whale, remains the portrait the word was made for."
   },
   "iconoclast": {
     "v": "Her first week as editor, she killed the anniversary issue, the awards banquet, and the founder's column.",
-    "e": "Greek eikon (image) + klastes (breaker) — the literal smashers of icons in eighth-century Byzantium; now the smasher of cherished ideas."
+    "e": "Greek eikon (image) + klastes (breaker) — the literal smashers of icons in eighth-century Byzantium; now the smasher of cherished ideas.",
+    "s": "Greek eikon, 'image,' with klastes, 'breaker' — and for its first several centuries the word named men who broke actual images with actual hammers. Byzantine emperors of the eighth and ninth centuries ordered religious images destroyed as idolatrous, and the Iconoclasts were the party that carried out the order; the Reformation supplied a second wave of literal smashers. The figurative sense arrived in the nineteenth century, when the images to be broken became beliefs. It also changed sides. Today an iconoclast attacks cherished ideas and is usually being complimented for it — a word that started as an accusation of vandalism and ended as a term for intellectual courage."
   },
   "hypochondriac": {
     "v": "A new specialist each month, a filing cabinet of clean test results, and still tonight's headache is a tumor.",
-    "e": "Greek hypo + chondros, 'under the breastbone' — where ancient physicians located the organs of melancholy; imaginary illness kept the address."
+    "e": "Greek hypo + chondros, 'under the breastbone' — where ancient physicians located the organs of melancholy; imaginary illness kept the address.",
+    "s": "Greek hypochondria named an anatomical region and nothing more: hypo, 'under,' with chondros, the cartilage of the breastbone — the soft parts beneath the ribs, where the liver and spleen sit. Humoral medicine placed the origin of melancholy in exactly that space, and so a disorder was named for its supposed address rather than its symptoms. Then the theory collapsed. Black bile turned out not to exist, the organs under the ribs were cleared of the charge, and the condition was reassigned to the mind entirely — but the word kept the old street number. Today a hypochondriac is convinced of illnesses he does not have, under a name that still points beneath his ribs."
   },
   "charlatan": {
     "v": "The tonic cured nothing, but the pitch was magnificent, and the wagon was gone by dawn.",
-    "e": "Italian ciarlare, 'to chatter' — possibly via Cerreto, a town famed for quack medicine-sellers; the patter is the product."
+    "e": "Italian ciarlare, 'to chatter' — possibly via Cerreto, a town famed for quack medicine-sellers; the patter is the product.",
+    "s": "Italian ciarlatano, from ciarlare, 'to chatter,' probably crossed along the way with cerretano, a man of Cerreto, an Umbrian town whose people had a reputation as travelling quacks. Both derivations are alive and both fit, which is unusually convenient. The first English sense in the seventeenth century was specific: a mountebank who sold medicines from a stage, and whose real product was the patter, since the talk drew the crowd and the crowd bought the bottle. The chatter, in other words, was never incidental to the fraud. Today a charlatan is anyone who claims a skill he does not have, and the mountebank beside him is simply one who mounts a bench."
   },
   "philistine": {
     "v": "He priced the sculpture by its weight in bronze and asked why the museum needed two floors.",
-    "e": "The biblical Philistines, Israel's enemies — German students used Philister for the unenlightened townsfolk outside the university gates; Matthew Arnold aimed it at the culture-proof middle class."
+    "e": "The biblical Philistines, Israel's enemies — German students used Philister for the unenlightened townsfolk outside the university gates; Matthew Arnold aimed it at the culture-proof middle class.",
+    "s": "The Philistines of the Hebrew Bible were Israel's enemies, and for centuries the English word meant only that. The modern sense is German and traceable to an incident: after a town-and-gown brawl at Jena in which a student was killed, a preacher took his funeral text from Judges, the Philistines be upon thee, Samson — and German students thereafter called the unlettered townsfolk beyond the university gates Philister. Carlyle carried the usage into English. Matthew Arnold then aimed it, in Culture and Anarchy of 1869, at a whole class he judged prosperous, self-satisfied and immune to culture. Today a philistine is anyone indifferent or hostile to art and ideas, a biblical enemy repurposed as a social one."
   },
   "convivial": {
     "v": "His table sat twelve every Sunday, and strangers left as friends by the cheese course.",
-    "e": "Latin con + vivere, 'to live together' — a convivium was a Roman banquet; the joy of shared bread baked into the word."
+    "e": "Latin con + vivere, 'to live together' — a convivium was a Roman banquet; the joy of shared bread baked into the word.",
+    "s": "Latin convivium, 'a banquet,' from con-, 'together,' and vivere, 'to live' — a living-together rather than merely an eating-together, and the Romans knew the difference. Cicero remarked that the Latin name was the better one, since the Greeks called the same occasion a symposion, a drinking-together, and named the wine where Latin named the company. English took convivial in the seventeenth century with the emphasis intact. Today convivial describes one fond of feasting and good company, and the point of the word is still that the food is the occasion and not the object; vivere's other children include survive, vivid and vivacious."
   },
   "indefatigable": {
     "v": "Third shift done, she was back at six with fresh coffee and the same steady pace.",
-    "e": "Latin in- (not) + defatigare (to wear out) — incapable of being tired down; fatigue held at bay by the prefix."
+    "e": "Latin in- (not) + defatigare (to wear out) — incapable of being tired down; fatigue held at bay by the prefix.",
+    "s": "Latin defatigare, 'to wear out utterly,' from fatigare, 'to tire,' with in- prefixed to cancel the whole thing — not tireable. The word is a small curiosity of English because it arrived already negative and its positive never established itself: fatigable is barely a word, and nobody is described as defatigable. It belongs to a small family in the same condition, alongside ineffable, indelible and inevitable, whose positives exist mainly in dictionaries. Today indefatigable means incapable of being tired out, and the plain fatigue at its centre is the only member of the group in daily use."
   },
   "ingenuous": {
     "v": "Asked how the vase broke, the boy said at once, 'I threw the ball inside. I'm sorry.'",
-    "e": "Latin ingenuus, 'native, free-born' — the free citizen's presumed openness; its evil twin disingenuous fakes exactly that."
+    "e": "Latin ingenuus, 'native, free-born' — the free citizen's presumed openness; its evil twin disingenuous fakes exactly that.",
+    "s": "Latin ingenuus meant freeborn — born into the citizen class rather than into slavery — and the leap from legal status to personal character was made by Roman social prejudice rather than by any change in the word. The freeborn were presumed frank, on the reasoning that only those with something to fear from their masters needed to dissemble; candour was thus read as a privilege of birth. English inherited the assumption along with the word in the sixteenth century. Today ingenuous means artlessly open, disingenuous counterfeits precisely that openness, and ingenious is a different word entirely, from ingenium, 'natural talent,' with which it is confused constantly."
   },
   "magnanimous": {
     "v": "He won the lawsuit, then quietly paid his ruined rival's legal bills.",
-    "e": "Latin magnus (great) + animus (soul) — great-souled: Aristotle's crowning virtue, rendered letter for letter from Greek megalopsychos."
+    "e": "Latin magnus (great) + animus (soul) — great-souled: Aristotle's crowning virtue, rendered letter for letter from Greek megalopsychos.",
+    "s": "Latin magnus, 'great,' with animus, 'soul' — and the compound is not native Latin thinking but a loan-translation, built piece by piece to render Greek megalopsychos. Aristotle made megalopsychia the crown of the virtues in the Nicomachean Ethics: the great-souled man knows exactly what he is worth, claims it without apology, and is therefore incapable of pettiness. Latin calqued the word, English borrowed it in the sixteenth century, and it narrowed considerably on the journey. Today magnanimous means generous and free of spite, especially in victory — one branch of Aristotle's far larger virtue, with pusillanimous, the small-souled, standing where he left its opposite."
   },
   "versatile": {
     "v": "She fixed the generator at noon, argued the permit at three, and played the wedding that evening.",
-    "e": "Latin versare, 'to turn about' — able to turn from task to task; one more child of vertere, the great turning-root."
+    "e": "Latin versare, 'to turn about' — able to turn from task to task; one more child of vertere, the great turning-root.",
+    "s": "Latin versatilis, 'able to be turned,' from versare and behind it vertere, the great turning-root of this corpus. Its first English use in the seventeenth century was mechanical, of a joint or a vane that could swing freely, and when it was first applied to people it was not a compliment at all: a versatile man was changeable, inconstant, a turncoat who would face whichever way the wind did. The word had to be rehabilitated. What rescued it was the shift from turning with circumstance to turning between tasks, one meaning disloyalty and the other competence. Today versatile is praise for range, and the suspicion it once carried has passed to fickle."
   },
   "stoic": {
     "v": "The verdict came down against him; he nodded once, gathered his papers, and thanked the court.",
-    "e": "Greek stoa, 'porch' — Zeno taught philosophy under a painted porch in Athens; the school's calm under fortune became the porch's common name."
+    "e": "Greek stoa, 'porch' — Zeno taught philosophy under a painted porch in Athens; the school's calm under fortune became the porch's common name.",
+    "s": "Greek stoa meant a porch or colonnade, and Zeno of Citium taught around 300 BC in the Stoa Poikile, the Painted Porch on the edge of the Athenian agora. His school took its name from that address and from nothing in the doctrine, so the philosophy of endurance is called after a piece of architecture — as the Academy is named for Plato's grove and the Lyceum for a gymnasium. English borrowed stoic in the sixteenth century. Today a stoic bears misfortune without complaint, which is a considerable shrinking of a system that covered logic, physics and ethics entire, and kept the endurance because that is the part outsiders could see."
   },
   "intrepid": {
     "v": "With the rope frayed and dusk falling, she started up the last pitch anyway, hands steady.",
-    "e": "Latin in- (not) + trepidus (alarmed) — the trembling word trepidation, negated at the root."
+    "e": "Latin in- (not) + trepidus (alarmed) — the trembling word trepidation, negated at the root.",
+    "s": "Latin intrepidus, from in-, 'not,' and trepidus, 'alarmed, agitated' — literally not trembling, a courage defined by the absence of a physical symptom rather than by any positive quality. The root shows more of itself in trepidation, which early astronomers used for a supposed trembling motion of the heavens, a slow shiver in the sphere of the fixed stars. English took intrepid in the seventeenth century. Today intrepid means fearless and undaunted, and the word's construction is worth noticing: it does not claim the intrepid feel no fear, only that nothing in them shakes."
   },
   "scintillating": {
     "v": "By midnight the whole table was hoarse from laughing; no one could quote a dull line of hers because there hadn't been one.",
-    "e": "Latin scintilla, 'spark' — conversation that throws sparks; 'tinsel' is the same word after a journey through French."
+    "e": "Latin scintilla, 'spark' — conversation that throws sparks; 'tinsel' is the same word after a journey through French.",
+    "s": "Latin scintilla, 'a spark' — and the word's oldest technical use in English is astronomical, since stars scintillate, their light trembling as the atmosphere bends it. Wit borrowed the image from the sky: talk that throws off sparks, bright, fast and gone. The genuinely surprising relative is tinsel, which is the same scintilla worn down through Old French estincelle and Middle French estincele, so the sparkle of brilliant conversation and the cheapest decoration on a Christmas tree are etymologically one word. Today scintillating means sparkling with wit, and a scintilla of doubt is the spark reduced to its smallest possible size."
   },
   "urbane": {
     "v": "He absorbed the insult with a smile, turned it into a better joke than it deserved, and refilled the offender's glass.",
-    "e": "Latin urbs, 'city' — city manners as polish; its country cousin took the same road downhill in 'boorish rustic.'"
+    "e": "Latin urbs, 'city' — city manners as polish; its country cousin took the same road downhill in 'boorish rustic.'",
+    "s": "Latin urbanus meant simply of the city, and urbane and urban are the same word, split apart in English in the seventeenth century by nothing more than spelling and stress — one keeping the geography, the other the manners. The snobbery was already Roman. Urbanitas named the wit and polish of the capital and stood explicitly against rusticitas, the clumsiness of the countryside, so the compliment was built on a comparison from the start. Today urbane means polished and courteous, and it has a great deal of company: rustic, boorish, pagan and villain all began as neutral words for country people and were pushed downhill by the same city contempt."
   },
   "gregarious": {
     "v": "New in town on Tuesday, she knew the whole block's names by Saturday and hosted them by Sunday.",
-    "e": "Latin grex, gregis, 'flock' — fond of the herd; the loner who leaves it is, from the same root, egregious."
+    "e": "Latin grex, gregis, 'flock' — fond of the herd; the loner who leaves it is, from the same root, egregious.",
+    "s": "Latin gregarius, 'belonging to the flock,' from grex, gregis — and its first English use in the seventeenth century was a naturalist's term, neutral and technical. Gregarious animals were those that lived in herds as against solitary ones, a fact of natural history with no compliment in it; the transfer to human sociability came later and brought the warmth with it. The root's other descendant in this corpus went the opposite way. Egregious is literally out of the flock, and where standing apart from the herd once meant distinction and now means disgrace, staying in it has become the friendlier word — one grex, and both verdicts on it."
   },
   "monogamy": {
     "v": "Fifty-one years, one ring, and both still initialed the grocery list 'us.'",
