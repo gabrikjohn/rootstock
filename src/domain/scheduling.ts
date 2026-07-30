@@ -12,6 +12,16 @@ export const REVIEW_INTERVALS = [1, 3, 7, 16, 35, 75].map((days) => days * DAY_M
 export const REVIEW_FUZZ_MIN = 0.85;
 export const REVIEW_FUZZ_RANGE = 0.3;
 export const REVIEW_RETIRE_NET = 4;
+export const DOCKET_TIERS = 4;
+
+// Retrieval difficulty, tracked apart from the timing box. A lapse resets when a word
+// comes back but only steps its difficulty down one rung, so one slip on a word you
+// nearly know no longer drops you from assembly all the way to recognition.
+// Saves written before tiers existed fall back to the old box-indexed behaviour, so
+// nobody's difficulty moves on upgrade.
+export function tierOf(review: ReviewProgress): number {
+  return review.tier ?? Math.min(review.box, DOCKET_TIERS - 1);
+}
 export const DOCKET_SESSION_CAP = 20;
 export const DOCKET_BACKLOG_MS = 7 * DAY_MS;
 
@@ -57,7 +67,7 @@ export function fuzzInterval(interval: number, random: RandomSource): number {
 }
 
 export function initialReview(now: number, random: RandomSource): ReviewProgress {
-  return { box: 0, due: now + fuzzInterval(REVIEW_INTERVALS[0]!, random) };
+  return { box: 0, tier: 0, due: now + fuzzInterval(REVIEW_INTERVALS[0]!, random) };
 }
 
 export function scheduleReview(
@@ -69,7 +79,10 @@ export function scheduleReview(
   const box = correct
     ? Math.min(current.box + 1, REVIEW_INTERVALS.length - 1)
     : 0;
-  return { box, due: now + fuzzInterval(REVIEW_INTERVALS[box]!, random) };
+  const tier = correct
+    ? Math.min(tierOf(current) + 1, DOCKET_TIERS - 1)
+    : Math.max(tierOf(current) - 1, 0);
+  return { box, tier, due: now + fuzzInterval(REVIEW_INTERVALS[box]!, random) };
 }
 
 // A word that has climbed the whole ladder and is well ahead on the tally has

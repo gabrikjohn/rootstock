@@ -324,9 +324,15 @@ test("retires a word that has climbed the whole ladder", async ({ page }) => {
 
   await page.goto("/");
   await page.locator("#cta").click();
-  // At the top box the docket asks for assembly, so build the word from its morphemes.
-  for (const [segment] of word.parts) {
-    await page.locator(`.chip[data-seg="${segment}"]`).first().click();
+  // The top tier is a bank — assembly or typed production — so answer whichever came up.
+  const typed = page.locator("#ans");
+  if (await typed.count()) {
+    await typed.fill(word.word);
+    await page.locator("#sub").click();
+  } else {
+    for (const [segment] of word.parts) {
+      await page.locator(`.chip[data-seg="${segment}"]`).first().click();
+    }
   }
 
   await expect(page.getByText("Docket Cleared")).toBeVisible();
@@ -334,6 +340,28 @@ test("retires a word that has climbed the whole ladder", async ({ page }) => {
   expect(await page.evaluate(() =>
     JSON.parse(localStorage.getItem("rootstock_v2") ?? "{}").review["0-0"]
   )).toBeUndefined();
+});
+
+test("a lapse resets the calendar but drops difficulty only one rung", async ({ page }) => {
+  await page.addInitScript((fixture) => {
+    localStorage.setItem("rootstock_v2", JSON.stringify({
+      ...fixture,
+      // Tier 2 is the typed bank, so every mode in it is answered the same way.
+      review: { "0-0": { box: 3, tier: 2, due: 1 } }
+    }));
+  }, admittedProgress);
+
+  await page.goto("/");
+  await page.locator("#cta").click();
+  await page.locator("#ans").fill("notthewordatall");
+  await page.locator("#sub").click();
+  await expect(page.locator(".verdict")).toBeVisible();
+
+  const after = await page.evaluate(() =>
+    JSON.parse(localStorage.getItem("rootstock_v2") ?? "{}").review["0-0"]
+  );
+  expect(after.box).toBe(0);
+  expect(after.tier).toBe(1);
 });
 
 test("opens the root and word lexicons from sealed content", async ({ page }) => {

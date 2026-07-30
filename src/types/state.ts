@@ -15,6 +15,7 @@ export interface GateProgress {
 export interface ReviewProgress {
   due: number;
   box: number;
+  tier?: number;
 }
 
 export interface DrillHistory {

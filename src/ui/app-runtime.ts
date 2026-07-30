@@ -26,7 +26,7 @@ import { deserializeProgress, serializeProgress } from "../domain/persistence";
 import { canAccessGate, temperUnlock as calculateTemperUnlock } from "../domain/progression";
 import { normalizeRoot, rootForms as getRootForms, rootMatches } from "../domain/roots";
 import type { DocketSummary } from "../domain/scheduling";
-import { DOCKET_SESSION_CAP, docketBlocks, docketSummary, initialReview, retiresFromDocket, scheduleReview, selectDocketSitting } from "../domain/scheduling";
+import { DOCKET_SESSION_CAP, docketBlocks, docketSummary, initialReview, retiresFromDocket, scheduleReview, selectDocketSitting, tierOf } from "../domain/scheduling";
 import { buildBarItems, buildTrialOneItems, selectInference } from "../domain/sessions";
 import { pronLine } from "../platform/audio";
 import type { AppDependencies } from "../platform/contracts";
@@ -226,7 +226,8 @@ function requiredButton(id:string):HTMLButtonElement{
   if(!(button instanceof HTMLButtonElement)) throw new Error(`Missing button #${id}`);
   return button;
 }
-function tally(gi:number,wi:number,ok:boolean):void{ const k=gi+'-'+wi; const t=P.ledger[k]||(P.ledger[k]={r:0,w:0}); ok?t.r++:t.w++; save(); }
+function tallyKey(k:string,ok:boolean):void{ const t=P.ledger[k]||(P.ledger[k]={r:0,w:0}); ok?t.r++:t.w++; save(); }
+function tally(gi:number,wi:number,ok:boolean):void{ tallyKey(gi+'-'+wi,ok); }
 function gateIdxOfWord(name:string):number{ for(let gi=0;gi<LEVELS.length;gi++){ const wi=LEVELS[gi]!.words.findIndex(w=>w.word.toLowerCase()===name.toLowerCase()); if(wi>=0) return gi; } return -1; }
 // Intelligent near-twin sampling. Mirrors inferPick's fresh-first logic so the
 // same twins don't recur every sitting: unseen-this-cycle pairs come first, and
@@ -241,10 +242,58 @@ function pairPick(maxGi:number, n:number):ConfusablePair[]{
 }
 
 /* ---- Review Docket (Leitner) ---- */
+// Retrieval banks by difficulty tier: recognize → read in context → produce → assemble.
+// A bank rather than one fixed mode per tier, so a word met twice at the same tier is
+// attacked from different sides. Roots have only two angles, so they climb more slowly.
+const DOCKET_WORD_TIERS:readonly (readonly QuizMode[])[] = [
+  ['REC','ROOTQ'],
+  ['VIG','DSENT','LIT','KIN'],
+  ['VIGT','CLOZE','PROD'],
+  ['COMPOSE','LITT','PROD']
+];
+const DOCKET_ROOT_TIERS:readonly (readonly QuizMode[])[] = [['ROOTS'],['ROOTS'],['ROOTT'],['ROOTT']];
+
 function enqueueGateReview(gi:number):void{
+  const now=deps.clock.now();
   LEVELS[gi]!.words.forEach((_,wi)=>{ const k=gi+'-'+wi;
-    if(!P.review[k]) P.review[k]=initialReview(deps.clock.now(),deps.random); });
+    if(!P.review[k]) P.review[k]=initialReview(now,deps.random); });
+  // The roots the gate taught enter the Docket too. The words are built from them, and
+  // nothing outside the Drill Hall was scheduling roots for spaced recall at all.
+  LEVELS[gi]!.quizRoots.forEach(r=>{ const k=rootReviewKey(r);
+    if(!P.review[k]) P.review[k]=initialReview(now,deps.random); });
   save();
+}
+function rootReviewKey(r:Root):string{ return 'r:'+(r.key||r.root); }
+// A docket key is "gi-wi" for a gate word or "r:<rootKey>" for a root. Returns null when
+// the key no longer resolves — a stale entry is dropped rather than crashing the sitting.
+function docketEntry(key:string):FocusEntry|null{
+  if(key.startsWith('r:')){
+    const rk=key.slice(2);
+    const found=sealedRoots().find(x=>(x.root.key||x.root.root)===rk);
+    return found?{key,kind:'root',root:found.root,gate:found.gate}:null;
+  }
+  const [gi,wi]=key.split('-').map(Number);
+  if(gi===undefined||wi===undefined) return null;
+  const word=LEVELS[gi]?.words[wi];
+  return word?{key,kind:'word',d:word,gi,wi}:null;
+}
+function docketMode(e:FocusEntry,tier:number):QuizMode{
+  const banks = e.kind==='root'?DOCKET_ROOT_TIERS:DOCKET_WORD_TIERS;
+  const start=Math.min(Math.max(tier,0),banks.length-1);
+  // Drop a tier at a time until the item can actually support something in the bank.
+  for(let t=start;t>=0;t--){
+    const bank=(banks[t]||[]).filter(m=>feasible(e,m));
+    if(bank.length) return bank[Math.floor(deps.random.next()*bank.length)]!;
+  }
+  return e.kind==='root'?'ROOTS':'REC';
+}
+function docketItem(e:FocusEntry,mode:QuizMode):QuizItem{
+  const neighbours = e.kind==='word'&&e.gi!=null ? gateAt(e.gi).words : [];
+  const {it}=mkItem(e,mode,neighbours);
+  // The Docket is not the Drill Hall: no letter cue on typed production, and COMPOSE
+  // draws its decoy morphemes from the gate rather than the advanced stock.
+  delete it.drill;
+  return it;
 }
 // Due count and longest-waiting due date in one pass. home() re-renders every second
 // while a gate tempers, so the docket is counted once per render, not twice.
@@ -478,7 +527,9 @@ function startReview():void{
   stopClock();
   const keys = selectDocketSitting(P.review, deps.clock.now(), deps.random);
   if(!keys.length) return home();
-  const items = keys.map(k=>{ const [gi=0,wi=0]=k.split('-').map(Number); return {k,gi,wi,m:"REC" as const}; });
+  // Placeholders: reviewItem() builds the real item when the key reaches the head of the
+  // queue, so a word requeued after a miss comes back at its new tier, from a new angle.
+  const items:QuizItem[] = keys.map(k=>({k,m:"REC"}));
   S = { kind:'DOCKET', queue: items, debt:0, done:0, sit:{cleared:0,ahead:0}, retired:0 };
   reviewItem();
 }
@@ -500,21 +551,26 @@ function reviewItem():void{
     requiredButton("h2").onclick=home;
     return;
   }
-  const it=session.queue[0];
-  if(!it || it.gi===undefined || it.wi===undefined || !it.k) throw new Error("Invalid docket item");
-  const gi=it.gi, wi=it.wi, reviewKey=it.k;
-  const w=wordAt(gi,wi);
-  // retrieval depth escalates with the Leitner box: recognize → spell in context → produce → assemble
+  const head=session.queue[0];
+  if(!head || !head.k) throw new Error("Invalid docket item");
+  const reviewKey=head.k;
   const review=P.review[reviewKey];
   if(!review) throw new Error(`Missing review state for ${reviewKey}`);
-  const MODES:QuizItem["m"][]=['REC','VIG','VIGT','COMPOSE'];
-  it.m = MODES[Math.min(review.box, MODES.length-1)]!;
+  const entry=docketEntry(reviewKey);
+  if(!entry){ session.queue.shift(); delete P.review[reviewKey]; save(); return reviewItem(); }
+  // Retrieval depth follows the tier, not the box: a lapse resets the calendar but only
+  // steps difficulty down one rung.
+  const it=docketItem(entry, docketMode(entry, tierOf(review)));
+  it.k=reviewKey;
+  session.queue[0]=it;
+  const w = entry.kind==='word' ? entry.d : null;
+  const gateId = entry.kind==='word' ? gateAt(entry.gi!).id : entry.gate;
   renderTrialPrompt({
-    label:'The Review Docket', gateLabel:'Gate '+rom(gateAt(gi).id)+' · box '+(review.box+1), it, w,
+    label:'The Review Docket', gateLabel:'Gate '+rom(gateId)+' · box '+(review.box+1), it, w,
     onResolve: (ok:boolean)=>{
       const r=P.review[reviewKey];
       if(!r) throw new Error(`Missing review state for ${reviewKey}`);
-      tally(gi,wi,ok);
+      tallyKey(reviewKey,ok);
       if(ok){
         session.queue.shift(); session.done++; session.sit.cleared++;
         const next=scheduleReview(r,true,deps.clock.now(),deps.random);
@@ -1490,7 +1546,9 @@ function pickMode(f:FocusDefinition,e:FocusEntry):QuizMode{
   if(!mode) throw new Error(`Focus ${f.id} has no feasible mode`);
   return mode;
 }
-function mkItem(e:FocusEntry,mode:QuizMode):{it:QuizItem;w:Word|DrillWord|null;b:number}{
+// `neighbours` supplies DSENT's wrong-word choices. Passing them in rather than reaching
+// for the focus session's pool is what lets the Docket build items with this too.
+function mkItem(e:FocusEntry,mode:QuizMode,neighbours:readonly (Word|DrillWord)[]):{it:QuizItem;w:Word|DrillWord|null;b:number}{
   if(e.kind==='root'){
     const r=e.root; let it:QuizItem;
     if(mode==='ROOTT') it={m:'ROOTT',root:r};
@@ -1505,7 +1563,7 @@ function mkItem(e:FocusEntry,mode:QuizMode):{it:QuizItem;w:Word|DrillWord|null;b
   if(e.gi!=null){ it.gi=e.gi; if(e.wi!=null) it.wi=e.wi; }
   if(mode==='PROD'||mode==='CLOZE'||mode==='VIGT'||mode==='LITT') it.drill=d;
   else if(mode==='DSENT'){
-    const near=requireFocusSession().pool.filter((x):x is Extract<FocusEntry,{kind:"word"}>=>x.kind==='word'&&x.d.word!==d.word).map((x)=>x.d)
+    const near=neighbours.filter(x=>x.word!==d.word)
       .sort((a,c)=>Math.abs(("b" in a?a.b:0)-("b" in d?d.b:0))-Math.abs(("b" in c?c.b:0)-("b" in d?d.b:0))).slice(0,6);
     it.opts=shuffle([d.word,...shuffle(near).slice(0,3).map(x=>x.word)]);
   }
@@ -1528,7 +1586,7 @@ function focusItem():void{
   const session=requireFocusSession();
   const e=focusPick();
   const mode=pickMode(session.fdef,e);
-  const {it,w,b}=mkItem(e,mode);
+  const {it,w,b}=mkItem(e,mode,session.pool.flatMap(x=>x.kind==='word'?[x.d]:[]));
   const cd=Math.min(session.pool.length-1,5);
   session.recent.push(e.key); while(session.recent.length>cd) session.recent.shift();
   session.queue=[1];

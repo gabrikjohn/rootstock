@@ -37,10 +37,12 @@ import { normalizeRoot, rootForms, rootMatches, splitRootEntry } from "../src/do
 import {
   DAY_MS,
   DOCKET_SESSION_CAP,
+  DOCKET_TIERS,
   docketBlocks,
   docketSummary,
   fuzzInterval,
   selectDocketSitting,
+  tierOf,
   initialReview,
   retiresFromDocket,
   REVIEW_FUZZ_MIN,
@@ -89,13 +91,37 @@ describe("Leitner scheduling", () => {
     const now = 1_000;
     const flat = { next: () => 0.5 };
     const rung = (box: number) => now + REVIEW_INTERVALS[box]!;
-    expect(initialReview(now, flat)).toEqual({ box: 0, due: rung(0) });
+    expect(initialReview(now, flat)).toEqual({ box: 0, tier: 0, due: rung(0) });
     expect(scheduleReview({ box: 0, due: 0 }, true, now, flat))
-      .toEqual({ box: 1, due: rung(1) });
+      .toEqual({ box: 1, tier: 1, due: rung(1) });
     const top = REVIEW_INTERVALS.length - 1;
     expect(scheduleReview({ box: top, due: 0 }, true, now, flat).box).toBe(top);
-    expect(scheduleReview({ box: top, due: 0 }, false, now, flat))
-      .toEqual({ box: 0, due: rung(0) });
+    expect(scheduleReview({ box: top, due: 0 }, false, now, flat).box).toBe(0);
+  });
+
+  it("resets timing on a lapse but steps difficulty down only one rung", () => {
+    const now = 1_000;
+    const flat = { next: () => 0.5 };
+    const hard = { box: 4, tier: 3, due: 0 };
+
+    // The calendar goes back to the first rung; the tier gives up one step, not all of them.
+    const lapsed = scheduleReview(hard, false, now, flat);
+    expect(lapsed.box).toBe(0);
+    expect(lapsed.tier).toBe(2);
+    expect(scheduleReview(lapsed, false, now, flat).tier).toBe(1);
+    expect(scheduleReview({ box: 0, tier: 0, due: 0 }, false, now, flat).tier).toBe(0);
+
+    // Climbing caps at the hardest bank even as the box keeps rising.
+    expect(scheduleReview(hard, true, now, flat).tier).toBe(DOCKET_TIERS - 1);
+  });
+
+  it("reads a pre-tier save at its old box-indexed difficulty", () => {
+    // Saves written before tiers existed must not jump in difficulty on upgrade.
+    expect(tierOf({ box: 0, due: 0 })).toBe(0);
+    expect(tierOf({ box: 2, due: 0 })).toBe(2);
+    expect(tierOf({ box: 5, due: 0 })).toBe(DOCKET_TIERS - 1);
+    // An explicit tier always wins over the box.
+    expect(tierOf({ box: 5, due: 0, tier: 0 })).toBe(0);
   });
 
   it("retires a word only from the top of the ladder with a clear tally", () => {
