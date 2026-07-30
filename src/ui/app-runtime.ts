@@ -25,7 +25,8 @@ import { selectLexiconEntries } from "../domain/lexicon";
 import { deserializeProgress, serializeProgress } from "../domain/persistence";
 import { canAccessGate, temperUnlock as calculateTemperUnlock } from "../domain/progression";
 import { normalizeRoot, rootForms as getRootForms, rootMatches } from "../domain/roots";
-import { docketBlocks, initialReview, scheduleReview } from "../domain/scheduling";
+import type { DocketSummary } from "../domain/scheduling";
+import { DOCKET_SESSION_CAP, docketBlocks, docketSummary, initialReview, scheduleReview, selectDocketSitting } from "../domain/scheduling";
 import { buildBarItems, buildTrialOneItems, selectInference } from "../domain/sessions";
 import { pronLine } from "../platform/audio";
 import type { AppDependencies } from "../platform/contracts";
@@ -245,20 +246,14 @@ function enqueueGateReview(gi:number):void{
     if(!P.review[k]) P.review[k]=initialReview(deps.clock.now(),deps.random); });
   save();
 }
-function dueKeys():string[]{ const now=deps.clock.now(); return Object.keys(P.review).filter(k=>P.review[k]!.due<=now); }
-function nextDueMs():number{ const t=Object.values(P.review).map(r=>r.due); return t.length? Math.min(...t)-deps.clock.now() : Infinity; }
-// The due date of the word that has waited longest, or null when nothing is due.
-// Feeds docketBlocks: a week-old lapse is a backlog, a word due this morning is not.
-function oldestDueAt():number|null{
-  const now=deps.clock.now(); let oldest:number|null=null;
-  for(const r of Object.values(P.review)){ if(r.due<=now && (oldest===null||r.due<oldest)) oldest=r.due; }
-  return oldest;
-}
+// Due count and longest-waiting due date in one pass. home() re-renders every second
+// while a gate tempers, so the docket is counted once per render, not twice.
+function docket():DocketSummary{ return docketSummary(P.review, deps.clock.now()); }
 // Does the docket bar progression? The home card nudges whenever anything is due,
 // but the gates, the Bar, and the Drill Hall only lock once the backlog outgrows a
 // single sitting or a word has sat unanswered for a week. Two due words used to
 // hold the entire app hostage; now they only ask.
-function docketDebt(due:number):boolean{ return docketBlocks(due, oldestDueAt(), deps.clock.now()); }
+function docketDebt(d:DocketSummary):boolean{ return docketBlocks(d.due, d.oldestDue, deps.clock.now()); }
 
 // The controller owns a single mutable session at a time. Each session constructor
 // below writes its own shape; feature renderers and domain helpers remain fully typed.
@@ -364,7 +359,12 @@ function primaryAction(due:number, debtBlocks:boolean):PrimaryAction{
       return gateLocked(mk.idx) ? membersAction(mk.idx)
         : {kicker:'Resume', label:'Gate '+rom(gate.id)+' \u00b7 '+gate.title, sub:'Pick up where you left off', fn:()=>enterGate(mk.idx)};
   }
-  if(due>0) return {kicker:'Review', label:'The Review Docket', sub:due+' word'+(due>1?'s':'')+' ready for recall', fn:startReview};
+  // Above the cap the sitting serves only part of the backlog; promise what the tap delivers.
+  if(due>0) return {kicker:'Review', label:'The Review Docket',
+    sub: due>DOCKET_SESSION_CAP
+      ? DOCKET_SESSION_CAP+' of '+due+' this sitting'
+      : due+' word'+(due>1?'s':'')+' ready for recall',
+    fn:startReview};
   for(let idx=0; idx<LEVELS.length; idx++){
     const gate=gateAt(idx);
     const g=G(gate.id); if(g.sealed) continue;
@@ -389,8 +389,9 @@ let _sealedOpen=false;
 function home():void{
   stopClock(); S=null; P=load();
   const sealedCt = LEVELS.filter(l=>G(l.id).sealed).length;
-  const due = dueKeys().length;
-  const debtBlocks = docketDebt(due);
+  const summary = docket();
+  const due = summary.due;
+  const debtBlocks = docketDebt(summary);
 
   const currentIdx = previewFlag("burnt") ? LEVELS.findIndex((l,i)=> !G(l.id).sealed && (i===0 || G(gateAt(i-1).id).sealed)) : -1;
   const gateCards:HomeGateCard[] = LEVELS.map((lv,idx)=>{
@@ -469,20 +470,29 @@ function home():void{
 }
 
 /* ================= REVIEW DOCKET SESSION ================= */
+// One sitting at a time. selectDocketSitting takes the most overdue words first and
+// caps the batch, so a long absence is worked off in rounds instead of one wall of
+// items. Clearing a round drops the remainder under the blocking threshold, which is
+// what reopens the gates — so the cap is a stopping point, never a lockout.
 function startReview():void{
   stopClock();
-  const keys = dueKeys();
+  const keys = selectDocketSitting(P.review, deps.clock.now(), deps.random);
   if(!keys.length) return home();
   const items = keys.map(k=>{ const [gi=0,wi=0]=k.split('-').map(Number); return {k,gi,wi,m:"REC" as const}; });
-  S = { kind:'DOCKET', queue: shuffle(items), debt:0, done:0, sit:{cleared:0,ahead:0} };
+  S = { kind:'DOCKET', queue: items, debt:0, done:0, sit:{cleared:0,ahead:0} };
   reviewItem();
 }
 function reviewItem():void{
   const session=requireSession("DOCKET");
   if(session.queue.length===0){
     save();
-    sealScreen({seal:'⚖',title:'Docket Cleared',score:(session.debt?session.debt+' lapses reset':'no lapses'),
-      note:'Every due word answered. Lapsed words return in about two days; the rest climb the calendar.',
+    // Anything still due was held back by the sitting cap, not left unanswered — say so
+    // plainly rather than claiming the docket is clear when it isn't.
+    const left = docket().due;
+    sealScreen({seal:'⚖',title:left?'Sitting Cleared':'Docket Cleared',score:(session.debt?session.debt+' lapses reset':'no lapses'),
+      note:left
+        ? `${left} word${left>1?'s':''} still due — the Docket is there whenever you want another sitting. Lapsed words return in about two days; the rest climb the calendar.`
+        : 'Every due word answered. Lapsed words return in about two days; the rest climb the calendar.',
       actions:'<button class="btn" id="h2">Return to the gates</button>'});
     requiredButton("h2").onclick=home;
     return;

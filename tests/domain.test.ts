@@ -38,7 +38,9 @@ import {
   DAY_MS,
   DOCKET_SESSION_CAP,
   docketBlocks,
+  docketSummary,
   fuzzInterval,
+  selectDocketSitting,
   initialReview,
   REVIEW_FUZZ_MIN,
   REVIEW_FUZZ_RANGE,
@@ -115,6 +117,46 @@ describe("Leitner scheduling", () => {
       expect(fuzzInterval(interval, { next: () => 1 }))
         .toBeLessThan(fuzzInterval(next, { next: () => 0 }));
     });
+  });
+
+  it("serves one capped sitting, most overdue first", () => {
+    const now = 100 * DAY_MS;
+    // 30 words, staggered: "w0" is the most overdue, "w29" the freshest.
+    const review = Object.fromEntries(
+      Array.from({ length: 30 }, (_, index) => [
+        `w${index}`,
+        { box: 0, due: now - (30 - index) * 1_000 }
+      ])
+    );
+
+    expect(selectDocketSitting({}, now, zeroRandom)).toEqual([]);
+
+    const sitting = selectDocketSitting(review, now, zeroRandom);
+    expect(sitting).toHaveLength(DOCKET_SESSION_CAP);
+    // The cap must take the oldest, not an arbitrary slice: the 10 freshest stay behind.
+    const held = new Set(sitting);
+    for (let index = 0; index < DOCKET_SESSION_CAP; index += 1) {
+      expect(held.has(`w${index}`), `w${index} should be served`).toBe(true);
+    }
+    for (let index = DOCKET_SESSION_CAP; index < 30; index += 1) {
+      expect(held.has(`w${index}`), `w${index} should be held back`).toBe(false);
+    }
+
+    // Under the cap, everything due is served; nothing not yet due ever is.
+    const few = { a: { box: 0, due: now - 1 }, b: { box: 0, due: now - 2 }, later: { box: 0, due: now + 1 } };
+    expect(selectDocketSitting(few, now, zeroRandom).sort()).toEqual(["a", "b"]);
+  });
+
+  it("summarizes the docket in one pass", () => {
+    const now = 100 * DAY_MS;
+    const review = {
+      old: { box: 0, due: now - 5 * DAY_MS },
+      recent: { box: 1, due: now - 1 },
+      future: { box: 2, due: now + DAY_MS }
+    };
+    expect(docketSummary(review, now)).toEqual({ due: 2, oldestDue: now - 5 * DAY_MS });
+    expect(docketSummary({}, now)).toEqual({ due: 0, oldestDue: null });
+    expect(docketSummary({ future: review.future }, now)).toEqual({ due: 0, oldestDue: null });
   });
 
   it("bars progression only on a real docket backlog", () => {

@@ -274,6 +274,42 @@ test("nudges on a small docket but only bars progression on a backlog", async ({
   await expect(page.locator("#drill-btn")).toContainText("Docket first");
 });
 
+test("caps a docket sitting and leaves the remainder for the next one", async ({ page }) => {
+  test.setTimeout(60_000);
+  const due = Date.now() - 60 * 60 * 1000;
+  const review: Record<string, { box: number; due: number }> = {};
+  for (let index = 0; index < 25; index += 1) {
+    review[`${Math.floor(index / 10)}-${index % 10}`] = { box: 0, due: due - index };
+  }
+  await page.addInitScript((fixture) => {
+    localStorage.setItem("rootstock_v2", JSON.stringify(fixture));
+    localStorage.setItem("rootstock_sub", JSON.stringify({
+      source: "dev",
+      active: true,
+      plan: "annual",
+      expiresAt: null
+    }));
+  }, { ...admittedProgress, review });
+
+  await page.goto("/");
+  // 25 due is over the cap, so the CTA promises a sitting rather than the whole backlog.
+  await expect(page.locator(".session-meta")).toHaveText("20 of 25 this sitting");
+  await page.locator("#cta").click();
+  await expect(page.locator(".queue-meta span").first()).toHaveText("20 in queue");
+
+  for (let index = 0; index < 20; index += 1) await answerChoiceAndWait(page);
+
+  await expect(page.getByText("Sitting Cleared")).toBeVisible();
+  await expect(page.getByText(/5 words still due/)).toBeVisible();
+  await page.locator("#h2").click();
+
+  // 25 → 5 remaining drops back under the blocking threshold, so the way forward reopens.
+  await expect(page.locator("#drill-btn")).toBeEnabled();
+  await expect(page.locator("#cta")).toContainText("5 words ready for recall");
+  await page.locator("#cta").click();
+  await expect(page.locator(".queue-meta span").first()).toHaveText("5 in queue");
+});
+
 test("opens the root and word lexicons from sealed content", async ({ page }) => {
   await page.addInitScript((fixture) => {
     localStorage.setItem("rootstock_v2", JSON.stringify(fixture));
