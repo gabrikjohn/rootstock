@@ -64,7 +64,7 @@ import {
   wireChoices as wirePromptChoices
 } from "./features/prompt-interactions";
 import { buildPromptView } from "./features/prompt-view";
-import { installGhostDefinitions, renderStudyCard } from "./features/study-card";
+import { installGhostDefinitions, posTag, renderStudyCard } from "./features/study-card";
 import { renderTrialScreen, wireComposeInteraction, wireTypedInteraction } from "./features/trial-screen";
 import { showBackupModal, showRestoreModal } from "./features/progress-modals";
 import { appearanceName, renderSettings } from "./features/settings-screen";
@@ -826,10 +826,10 @@ function renderTrialPrompt({label,gateLabel,it,w,onResolve,onNext,oneShot=false,
       if(it.root){ deep = rootDeepHtml(it.root); }
       else if(it.inf){
         const src=it.inf;
-        deep+=`<span class="fb-line fb-contrast">${src.word} ${saySmall(src.word)} — ${src.def.toLowerCase()}</span>`;
+        deep+=`<span class="fb-line fb-contrast">${src.word} ${saySmall(src.word)} — ${posTag(src)}${src.def.toLowerCase()}</span>`;
         deep+=inferDeep(src);
       } else if(w) {
-            deep+=`<span class="fb-line fb-contrast">${w.word} ${saySmall(w.word)} — ${w.def.toLowerCase()}</span>`;
+            deep+=`<span class="fb-line fb-contrast">${w.word} ${saySmall(w.word)} — ${posTag(w)}${w.def.toLowerCase()}</span>`;
             const story = etyOf(w);
             if(story) deep+=`<span class="fb-line fb-ety">${story}</span>`;
             if(vigOf(w) && it.m!=='VIG' && it.m!=='VIGT') deep+=`<span class="fb-line fb-scene">“${esc(vigOf(w))}”</span>`;
@@ -1149,7 +1149,7 @@ function sealedGateView(idx:number):void{
   const words=lv.words.map((w,wi)=>{
     const t=P.ledger[idx+'-'+wi];
     const led=t?`<span class="lex-led ${t.w>t.r?'bad':''}">${t.r}–${t.w}</span>`:'';
-    return `<button class="lex-row" data-wi="${wi}"><span class="lex-w">${w.word}</span><span class="lex-d">${esc(w.def)}</span>${led}</button>`;
+    return `<button class="lex-row" data-wi="${wi}"><span class="lex-w">${w.word}</span><span class="lex-d">${posTag(w)}${esc(w.def)}</span>${led}</button>`;
   }).join('');
   renderSealedGateScreen({
     app, gate:lv, gateNumber:rom(lv.id), rootRowsHtml:rows, wordRowsHtml:words,

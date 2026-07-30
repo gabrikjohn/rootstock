@@ -170,6 +170,7 @@
   .seg.empty{opacity:.4}
   .plus{align-self:center;color:var(--gild);font-family:var(--serif);font-size:18px}
   .def{font-family:var(--serif);font-size:19px;margin:8px auto 4px;max-width:40ch;line-height:1.45}
+  .pos{font-family:var(--mono);font-style:italic;font-size:.72em;color:var(--ink-soft);opacity:.85;margin-right:.15em}
   .exline{font-family:var(--serif);font-style:italic;color:var(--ink-soft);max-width:44ch;margin:16px auto 0;padding-top:16px;border-top:1px solid var(--line);font-size:16px;line-height:1.55}
   .near{font-family:var(--mono);font-size:10.5px;letter-spacing:.04em;color:var(--gild);margin-top:16px;text-transform:uppercase}
 

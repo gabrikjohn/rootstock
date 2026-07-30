@@ -1,5 +1,11 @@
 import { pronLine } from "../../platform/audio";
-import type { Gate, Word } from "../../types/content";
+import type { DrillWord, Gate, InferenceWord, Word } from "../../types/content";
+
+// The part-of-speech label, where one has been authored. Deliberately absent from live
+// prompts unless every option shares a part of speech — otherwise it narrows the field.
+export function posTag(word: Word | DrillWord | InferenceWord): string {
+  return word.pos ? `<span class="pos">${word.pos}</span> ` : "";
+}
 
 interface StudyCardContext {
   gates: readonly Gate[];
@@ -20,7 +26,7 @@ export function renderStudyCard(word: Word, context: StudyCardContext): string {
   const kin = word.kin ? `<div class="near">kin: ${word.kin.join(" · ")}</div>` : "";
   const etymology = context.etymology(word);
   return `<div class="card"><div class="headword">${word.word}</div>${pronLine(word.word, word.pron)}
-    <div class="morph">${morphology}</div><div class="def">${word.def}</div>
+    <div class="morph">${morphology}</div><div class="def">${posTag(word)}${word.def}</div>
     <div class="exline">“${ghostify(word, context.gates)}”<div class="ghost-note" style="display:none"></div></div>${etymology ? `<div class="ety">${etymology}</div>` : ""}${kin}</div>`;
 }
 

@@ -1,5 +1,10 @@
 export type WordPart = readonly [surface: string, gloss: string];
 
+// The part of speech the word's own definition uses, not the word's full range in English.
+// Several headwords are legitimately multi-POS (aggregate, consummate, cosmopolitan); tagging
+// them with every valid sense would make the option-set homogeneity rule meaningless.
+export type PartOfSpeech = "n." | "v." | "adj." | "adv.";
+
 export interface Root {
   root: string;
   lang: string;
@@ -17,6 +22,7 @@ export interface Word {
   distractors: string[];
   kin?: string[];
   ety?: string;
+  pos?: PartOfSpeech;
 }
 
 export interface Gate {
@@ -40,6 +46,7 @@ export interface InferenceWord {
   distractors: string[];
   roots: string;
   pron?: string;
+  pos?: PartOfSpeech;
 }
 
 export interface DrillWord extends Word {
