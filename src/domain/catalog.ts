@@ -76,6 +76,12 @@ export class ContentCatalog {
     return this.wordDepth(word).e ?? word.ety ?? "";
   }
 
+  // The paragraph-length sense-history, where one has been authored. No fallback to the
+  // epigram: a missing story yields "" so the disclosure simply omits the block.
+  wordStory(word: Word | DrillWord): string {
+    return this.wordDepth(word).s ?? "";
+  }
+
   definition(headword: string): string {
     for (const gate of this.gates) {
       const word = gate.words.find((candidate) => candidate.word === headword);

@@ -37,7 +37,7 @@ export function renderStudyCard(word: Word, context: StudyCardContext): string {
 function deepDisclosure(word: Word, context: StudyCardContext): string {
   const body = context.deepPanel?.(word) ?? "";
   if (!body) return "";
-  return `<div class="deep-wrap"><button class="deep-toggle" data-deep>Learn more ▾</button>
+  return `<div class="deep-wrap"><button class="deep-toggle" data-deep>Where it comes from ▾</button>
     <div class="deep-body" style="display:none">${body}</div></div>`;
 }
 
@@ -50,7 +50,7 @@ export function installDeepDisclosure(root: Document = document): void {
     if (!toggle || !body) return;
     const open = body.style.display !== "none";
     body.style.display = open ? "none" : "block";
-    toggle.textContent = open ? "Learn more ▾" : "Less ▴";
+    toggle.textContent = open ? "Where it comes from ▾" : "Less ▴";
   });
 }
 

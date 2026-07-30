@@ -58,6 +58,10 @@ export interface DrillWord extends Word {
 export interface DepthEntry {
   v: string;
   e: string;
+  // A paragraph on how the word came to mean what it means today — a sense-history, not a
+  // gloss. Distinct from `e` (the one-line epigram, which also serves as the ETY drill prompt)
+  // and shown only in the study card's disclosure. Optional so the corpus can fill in by gate.
+  s?: string;
 }
 
 export interface ConfusablePair {

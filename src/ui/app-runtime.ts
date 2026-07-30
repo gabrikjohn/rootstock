@@ -718,6 +718,11 @@ function cardHtml(word:Word|DrillWord):string{
 // the study card.
 function deepPanel(word:Word|DrillWord):string{
   const seen=new Set<string>(); let out='';
+  // The word's own sense-history leads the panel, above the per-piece notes. Seeding `out`
+  // here also lets a story-only word open the panel: the empty-guard below sits after the
+  // piece loop, so a word with a story but no resolvable pieces still returns a panel.
+  const story=catalog.wordStory(word);
+  if(story) out+=`<div class="deep-part deep-story">${story}</div>`;
   for(const [surface,gloss] of word.parts){
     const note=catalog.partDepth(surface,AFFIX_DEEP);
     if(!note||seen.has(note)) continue;

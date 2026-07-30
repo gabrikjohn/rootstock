@@ -3,43 +3,53 @@ import type { DepthEntry } from "../types/content";
 export const DEPTH = {
   "egoist": {
     "v": "Offered the choice of splitting the reward or keeping it, he kept it — not out of malice, just arithmetic.",
-    "e": "Latin ego, 'I' — the self as the quiet center of every calculation, not necessarily the loudest voice in the room."
+    "e": "Latin ego, 'I' — the self as the quiet center of every calculation, not necessarily the loudest voice in the room.",
+    "s": "Latin ego, 'I' — nothing grander than the pronoun a Roman used to point at himself. English took it up around 1700 by way of French égoïste, but as a word of philosophy: an egoist was first a thinker who held that the self is the only thing one can truly know, a position close to solipsism. Running beside it was an ethical sense — one who makes self-interest the measure of right conduct — and that harder, moral meaning is the one that survived. Today an egoist is simply someone whose acts are guided by self-interest, quietly distinct from the egotist, who merely will not stop talking about himself."
   },
   "egotist": {
     "v": "Ask him about the weather and within a minute you are hearing, again, how he saved the merger.",
-    "e": "The intrusive t crept in by analogy with words like dramatist — fittingly, a letter added just to make more of the self."
+    "e": "The intrusive t crept in by analogy with words like dramatist — fittingly, a letter added just to make more of the self.",
+    "s": "Built on the same Latin ego, 'I,' but carrying an intrusive t that belongs to no root — slipped in by analogy with words like theist and dramatist, fittingly a letter added only to make more of the self. Addison and the essayists of the early 1700s coined egotism for a fault of style: the compulsion to keep saying I where the matter did not call for it. From that narrow rhetorical vice the sense widened to the whole disposition behind it — a man forever at the center of his own attention. Today an egotist is a self-absorbed boaster, while his near-twin egoist kept the cooler, more philosophical sense of one who simply acts from self-interest."
   },
   "egocentric": {
     "v": "When the office flooded, her first question was whether her desk had gotten wet.",
-    "e": "ego + Latin centrum, 'center' — built on the model of geocentric: a private Ptolemaic universe with the self where the sun should be."
+    "e": "ego + Latin centrum, 'center' — built on the model of geocentric: a private Ptolemaic universe with the self where the sun should be.",
+    "s": "Ego joined to Latin centrum, 'center' — the self set where the center of things should be. The word was struck in the later nineteenth century on the model of geocentric, and psychology gave it its first real work: Jean Piaget used egocentrism, without blame, for the young child who cannot yet picture the world from any viewpoint but his own. Carried out of the clinic into ordinary speech, it lost that developmental innocence and hardened into an accusation. Today egocentric means plainly self-centered — a private Ptolemaic universe with the self where the sun should be — kin to the geocentric model it was built to echo."
   },
   "altruist": {
     "v": "The scholarship's donor insisted on one condition: that her name never appear anywhere near it.",
-    "e": "Coined by philosopher Auguste Comte in the 1850s from Italian altrui, 'of others,' as the deliberate opposite of egoism."
+    "e": "Coined by philosopher Auguste Comte in the 1850s from Italian altrui, 'of others,' as the deliberate opposite of egoism.",
+    "s": "When Auguste Comte needed a word for the opposite of egoism, he built one: French altruisme, from Italian altrui, 'of others,' and behind it Latin alter, 'the other of two.' In his 1850s religion of humanity it was a technical term — living deliberately for others as a system, the creed meant to unseat self-love. English borrowed it within the decade but let the doctrine fall away, keeping only the disposition. Today an altruist is simply one who puts others first, no philosophy required; its twin egoist kept the very pole Comte had pushed against."
   },
   "introvert": {
     "v": "After two hours at the party he slipped out to the porch, visibly relieved to be alone with his thoughts.",
-    "e": "Latin intro (inward) + vertere (to turn) — borrowed from Carl Jung's psychology, where it named a direction of energy, not shyness."
+    "e": "Latin intro (inward) + vertere (to turn) — borrowed from Carl Jung's psychology, where it named a direction of energy, not shyness.",
+    "s": "Latin intro, 'to the inside,' bolted to vertere, 'to turn' — literally to turn inward. As a verb English had it by the seventeenth century for turning anything inward, one's thoughts included, but the personality it now names came from Carl Jung. In his Psychological Types of 1921 the introvert was defined by a direction of energy, the psyche's current running inward toward ideas rather than outward toward people — a matter of orientation, not timidity. Popular psychology then flattened that into a social type, and today an introvert is the reserved, private person who leaves the party early, the quiet counterpart of the outward-turning extrovert."
   },
   "extrovert": {
     "v": "She recharges by throwing dinner parties; an empty Saturday leaves her restless by noon.",
-    "e": "Jung's counterpart term: Latin extra (outward) + vertere (to turn) — the psyche's current flowing toward people and things."
+    "e": "Jung's counterpart term: Latin extra (outward) + vertere (to turn) — the psyche's current flowing toward people and things.",
+    "s": "Latin extra, 'outside, beyond,' with vertere, 'to turn' — the psyche turned outward, toward people and things. It is Jung's counterpart to the introvert, coined in the 1920s, and he spelled it extravert, keeping the true Latin extra. The o we now write borrowed itself from introvert for the sake of symmetry, so the common spelling records a fondness for neatness over etymology. Jung meant a direction of energy flowing outward; ordinary use narrowed that to plain sociability, and today an extrovert is simply the outgoing person who is restless alone — the reaching pole to the introvert's retreat."
   },
   "ambivert": {
     "v": "He works the room happily until ten, then is genuinely glad to go home to his book.",
-    "e": "Latin ambi-, 'both' — a later coinage by psychologists who found almost no one lives at either pole Jung described."
+    "e": "Latin ambi-, 'both' — a later coinage by psychologists who found almost no one lives at either pole Jung described.",
+    "s": "Latin ambi-, 'both,' fixed to the same vertere, 'to turn' — a nature that turns both inward and outward. Where introvert and extrovert came from Jung, ambivert was added a little later, in the 1920s, by psychologists who noticed that almost no one lives at either pole he had described. It was coined to name the middle, and unlike its two siblings it never quite escaped the textbook into everyday speech. Today an ambivert is one balanced between the temperaments — sociable to a point and then glad of solitude — and modern personality research suggests this crowded middle, not either extreme, is where most people actually sit."
   },
   "misanthrope": {
     "v": "He moved to the cabin not to find nature but to be rid of neighbors, salesmen, and mankind generally.",
-    "e": "Greek misein (to hate) + anthropos (mankind) — Molière's comedy Le Misanthrope fixed the type in the European imagination."
+    "e": "Greek misein (to hate) + anthropos (mankind) — Molière's comedy Le Misanthrope fixed the type in the European imagination.",
+    "s": "Greek misein, 'to hate,' joined to anthropos, 'human being' — at root simply a hater of mankind. The compound was already old in Greek, passed through French, and settled into English in the early seventeenth century. What fixed its character was the stage: Molière's comedy Le Misanthrope of 1666 gave Europe the enduring type, less a snarling hater than a soured idealist who withdraws because people have disappointed him. Today a misanthrope is one who shuns humankind on principle, the exact shadow of the philanthropist, who is built from the same anthropos but loves what the other has given up on."
   },
   "misogynist": {
     "v": "He praised his female colleagues only in the past tense, and voted against every one of their promotions.",
-    "e": "Greek misein (to hate) + gyne (woman) — the same gyne that appears, more kindly, in gynecologist."
+    "e": "Greek misein (to hate) + gyne (woman) — the same gyne that appears, more kindly, in gynecologist.",
+    "s": "Greek misein, 'to hate,' with gyne, 'woman' — the same gyne that appears, far more kindly, in gynecologist. English drew it from Greek misogynia in the early seventeenth century, at first naming one man's private antipathy toward women. Modern usage, sharpened by a century of feminist analysis, has widened it past personal feeling toward a whole attitude of contempt or prejudice that need not announce itself as hatred at all. Today a misogynist is one hostile or prejudiced against women, the mirror of the misandrist, who is turned the same way against men."
   },
   "ascetic": {
     "v": "A cot, one bowl, cold water at four each morning — comfort, he said, was the enemy of the work.",
-    "e": "Greek asketes, an athlete in training — the monks borrowed the athlete's regimen and aimed it at the soul."
+    "e": "Greek asketes, an athlete in training — the monks borrowed the athlete's regimen and aimed it at the soul.",
+    "s": "Greek asketes, 'one who trains,' from askein, 'to exercise' — first the athlete drilling his body in the gymnasium. The desert monks of early Christianity borrowed that regimen and turned it inward, and the word reached English in the seventeenth century already carrying the transferred sense. The discipline was the same — repetition, denial, the daily grind toward a distant prize — but the arena had moved from the stadium to the soul, and the reward from a wreath to salvation. Today an ascetic is one who renounces comfort and pleasure for a higher end, keeping the old athletic severity long after the games were forgotten; the hedonist is his opposite number."
   },
   "internist": {
     "v": "No scalpel in her office — she reads bloodwork, listens to organs, and treats what's inside with medicine alone.",

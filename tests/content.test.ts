@@ -130,6 +130,34 @@ describe("runtime content", () => {
     expect(Object.keys(ROOT_DEEP).length).toBeGreaterThan(200);
   });
 
+  it("authors sense-history stories to spec and caps the epigram", () => {
+    const catalog = new ContentCatalog(LEVELS, DRILL_POOL, DEPTH, ROOT_DEEP, ETYM, COGNATES);
+    const depth = DEPTH as Readonly<Record<string, { v: string; e: string; s?: string }>>;
+    // Count sentence terminators, tolerating a closing quote after the stop (…of two.') so a
+    // sentence that ends on a gloss still counts. Abbreviations may over-count — that is a
+    // safe direction for a floor. Soft by design.
+    const sentences = (text: string) => (text.match(/[.!?]['"’”)\]]*(\s|$)/g) ?? []).length;
+    let withStory = 0;
+    for (const word of [...gateWords, ...DRILL_POOL]) {
+      // The epigram doubles as the masked ETY drill prompt, where the headword is the answer;
+      // a paragraph there would be an unreadable, answer-leaking prompt. Keep it a caption.
+      expect(catalog.wordEtymology(word).length, word.word).toBeLessThanOrEqual(200);
+      const story = catalog.wordStory(word);
+      if (!story) continue;
+      withStory += 1;
+      // The story is a paragraph, not an epigram: long enough to narrate a sense-shift,
+      // short enough for a card. Four sentences roughly matches the five-move house style.
+      expect(story.length, word.word).toBeGreaterThanOrEqual(350);
+      expect(story.length, word.word).toBeLessThanOrEqual(900);
+      expect(sentences(story), word.word).toBeGreaterThanOrEqual(4);
+      // A story pasted from the epigram or the vignette is not a story.
+      expect(story, word.word).not.toBe(depth[word.word]?.e);
+      expect(story, word.word).not.toBe(depth[word.word]?.v);
+    }
+    // Ratchets up as each gate's stories land. Raise it per batch; never lower it.
+    expect(withStory).toBeGreaterThanOrEqual(10);
+  });
+
   it("keeps similar roots symmetric and cognates meaningful", () => {
     for (const [root, similars] of Object.entries(SIMILARS)) {
       for (const similar of similars) {
