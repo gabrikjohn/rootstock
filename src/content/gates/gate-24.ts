@@ -59,6 +59,7 @@ export const gate24 = {
   "words": [
     {
       "word": "pugnacious",
+      "pos": "adj.",
       "parts": [
         [
           "pugn",
@@ -83,6 +84,7 @@ export const gate24 = {
     },
     {
       "word": "impugn",
+      "pos": "v.",
       "parts": [
         [
           "im",
@@ -108,6 +110,7 @@ export const gate24 = {
     },
     {
       "word": "pugilist",
+      "pos": "n.",
       "parts": [
         [
           "pugil",
@@ -133,6 +136,7 @@ export const gate24 = {
     },
     {
       "word": "repugnant",
+      "pos": "adj.",
       "parts": [
         [
           "re",
@@ -161,6 +165,7 @@ export const gate24 = {
     },
     {
       "word": "bellicose",
+      "pos": "adj.",
       "parts": [
         [
           "belli",
@@ -186,6 +191,7 @@ export const gate24 = {
     },
     {
       "word": "belligerent",
+      "pos": "adj.",
       "parts": [
         [
           "belli",
@@ -215,6 +221,7 @@ export const gate24 = {
     },
     {
       "word": "obsequious",
+      "pos": "adj.",
       "parts": [
         [
           "ob",
@@ -243,6 +250,7 @@ export const gate24 = {
     },
     {
       "word": "obsequies",
+      "pos": "n.",
       "parts": [
         [
           "ob",
@@ -272,6 +280,7 @@ export const gate24 = {
     },
     {
       "word": "non sequitur",
+      "pos": "n.",
       "parts": [
         [
           "non",
@@ -298,6 +307,7 @@ export const gate24 = {
     },
     {
       "word": "uxorious",
+      "pos": "adj.",
       "parts": [
         [
           "uxori",

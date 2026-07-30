@@ -59,6 +59,7 @@ export const gate09 = {
   "words": [
     {
       "word": "convivial",
+      "pos": "adj.",
       "parts": [
         [
           "con",
@@ -87,6 +88,7 @@ export const gate09 = {
     },
     {
       "word": "indefatigable",
+      "pos": "adj.",
       "parts": [
         [
           "in",
@@ -115,6 +117,7 @@ export const gate09 = {
     },
     {
       "word": "ingenuous",
+      "pos": "adj.",
       "parts": [
         [
           "ingenu",
@@ -140,6 +143,7 @@ export const gate09 = {
     },
     {
       "word": "magnanimous",
+      "pos": "adj.",
       "parts": [
         [
           "magn",
@@ -169,6 +173,7 @@ export const gate09 = {
     },
     {
       "word": "versatile",
+      "pos": "adj.",
       "parts": [
         [
           "versat",
@@ -193,6 +198,7 @@ export const gate09 = {
     },
     {
       "word": "stoic",
+      "pos": "adj.",
       "parts": [
         [
           "sto",
@@ -218,6 +224,7 @@ export const gate09 = {
     },
     {
       "word": "intrepid",
+      "pos": "adj.",
       "parts": [
         [
           "in",
@@ -243,6 +250,7 @@ export const gate09 = {
     },
     {
       "word": "scintillating",
+      "pos": "adj.",
       "parts": [
         [
           "scintill",
@@ -268,6 +276,7 @@ export const gate09 = {
     },
     {
       "word": "urbane",
+      "pos": "adj.",
       "parts": [
         [
           "urb",
@@ -293,6 +302,7 @@ export const gate09 = {
     },
     {
       "word": "gregarious",
+      "pos": "adj.",
       "parts": [
         [
           "greg",

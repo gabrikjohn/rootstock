@@ -49,6 +49,7 @@ export const gate15 = {
   "words": [
     {
       "word": "anachronism",
+      "pos": "n.",
       "parts": [
         [
           "ana",
@@ -77,6 +78,7 @@ export const gate15 = {
     },
     {
       "word": "chronological",
+      "pos": "adj.",
       "parts": [
         [
           "chrono",
@@ -106,6 +108,7 @@ export const gate15 = {
     },
     {
       "word": "synchronize",
+      "pos": "v.",
       "parts": [
         [
           "syn",
@@ -135,6 +138,7 @@ export const gate15 = {
     },
     {
       "word": "chronicle",
+      "pos": "n.",
       "parts": [
         [
           "chron",
@@ -160,6 +164,7 @@ export const gate15 = {
     },
     {
       "word": "chronometer",
+      "pos": "n.",
       "parts": [
         [
           "chrono",
@@ -184,6 +189,7 @@ export const gate15 = {
     },
     {
       "word": "temporize",
+      "pos": "v.",
       "parts": [
         [
           "tempor",
@@ -209,6 +215,7 @@ export const gate15 = {
     },
     {
       "word": "extemporaneous",
+      "pos": "adj.",
       "parts": [
         [
           "ex",
@@ -238,6 +245,7 @@ export const gate15 = {
     },
     {
       "word": "contemporary",
+      "pos": "adj.",
       "parts": [
         [
           "con",
@@ -267,6 +275,7 @@ export const gate15 = {
     },
     {
       "word": "temporal",
+      "pos": "adj.",
       "parts": [
         [
           "tempor",
@@ -292,6 +301,7 @@ export const gate15 = {
     },
     {
       "word": "diachronic",
+      "pos": "adj.",
       "parts": [
         [
           "dia",

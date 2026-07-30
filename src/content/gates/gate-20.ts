@@ -54,6 +54,7 @@ export const gate20 = {
   "words": [
     {
       "word": "calligraphy",
+      "pos": "n.",
       "parts": [
         [
           "calli",
@@ -83,6 +84,7 @@ export const gate20 = {
     },
     {
       "word": "epigraph",
+      "pos": "n.",
       "parts": [
         [
           "epi",
@@ -108,6 +110,7 @@ export const gate20 = {
     },
     {
       "word": "monograph",
+      "pos": "n.",
       "parts": [
         [
           "mono",
@@ -132,6 +135,7 @@ export const gate20 = {
     },
     {
       "word": "ascribe",
+      "pos": "v.",
       "parts": [
         [
           "a",
@@ -157,6 +161,7 @@ export const gate20 = {
     },
     {
       "word": "circumscribe",
+      "pos": "v.",
       "parts": [
         [
           "circum",
@@ -181,6 +186,7 @@ export const gate20 = {
     },
     {
       "word": "conscription",
+      "pos": "n.",
       "parts": [
         [
           "con",
@@ -210,6 +216,7 @@ export const gate20 = {
     },
     {
       "word": "credence",
+      "pos": "n.",
       "parts": [
         [
           "cred",
@@ -234,6 +241,7 @@ export const gate20 = {
     },
     {
       "word": "credulous",
+      "pos": "adj.",
       "parts": [
         [
           "cred",
@@ -259,6 +267,7 @@ export const gate20 = {
     },
     {
       "word": "incredulity",
+      "pos": "n.",
       "parts": [
         [
           "in",
@@ -288,6 +297,7 @@ export const gate20 = {
     },
     {
       "word": "accredit",
+      "pos": "v.",
       "parts": [
         [
           "ac",

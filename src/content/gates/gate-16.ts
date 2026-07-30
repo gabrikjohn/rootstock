@@ -69,6 +69,7 @@ export const gate16 = {
   "words": [
     {
       "word": "veracious",
+      "pos": "adj.",
       "parts": [
         [
           "ver",
@@ -94,6 +95,7 @@ export const gate16 = {
     },
     {
       "word": "veridical",
+      "pos": "adj.",
       "parts": [
         [
           "veri",
@@ -122,6 +124,7 @@ export const gate16 = {
     },
     {
       "word": "verisimilitude",
+      "pos": "n.",
       "parts": [
         [
           "veri",
@@ -150,6 +153,7 @@ export const gate16 = {
     },
     {
       "word": "fallacious",
+      "pos": "adj.",
       "parts": [
         [
           "fall",
@@ -175,6 +179,7 @@ export const gate16 = {
     },
     {
       "word": "infallible",
+      "pos": "adj.",
       "parts": [
         [
           "in",
@@ -204,6 +209,7 @@ export const gate16 = {
     },
     {
       "word": "mendacious",
+      "pos": "adj.",
       "parts": [
         [
           "mendac",
@@ -229,6 +235,7 @@ export const gate16 = {
     },
     {
       "word": "duplicity",
+      "pos": "n.",
       "parts": [
         [
           "du",
@@ -257,6 +264,7 @@ export const gate16 = {
     },
     {
       "word": "dissemble",
+      "pos": "v.",
       "parts": [
         [
           "dis",
@@ -282,6 +290,7 @@ export const gate16 = {
     },
     {
       "word": "prevaricate",
+      "pos": "v.",
       "parts": [
         [
           "pre",
@@ -311,6 +320,7 @@ export const gate16 = {
     },
     {
       "word": "specious",
+      "pos": "adj.",
       "parts": [
         [
           "spec",

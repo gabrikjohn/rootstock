@@ -89,6 +89,7 @@ export const gate04 = {
   "words": [
     {
       "word": "anthropologist",
+      "pos": "n.",
       "parts": [
         [
           "anthropo",
@@ -118,6 +119,7 @@ export const gate04 = {
     },
     {
       "word": "astronomer",
+      "pos": "n.",
       "parts": [
         [
           "astro",
@@ -147,6 +149,7 @@ export const gate04 = {
     },
     {
       "word": "geologist",
+      "pos": "n.",
       "parts": [
         [
           "geo",
@@ -176,6 +179,7 @@ export const gate04 = {
     },
     {
       "word": "biologist",
+      "pos": "n.",
       "parts": [
         [
           "bio",
@@ -205,6 +209,7 @@ export const gate04 = {
     },
     {
       "word": "botanist",
+      "pos": "n.",
       "parts": [
         [
           "botan",
@@ -230,6 +235,7 @@ export const gate04 = {
     },
     {
       "word": "zoologist",
+      "pos": "n.",
       "parts": [
         [
           "zoo",
@@ -259,6 +265,7 @@ export const gate04 = {
     },
     {
       "word": "entomologist",
+      "pos": "n.",
       "parts": [
         [
           "entomo",
@@ -288,6 +295,7 @@ export const gate04 = {
     },
     {
       "word": "etymologist",
+      "pos": "n.",
       "parts": [
         [
           "etymo",
@@ -317,6 +325,7 @@ export const gate04 = {
     },
     {
       "word": "philologist",
+      "pos": "n.",
       "parts": [
         [
           "philo",
@@ -346,6 +355,7 @@ export const gate04 = {
     },
     {
       "word": "sociologist",
+      "pos": "n.",
       "parts": [
         [
           "socio",

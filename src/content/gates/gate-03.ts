@@ -54,6 +54,7 @@ export const gate03 = {
   "words": [
     {
       "word": "psychologist",
+      "pos": "n.",
       "parts": [
         [
           "psycho",
@@ -83,6 +84,7 @@ export const gate03 = {
     },
     {
       "word": "psychoanalyst",
+      "pos": "n.",
       "parts": [
         [
           "psycho",
@@ -112,6 +114,7 @@ export const gate03 = {
     },
     {
       "word": "orthodontist",
+      "pos": "n.",
       "parts": [
         [
           "orth",
@@ -141,6 +144,7 @@ export const gate03 = {
     },
     {
       "word": "optometrist",
+      "pos": "n.",
       "parts": [
         [
           "opto",
@@ -170,6 +174,7 @@ export const gate03 = {
     },
     {
       "word": "optician",
+      "pos": "n.",
       "parts": [
         [
           "opt",
@@ -195,6 +200,7 @@ export const gate03 = {
     },
     {
       "word": "osteopath",
+      "pos": "n.",
       "parts": [
         [
           "osteo",
@@ -220,6 +226,7 @@ export const gate03 = {
     },
     {
       "word": "chiropractor",
+      "pos": "n.",
       "parts": [
         [
           "chiro",
@@ -248,6 +255,7 @@ export const gate03 = {
     },
     {
       "word": "podiatrist",
+      "pos": "n.",
       "parts": [
         [
           "pod",
@@ -277,6 +285,7 @@ export const gate03 = {
     },
     {
       "word": "graphologist",
+      "pos": "n.",
       "parts": [
         [
           "grapho",
@@ -305,6 +314,7 @@ export const gate03 = {
     },
     {
       "word": "gerontologist",
+      "pos": "n.",
       "parts": [
         [
           "geronto",

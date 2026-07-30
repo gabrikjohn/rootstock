@@ -59,6 +59,7 @@ export const gate12 = {
   "words": [
     {
       "word": "soliloquy",
+      "pos": "n.",
       "parts": [
         [
           "soli",
@@ -87,6 +88,7 @@ export const gate12 = {
     },
     {
       "word": "circumlocution",
+      "pos": "n.",
       "parts": [
         [
           "circum",
@@ -115,6 +117,7 @@ export const gate12 = {
     },
     {
       "word": "grandiloquent",
+      "pos": "adj.",
       "parts": [
         [
           "grandi",
@@ -143,6 +146,7 @@ export const gate12 = {
     },
     {
       "word": "eloquent",
+      "pos": "adj.",
       "parts": [
         [
           "e",
@@ -172,6 +176,7 @@ export const gate12 = {
     },
     {
       "word": "colloquial",
+      "pos": "adj.",
       "parts": [
         [
           "col",
@@ -201,6 +206,7 @@ export const gate12 = {
     },
     {
       "word": "malediction",
+      "pos": "n.",
       "parts": [
         [
           "male",
@@ -229,6 +235,7 @@ export const gate12 = {
     },
     {
       "word": "benediction",
+      "pos": "n.",
       "parts": [
         [
           "bene",
@@ -257,6 +264,7 @@ export const gate12 = {
     },
     {
       "word": "dictum",
+      "pos": "n.",
       "parts": [
         [
           "dict",
@@ -282,6 +290,7 @@ export const gate12 = {
     },
     {
       "word": "edict",
+      "pos": "n.",
       "parts": [
         [
           "e",
@@ -306,6 +315,7 @@ export const gate12 = {
     },
     {
       "word": "jurisdiction",
+      "pos": "n.",
       "parts": [
         [
           "juris",

@@ -59,6 +59,7 @@ export const gate07 = {
   "words": [
     {
       "word": "taciturn",
+      "pos": "adj.",
       "parts": [
         [
           "tacit",
@@ -84,6 +85,7 @@ export const gate07 = {
     },
     {
       "word": "laconic",
+      "pos": "adj.",
       "parts": [
         [
           "lacon",
@@ -109,6 +111,7 @@ export const gate07 = {
     },
     {
       "word": "garrulous",
+      "pos": "adj.",
       "parts": [
         [
           "garrul",
@@ -134,6 +137,7 @@ export const gate07 = {
     },
     {
       "word": "voluble",
+      "pos": "adj.",
       "parts": [
         [
           "volu",
@@ -159,6 +163,7 @@ export const gate07 = {
     },
     {
       "word": "verbose",
+      "pos": "adj.",
       "parts": [
         [
           "verb",
@@ -184,6 +189,7 @@ export const gate07 = {
     },
     {
       "word": "cogent",
+      "pos": "adj.",
       "parts": [
         [
           "cog",
@@ -209,6 +215,7 @@ export const gate07 = {
     },
     {
       "word": "vociferous",
+      "pos": "adj.",
       "parts": [
         [
           "voci",
@@ -238,6 +245,7 @@ export const gate07 = {
     },
     {
       "word": "sententious",
+      "pos": "adj.",
       "parts": [
         [
           "sentent",
@@ -262,6 +270,7 @@ export const gate07 = {
     },
     {
       "word": "terse",
+      "pos": "adj.",
       "parts": [
         [
           "ters",
@@ -287,6 +296,7 @@ export const gate07 = {
     },
     {
       "word": "banal",
+      "pos": "adj.",
       "parts": [
         [
           "ban",

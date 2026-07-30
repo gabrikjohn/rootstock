@@ -64,6 +64,7 @@ export const gate11 = {
   "words": [
     {
       "word": "autocracy",
+      "pos": "n.",
       "parts": [
         [
           "auto",
@@ -89,6 +90,7 @@ export const gate11 = {
     },
     {
       "word": "oligarchy",
+      "pos": "n.",
       "parts": [
         [
           "olig",
@@ -114,6 +116,7 @@ export const gate11 = {
     },
     {
       "word": "anarchy",
+      "pos": "n.",
       "parts": [
         [
           "an",
@@ -139,6 +142,7 @@ export const gate11 = {
     },
     {
       "word": "plutocracy",
+      "pos": "n.",
       "parts": [
         [
           "pluto",
@@ -164,6 +168,7 @@ export const gate11 = {
     },
     {
       "word": "theocracy",
+      "pos": "n.",
       "parts": [
         [
           "theo",
@@ -189,6 +194,7 @@ export const gate11 = {
     },
     {
       "word": "monarchy",
+      "pos": "n.",
       "parts": [
         [
           "mon",
@@ -214,6 +220,7 @@ export const gate11 = {
     },
     {
       "word": "matriarchy",
+      "pos": "n.",
       "parts": [
         [
           "matri",
@@ -239,6 +246,7 @@ export const gate11 = {
     },
     {
       "word": "patriarchy",
+      "pos": "n.",
       "parts": [
         [
           "patri",
@@ -264,6 +272,7 @@ export const gate11 = {
     },
     {
       "word": "hierarchy",
+      "pos": "n.",
       "parts": [
         [
           "hier",
@@ -289,6 +298,7 @@ export const gate11 = {
     },
     {
       "word": "demagogue",
+      "pos": "n.",
       "parts": [
         [
           "dem",

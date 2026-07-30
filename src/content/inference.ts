@@ -3,6 +3,7 @@ import type { InferenceWord } from "../types/content";
 export const INFER_POOL = [
   {
     "word": "oculist",
+    "pos": "n.",
     "parts": [
       [
         "ocul",
@@ -24,6 +25,7 @@ export const INFER_POOL = [
   },
   {
     "word": "orthography",
+    "pos": "n.",
     "parts": [
       [
         "ortho",
@@ -45,6 +47,7 @@ export const INFER_POOL = [
   },
   {
     "word": "cardiography",
+    "pos": "n.",
     "parts": [
       [
         "cardio",
@@ -66,6 +69,7 @@ export const INFER_POOL = [
   },
   {
     "word": "psychometry",
+    "pos": "n.",
     "parts": [
       [
         "psycho",
@@ -87,6 +91,7 @@ export const INFER_POOL = [
   },
   {
     "word": "chiropody",
+    "pos": "n.",
     "parts": [
       [
         "chiro",
@@ -108,6 +113,7 @@ export const INFER_POOL = [
   },
   {
     "word": "chirography",
+    "pos": "n.",
     "parts": [
       [
         "chiro",
@@ -129,6 +135,7 @@ export const INFER_POOL = [
   },
   {
     "word": "zoography",
+    "pos": "n.",
     "parts": [
       [
         "zoo",
@@ -150,6 +157,7 @@ export const INFER_POOL = [
   },
   {
     "word": "nomology",
+    "pos": "n.",
     "parts": [
       [
         "nomo",
@@ -171,6 +179,7 @@ export const INFER_POOL = [
   },
   {
     "word": "biometry",
+    "pos": "n.",
     "parts": [
       [
         "bio",
@@ -192,6 +201,7 @@ export const INFER_POOL = [
   },
   {
     "word": "philogyny",
+    "pos": "n.",
     "parts": [
       [
         "philo",
@@ -213,6 +223,7 @@ export const INFER_POOL = [
   },
   {
     "word": "philanthropist",
+    "pos": "n.",
     "parts": [
       [
         "phil",
@@ -238,6 +249,7 @@ export const INFER_POOL = [
   },
   {
     "word": "philosophy",
+    "pos": "n.",
     "parts": [
       [
         "philo",
@@ -259,6 +271,7 @@ export const INFER_POOL = [
   },
   {
     "word": "logophile",
+    "pos": "n.",
     "parts": [
       [
         "logo",
@@ -280,6 +293,7 @@ export const INFER_POOL = [
   },
   {
     "word": "philharmonic",
+    "pos": "adj.",
     "parts": [
       [
         "phil",
@@ -301,6 +315,7 @@ export const INFER_POOL = [
   },
   {
     "word": "philately",
+    "pos": "n.",
     "parts": [
       [
         "phil",
@@ -322,6 +337,7 @@ export const INFER_POOL = [
   },
   {
     "word": "astrologer",
+    "pos": "n.",
     "parts": [
       [
         "astro",
@@ -347,6 +363,7 @@ export const INFER_POOL = [
   },
   {
     "word": "pathography",
+    "pos": "n.",
     "parts": [
       [
         "patho",
@@ -368,6 +385,7 @@ export const INFER_POOL = [
   },
   {
     "word": "neuropathy",
+    "pos": "n.",
     "parts": [
       [
         "neuro",
@@ -389,6 +407,7 @@ export const INFER_POOL = [
   },
   {
     "word": "malversation",
+    "pos": "n.",
     "parts": [
       [
         "mal",
@@ -414,6 +433,7 @@ export const INFER_POOL = [
   },
   {
     "word": "sophistry",
+    "pos": "n.",
     "parts": [
       [
         "soph",
@@ -435,6 +455,7 @@ export const INFER_POOL = [
   },
   {
     "word": "sophomoric",
+    "pos": "adj.",
     "parts": [
       [
         "sopho",
@@ -456,6 +477,7 @@ export const INFER_POOL = [
   },
   {
     "word": "perfidy",
+    "pos": "n.",
     "parts": [
       [
         "per",
@@ -481,6 +503,7 @@ export const INFER_POOL = [
   },
   {
     "word": "infidel",
+    "pos": "n.",
     "parts": [
       [
         "in",
@@ -502,6 +525,7 @@ export const INFER_POOL = [
   },
   {
     "word": "malevolent",
+    "pos": "adj.",
     "parts": [
       [
         "male",
@@ -527,6 +551,7 @@ export const INFER_POOL = [
   },
   {
     "word": "dissimulate",
+    "pos": "v.",
     "parts": [
       [
         "dis",
@@ -552,6 +577,7 @@ export const INFER_POOL = [
   },
   {
     "word": "titillate",
+    "pos": "v.",
     "parts": [
       [
         "titill",
@@ -573,6 +599,7 @@ export const INFER_POOL = [
   },
   {
     "word": "tyro",
+    "pos": "n.",
     "parts": [
       [
         "tyro",
@@ -590,6 +617,7 @@ export const INFER_POOL = [
   },
   {
     "word": "eccentric",
+    "pos": "adj.",
     "parts": [
       [
         "ec",
@@ -615,6 +643,7 @@ export const INFER_POOL = [
   },
   {
     "word": "verbatim",
+    "pos": "adv.",
     "parts": [
       [
         "verb",
@@ -636,6 +665,7 @@ export const INFER_POOL = [
   },
   {
     "word": "insomnia",
+    "pos": "n.",
     "parts": [
       [
         "in",
@@ -661,6 +691,7 @@ export const INFER_POOL = [
   },
   {
     "word": "somnambulist",
+    "pos": "n.",
     "parts": [
       [
         "somn",
@@ -686,6 +717,7 @@ export const INFER_POOL = [
   },
   {
     "word": "omniscient",
+    "pos": "adj.",
     "parts": [
       [
         "omni",
@@ -711,6 +743,7 @@ export const INFER_POOL = [
   },
   {
     "word": "omnipotent",
+    "pos": "adj.",
     "parts": [
       [
         "omni",
@@ -732,6 +765,7 @@ export const INFER_POOL = [
   },
   {
     "word": "omnivorous",
+    "pos": "adj.",
     "parts": [
       [
         "omni",
@@ -757,6 +791,7 @@ export const INFER_POOL = [
   },
   {
     "word": "carnivorous",
+    "pos": "adj.",
     "parts": [
       [
         "carni",
@@ -782,6 +817,7 @@ export const INFER_POOL = [
   },
   {
     "word": "egomania",
+    "pos": "n.",
     "parts": [
       [
         "ego",
@@ -803,6 +839,7 @@ export const INFER_POOL = [
   },
   {
     "word": "graphomania",
+    "pos": "n.",
     "parts": [
       [
         "grapho",
@@ -824,6 +861,7 @@ export const INFER_POOL = [
   },
   {
     "word": "animism",
+    "pos": "n.",
     "parts": [
       [
         "anim",
@@ -845,6 +883,7 @@ export const INFER_POOL = [
   },
   {
     "word": "vivacious",
+    "pos": "adj.",
     "parts": [
       [
         "viv",
@@ -866,6 +905,7 @@ export const INFER_POOL = [
   },
   {
     "word": "dexterous",
+    "pos": "adj.",
     "parts": [
       [
         "dexter",
@@ -887,6 +927,7 @@ export const INFER_POOL = [
   },
   {
     "word": "ambidextrous",
+    "pos": "adj.",
     "parts": [
       [
         "ambi",
@@ -912,6 +953,7 @@ export const INFER_POOL = [
   },
   {
     "word": "adroit",
+    "pos": "adj.",
     "parts": [
       [
         "a",
@@ -933,6 +975,7 @@ export const INFER_POOL = [
   },
   {
     "word": "gauche",
+    "pos": "adj.",
     "parts": [
       [
         "gauche",
@@ -950,6 +993,7 @@ export const INFER_POOL = [
   },
   {
     "word": "sinister",
+    "pos": "adj.",
     "parts": [
       [
         "sinister",
@@ -967,6 +1011,7 @@ export const INFER_POOL = [
   },
   {
     "word": "vivisection",
+    "pos": "n.",
     "parts": [
       [
         "vivi",
@@ -992,6 +1037,7 @@ export const INFER_POOL = [
   },
   {
     "word": "misandry",
+    "pos": "n.",
     "parts": [
       [
         "mis",
@@ -1013,6 +1059,7 @@ export const INFER_POOL = [
   },
   {
     "word": "monandry",
+    "pos": "n.",
     "parts": [
       [
         "mon",
@@ -1034,6 +1081,7 @@ export const INFER_POOL = [
   },
   {
     "word": "xenophile",
+    "pos": "n.",
     "parts": [
       [
         "xeno",
@@ -1055,6 +1103,7 @@ export const INFER_POOL = [
   },
   {
     "word": "philanderer",
+    "pos": "n.",
     "parts": [
       [
         "phil",
@@ -1080,6 +1129,7 @@ export const INFER_POOL = [
   },
   {
     "word": "Anglophile",
+    "pos": "n.",
     "parts": [
       [
         "Anglo",
@@ -1101,6 +1151,7 @@ export const INFER_POOL = [
   },
   {
     "word": "celibate",
+    "pos": "n.",
     "parts": [
       [
         "celib",
@@ -1122,6 +1173,7 @@ export const INFER_POOL = [
   },
   {
     "word": "kleptocracy",
+    "pos": "n.",
     "parts": [
       [
         "klepto",
@@ -1143,6 +1195,7 @@ export const INFER_POOL = [
   },
   {
     "word": "androcracy",
+    "pos": "n.",
     "parts": [
       [
         "andro",
@@ -1164,6 +1217,7 @@ export const INFER_POOL = [
   },
   {
     "word": "demography",
+    "pos": "n.",
     "parts": [
       [
         "demo",
@@ -1185,6 +1239,7 @@ export const INFER_POOL = [
   },
   {
     "word": "hierocracy",
+    "pos": "n.",
     "parts": [
       [
         "hiero",
@@ -1206,6 +1261,7 @@ export const INFER_POOL = [
   },
   {
     "word": "gerontocracy",
+    "pos": "n.",
     "parts": [
       [
         "geronto",
@@ -1227,6 +1283,7 @@ export const INFER_POOL = [
   },
   {
     "word": "theomania",
+    "pos": "n.",
     "parts": [
       [
         "theo",
@@ -1248,6 +1305,7 @@ export const INFER_POOL = [
   },
   {
     "word": "agnostic",
+    "pos": "n.",
     "parts": [
       [
         "a",
@@ -1269,6 +1327,7 @@ export const INFER_POOL = [
   },
   {
     "word": "prognosis",
+    "pos": "n.",
     "parts": [
       [
         "pro",
@@ -1290,6 +1349,7 @@ export const INFER_POOL = [
   },
   {
     "word": "atheist",
+    "pos": "n.",
     "parts": [
       [
         "a",
@@ -1315,6 +1375,7 @@ export const INFER_POOL = [
   },
   {
     "word": "pedagogue",
+    "pos": "n.",
     "parts": [
       [
         "ped",
@@ -1336,6 +1397,7 @@ export const INFER_POOL = [
   },
   {
     "word": "pedant",
+    "pos": "n.",
     "parts": [
       [
         "ped",
@@ -1357,6 +1419,7 @@ export const INFER_POOL = [
   },
   {
     "word": "aristocracy",
+    "pos": "n.",
     "parts": [
       [
         "aristo",
@@ -1378,6 +1441,7 @@ export const INFER_POOL = [
   },
   {
     "word": "pandemic",
+    "pos": "n.",
     "parts": [
       [
         "pan",
@@ -1403,6 +1467,7 @@ export const INFER_POOL = [
   },
   {
     "word": "epidemic",
+    "pos": "n.",
     "parts": [
       [
         "epi",
@@ -1428,6 +1493,7 @@ export const INFER_POOL = [
   },
   {
     "word": "endemic",
+    "pos": "adj.",
     "parts": [
       [
         "en",
@@ -1453,6 +1519,7 @@ export const INFER_POOL = [
   },
   {
     "word": "autopsy",
+    "pos": "n.",
     "parts": [
       [
         "aut",
@@ -1474,6 +1541,7 @@ export const INFER_POOL = [
   },
   {
     "word": "juridical",
+    "pos": "adj.",
     "parts": [
       [
         "jur",
@@ -1503,6 +1571,7 @@ export const INFER_POOL = [
   },
   {
     "word": "loquacious",
+    "pos": "adj.",
     "parts": [
       [
         "loqu",
@@ -1524,6 +1593,7 @@ export const INFER_POOL = [
   },
   {
     "word": "ventriloquist",
+    "pos": "n.",
     "parts": [
       [
         "ventri",
@@ -1549,6 +1619,7 @@ export const INFER_POOL = [
   },
   {
     "word": "benevolent",
+    "pos": "adj.",
     "parts": [
       [
         "bene",
@@ -1574,6 +1645,7 @@ export const INFER_POOL = [
   },
   {
     "word": "inculpate",
+    "pos": "v.",
     "parts": [
       [
         "in",
@@ -1599,6 +1671,7 @@ export const INFER_POOL = [
   },
   {
     "word": "adjure",
+    "pos": "v.",
     "parts": [
       [
         "ad",
@@ -1620,6 +1693,7 @@ export const INFER_POOL = [
   },
   {
     "word": "telemetry",
+    "pos": "n.",
     "parts": [
       [
         "tele",
@@ -1641,6 +1715,7 @@ export const INFER_POOL = [
   },
   {
     "word": "polydipsia",
+    "pos": "n.",
     "parts": [
       [
         "poly",
@@ -1666,6 +1741,7 @@ export const INFER_POOL = [
   },
   {
     "word": "somatology",
+    "pos": "n.",
     "parts": [
       [
         "somato",
@@ -1687,6 +1763,7 @@ export const INFER_POOL = [
   },
   {
     "word": "asomatous",
+    "pos": "adj.",
     "parts": [
       [
         "a",
@@ -1712,6 +1789,7 @@ export const INFER_POOL = [
   },
   {
     "word": "bibliophile",
+    "pos": "n.",
     "parts": [
       [
         "biblio",
@@ -1733,6 +1811,7 @@ export const INFER_POOL = [
   },
   {
     "word": "syndic",
+    "pos": "n.",
     "parts": [
       [
         "syn",
@@ -1754,6 +1833,7 @@ export const INFER_POOL = [
   },
   {
     "word": "dialysis",
+    "pos": "n.",
     "parts": [
       [
         "dia",
@@ -1775,6 +1855,7 @@ export const INFER_POOL = [
   },
   {
     "word": "megalopolis",
+    "pos": "n.",
     "parts": [
       [
         "megalo",
@@ -1796,6 +1877,7 @@ export const INFER_POOL = [
   },
   {
     "word": "mantic",
+    "pos": "adj.",
     "parts": [
       [
         "mant",
@@ -1817,6 +1899,7 @@ export const INFER_POOL = [
   },
   {
     "word": "amortize",
+    "pos": "v.",
     "parts": [
       [
         "a",
@@ -1842,6 +1925,7 @@ export const INFER_POOL = [
   },
   {
     "word": "acropolis",
+    "pos": "n.",
     "parts": [
       [
         "acro",
@@ -1863,6 +1947,7 @@ export const INFER_POOL = [
   },
   {
     "word": "cosmopolitan",
+    "pos": "adj.",
     "parts": [
       [
         "cosmo",
@@ -1888,6 +1973,7 @@ export const INFER_POOL = [
   },
   {
     "word": "metropolis",
+    "pos": "n.",
     "parts": [
       [
         "metro",
@@ -1909,6 +1995,7 @@ export const INFER_POOL = [
   },
   {
     "word": "necrophobia",
+    "pos": "n.",
     "parts": [
       [
         "necro",
@@ -1930,6 +2017,7 @@ export const INFER_POOL = [
   },
   {
     "word": "mortmain",
+    "pos": "n.",
     "parts": [
       [
         "mort",
@@ -1951,6 +2039,7 @@ export const INFER_POOL = [
   },
   {
     "word": "capitation",
+    "pos": "n.",
     "parts": [
       [
         "capit",
@@ -1972,6 +2061,7 @@ export const INFER_POOL = [
   },
   {
     "word": "legerity",
+    "pos": "n.",
     "parts": [
       [
         "leger",
@@ -1993,6 +2083,7 @@ export const INFER_POOL = [
   },
   {
     "word": "univocal",
+    "pos": "adj.",
     "parts": [
       [
         "uni",
@@ -2018,6 +2109,7 @@ export const INFER_POOL = [
   },
   {
     "word": "controvert",
+    "pos": "v.",
     "parts": [
       [
         "contro",
@@ -2039,6 +2131,7 @@ export const INFER_POOL = [
   },
   {
     "word": "epigram",
+    "pos": "n.",
     "parts": [
       [
         "epi",
@@ -2060,6 +2153,7 @@ export const INFER_POOL = [
   },
   {
     "word": "epitaph",
+    "pos": "n.",
     "parts": [
       [
         "epi",
@@ -2081,6 +2175,7 @@ export const INFER_POOL = [
   },
   {
     "word": "epithet",
+    "pos": "n.",
     "parts": [
       [
         "epi",
