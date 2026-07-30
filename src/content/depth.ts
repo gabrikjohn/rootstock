@@ -1053,122 +1053,152 @@ export const DEPTH = {
   },
   "perspicacious": {
     "v": "From one line in the footnotes she saw the merger was doomed, eight months before the market did.",
-    "e": "Latin per + specere, 'to see through' — the seeing mind; its twin perspicuous belongs to the thing seen."
+    "e": "Latin per + specere, 'to see through' — the seeing mind; its twin perspicuous belongs to the thing seen.",
+    "s": "Latin per, 'through,' with specere, 'to look' — seeing through a thing, and the word has an identical twin it is constantly confused with. Perspicacious describes the person: a mind sharp enough to see through what is obscure. Perspicuous, built from the very same parts, describes the thing: prose transparent enough to be seen through. One is a property of readers and the other a property of writing, and the pair cannot be swapped without saying the opposite of what was meant. Today perspicacious means keenly discerning, and the family of specere sorts itself entirely by prefix."
   },
   "perspicuous": {
     "v": "The manual's instructions were so plain a first-day apprentice assembled the pump without a question.",
-    "e": "Same per + specere — but 'able to be seen through': clarity as a property of prose, not of readers."
+    "e": "Same per + specere — but 'able to be seen through': clarity as a property of prose, not of readers.",
+    "s": "The same per and specere as its twin, but built to be looked through rather than to look — able to be seen into, and therefore clear. The word belongs to classical rhetoric, where perspicuitas was one of the cardinal virtues of style: Quintilian ranked clarity beside correctness and propriety as something an orator owed his audience, on the reasoning that a speech not understood has failed whatever else it achieves. The obligation sits on the writer, not the reader. Today perspicuous means clearly expressed, and confusing it with perspicacious moves the credit from the page to the person holding it."
   },
   "conspicuous": {
     "v": "One red umbrella in a sea of black ones.",
-    "e": "Latin con + specere — fully in view; Veblen's 'conspicuous consumption' made visibility itself the purchase."
+    "e": "Latin con + specere — fully in view; Veblen's 'conspicuous consumption' made visibility itself the purchase.",
+    "s": "Latin con-, here an intensifier, with specere, 'to look' — fully in view, impossible to miss. The word's sharpest modern use was minted by an economist: Thorstein Veblen coined conspicuous consumption in The Theory of the Leisure Class in 1899 for spending whose purpose is to be observed, where the visibility is the thing purchased and the goods are incidental to it. He meant it as analysis rather than insult, though it has served as both since. Today conspicuous means attracting notice, and it also does duty in the old paradox of being conspicuous by one's absence."
   },
   "circumspect": {
     "v": "Before signing, she read the deed twice, called the county office, and walked the property line herself.",
-    "e": "Latin circum + specere, 'to look around' — caution as a full turn of the head before stepping."
+    "e": "Latin circum + specere, 'to look around' — caution as a full turn of the head before stepping.",
+    "s": "Latin circum, 'around,' with specere, 'to look' — to look about you, and the caution the word names is quite literally a full turn of the head before you move. That physical origin is why circumspect suggests a survey rather than a hesitation: the circumspect man is not timid, he is checking the flanks. The rest of the family divides the same verb by direction with unusual tidiness. To inspect is to look into, to respect is to look back at, to suspect is to look at from underneath, and a prospect is what lies in view ahead. Today circumspect means cautious and watchful on every side."
   },
   "myopia": {
     "v": "Without her glasses, the eye chart's big E was a gray smudge; the board's five-year plan, likewise, saw only next quarter.",
-    "e": "Greek myein (to squint, close) + ops (eye) — the squinter's word; nearsightedness of eye or of policy."
+    "e": "Greek myein (to squint, close) + ops (eye) — the squinter's word; nearsightedness of eye or of policy.",
+    "s": "Greek myein, 'to shut,' with ops, 'eye' — the shutting eye, named for the squint a short-sighted person makes to sharpen a distant blur. The same verb produced a much less clinical word. A mystes was an initiate into the mysteries, one who shut his eyes or his mouth about what he had seen, and from that come mystery, mystic and mystical — so the eye doctor's term and the whole vocabulary of the ineffable descend from one instruction to close something. Today myopia is short-sightedness, of the eye or of policy, and its figurative use is now commoner than its literal one."
   },
   "presbyopia": {
     "v": "At fifty he began reading menus at arm's length, then buying drugstore glasses by the pair.",
-    "e": "Greek presbys, 'old man' + ops — the elder's eye; a presbyter was likewise an elder, which makes Presbyterians 'the elder-governed.'"
+    "e": "Greek presbys, 'old man' + ops — the elder's eye; a presbyter was likewise an elder, which makes Presbyterians 'the elder-governed.'",
+    "s": "Greek presbys, 'old man,' with ops, 'eye' — the ageing eye, which stiffens until close print must be held at arm's length, and it is a different fault from myopia rather than its opposite. The root's other career is ecclesiastical and remarkable. A presbyter was an elder of the early Church, which gives the Presbyterians their name as those governed by elders, and the same word worn down through Old French and Old English produced priest. Today presbyopia is the long sight of age, named from a word that also, by a longer road, supplies the man at the altar."
   },
   "fratricide": {
     "v": "Cain in the field; Romulus at the wall — the founding stories keep repeating the same crime.",
-    "e": "Latin frater (brother) + caedere (to kill) — brother-slaying; the -cide family are all children of caedere's blade."
+    "e": "Latin frater (brother) + caedere (to kill) — brother-slaying; the -cide family are all children of caedere's blade.",
+    "s": "Latin frater, 'brother,' with caedere, 'to cut down or kill' — and caedere has furnished English with more than its list of killings. To be concise is to have cut short, an incision is a cutting into, and to decide is to cut off the alternatives, which makes decision a small act of slaughter among the possibilities. The founding stories of two civilisations turn on this particular one: Cain and Abel at the beginning of Genesis, and Romulus killing Remus over the first wall of Rome. Today fratricide is the killing of one's brother, and in modern armies it also names casualties inflicted by one's own side."
   },
   "regicide": {
     "v": "January 1649: the axe fell on Charles I before his own banqueting house, by his subjects' sentence.",
-    "e": "Latin rex, regis (king) + caedere — king-killing; the signers of Charles's death warrant were hunted as 'the regicides.'"
+    "e": "Latin rex, regis (king) + caedere — king-killing; the signers of Charles's death warrant were hunted as 'the regicides.'",
+    "s": "Latin rex, regis, 'king,' with caedere, 'to kill' — and in English the word carries one particular manhunt. Fifty-nine commissioners signed the death warrant of Charles I in 1649, and after the Restoration in 1660 the survivors were pursued as the Regicides: some were executed, some imprisoned for life, and three fled to New England, where colonial townships sheltered them for decades against agents sent from London. Streets in New Haven are named for them still. Today regicide is the killing of a king, a word that in English means the general crime and remembers a specific list of names."
   },
   "genocide": {
     "v": "The tribunal's charge was not murder but the attempt to erase a people entire.",
-    "e": "Greek genos (race, kind) + caedere — coined in 1944 by the jurist Raphael Lemkin, who lost forty-nine relatives to the crime he named."
+    "e": "Greek genos (race, kind) + caedere — coined in 1944 by the jurist Raphael Lemkin, who lost forty-nine relatives to the crime he named.",
+    "s": "Greek genos, 'race or kind,' with Latin caedere, 'to kill' — a deliberate hybrid, and its maker had reasons more pressing than elegance. Raphael Lemkin, a Polish-Jewish jurist, coined it in 1944 in Axis Rule in Occupied Europe because he had spent a decade arguing that the destruction of a whole people was a crime international law had no name for, and a nameless crime is hard to prosecute. He then campaigned until the United Nations adopted the Genocide Convention in 1948. Forty-nine of his own relatives were killed in the Holocaust. Today genocide is the destruction of a people, a word invented to make a prosecution possible."
   },
   "uxoricide": {
     "v": "Othello smothers Desdemona on the strength of a handkerchief and a liar's whisper.",
-    "e": "Latin uxor, 'wife' + caedere — wife-killing; Latin had a word ready, which says something about Rome."
+    "e": "Latin uxor, 'wife' + caedere — wife-killing; Latin had a word ready, which says something about Rome.",
+    "s": "Latin uxor, 'wife,' with caedere, 'to kill' — the killing of one's wife, and what is worth noticing is that Latin had the word ready. So did it have uxorius for a husband excessively fond of his wife, a fault this corpus meets again two gates on. What Latin did not trouble to coin was any everyday term for a wife too devoted to her husband, because that required no comment. A vocabulary's gaps record its assumptions as reliably as its words do. Today uxoricide names wife-killing, and the pair of terms Rome thought worth having says a good deal about the household they described."
   },
   "disingenuous": {
     "v": "'I'm no expert,' began the professor who wrote the textbook, 'but perhaps you've misread page one.'",
-    "e": "dis- + Latin ingenuus, 'free-born, frank' — the free man's candor worn as a mask: calculated innocence."
+    "e": "dis- + Latin ingenuus, 'free-born, frank' — the free man's candor worn as a mask: calculated innocence.",
+    "s": "Latin dis-, 'not,' fixed to ingenuus, 'freeborn and therefore frank' — and the negative is doing something more particular than simply cancelling the word. A disingenuous person is not merely dishonest; he is dishonest while performing candour, using the appearance of frankness as the instrument of the deception. That is why the word stings in a way that dishonest does not: it accuses someone of counterfeiting exactly the quality that ingenuous names. Today disingenuous means insincere behind a frank surface, and it is the precise charge to bring against an argument offered in a tone of helpful reasonableness."
   },
   "indigenous": {
     "v": "The trout in that watershed were there before any road, stocked by no one.",
-    "e": "Latin indu (within) + gignere (to beget) — born in the place itself, not carried to it."
+    "e": "Latin indu (within) + gignere (to beget) — born in the place itself, not carried to it.",
+    "s": "Latin indu, an old form of in meaning 'within,' with the begetting root of gignere — born within the place itself rather than carried to it. The word has nothing whatever to do with India or with Indian, a resemblance that misleads people constantly; the indu- is simply an archaic Latin preposition that survives in a handful of formations. English took it in the seventeenth century for plants and animals native to a region and extended it to peoples afterwards. Today indigenous means native to a place, and it is now widely capitalised when it names peoples, a convention of respect adopted within living memory."
   },
   "congenial": {
     "v": "They discovered the same shelf of favorite authors and the same allergy to small talk; the friendship took an evening.",
-    "e": "Latin con + genius — sharing a genius: the Roman guardian spirit each person was born with, here found matching."
+    "e": "Latin con + genius — sharing a genius: the Roman guardian spirit each person was born with, here found matching.",
+    "s": "Latin con, 'with,' joined to genius — and the Roman genius was not a clever person but a guardian spirit, the attendant power born with each individual and present at their conception, as each place had its genius loci. To be congenial was therefore to have a matching spirit, to be accompanied by compatible powers, which is a considerably stranger idea than agreeable company. The modern sense of genius as extraordinary ability is an eighteenth-century development that has almost buried the older one. Today congenial means of kindred spirit, and it still describes a compatibility one does not have to work at."
   },
   "genealogy": {
     "v": "The parish registers took her line back nine generations to a blacksmith and two scandals.",
-    "e": "Greek genea (generation) + logos — the study of descent; Genesis, gene, and kin all sprout from the same begetting root."
+    "e": "Greek genea (generation) + logos — the study of descent; Genesis, gene, and kin all sprout from the same begetting root.",
+    "s": "Greek genea, 'generation or descent,' with logos — the study of who came from whom, and the spelling is a standing trap, since the word takes -alogy rather than the -ology of nearly everything else and is misspelled accordingly. The root beneath it is one of the most productive in the language. It gives Genesis, the book of beginnings, and gene, genus, generate, gender and progeny, and through the Germanic line it gives the plainest English word of the set, kin. Today genealogy is the tracing of family descent, an enquiry whose vocabulary is built almost entirely from a single verb meaning to beget."
   },
   "puerile": {
     "v": "The board meeting collapsed when the CFO put a whoopee cushion on the chairman's seat.",
-    "e": "Latin puer, 'boy' — boyish, in the unflattering sense: the schoolyard carried into the boardroom."
+    "e": "Latin puer, 'boy' — boyish, in the unflattering sense: the schoolyard carried into the boardroom.",
+    "s": "Latin puer, 'boy' — boyish, and the word exists to be an insult, which is worth pausing on. English keeps two words for the qualities of childhood and assigns them by approval: childlike is what we call the wonder and the openness, childish is what we call the tantrum, and the underlying trait may be identical. Puerile is the Latin end of the disapproving pair, reserved entirely for adults behaving as boys. Today puerile means childish and unworthy, and the same habit of splitting a quality into a compliment and a complaint gives us thrifty against miserly and confident against arrogant."
   },
   "senile": {
     "v": "He asked for his brother three times at dinner; his brother had been gone ten years.",
-    "e": "Latin senex, 'old man' — age itself, later narrowed to age's failures; the Senate is the same word: a council of elders."
+    "e": "Latin senex, 'old man' — age itself, later narrowed to age's failures; the Senate is the same word: a council of elders.",
+    "s": "Latin senex, 'old man' — and for most of its English life the word meant nothing worse than aged. A senile year, a senile decay, the senile period of life: these were neutral descriptions of lateness, and one could speak of senile dignity without contradiction. The narrowing to mean the failures of age rather than the fact of it is a nineteenth and twentieth-century development, driven by medical usage. The root itself has kept far better company elsewhere. Today senile means showing the mental decay of age, while senex also gives the senior, the sire and the Senate, which is simply a council of old men."
   },
   "senescent": {
     "v": "The orchard still bore fruit, but each year fewer branches woke in spring.",
-    "e": "Latin senescere, 'to grow old' — the -escent marks a process underway: aging as a verb still happening."
+    "e": "Latin senescere, 'to grow old' — the -escent marks a process underway: aging as a verb still happening.",
+    "s": "Latin senescere, 'to grow old,' where the -escere marks an action under way rather than a state arrived at — so the senescent are not old but in the act of ageing, which is the same ending that makes the convalescent still recovering and the adolescent still growing up. Biology has since given the word a much narrower job. Cellular senescence names the condition of a cell that has permanently stopped dividing without dying, and the accumulation of such cells is now one of the central suspects in the study of how bodies age. Today senescent means growing old, in the general sense and in the laboratory one."
   },
   "virile": {
     "v": "At sixty he still split the winter's wood himself, and the axe looked comfortable doing it.",
-    "e": "Latin vir, 'man' — manly vigor; the same vir hiding in virtue, which began as manly excellence, and in virago."
+    "e": "Latin vir, 'man' — manly vigor; the same vir hiding in virtue, which began as manly excellence, and in virago.",
+    "s": "Latin vir, 'man' — and this root has quietly shaped a word most people would not connect with it. Virtus in Rome meant manliness first: the courage and excellence proper to a man, and specifically to a soldier, so that a Roman praising virtue was praising something with a strong smell of the battlefield about it. Christian usage broadened it into moral excellence in general, which is how virtue came to be attributed to women without anyone noticing the contradiction. Today virile means having manly vigour, and vir's other survivor in this corpus is the virago, a woman censured for the same quality."
   },
   "nostalgia": {
     "v": "The smell of diesel and oranges put him instantly on the ferry dock of his childhood, aching to be nowhere else.",
-    "e": "Greek nostos (homecoming) + algos (pain) — coined in 1688 as a medical diagnosis for Swiss mercenaries literally sick for home; some were discharged for it."
+    "e": "Greek nostos (homecoming) + algos (pain) — coined in 1688 as a medical diagnosis for Swiss mercenaries literally sick for home; some were discharged for it.",
+    "s": "Greek nostos, 'a homecoming,' with algos, 'pain' — the ache to return, and it began as a diagnosis with a date. Johannes Hofer, a Swiss medical student, coined it in his dissertation of 1688 for a condition observed in Swiss mercenaries serving abroad, who wasted, refused food and sometimes died of longing for their mountains; it was treated as a genuine and occasionally fatal disease, and men were discharged for it. The word has since changed its axis entirely. What was a sickness for a place has become a fondness for a time, and the cure Hofer's patients needed is no longer available."
   },
   "soporific": {
     "v": "Two paragraphs into the annual report, the whole back row was fighting gravity.",
-    "e": "Latin sopor, 'deep sleep' + facere — sleep-making; Beatrix Potter reports lettuce is soporific to rabbits."
+    "e": "Latin sopor, 'deep sleep' + facere — sleep-making; Beatrix Potter reports lettuce is soporific to rabbits.",
+    "s": "Latin sopor, 'deep sleep,' with facere, 'to make' — sleep-making, and Latin kept two words for sleep where English mostly keeps one. Sopor is the heavy unrousable kind, while somnus is ordinary sleep and supplies insomnia, the somnambulist who walks in it, and Somnus the god. The word's most quoted appearance in English is a children's book: Beatrix Potter opens The Tale of the Flopsy Bunnies by observing that the effect of eating too much lettuce is soporific, which is both a real folk belief and a very deliberate joke about vocabulary. Today soporific means inducing sleep, or merely dull enough to."
   },
   "pugnacious": {
     "v": "He turned a condolence call into a shouting match over the parking arrangements.",
-    "e": "Latin pugnare, 'to fight,' from pugnus, 'fist' — fists at the etymological root of the temperament."
+    "e": "Latin pugnare, 'to fight,' from pugnus, 'fist' — fists at the etymological root of the temperament.",
+    "s": "Latin pugnare, 'to fight,' which is built on pugnus, 'the fist' — so a fist sits at the bottom of the whole family, and every word in it is at some remove a word about punching. The ending matters as much as the root. The -acious of this corpus comes from Latin -ax, -acis, meaning inclined or disposed to, so pugnacious does not describe a man who is fighting but one who is ready to, the temperament rather than the occasion. Today pugnacious means combative by nature, and it belongs with loquacious, tenacious and audacious, all naming a leaning rather than an act."
   },
   "impugn": {
     "v": "The senator did not dispute the report's facts; he attacked the auditor's honesty instead.",
-    "e": "Latin in + pugnare, 'to fight against' — assault aimed at credibility; only motives and integrity get impugned."
+    "e": "Latin in + pugnare, 'to fight against' — assault aimed at credibility; only motives and integrity get impugned.",
+    "s": "Latin in, 'against,' with pugnare, 'to fight' — to fight against, and English has narrowed what may be attacked this way with unusual strictness. One impugns a motive, an integrity, a witness's credibility or the good faith of an argument; one cannot impugn a wall, a price or the weather. The word kept the company it was borrowed into, which was law and formal disputation, and its collocations still record that address. The spelling preserves a Latin gn that English declines to pronounce, as in reign and design. Today to impugn is to attack something as false, and the target is nearly always someone's honesty."
   },
   "pugilist": {
     "v": "His nose had been broken four times professionally, and he could still skip rope like a girl of twelve.",
-    "e": "Latin pugil, 'fist-fighter' — the sportswriter's Latin for a boxer; pugnus, the fist, again."
+    "e": "Latin pugil, 'fist-fighter' — the sportswriter's Latin for a boxer; pugnus, the fist, again.",
+    "s": "Latin pugil, 'a fist-fighter,' from the same pugnus as pugnacious — and English took it in the eighteenth century, exactly when bare-knuckle prizefighting was becoming a spectacle with rules, patrons and a press. That timing explains the word's register. Pugilist is journalistic rather than technical, the elevated Latin a sportswriter reaches for to avoid saying boxer twice in a paragraph, and it belongs to a long tradition of dignifying rough entertainments with classical vocabulary. Today a pugilist is a boxer, and the fist is still visible in the word in a way it is not in the plainer English one."
   },
   "repugnant": {
     "v": "The committee read the proposal to sell naming rights to the cemetery and voted it down without debate.",
-    "e": "Latin re + pugnare, 'to fight back' — what one's whole nature fights against; in law, clauses that fight each other."
+    "e": "Latin re + pugnare, 'to fight back' — what one's whole nature fights against; in law, clauses that fight each other.",
+    "s": "Latin re, 'back,' with pugnare, 'to fight' — fighting back, and its first English sense was logical rather than moral. Two statements were repugnant when they contradicted each other, and the usage survives in legal drafting, where a repugnant clause is one that fights another in the same instrument and may be struck out for it. The sense of disgust grew out of that resistance: what is repugnant is what one's whole nature contradicts, refuses, pushes away. Today repugnant means deeply offensive, and the older meaning of mutually contradictory is still live wherever documents are construed."
   },
   "bellicose": {
     "v": "The editorial demanded ultimatums on three borders by Thursday.",
-    "e": "Latin bellum, 'war' — war-loving in temper; antebellum houses and belligerent powers share the root."
+    "e": "Latin bellum, 'war' — war-loving in temper; antebellum houses and belligerent powers share the root.",
+    "s": "Latin bellum, 'war' — warlike in temper, and the root has an unlikely descendant. Rebellare meant to make war again, giving the rebel; the same verb passed through Old French as reveler and arrived in English as revel, so the riotous party and the armed uprising are the same word taking different views of disorder. One warning comes with the family: bellum has no connection whatever to bellus, 'beautiful,' which supplies belle, embellish and bellicose's innocent lookalikes. Today bellicose means eager for war, and antebellum and belligerent are its plainer relatives."
   },
   "belligerent": {
     "v": "Once the fleet sailed, both nations were formally at war, with a neutral port between them.",
-    "e": "Latin bellum + gerere, 'to wage war' — not just warlike but waging; in law, a party actually at war."
+    "e": "Latin bellum + gerere, 'to wage war' — not just warlike but waging; in law, a party actually at war.",
+    "s": "Latin bellum, 'war,' with gerere, 'to wage or carry on' — not merely warlike but actually waging, and international law has held it to that. A belligerent is a party recognised as being at war, and the status carries specific consequences: belligerent rights include blockade and the capture of enemy shipping, and belligerent duties include the treatment owed to prisoners. It is a legal condition rather than a mood. The everyday sense of a man being aggressive in a bar is a considerable weakening of a term that once decided what a navy was permitted to do. Today belligerent means waging war or aggressively hostile."
   },
   "obsequious": {
     "v": "The maître d' bowed the tycoon to his table, walking backward, agreeing with everything including the weather.",
-    "e": "Latin ob + sequi, 'to follow after' — the courtier glued to the great man's heels; service curdled into fawning."
+    "e": "Latin ob + sequi, 'to follow after' — the courtier glued to the great man's heels; service curdled into fawning.",
+    "s": "Latin ob, 'towards,' with sequi, 'to follow' — following close after, and for its first two centuries in English it was a compliment. Obsequious meant dutiful, compliant and attentive, the proper bearing of a servant to a master or a son to a father, and Shakespeare uses it approvingly of filial duty. The souring is a change in what we think of following. Once deference came to look like a strategy rather than a station, the same close attendance was reread as fawning, and the word turned without changing its meaning at all. Today obsequious means servile and overeager."
   },
   "obsequies": {
     "v": "The cortege moved from the chapel to the graveside for the final rites.",
-    "e": "Latin obsequiae, funeral observances — the same 'following after,' but here the last procession behind the coffin."
+    "e": "Latin obsequiae, funeral observances — the same 'following after,' but here the last procession behind the coffin.",
+    "s": "Latin obsequiae, funeral rites, from the same ob and sequi as obsequious — the following-after here being the procession behind the coffin rather than the courtier behind the great man. The two words share a root and have nothing else in common, which is a useful reminder that a shared origin guarantees no shared meaning. Its grammar is a curiosity too: obsequies is a plural-only noun, like nuptials and remains, keeping a Latin plural for a thing English declines to count singly. Today obsequies are funeral ceremonies, the last and most literal following of all."
   },
   "non sequitur": {
     "v": "'The bridge is structurally sound; also, my opponent owns a boat.' The jury blinked.",
-    "e": "Latin, 'it does not follow' — logic's verdict as a frozen phrase; sequi, to follow, once more."
+    "e": "Latin, 'it does not follow' — logic's verdict as a frozen phrase; sequi, to follow, once more.",
+    "s": "Latin for it does not follow, from sequi — and it is a complete Latin sentence, verb and negative together, frozen whole and used in English as a noun. It belongs to a small class of such fossils: a caveat is let him beware, an exit is he goes out, a veto is I forbid, and each was a working verb before English froze it into a thing. Logic uses the phrase as a general name for any argument whose conclusion is not entailed by its premises. Today a non sequitur is a conclusion that does not follow, and sequi has now supplied this gate with three words in a row."
   },
   "uxorious": {
     "v": "He checked with his wife before accepting the honor, the dinner, and, colleagues joked, the weather.",
-    "e": "Latin uxor, 'wife' — excessive devotion to one's wife; Rome, which named wife-killing, also named husband-doting."
+    "e": "Latin uxor, 'wife' — excessive devotion to one's wife; Rome, which named wife-killing, also named husband-doting.",
+    "s": "Latin uxor, 'wife' — excessively devoted to one's wife, and the fault named is not affection but subordination. Roman moralists used uxorius of a man governed by his wife's wishes, and the charge was one of unmanliness rather than of sentiment; the word assumes that a household has a proper direction of authority and reports that this one has been reversed. What is telling is the silence on the other side. Latin coined no everyday term for a wife excessively devoted to her husband, since nothing there needed naming, exactly as it coined uxoricide two gates back. Today uxorious means doting on one's wife."
   }
 } satisfies Record<string, DepthEntry>;

@@ -159,9 +159,14 @@ describe("runtime content", () => {
       expect(story, word.word).not.toBe(depth[word.word]?.e);
       expect(story, word.word).not.toBe(depth[word.word]?.v);
     }
-    // Ratchets up as each batch lands: 10 (Gate 1) → 50 (Gates 2–5) → … → 416 (whole corpus).
+    // Every gate word now carries one. This is a floor, not a ratchet — never weaken it.
+    const gateWordsWithoutStory = gateWords
+      .filter((word) => !catalog.wordStory(word))
+      .map((word) => word.word);
+    expect(gateWordsWithoutStory).toEqual([]);
+    // Ratchets up as each remaining batch lands: 240 (all gates) → … → 416 (whole corpus).
     // Raise it per batch; never lower it.
-    expect(withStory).toBeGreaterThanOrEqual(210);
+    expect(withStory).toBeGreaterThanOrEqual(240);
     // Inference words are being given the example sentence they were authored without, so
     // their cards can render in full. Ratchets alongside the stories, ending at all 95.
     expect(inferenceWords.filter((word) => word.sentence).length).toBeGreaterThanOrEqual(0);
