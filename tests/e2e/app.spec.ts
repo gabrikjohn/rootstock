@@ -499,6 +499,18 @@ test("completes both trials and seals an entire gate", async ({ page }) => {
   )).toBe(true);
 });
 
+test("ships a viewport the user cannot zoom or double-tap out of", async ({ page }) => {
+  await page.goto("/");
+  const viewport = await page.locator("meta[name=viewport]").getAttribute("content") ?? "";
+  expect(viewport).toContain("maximum-scale=1.0");
+  expect(viewport).toContain("user-scalable=no");
+  // viewport-fit=cover still has to survive alongside the scale limits, or the safe-area
+  // insets the top bar pads with collapse to zero.
+  expect(viewport).toContain("viewport-fit=cover");
+  expect(await page.evaluate(() => getComputedStyle(document.documentElement).touchAction))
+    .toBe("manipulation");
+});
+
 test("restarts offline after the service worker activates", async ({ page, context }) => {
   test.setTimeout(90_000);
   await page.addInitScript((fixture) => {
