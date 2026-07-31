@@ -33,6 +33,7 @@ export { ETYM } from "./etymology";
 export { INFER_POOL } from "./inference";
 export { IPA } from "./ipa";
 export { ROOT_DEEP } from "./root-deep";
+export { SHIFT_KINDS, SHIFT_LABELS } from "./shifts";
 export { SIMILARS, SIMILAR_GLOSSES } from "./similars";
 
 const authoredGates = [gate01, gate02, gate03, gate04, gate05, gate06, gate07, gate08, gate09, gate10, gate11, gate12, gate13, gate14, gate15, gate16, gate17, gate18, gate19, gate20, gate21, gate22, gate23, gate24] satisfies Gate[];

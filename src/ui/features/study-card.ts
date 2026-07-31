@@ -7,11 +7,18 @@ export function posTag(word: Word | DrillWord | InferenceWord): string {
   return word.pos ? `<span class="pos">${word.pos}</span> ` : "";
 }
 
+// Every word the card can render. Inference words carry no example sentence and no `pron`;
+// both are handled rather than required, so one card serves the whole corpus.
+export type StudyCardWord = Word | DrillWord | InferenceWord;
+
 interface StudyCardContext {
   gates: readonly Gate[];
-  etymology(word: Word): string;
+  etymology(word: StudyCardWord): string;
   // Deep note per word piece, plus the family a root grows into. Empty string = omit.
-  deepPanel?(word: Word): string;
+  deepPanel?(word: StudyCardWord): string;
+  // A closing line under the definition — the roots note an inference word is built to
+  // teach. Empty string = omit, same contract as deepPanel.
+  nearNote?(word: StudyCardWord): string;
 }
 
 interface GhostRange {
@@ -20,24 +27,32 @@ interface GhostRange {
   definition: string;
 }
 
-export function renderStudyCard(word: Word, context: StudyCardContext): string {
+export function renderStudyCard(word: StudyCardWord, context: StudyCardContext): string {
   const morphology = word.parts.map((part, index) => {
     const segment = `<div class="seg ${part[1] === "" ? "empty" : ""}"><div class="sy">${part[0]}</div>${part[1] ? `<div class="mn">${part[1]}</div>` : ""}</div>`;
     return index < word.parts.length - 1 ? `${segment}<span class="plus">+</span>` : segment;
   }).join("");
-  const kin = word.kin ? `<div class="near">kin: ${word.kin.join(" · ")}</div>` : "";
+  const kinList = "kin" in word ? word.kin : undefined;
+  const near = kinList?.length
+    ? `<div class="near">kin: ${kinList.join(" · ")}</div>`
+    : (context.nearNote?.(word) ? `<div class="near">${context.nearNote(word)}</div>` : "");
   const etymology = context.etymology(word);
-  return `<div class="card"><div class="headword">${word.word}</div>${pronLine(word.word, word.pron)}
+  // Inference words have no authored sentence yet; the example line is omitted rather than
+  // rendered empty, so the card closes cleanly on the definition.
+  const example = word.sentence
+    ? `<div class="exline">“${ghostify(word, word.sentence, context.gates)}”<div class="ghost-note" style="display:none"></div></div>`
+    : "";
+  return `<div class="card"><div class="headword">${word.word}</div>${pronLine(word.word, word.pron ?? "")}
     <div class="morph">${morphology}</div><div class="def">${posTag(word)}${word.def}</div>
-    <div class="exline">“${ghostify(word, context.gates)}”<div class="ghost-note" style="display:none"></div></div>${etymology ? `<div class="ety">${etymology}</div>` : ""}${kin}${deepDisclosure(word, context)}</div>`;
+    ${example}${etymology ? `<div class="ety">${etymology}</div>` : ""}${near}${deepDisclosure(word, context)}</div>`;
 }
 
 // An in-card expander rather than a screen: the study stage bookmarks by word index, and a
 // navigation would need mark state that opening a panel does not.
-function deepDisclosure(word: Word, context: StudyCardContext): string {
+function deepDisclosure(word: StudyCardWord, context: StudyCardContext): string {
   const body = context.deepPanel?.(word) ?? "";
   if (!body) return "";
-  return `<div class="deep-wrap"><button class="deep-toggle" data-deep>Learn more ▾</button>
+  return `<div class="deep-wrap"><button class="deep-toggle" data-deep>Where it comes from ▾</button>
     <div class="deep-body" style="display:none">${body}</div></div>`;
 }
 
@@ -50,7 +65,7 @@ export function installDeepDisclosure(root: Document = document): void {
     if (!toggle || !body) return;
     const open = body.style.display !== "none";
     body.style.display = open ? "none" : "block";
-    toggle.textContent = open ? "Learn more ▾" : "Less ▴";
+    toggle.textContent = open ? "Where it comes from ▾" : "Less ▴";
   });
 }
 
@@ -72,9 +87,12 @@ export function installGhostDefinitions(root: Document = document): void {
   });
 }
 
-function ghostify(word: Word, gates: readonly Gate[]): string {
-  const gateIndex = gates.findIndex((gate) => gate.words.includes(word));
-  const sentence = escapeHtml(word.sentence);
+function ghostify(word: StudyCardWord, source: string, gates: readonly Gate[]): string {
+  // Drill and inference words are not members of any gate, so this resolves to -1 and they
+  // ghost nothing. Do not substitute `req` here: it is a gate id on a DrillWord but a gate
+  // index on an InferenceWord, so one scale would silently mis-slice the other's history.
+  const gateIndex = gates.findIndex((gate) => gate.words.some((candidate) => candidate === word));
+  const sentence = escapeHtml(source);
   const normalizedSentence = sentence.toLowerCase();
   const headwordStart = normalizedSentence.indexOf(word.word.toLowerCase());
   const headwordEnd = headwordStart < 0 ? -1 : headwordStart + word.word.length;

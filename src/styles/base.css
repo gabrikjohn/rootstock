@@ -175,6 +175,8 @@
   .deep-toggle{background:none;border:0;padding:0;cursor:pointer;font-family:var(--mono);font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--gild)}
   .deep-body{margin-top:12px;text-align:left}
   .deep-part{font-family:var(--serif);font-size:15px;line-height:1.6;color:var(--ink-soft);margin-bottom:14px}
+  .deep-story{color:var(--ink);padding-bottom:16px;margin-bottom:16px;border-bottom:1px solid var(--line)}
+  .deep-story:only-child{padding-bottom:0;margin-bottom:0;border-bottom:0}
   .deep-seg{display:block;font-family:var(--mono);font-size:10.5px;letter-spacing:.05em;text-transform:uppercase;color:var(--gild);margin-bottom:3px}
   .exline{font-family:var(--serif);font-style:italic;color:var(--ink-soft);max-width:44ch;margin:16px auto 0;padding-top:16px;border-top:1px solid var(--line);font-size:16px;line-height:1.55}
   .near{font-family:var(--mono);font-size:10.5px;letter-spacing:.04em;color:var(--gild);margin-top:16px;text-transform:uppercase}

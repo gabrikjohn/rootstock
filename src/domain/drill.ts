@@ -77,7 +77,8 @@ export function supportsDrillMode(
   mode: QuizMode,
   word: Word | DrillWord,
   hasEtymology: boolean,
-  hasKin: boolean
+  hasKin: boolean,
+  hasFormerSense = false
 ): boolean {
   if (mode === "LIT" || mode === "LITT") {
     return word.parts.filter((part) => part[1]).length >= 2;
@@ -88,6 +89,8 @@ export function supportsDrillMode(
   if (mode === "ETY") return hasEtymology;
   if (mode === "KIN") return hasKin;
   if (mode === "COMPOSE") return word.parts.length >= 2;
+  // The sense-shift modes need an authored earlier sense, which most words do not have.
+  if (mode === "SENSE" || mode === "SENSET" || mode === "SHIFT") return hasFormerSense;
   return true;
 }
 
@@ -99,7 +102,7 @@ export function chooseDrillMode(
   if (!history || !(history.r + history.w)) return "REC";
   const priorModes = history.m ?? [];
   const supported = (mode: QuizMode): boolean =>
-    supportsDrillMode(mode, word, Boolean(word.ety), Boolean(pickKin(word, random)));
+    supportsDrillMode(mode, word, Boolean(word.ety), Boolean(pickKin(word, random)), Boolean(word.was));
   const fresh = DRILL_LADDER.filter((mode) =>
     supported(mode) && !priorModes.includes(mode)
   );
@@ -143,7 +146,7 @@ import type { DrillHistory, QuizMode } from "../types/state";
 import { shuffle } from "./collections";
 
 export const DRILL_LADDER: readonly QuizMode[] = [
-  "DSENT", "LIT", "ROOTQ", "ETY", "KIN", "COMPOSE", "CLOZE", "LITT", "PROD"
+  "DSENT", "LIT", "ROOTQ", "ETY", "SENSE", "KIN", "COMPOSE", "CLOZE", "LITT", "PROD"
 ];
 
 export const MODE_SHIFT: Readonly<Partial<Record<QuizMode, number>>> = {
@@ -156,6 +159,12 @@ export const MODE_SHIFT: Readonly<Partial<Record<QuizMode, number>>> = {
   VIG: 0,
   KIN: 0.15,
   ETY: 0.25,
+  // Naming the kind of shift is a four-option judgement about a stated pair of senses, so it
+  // sits below recognition; recalling the word from its old sense is a shade above ETY, and
+  // typing it costs what the other typed modes cost.
+  SHIFT: -0.1,
+  SENSE: 0.3,
+  SENSET: 0.75,
   COMPOSE: 0.35,
   CLOZE: 0.45,
   LITT: 0.55,

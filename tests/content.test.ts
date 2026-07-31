@@ -2,6 +2,7 @@ import { describe, expect, it } from "vitest";
 import { existsSync, readFileSync } from "node:fs";
 import { fileURLToPath } from "node:url";
 import { ContentCatalog } from "../src/domain/catalog";
+import type { DrillWord, InferenceWord, Word } from "../src/types/content";
 import {
   AFFIX_DEEP,
   COGNATES,
@@ -12,6 +13,7 @@ import {
   INFER_POOL,
   LEVELS,
   ROOT_DEEP,
+  SHIFT_KINDS,
   SIMILARS
 } from "../src/content";
 import { AUDIO_MANIFEST } from "../src/content/audio-manifest";
@@ -128,6 +130,81 @@ describe("runtime content", () => {
       expect(isMp3, word).toBe(true);
     }
     expect(Object.keys(ROOT_DEEP).length).toBeGreaterThan(200);
+  });
+
+  it("authors sense-history stories to spec and caps the epigram", () => {
+    const catalog = new ContentCatalog(LEVELS, DRILL_POOL, DEPTH, ROOT_DEEP, ETYM, COGNATES);
+    const depth = DEPTH as Readonly<Record<string, { v: string; e: string; s?: string }>>;
+    // Count sentence terminators, tolerating a closing quote after the stop (…of two.') so a
+    // sentence that ends on a gloss still counts. Abbreviations may over-count — that is a
+    // safe direction for a floor. Soft by design.
+    const sentences = (text: string) => (text.match(/[.!?]['"’”)\]]*(\s|$)/g) ?? []).length;
+    // The epigram doubles as the masked ETY drill prompt, where the headword is the answer;
+    // a paragraph there would be an unreadable, answer-leaking prompt. Keep it a caption.
+    // Only gate and drill words carry an epigram at all; inference words never had one.
+    for (const word of [...gateWords, ...DRILL_POOL]) {
+      expect(catalog.wordEtymology(word).length, word.word).toBeLessThanOrEqual(200);
+    }
+    const inferenceWords: readonly InferenceWord[] = INFER_POOL;
+    let withStory = 0;
+    for (const word of [...gateWords, ...DRILL_POOL, ...inferenceWords]) {
+      const story = catalog.wordStory(word);
+      if (!story) continue;
+      withStory += 1;
+      // The story is a paragraph, not an epigram: long enough to narrate a sense-shift,
+      // short enough for a card. Four sentences roughly matches the five-move house style.
+      expect(story.length, word.word).toBeGreaterThanOrEqual(350);
+      expect(story.length, word.word).toBeLessThanOrEqual(900);
+      expect(sentences(story), word.word).toBeGreaterThanOrEqual(4);
+      // A story pasted from the epigram or the vignette is not a story.
+      expect(story, word.word).not.toBe(depth[word.word]?.e);
+      expect(story, word.word).not.toBe(depth[word.word]?.v);
+    }
+    // Every headword in every pool now carries one. The ratchet this replaced is finished:
+    // these are floors, and the failure names the words that regressed. Never weaken them.
+    const missingStory = (pool: readonly (Word | DrillWord | InferenceWord)[]) =>
+      pool.filter((word) => !catalog.wordStory(word)).map((word) => word.word);
+    expect(missingStory(gateWords)).toEqual([]);
+    expect(missingStory(DRILL_POOL)).toEqual([]);
+    expect(missingStory(inferenceWords)).toEqual([]);
+    expect(withStory).toBe(allWords.length);
+    // Inference words were authored without the example sentence the study card renders.
+    // All of them have one now, so the card never falls back to omitting the line.
+    expect(inferenceWords.filter((word) => !word.sentence).map((word) => word.word)).toEqual([]);
+  });
+
+  it("authors the sense-shift pair so the SENSE prompt stays answerable", () => {
+    const catalog = new ContentCatalog(LEVELS, DRILL_POOL, DEPTH, ROOT_DEEP, ETYM, COGNATES);
+    const inferenceWords: readonly InferenceWord[] = INFER_POOL;
+    const pool = [...gateWords, ...DRILL_POOL, ...inferenceWords];
+    const unpaired: string[] = [];
+    const leaks: string[] = [];
+    let paired = 0;
+    for (const word of pool) {
+      const former = catalog.wordFormerSense(word);
+      const kind = catalog.wordShiftKind(word);
+      // The two are authored together or not at all: a former sense with no kind cannot be
+      // asked about, and a kind with no former sense has nothing to show.
+      if (Boolean(former) !== Boolean(kind)) { unpaired.push(word.word); continue; }
+      if (!former || !kind) continue;
+      paired += 1;
+      expect(SHIFT_KINDS, word.word).toContain(kind);
+      expect(former.length, word.word).toBeGreaterThanOrEqual(40);
+      expect(former.length, word.word).toBeLessThanOrEqual(160);
+      // If the earlier sense is the current one there was no shift worth drilling.
+      expect(former.trim().toLowerCase(), word.word).not.toBe(word.def.trim().toLowerCase());
+      // SENSE shows this line and asks the learner to name the word, so the line must not
+      // contain it. The vignettes already satisfy the identical rule, 240 out of 240.
+      const stem = word.word.toLowerCase().slice(0, Math.max(4, word.word.length - 3));
+      if (former.toLowerCase().includes(stem)) leaks.push(word.word);
+    }
+    expect(unpaired).toEqual([]);
+    expect(leaks).toEqual([]);
+    // A floor rather than a coverage assertion, because this pair is deliberately sparse:
+    // most words never shifted, and inventing a former sense for them was never on offer.
+    // It is also what keeps the Drill Hall focus worth opening, since buildFocusPool admits
+    // only the words that support a mode. Raise it if the corpus grows; never lower it.
+    expect(paired).toBeGreaterThanOrEqual(123);
   });
 
   it("keeps similar roots symmetric and cognates meaningful", () => {
