@@ -202,7 +202,7 @@ describe("runtime content", () => {
     expect(leaks).toEqual([]);
     // Ratchets up as each batch lands. The Drill Hall only offers the focus if enough words
     // support it, so this floor is also what keeps that menu entry worth opening.
-    expect(paired).toBeGreaterThanOrEqual(58);
+    expect(paired).toBeGreaterThanOrEqual(98);
   });
 
   it("keeps similar roots symmetric and cognates meaningful", () => {

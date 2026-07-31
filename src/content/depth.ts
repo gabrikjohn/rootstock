@@ -379,7 +379,9 @@ export const DEPTH = {
   "banal": {
     "v": "'At the end of the day, it is what it is' — the room nodded and remembered nothing.",
     "e": "Old French ban — the lord's communal mill and oven all villagers had to use; what everyone uses grows stale.",
-    "s": "Old French ban was the feudal proclamation, and what was banal belonged to the compulsory services a lord could summon — above all the mill, the oven and the winepress that every tenant on the estate was obliged to use and pay for. The word therefore began meaning common in the strict sense of held in common, with no shade of contempt in it. The slide is easy to follow: what everyone must use is what everyone has used, and what everyone has used is worn. French carried it the whole distance and English borrowed the finished product in the nineteenth century. Today banal means trite through overuse, and the marriage banns keep the old proclamation intact."
+    "s": "Old French ban was the feudal proclamation, and what was banal belonged to the compulsory services a lord could summon — above all the mill, the oven and the winepress that every tenant on the estate was obliged to use and pay for. The word therefore began meaning common in the strict sense of held in common, with no shade of contempt in it. The slide is easy to follow: what everyone must use is what everyone has used, and what everyone has used is worn. French carried it the whole distance and English borrowed the finished product in the nineteenth century. Today banal means trite through overuse, and the marriage banns keep the old proclamation intact.",
+    "w": "belonging to the whole village in common, as the lord's mill and oven did",
+    "k": "worse"
   },
   "martinet": {
     "v": "Two demerits for a crooked lanyard; the inspection ran to the millimeter, joylessly.",
@@ -432,7 +434,9 @@ export const DEPTH = {
   "charlatan": {
     "v": "The tonic cured nothing, but the pitch was magnificent, and the wagon was gone by dawn.",
     "e": "Italian ciarlare, 'to chatter' — possibly via Cerreto, a town famed for quack medicine-sellers; the patter is the product.",
-    "s": "Italian ciarlatano, from ciarlare, 'to chatter,' probably crossed along the way with cerretano, a man of Cerreto, an Umbrian town whose people had a reputation as travelling quacks. Both derivations are alive and both fit, which is unusually convenient. The first English sense in the seventeenth century was specific: a mountebank who sold medicines from a stage, and whose real product was the patter, since the talk drew the crowd and the crowd bought the bottle. The chatter, in other words, was never incidental to the fraud. Today a charlatan is anyone who claims a skill he does not have, and the mountebank beside him is simply one who mounts a bench."
+    "s": "Italian ciarlatano, from ciarlare, 'to chatter,' probably crossed along the way with cerretano, a man of Cerreto, an Umbrian town whose people had a reputation as travelling quacks. Both derivations are alive and both fit, which is unusually convenient. The first English sense in the seventeenth century was specific: a mountebank who sold medicines from a stage, and whose real product was the patter, since the talk drew the crowd and the crowd bought the bottle. The chatter, in other words, was never incidental to the fraud. Today a charlatan is anyone who claims a skill he does not have, and the mountebank beside him is simply one who mounts a bench.",
+    "w": "a mountebank who sold medicines from a stage, drawing a crowd by his patter",
+    "k": "widen"
   },
   "philistine": {
     "v": "He priced the sculpture by its weight in bronze and asked why the museum needed two floors.",
@@ -552,7 +556,9 @@ export const DEPTH = {
   "autocracy": {
     "v": "One signature started the war, ended the newspapers, and renamed the month of June.",
     "e": "Greek autos (self) + kratos (power) — power answerable to the self alone; the Tsar's official title was Autocrat of all the Russias.",
-    "s": "Greek autos, 'self,' with kratos, 'power' — and the Greek word autokrateia meant self-rule in a sense far closer to autonomy than to tyranny: a man governing his own appetites, or a state answerable to no foreign power. The turn was imperial. Byzantine emperors took autokrator as a title, and the Russian court then rendered its own Samoderzhets the same way, so that Autocrat of All the Russias became the formal style of the Tsar. Absolute personal power, not self-command, is what the word carried out of that. Today autocracy is government by one of unlimited authority, a word that began by praising self-mastery."
+    "s": "Greek autos, 'self,' with kratos, 'power' — and the Greek word autokrateia meant self-rule in a sense far closer to autonomy than to tyranny: a man governing his own appetites, or a state answerable to no foreign power. The turn was imperial. Byzantine emperors took autokrator as a title, and the Russian court then rendered its own Samoderzhets the same way, so that Autocrat of All the Russias became the formal style of the Tsar. Absolute personal power, not self-command, is what the word carried out of that. Today autocracy is government by one of unlimited authority, a word that began by praising self-mastery.",
+    "w": "self-rule in the sense of self-command, or a state answerable to no foreign power",
+    "k": "worse"
   },
   "oligarchy": {
     "v": "Six families owned the port, the bank, and the votes, and dinner among them settled elections.",
@@ -562,7 +568,9 @@ export const DEPTH = {
   "anarchy": {
     "v": "When the garrison left, the ministries emptied by noon and the intersections ran on honked horns and nerve.",
     "e": "Greek an- (without) + archos (ruler) — no ruler: to Greeks a terror, to nineteenth-century idealists a program.",
-    "s": "Greek an-, 'without,' with archos, 'ruler' — no ruler, and for the Greeks that was not a proposal but a nightmare, the condition of a city that had come apart. English used it the same way for centuries: anarchy meant chaos, and to call something anarchic was to say it had collapsed. Then somebody claimed the insult. In 1840 Pierre-Joseph Proudhon answered his own question about what he was by declaring himself an anarchist, deliberately taking up the word to name a programme of order without rulers rather than the absence of order. Today anarchy carries both senses at once, and which one you hear depends on who is speaking."
+    "s": "Greek an-, 'without,' with archos, 'ruler' — no ruler, and for the Greeks that was not a proposal but a nightmare, the condition of a city that had come apart. English used it the same way for centuries: anarchy meant chaos, and to call something anarchic was to say it had collapsed. Then somebody claimed the insult. In 1840 Pierre-Joseph Proudhon answered his own question about what he was by declaring himself an anarchist, deliberately taking up the word to name a programme of order without rulers rather than the absence of order. Today anarchy carries both senses at once, and which one you hear depends on who is speaking.",
+    "w": "the collapse of order in a city left with no ruler at all",
+    "k": "widen"
   },
   "plutocracy": {
     "v": "Campaigns cost nine figures, so the legislature's real district was the donor list.",
@@ -587,17 +595,23 @@ export const DEPTH = {
   "patriarchy": {
     "v": "The eldest man's word settled marriages, mortgages, and quarrels for four generations under one roof.",
     "e": "Greek pater (father) + archein — the father-ruled house scaled up to a social order; the biblical Patriarchs carried the title first.",
-    "s": "Greek pater, 'father,' with archein, 'to rule' — and its first English career was ecclesiastical. A patriarch was one of the senior bishops of the early Church, at Rome, Constantinople, Antioch, Alexandria and Jerusalem, and a patriarchy was his office or see; behind them stood the biblical Patriarchs, Abraham and Isaac and Jacob, fathers of a people. The word meant a jurisdiction. Its use for a whole social order came later, and its sharpest sense is recent: twentieth-century feminist analysis made patriarchy the name for a system of male authority rather than a churchman's title. Today it means a social order ruled by men."
+    "s": "Greek pater, 'father,' with archein, 'to rule' — and its first English career was ecclesiastical. A patriarch was one of the senior bishops of the early Church, at Rome, Constantinople, Antioch, Alexandria and Jerusalem, and a patriarchy was his office or see; behind them stood the biblical Patriarchs, Abraham and Isaac and Jacob, fathers of a people. The word meant a jurisdiction. Its use for a whole social order came later, and its sharpest sense is recent: twentieth-century feminist analysis made patriarchy the name for a system of male authority rather than a churchman's title. Today it means a social order ruled by men.",
+    "w": "the office or see of one of the senior bishops of the early Church",
+    "k": "widen"
   },
   "hierarchy": {
     "v": "Every request climbed five desks to be approved and descended five desks to be enacted.",
     "e": "Greek hieros, 'sacred' — originally the ranked orders of angels and priests; the org chart is a secularized heaven.",
-    "s": "Greek hieros, 'sacred,' with archein, 'to rule' — and the first things ever arranged in a hierarchy were angels. The writer known as Pseudo-Dionysius the Areopagite set out in the Celestial Hierarchy the nine ranked orders of the heavenly host, arranged in three triads, each receiving illumination from the rank above and passing it down; the word then transferred to the ranked orders of the clergy who mirrored them on earth. Only in the nineteenth century did it come loose and go to work on institutions with no angels in them at all. Today a hierarchy is any ranked order of authority, which makes the modern organisation chart a secularised heaven."
+    "s": "Greek hieros, 'sacred,' with archein, 'to rule' — and the first things ever arranged in a hierarchy were angels. The writer known as Pseudo-Dionysius the Areopagite set out in the Celestial Hierarchy the nine ranked orders of the heavenly host, arranged in three triads, each receiving illumination from the rank above and passing it down; the word then transferred to the ranked orders of the clergy who mirrored them on earth. Only in the nineteenth century did it come loose and go to work on institutions with no angels in them at all. Today a hierarchy is any ranked order of authority, which makes the modern organisation chart a secularised heaven.",
+    "w": "the nine ranked orders of angels, and the ranks of clergy mirroring them",
+    "k": "widen"
   },
   "demagogue": {
     "v": "He named the culprits — foreigners, bankers, professors — and the crowd roared; policy never came up.",
     "e": "Greek demos (people) + agogos (leader) — once simply 'leader of the people'; Athens' experience with such leaders ruined the word.",
-    "s": "Greek demos, 'the people,' with agogos, 'leader' — and for a while it was simply a job description, capable of being said with approval. What ruined it was Athenian experience. The generation of politicians after Pericles, Cleon above all, were remembered by Thucydides and mocked by Aristophanes as men who led the assembly by flattering its worst impulses, and the word never recovered from the portrait. English borrowed it in the seventeenth century already spoiled. Today a demagogue is a leader who exploits popular passion, and agogos's quieter relatives include the pedagogue, who leads children, and the synagogue, a leading-together."
+    "s": "Greek demos, 'the people,' with agogos, 'leader' — and for a while it was simply a job description, capable of being said with approval. What ruined it was Athenian experience. The generation of politicians after Pericles, Cleon above all, were remembered by Thucydides and mocked by Aristophanes as men who led the assembly by flattering its worst impulses, and the word never recovered from the portrait. English borrowed it in the seventeenth century already spoiled. Today a demagogue is a leader who exploits popular passion, and agogos's quieter relatives include the pedagogue, who leads children, and the synagogue, a leading-together.",
+    "w": "a leader of the common people, a description that could be said with approval",
+    "k": "worse"
   },
   "soliloquy": {
     "v": "Alone on the dark stage, the prince weighs being against not being, and the audience overhears.",
@@ -728,7 +742,9 @@ export const DEPTH = {
   "pathology": {
     "v": "The lab report traced the fever to its cause and gave the disease its name and course.",
     "e": "Greek pathos + logos — the study of suffering; the pathologist reads disease the way a philologist reads texts.",
-    "s": "Greek pathos, 'suffering,' with logos — the account of suffering, and the word has narrowed steadily towards the laboratory. It began as the general study of disease, the branch of medicine concerned with what illness is rather than how to treat it, and it now most often names the specific discipline that examines tissue, fluid and the dead to say what went wrong. The pathologist reads a body the way a philologist reads a manuscript. Today pathology is the study of disease and its nature, and the adjective built from it, pathological, long ago escaped medicine to describe any fault that behaves like an illness."
+    "s": "Greek pathos, 'suffering,' with logos — the account of suffering, and the word has narrowed steadily towards the laboratory. It began as the general study of disease, the branch of medicine concerned with what illness is rather than how to treat it, and it now most often names the specific discipline that examines tissue, fluid and the dead to say what went wrong. The pathologist reads a body the way a philologist reads a manuscript. Today pathology is the study of disease and its nature, and the adjective built from it, pathological, long ago escaped medicine to describe any fault that behaves like an illness.",
+    "w": "the branch of medicine concerned with what disease is",
+    "k": "widen"
   },
   "psychosomatic": {
     "v": "Every scan came back clean, yet the stomach pain arrived each Sunday night before the Monday shift.",
@@ -785,7 +801,9 @@ export const DEPTH = {
   "temporize": {
     "v": "'Let me consult the committee,' he said again — buying a fourth week without once saying no.",
     "e": "Latin tempus, temporis (time) — to deal in time itself, stalling until the weather of events changes.",
-    "s": "Latin tempus, temporis, 'time' — to deal in time, and the English word began as a moral charge rather than a tactical one. In the sixteenth century to temporize was to trim one's conduct and professed beliefs to suit the times, a serious accusation in a century when the official religion changed four times and men were burned for holding to the previous one. It meant time-serving, and it meant cowardice. The sense narrowed later to mere delay. Today to temporize is to stall in order to gain time, which keeps the manoeuvre and has quietly dropped the dishonour."
+    "s": "Latin tempus, temporis, 'time' — to deal in time, and the English word began as a moral charge rather than a tactical one. In the sixteenth century to temporize was to trim one's conduct and professed beliefs to suit the times, a serious accusation in a century when the official religion changed four times and men were burned for holding to the previous one. It meant time-serving, and it meant cowardice. The sense narrowed later to mere delay. Today to temporize is to stall in order to gain time, which keeps the manoeuvre and has quietly dropped the dishonour.",
+    "w": "to trim one's conduct and professed beliefs to suit whichever way the age ran",
+    "k": "narrow"
   },
   "extemporaneous": {
     "v": "The projector died, so she gave the whole address from memory and nerve, better than the slides.",
@@ -850,7 +868,9 @@ export const DEPTH = {
   "prevaricate": {
     "v": "'Were you at the warehouse?' — 'I travel a great deal; my calendar is complex; define warehouse.'",
     "e": "Latin praevaricari, 'to plow crooked; to straddle' — a plowman walking both sides of his furrow; Roman lawyers used it for advocates secretly serving the other side.",
-    "s": "Latin praevaricari, from varus, 'bent or knock-kneed' — and the picture is a ploughman who cannot hold a straight furrow, walking crookedly from one side of the line to the other. Roman law took the image and sharpened it into a specific offence. A praevaricator was a prosecutor who secretly worked for the defence, straddling the case he was supposed to press, and the word named a betrayal of one's own side rather than a general vagueness. English softened it considerably on the way in. Today to prevaricate is to speak evasively, which keeps the straddle and has dropped the treachery."
+    "s": "Latin praevaricari, from varus, 'bent or knock-kneed' — and the picture is a ploughman who cannot hold a straight furrow, walking crookedly from one side of the line to the other. Roman law took the image and sharpened it into a specific offence. A praevaricator was a prosecutor who secretly worked for the defence, straddling the case he was supposed to press, and the word named a betrayal of one's own side rather than a general vagueness. English softened it considerably on the way in. Today to prevaricate is to speak evasively, which keeps the straddle and has dropped the treachery.",
+    "w": "to collude with the other side in a suit one was supposed to be pressing",
+    "k": "widen"
   },
   "specious": {
     "v": "The pitch deck's curves all rose smoothly; only in the footnotes did the numbers quietly confess.",
@@ -872,12 +892,16 @@ export const DEPTH = {
   "amphibious": {
     "v": "The landing craft crawled out of the surf and kept going up the beach on treads.",
     "e": "Greek amphi (both) + bios — 'both lives': the frog's word, at home in water and on land, borrowed by the marines.",
-    "s": "Greek amphi, 'both,' with bios, 'life' — having both lives, and the word has changed habitat twice. Seventeenth-century English used it broadly and often figuratively, for anything of double nature; Thomas Browne could call a man amphibious for living in two worlds at once. Linnaeus then pinned it to zoology and the class Amphibia. Its third career is military and recent, dating from the combined land-and-sea operations of the Second World War, which is why the word now suggests a landing craft as readily as a frog. Today amphibious means living or working on land and water alike."
+    "s": "Greek amphi, 'both,' with bios, 'life' — having both lives, and the word has changed habitat twice. Seventeenth-century English used it broadly and often figuratively, for anything of double nature; Thomas Browne could call a man amphibious for living in two worlds at once. Linnaeus then pinned it to zoology and the class Amphibia. Its third career is military and recent, dating from the combined land-and-sea operations of the Second World War, which is why the word now suggests a landing craft as readily as a frog. Today amphibious means living or working on land and water alike.",
+    "w": "of a double nature; belonging to two worlds at once, of anything whatever",
+    "k": "narrow"
   },
   "moribund": {
     "v": "Two trains a week, a shuttered mill, and a main street of plywood windows — the town was not dead, but dying.",
     "e": "Latin mori, 'to die' — the -bund ending marks a state underway: not dead, but in death's outbound lane.",
-    "s": "Latin mori, 'to die,' with the ending -bundus, which marks an action in full course rather than a state achieved — so the moribund are not dead but actively dying, caught in the process. English took it as a physician's word for a patient beyond help, and only in the nineteenth century began applying it to institutions, industries and traditions running down. The metaphor is exact, since what is moribund is still there and still failing. Today moribund means at the point of death or dying out, and mori's strangest descendant is the mortgage, literally a dead pledge, killed off by payment or by default."
+    "s": "Latin mori, 'to die,' with the ending -bundus, which marks an action in full course rather than a state achieved — so the moribund are not dead but actively dying, caught in the process. English took it as a physician's word for a patient beyond help, and only in the nineteenth century began applying it to institutions, industries and traditions running down. The metaphor is exact, since what is moribund is still there and still failing. Today moribund means at the point of death or dying out, and mori's strangest descendant is the mortgage, literally a dead pledge, killed off by payment or by default.",
+    "w": "of a patient actively dying, and beyond what a physician could do",
+    "k": "figure"
   },
   "mortify": {
     "v": "Halfway through the toast he realized he'd been calling the bride by his ex-wife's name.",
@@ -963,7 +987,9 @@ export const DEPTH = {
   "capitulate": {
     "v": "After the third winter of siege, the garrison opened the gates under agreed terms.",
     "e": "Latin capitulum, 'little heading' — surrender negotiated chapter by chapter; the caput (head) hiding inside also heads 'captain' and 'capital.'",
-    "s": "Latin capitulum, 'a little head,' the diminutive of caput and the ordinary word for a chapter heading — so to capitulate was to draw something up under headings. A capitulation was a document arranged in numbered articles, and the word described its format rather than its content. What such documents usually recorded was the terms on which a garrison would give up a town, and the surrender swallowed the paperwork whole. Today to capitulate is to surrender on agreed terms, and caput's family is enormous: the capital, the captain, the chief and the chef, the chapter and the cattle counted by the head."
+    "s": "Latin capitulum, 'a little head,' the diminutive of caput and the ordinary word for a chapter heading — so to capitulate was to draw something up under headings. A capitulation was a document arranged in numbered articles, and the word described its format rather than its content. What such documents usually recorded was the terms on which a garrison would give up a town, and the surrender swallowed the paperwork whole. Today to capitulate is to surrender on agreed terms, and caput's family is enormous: the capital, the captain, the chief and the chef, the chapter and the cattle counted by the head.",
+    "w": "to draw a document up under numbered headings, chapter by chapter",
+    "k": "figure"
   },
   "animus": {
     "v": "The statute required proof that the landlord acted from intent to discriminate, not mere neglect.",
@@ -995,7 +1021,9 @@ export const DEPTH = {
   "animadversion": {
     "v": "The reviewer's closing paragraph did not critique the book so much as flog it in public.",
     "e": "Latin animum advertere, 'to turn the mind toward' — official notice that turned punitive: attention as censure.",
-    "s": "Latin animum advertere, 'to turn the mind toward' — and this word is the hinge of its gate, since it contains both the animus of spirit and the vertere of turning that run through everything around it. Its first meaning was neutral: to animadvert on something was simply to notice it, to direct attention at it. But official attention is rarely idle, and to turn the mind towards an offence meant to take notice of it in the way that authority takes notice, which is to punish. Today an animadversion is a harsh critical remark, censure grown out of nothing worse than looking."
+    "s": "Latin animum advertere, 'to turn the mind toward' — and this word is the hinge of its gate, since it contains both the animus of spirit and the vertere of turning that run through everything around it. Its first meaning was neutral: to animadvert on something was simply to notice it, to direct attention at it. But official attention is rarely idle, and to turn the mind towards an offence meant to take notice of it in the way that authority takes notice, which is to punish. Today an animadversion is a harsh critical remark, censure grown out of nothing worse than looking.",
+    "w": "the act of turning one's mind toward a thing; simple notice or attention",
+    "k": "worse"
   },
   "aversion": {
     "v": "She could not say why, but she would leave a dinner rather than share the table with cilantro.",
@@ -1017,7 +1045,9 @@ export const DEPTH = {
   "subversive": {
     "v": "The pamphlet never called for revolt; it just asked, mildly, why the ministry's numbers never added up.",
     "e": "Latin sub + vertere, 'to turn from beneath' — the sapper's word: walls overturned by digging under them.",
-    "s": "Latin sub, 'under,' with vertere, 'to turn' — and the original picture is an engineering technique. Besieging armies dug tunnels beneath a wall, propped the excavation with timber and then burned the props, so that the wall turned over from underneath without ever being struck; English calls the same operation undermining. Nothing about it is metaphorical in origin. The political sense arrives in the seventeenth century and keeps the method exactly: what is subversive works below the visible structure rather than against its face. Today subversive means tending to overturn from beneath, the last of the vertere words that have been turning through this corpus since the introvert."
+    "s": "Latin sub, 'under,' with vertere, 'to turn' — and the original picture is an engineering technique. Besieging armies dug tunnels beneath a wall, propped the excavation with timber and then burned the props, so that the wall turned over from underneath without ever being struck; English calls the same operation undermining. Nothing about it is metaphorical in origin. The political sense arrives in the seventeenth century and keeps the method exactly: what is subversive works below the visible structure rather than against its face. Today subversive means tending to overturn from beneath, the last of the vertere words that have been turning through this corpus since the introvert.",
+    "w": "digging beneath a wall and burning the props so it topples from under itself",
+    "k": "figure"
   },
   "calligraphy": {
     "v": "Each wedding invitation took her four minutes a line, ink flaring and thinning with the nib's pressure.",
@@ -1027,7 +1057,9 @@ export const DEPTH = {
   "epigraph": {
     "v": "Facing the first chapter stands a single borrowed line from Dante, setting the book's key.",
     "e": "Greek epi (upon) + graphein — writing placed upon: a building's carved motto or the quotation at a book's threshold.",
-    "s": "Greek epi, 'upon,' with graphein, 'to write' — writing placed upon something, and for most of the word's life that something was stone. An epigraph was an inscription cut into a building, a statue base or a monument, and epigraphy is still the scholarly discipline that reads such inscriptions and dates them. The literary sense is a transfer from the wall to the page. A quotation set at the head of a book or chapter occupies the same position an inscription occupies on a facade, announcing the building before you enter it. Today an epigraph is that quotation, and epigram and epitaph are the same writing on other surfaces."
+    "s": "Greek epi, 'upon,' with graphein, 'to write' — writing placed upon something, and for most of the word's life that something was stone. An epigraph was an inscription cut into a building, a statue base or a monument, and epigraphy is still the scholarly discipline that reads such inscriptions and dates them. The literary sense is a transfer from the wall to the page. A quotation set at the head of a book or chapter occupies the same position an inscription occupies on a facade, announcing the building before you enter it. Today an epigraph is that quotation, and epigram and epitaph are the same writing on other surfaces.",
+    "w": "an inscription cut into a building, a statue base or a monument",
+    "k": "figure"
   },
   "monograph": {
     "v": "Two hundred pages on a single genus of beetle — exhaustive, definitive, and read by forty people.",
@@ -1042,12 +1074,16 @@ export const DEPTH = {
   "circumscribe": {
     "v": "The new charter let the mayor spend freely — within a budget line the council drew tight around him.",
     "e": "Latin circum + scribere, 'to write around' — a boundary drawn as a circle is drawn, limiting by outline.",
-    "s": "Latin circum, 'around,' with scribere, 'to write' — to draw a line around, and the oldest technical use is geometrical rather than figurative. To circumscribe a polygon is to draw the circle that passes through all its vertices, and the term is still used in exactly that sense; the boundary is literal, drawn with a compass. The metaphorical use follows the same logic, since what is circumscribed is not forbidden but bounded, permitted everything inside the line and nothing beyond it. Today to circumscribe is to confine within set limits, a restriction defined by its outline rather than by its prohibitions."
+    "s": "Latin circum, 'around,' with scribere, 'to write' — to draw a line around, and the oldest technical use is geometrical rather than figurative. To circumscribe a polygon is to draw the circle that passes through all its vertices, and the term is still used in exactly that sense; the boundary is literal, drawn with a compass. The metaphorical use follows the same logic, since what is circumscribed is not forbidden but bounded, permitted everything inside the line and nothing beyond it. Today to circumscribe is to confine within set limits, a restriction defined by its outline rather than by its prohibitions.",
+    "w": "to draw the circle that passes through every vertex of a figure",
+    "k": "figure"
   },
   "conscription": {
     "v": "Every man between eighteen and forty found his name on the levy lists by autumn.",
     "e": "Latin con + scribere, 'to write together' — enrollment by force of the pen: the army raised as a list of written names.",
-    "s": "Latin con, 'together,' with scribere, 'to write' — a writing-together, meaning enrolment on a list, and its oldest use is not military in the least. The Roman Senate was addressed as patres conscripti, the conscript fathers, meaning simply the fathers whose names were written on the roll; it was a badge of standing. Compulsory military service took the word over during the French Revolution, when the levée en masse and then the Jourdan Law of 1798 made the register into a summons. Today conscription is compulsory enrolment for service, the army raised by the pen before it is raised by the drum."
+    "s": "Latin con, 'together,' with scribere, 'to write' — a writing-together, meaning enrolment on a list, and its oldest use is not military in the least. The Roman Senate was addressed as patres conscripti, the conscript fathers, meaning simply the fathers whose names were written on the roll; it was a badge of standing. Compulsory military service took the word over during the French Revolution, when the levée en masse and then the Jourdan Law of 1798 made the register into a summons. Today conscription is compulsory enrolment for service, the army raised by the pen before it is raised by the drum.",
+    "w": "enrolment on a roll of names, as the senators of Rome were enrolled",
+    "k": "narrow"
   },
   "credence": {
     "v": "The rumor was absurd, but three papers ran it, and by Friday it had believers.",
@@ -1082,7 +1118,9 @@ export const DEPTH = {
   "misnomer": {
     "v": "The 'ten-minute oil change' took fifty; the koala bear, meanwhile, is no bear at all.",
     "e": "Old French mesnomer, 'to misname' — Latin nomen through French law: a wrong name entered on the writ.",
-    "s": "Old French mesnomer, 'to misname,' from Latin nomen — and the mis- here is not the Germanic one in mistake but French mes-, from Latin minus, which is a different prefix arriving at the same job. The word entered English as a term of law. A misnomer was an error in a name on a writ or an indictment, and under the strict pleading rules of medieval courts such a mistake could defeat the whole document, so it named a technical defect with real consequences. Today a misnomer is any unsuitable name for a thing, and the fatal precision it once had is gone."
+    "s": "Old French mesnomer, 'to misname,' from Latin nomen — and the mis- here is not the Germanic one in mistake but French mes-, from Latin minus, which is a different prefix arriving at the same job. The word entered English as a term of law. A misnomer was an error in a name on a writ or an indictment, and under the strict pleading rules of medieval courts such a mistake could defeat the whole document, so it named a technical defect with real consequences. Today a misnomer is any unsuitable name for a thing, and the fatal precision it once had is gone.",
+    "w": "a mistake in a name on a writ, which under strict pleading could void it",
+    "k": "widen"
   },
   "euphemism": {
     "v": "The company announced it was 'rightsizing'; four hundred people learned they'd been rightsized.",
@@ -1092,7 +1130,9 @@ export const DEPTH = {
   "eulogy": {
     "v": "At the service, her brother spoke for ten minutes, and the mourners laughed and wept in turns.",
     "e": "Greek eu + logos, 'good words' — praise formalized; at funerals, the good words we owe the dead.",
-    "s": "Greek eu, 'well,' with logos, 'word' — good words, and the funeral is a late narrowing rather than the original setting. A eulogy was formal praise of anyone, living or dead, and one could eulogise a city, a virtue or a patron without anybody having died. The word is constantly confused with elegy, which is unrelated: an elegy comes from Greek elegos, a lament, and mourns rather than praises, so a eulogy that only grieves has missed its own brief. Today a eulogy is a speech of high praise for the dead, and the distinction from the elegy beside it is worth keeping."
+    "s": "Greek eu, 'well,' with logos, 'word' — good words, and the funeral is a late narrowing rather than the original setting. A eulogy was formal praise of anyone, living or dead, and one could eulogise a city, a virtue or a patron without anybody having died. The word is constantly confused with elegy, which is unrelated: an elegy comes from Greek elegos, a lament, and mourns rather than praises, so a eulogy that only grieves has missed its own brief. Today a eulogy is a speech of high praise for the dead, and the distinction from the elegy beside it is worth keeping.",
+    "w": "formal praise of anybody at all, living or dead, and of cities and virtues too",
+    "k": "narrow"
   },
   "euthanasia": {
     "v": "The old dog could no longer stand; the vet's injection was quiet, and the family stayed in the room.",
@@ -1146,7 +1186,9 @@ export const DEPTH = {
   "myopia": {
     "v": "Without her glasses, the eye chart's big E was a gray smudge; the board's five-year plan, likewise, saw only next quarter.",
     "e": "Greek myein (to squint, close) + ops (eye) — the squinter's word; nearsightedness of eye or of policy.",
-    "s": "Greek myein, 'to shut,' with ops, 'eye' — the shutting eye, named for the squint a short-sighted person makes to sharpen a distant blur. The same verb produced a much less clinical word. A mystes was an initiate into the mysteries, one who shut his eyes or his mouth about what he had seen, and from that come mystery, mystic and mystical — so the eye doctor's term and the whole vocabulary of the ineffable descend from one instruction to close something. Today myopia is short-sightedness, of the eye or of policy, and its figurative use is now commoner than its literal one."
+    "s": "Greek myein, 'to shut,' with ops, 'eye' — the shutting eye, named for the squint a short-sighted person makes to sharpen a distant blur. The same verb produced a much less clinical word. A mystes was an initiate into the mysteries, one who shut his eyes or his mouth about what he had seen, and from that come mystery, mystic and mystical — so the eye doctor's term and the whole vocabulary of the ineffable descend from one instruction to close something. Today myopia is short-sightedness, of the eye or of policy, and its figurative use is now commoner than its literal one.",
+    "w": "short sight; the squint of an eye that cannot resolve what is far off",
+    "k": "figure"
   },
   "presbyopia": {
     "v": "At fifty he began reading menus at arm's length, then buying drugstore glasses by the pair.",
@@ -1245,7 +1287,9 @@ export const DEPTH = {
   "repugnant": {
     "v": "The committee read the proposal to sell naming rights to the cemetery and voted it down without debate.",
     "e": "Latin re + pugnare, 'to fight back' — what one's whole nature fights against; in law, clauses that fight each other.",
-    "s": "Latin re, 'back,' with pugnare, 'to fight' — fighting back, and its first English sense was logical rather than moral. Two statements were repugnant when they contradicted each other, and the usage survives in legal drafting, where a repugnant clause is one that fights another in the same instrument and may be struck out for it. The sense of disgust grew out of that resistance: what is repugnant is what one's whole nature contradicts, refuses, pushes away. Today repugnant means deeply offensive, and the older meaning of mutually contradictory is still live wherever documents are construed."
+    "s": "Latin re, 'back,' with pugnare, 'to fight' — fighting back, and its first English sense was logical rather than moral. Two statements were repugnant when they contradicted each other, and the usage survives in legal drafting, where a repugnant clause is one that fights another in the same instrument and may be struck out for it. The sense of disgust grew out of that resistance: what is repugnant is what one's whole nature contradicts, refuses, pushes away. Today repugnant means deeply offensive, and the older meaning of mutually contradictory is still live wherever documents are construed.",
+    "w": "contradictory; of two clauses in one instrument that fight each other",
+    "k": "figure"
   },
   "bellicose": {
     "v": "The editorial demanded ultimatums on three borders by Thursday.",
@@ -1255,7 +1299,9 @@ export const DEPTH = {
   "belligerent": {
     "v": "Once the fleet sailed, both nations were formally at war, with a neutral port between them.",
     "e": "Latin bellum + gerere, 'to wage war' — not just warlike but waging; in law, a party actually at war.",
-    "s": "Latin bellum, 'war,' with gerere, 'to wage or carry on' — not merely warlike but actually waging, and international law has held it to that. A belligerent is a party recognised as being at war, and the status carries specific consequences: belligerent rights include blockade and the capture of enemy shipping, and belligerent duties include the treatment owed to prisoners. It is a legal condition rather than a mood. The everyday sense of a man being aggressive in a bar is a considerable weakening of a term that once decided what a navy was permitted to do. Today belligerent means waging war or aggressively hostile."
+    "s": "Latin bellum, 'war,' with gerere, 'to wage or carry on' — not merely warlike but actually waging, and international law has held it to that. A belligerent is a party recognised as being at war, and the status carries specific consequences: belligerent rights include blockade and the capture of enemy shipping, and belligerent duties include the treatment owed to prisoners. It is a legal condition rather than a mood. The everyday sense of a man being aggressive in a bar is a considerable weakening of a term that once decided what a navy was permitted to do. Today belligerent means waging war or aggressively hostile.",
+    "w": "a party formally recognised as being at war, with the rights that carries",
+    "k": "widen"
   },
   "obsequious": {
     "v": "The maître d' bowed the tycoon to his table, walking backward, agreeing with everything including the weather.",

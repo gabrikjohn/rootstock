@@ -1358,6 +1358,8 @@ export const DRILL_POOL = [
     ],
     "ety": "en + pyr (fire) — the old cosmology's fiery topmost heaven; the pyromaniac's element, promoted.",
     "story": "Greek en, 'in,' with pyr, 'fire' — the heaven made of fire, and it was once a location rather than a metaphor. Medieval cosmology stacked the universe in spheres, and beyond the outermost sphere of fixed stars lay the empyrean, motionless, of pure light and flame, the dwelling of God and the blessed; Dante's Paradiso climbs through the spheres and ends there. Then the spheres were dismantled and the address ceased to exist. The word survived the cosmology that gave it a place, which is why it now names an altitude of feeling. Today the empyrean is the highest heaven, or merely the sublime.",
+    "was": "the outermost sphere of the cosmos, motionless and made of fire",
+    "shift": "figure",
     "kin": [
       "pyromania",
       "empyreal"
@@ -1392,6 +1394,8 @@ export const DRILL_POOL = [
     ],
     "ety": "syn + dikē (justice together) — the syndic was a city's legal officer; his committee outgrew the law that named it.",
     "story": "Greek syndikos, 'one who helps in a court of law,' from syn and dike, 'justice' — an advocate acting for another. A syndic was accordingly a civic officer who represented a town or a guild in legal business, and a body of such officers was a syndicate, which is what the word meant for centuries. Finance took it over in nineteenth-century France for any group combining capital in a venture. The root then split spectacularly: the same French syndicat gives syndicalism and the trade union, so one Greek word for legal representation now covers both organised labour and organised crime. Today a syndicate is a group combined for business.",
+    "was": "a body of civic officers who represented a town or guild in its legal business",
+    "shift": "widen",
     "kin": [
       "theodicy",
       "syndication"
@@ -2566,6 +2570,8 @@ export const DRILL_POOL = [
     ],
     "ety": "sequi (to follow) — the follower's vice made adjective; the obsequious fawns face to face, the sequacious follows anywhere.",
     "story": "Latin sequi, 'to follow' — and the word once had honest uses. In older English it could mean following in logical order, so that a sequacious argument was one whose steps came in proper sequence, and it was also applied to materials that were ductile, following the hand that shaped them. Both senses have gone. What remains is the pejorative, the mind that follows because following is easier than judging, and it is a sharper charge than obsequiousness because it needs no master present. Today sequacious means slavishly following another's lead, and the obsequious at least fawn on somebody in particular.",
+    "was": "following in proper logical order, or pliant to the hand that shapes it",
+    "shift": "worse",
     "kin": [
       "obsequious",
       "non sequitur"

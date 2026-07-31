@@ -267,7 +267,9 @@ export const INFER_POOL = [
     ],
     "roots": "philein (to love) + anthropos (mankind)",
     "sentence": "The philanthropist gave away the fortune in libraries, having spent forty years assembling it in steel.",
-    "story": "Greek philein, 'to love,' with anthropos, 'mankind' — love of humanity in general, as against love of any particular person. The word's modern shape was set by American industrial wealth. Andrew Carnegie argued in his Gospel of Wealth in 1889 that a rich man who died rich died disgraced, and that surplus fortune should be returned to the public in institutions rather than handed out as alms; he then built some two thousand libraries. Philanthropy came to mean endowment rather than charity. Today a philanthropist is one who loves and aids mankind, usually at institutional scale and with a building to show for it."
+    "story": "Greek philein, 'to love,' with anthropos, 'mankind' — love of humanity in general, as against love of any particular person. The word's modern shape was set by American industrial wealth. Andrew Carnegie argued in his Gospel of Wealth in 1889 that a rich man who died rich died disgraced, and that surplus fortune should be returned to the public in institutions rather than handed out as alms; he then built some two thousand libraries. Philanthropy came to mean endowment rather than charity. Today a philanthropist is one who loves and aids mankind, usually at institutional scale and with a building to show for it.",
+    "was": "one who loved humanity and relieved it by personal charity",
+    "shift": "narrow"
   },
   {
     "word": "philosophy",
@@ -391,7 +393,9 @@ export const INFER_POOL = [
     ],
     "roots": "astron (star) + logos (study) — the star-reader, as distinct from the star-scientist",
     "sentence": "The astrologer cast the king's chart in the morning and computed the eclipse in the afternoon.",
-    "story": "Greek astron, 'star,' with logos, 'account' — and for most of history the astrologer and the astronomer were the same person doing the same job. Kepler drew horoscopes for patrons while deriving the laws of planetary motion; the calculations were identical and only the purpose differed. The seventeenth century separated them and gave each a word. The irony is in the endings. Astrology kept logos, which means reason and account, while astronomy took nomos, which means law, so the discipline that was left behind holds the word for reasoning. Today an astrologer is one who reads fate in the stars."
+    "story": "Greek astron, 'star,' with logos, 'account' — and for most of history the astrologer and the astronomer were the same person doing the same job. Kepler drew horoscopes for patrons while deriving the laws of planetary motion; the calculations were identical and only the purpose differed. The seventeenth century separated them and gave each a word. The irony is in the endings. Astrology kept logos, which means reason and account, while astronomy took nomos, which means law, so the discipline that was left behind holds the word for reasoning. Today an astrologer is one who reads fate in the stars.",
+    "was": "a student of the stars, indistinguishable from the men who charted eclipses",
+    "shift": "narrow"
   },
   {
     "word": "pathography",
@@ -649,7 +653,9 @@ export const INFER_POOL = [
     ],
     "roots": "titillare (to tickle)",
     "sentence": "The headline was written to titillate, and the article beneath it delivered nothing whatever.",
-    "story": "Latin titillare, 'to tickle' — an imitative word, built from a repeated syllable in the way many words for small repeated actions are, and it meant physical tickling and nothing more. English took it in that literal sense in the sixteenth century, and one could titillate the nose with a feather without raising an eyebrow. The narrowing is modern and almost complete. Titillate now implies a mild and slightly disreputable sexual excitement, so thoroughly that the innocent literal use has become unavailable. Today to titillate is to excite pleasantly, and the word has been captured by one particular pleasure."
+    "story": "Latin titillare, 'to tickle' — an imitative word, built from a repeated syllable in the way many words for small repeated actions are, and it meant physical tickling and nothing more. English took it in that literal sense in the sixteenth century, and one could titillate the nose with a feather without raising an eyebrow. The narrowing is modern and almost complete. Titillate now implies a mild and slightly disreputable sexual excitement, so thoroughly that the innocent literal use has become unavailable. Today to titillate is to excite pleasantly, and the word has been captured by one particular pleasure.",
+    "was": "to tickle, in the plain physical sense of a feather on the skin",
+    "shift": "narrow"
   },
   {
     "word": "tyro",
@@ -697,7 +703,9 @@ export const INFER_POOL = [
     ],
     "roots": "ek- (out of) + kentron (center)",
     "sentence": "The old man's eccentric habits were tolerated because the observatory ran on his arithmetic.",
-    "story": "Greek ek, 'out of,' with kentron, 'centre' — off-centre, and the first use was astronomical and entirely technical. Ptolemaic astronomy needed orbits whose centres did not coincide with the earth in order to save the appearances, and such an orbit was called eccentric; the word described a geometry, not a personality. The transfer to people came later and kept the picture exactly. An eccentric is someone whose centre is somewhere other than where everyone else has agreed to put theirs. Today eccentric means departing from the norm, and it is nearly always affectionate, which is not true of its neighbours."
+    "story": "Greek ek, 'out of,' with kentron, 'centre' — off-centre, and the first use was astronomical and entirely technical. Ptolemaic astronomy needed orbits whose centres did not coincide with the earth in order to save the appearances, and such an orbit was called eccentric; the word described a geometry, not a personality. The transfer to people came later and kept the picture exactly. An eccentric is someone whose centre is somewhere other than where everyone else has agreed to put theirs. Today eccentric means departing from the norm, and it is nearly always affectionate, which is not true of its neighbours.",
+    "was": "of an orbit whose centre is somewhere other than the earth",
+    "shift": "figure"
   },
   {
     "word": "verbatim",
@@ -1005,7 +1013,9 @@ export const INFER_POOL = [
     ],
     "roots": "dexter (Latin: right, the right hand — the side of skill)",
     "sentence": "Dexterous with the small tools, he had the back of the watch off before the kettle boiled.",
-    "story": "Latin dexter, 'the right hand' — skilful, and the word is one corner of a prejudice that three languages built into their vocabularies independently. Latin dexter gives dexterous and dexterity, while its opposite sinister, merely the left, acquired the sense of ominous through Roman augury. French did the same: droit, the right, gives adroit, and gauche, the left, gives awkwardness. English then borrowed all four and kept the bias intact. Today dexterous means skilful with the hands, and roughly a tenth of the people it describes are doing it with the hand every one of these words calls wrong."
+    "story": "Latin dexter, 'the right hand' — skilful, and the word is one corner of a prejudice that three languages built into their vocabularies independently. Latin dexter gives dexterous and dexterity, while its opposite sinister, merely the left, acquired the sense of ominous through Roman augury. French did the same: droit, the right, gives adroit, and gauche, the left, gives awkwardness. English then borrowed all four and kept the bias intact. Today dexterous means skilful with the hands, and roughly a tenth of the people it describes are doing it with the hand every one of these words calls wrong.",
+    "was": "belonging to the right hand, or lying on the right-hand side",
+    "shift": "figure"
   },
   {
     "word": "ambidextrous",
@@ -1057,7 +1067,9 @@ export const INFER_POOL = [
     ],
     "roots": "French à droit (to the right) — the right hand as the able hand",
     "sentence": "One adroit question from the back of the room and the whole proposal came apart.",
-    "story": "French à droit, 'to the right' — the right hand as the capable one, and French built the same prejudice Latin had. What makes droit worth pausing on is its range. It means the right hand, the direction right, and a legal right or entitlement, all in one word, exactly as Latin ius and rectus overlap and as English right does. The hand, the correct and the lawful are the same idea in several unrelated languages. Today adroit means skilful and clever in handling, and its opposite number in French supplies the awkwardness in gauche."
+    "story": "French à droit, 'to the right' — the right hand as the capable one, and French built the same prejudice Latin had. What makes droit worth pausing on is its range. It means the right hand, the direction right, and a legal right or entitlement, all in one word, exactly as Latin ius and rectus overlap and as English right does. The hand, the correct and the lawful are the same idea in several unrelated languages. Today adroit means skilful and clever in handling, and its opposite number in French supplies the awkwardness in gauche.",
+    "was": "to the right; positioned on the hand a swordsman was assumed to favour",
+    "shift": "figure"
   },
   {
     "word": "gauche",
@@ -1077,7 +1089,9 @@ export const INFER_POOL = [
     ],
     "roots": "French gauche (left) — the left hand as the clumsy hand",
     "sentence": "His gauche attempt at a compliment left the table studying the tablecloth.",
-    "story": "French gauche, 'left' — the left hand as the clumsy one, completing a prejudice that Latin, French and English each built separately. The political sense arrived by pure accident of furniture. In the French National Assembly of 1789 the supporters of the king sat to the president's right and the revolutionaries to his left, and Europe has called its politics left and right ever since on no better basis than where people happened to sit. The older moral colouring then attached itself to the newer arrangement. Today gauche means socially awkward and tactless."
+    "story": "French gauche, 'left' — the left hand as the clumsy one, completing a prejudice that Latin, French and English each built separately. The political sense arrived by pure accident of furniture. In the French National Assembly of 1789 the supporters of the king sat to the president's right and the revolutionaries to his left, and Europe has called its politics left and right ever since on no better basis than where people happened to sit. The older moral colouring then attached itself to the newer arrangement. Today gauche means socially awkward and tactless.",
+    "was": "on the left-hand side, in the plain directional sense",
+    "shift": "figure"
   },
   {
     "word": "sinister",
@@ -1097,7 +1111,9 @@ export const INFER_POOL = [
     ],
     "roots": "sinister (Latin: left) — the left side, read as unlucky by Roman augurs",
     "sentence": "There was something sinister in how quickly the paperwork had been prepared.",
-    "story": "Latin sinister, 'left' — and the ominous sense comes from a disagreement about which way to stand. Roman augurs faced south to read the flight of birds, which put the auspicious east on their left, so sinister in Latin could mean favourable. Greek diviners faced north, which put the east on the right and made the left unlucky, and it was the Greek convention that Roman literary usage eventually followed. The word carries the losing side of a professional dispute. Today sinister means threatening evil, and it is ominous because of an argument about compass bearings."
+    "story": "Latin sinister, 'left' — and the ominous sense comes from a disagreement about which way to stand. Roman augurs faced south to read the flight of birds, which put the auspicious east on their left, so sinister in Latin could mean favourable. Greek diviners faced north, which put the east on the right and made the left unlucky, and it was the Greek convention that Roman literary usage eventually followed. The word carries the losing side of a professional dispute. Today sinister means threatening evil, and it is ominous because of an argument about compass bearings.",
+    "was": "on the left-hand side, and in Roman augury a favourable quarter of the sky",
+    "shift": "worse"
   },
   {
     "word": "vivisection",
@@ -1497,7 +1513,9 @@ export const INFER_POOL = [
     ],
     "roots": "a- (without) + theos (god)",
     "sentence": "The charge of atheist was laid against him for refusing the sacrifice, not for what he believed.",
-    "story": "Greek a-, 'without,' with theos, 'god' — and in the ancient world the accusation was civic rather than metaphysical. To be atheos was to refuse the gods of the city, which meant refusing the sacrifices that held the community's fortune together, so the charge was one of endangering everybody. Socrates faced a version of it. Early Christians were then called atheists by Roman officials for declining the imperial cult, which shows how little the word had to do with holding no belief. Today an atheist denies the existence of God, a position rather than a refusal to participate."
+    "story": "Greek a-, 'without,' with theos, 'god' — and in the ancient world the accusation was civic rather than metaphysical. To be atheos was to refuse the gods of the city, which meant refusing the sacrifices that held the community's fortune together, so the charge was one of endangering everybody. Socrates faced a version of it. Early Christians were then called atheists by Roman officials for declining the imperial cult, which shows how little the word had to do with holding no belief. Today an atheist denies the existence of God, a position rather than a refusal to participate.",
+    "was": "one who refused the gods of the city and so endangered its fortune",
+    "shift": "narrow"
   },
   {
     "word": "pedagogue",
@@ -1521,7 +1539,9 @@ export const INFER_POOL = [
     ],
     "roots": "paidos (child) + agogos (leader) — originally the slave who led children to school",
     "sentence": "The pedagogue drilled them in the ablative and left them hating a language he loved.",
-    "story": "Greek pais, paidos, 'child,' with agogos, 'leader' — and the paidagogos in Athens was not the teacher. He was a household slave whose job was to walk the boy to school, carry his things and keep him out of trouble on the way, while the teaching was done by the didaskalos when they arrived. The escort has since been promoted. English took the word for a teacher, then let it sour into a teacher of the narrow and dogmatic kind. Today a pedagogue is a pedantic instructor, a title descended from a servant's errand."
+    "story": "Greek pais, paidos, 'child,' with agogos, 'leader' — and the paidagogos in Athens was not the teacher. He was a household slave whose job was to walk the boy to school, carry his things and keep him out of trouble on the way, while the teaching was done by the didaskalos when they arrived. The escort has since been promoted. English took the word for a teacher, then let it sour into a teacher of the narrow and dogmatic kind. Today a pedagogue is a pedantic instructor, a title descended from a servant's errand.",
+    "was": "a schoolmaster; one who taught the young, with no reproach in it",
+    "shift": "worse"
   },
   {
     "word": "pedant",
@@ -1545,7 +1565,9 @@ export const INFER_POOL = [
     ],
     "roots": "from pedagogue — the teacher's learning worn as ostentation",
     "sentence": "It took a pedant to notice, and the pedant was right, and the meeting lost an hour.",
-    "story": "From the same paidos, 'child,' by way of Italian pedante, a schoolmaster — and the first thing to say is which ped- this is. It is the child of pediatrics and not the foot of pedestrian, so a pedant has nothing etymologically to do with plodding, though the coincidence has helped the word along. What it names is the schoolroom manner exported into adult life: rules enforced for their own sake, and learning displayed rather than used. Today a pedant is one who parades petty learning, and the accuracy of the pedantry is beside the point."
+    "story": "From the same paidos, 'child,' by way of Italian pedante, a schoolmaster — and the first thing to say is which ped- this is. It is the child of pediatrics and not the foot of pedestrian, so a pedant has nothing etymologically to do with plodding, though the coincidence has helped the word along. What it names is the schoolroom manner exported into adult life: rules enforced for their own sake, and learning displayed rather than used. Today a pedant is one who parades petty learning, and the accuracy of the pedantry is beside the point.",
+    "was": "a schoolmaster, which is all the Italian word meant when English took it",
+    "shift": "worse"
   },
   {
     "word": "aristocracy",
@@ -2021,7 +2043,9 @@ export const INFER_POOL = [
     ],
     "roots": "dia- (through) + lyein (to loosen)",
     "sentence": "Three mornings a week of dialysis did the work of an organ he no longer had.",
-    "story": "Greek dia, 'through,' with lyein, 'to loosen' — a loosening apart through something, and the word was a chemist's before it was a clinician's. Thomas Graham coined it in 1861 for the separation of substances by their different rates of diffusion through a membrane, a laboratory technique with no medical application in view. The machine came eighty years later. Willem Kolff built the first working artificial kidney in the occupied Netherlands in 1943 out of sausage casing, a wooden drum and salvaged parts. Today dialysis is separation through a membrane, and the same lyein loosens the knot in analysis."
+    "story": "Greek dia, 'through,' with lyein, 'to loosen' — a loosening apart through something, and the word was a chemist's before it was a clinician's. Thomas Graham coined it in 1861 for the separation of substances by their different rates of diffusion through a membrane, a laboratory technique with no medical application in view. The machine came eighty years later. Willem Kolff built the first working artificial kidney in the occupied Netherlands in 1943 out of sausage casing, a wooden drum and salvaged parts. Today dialysis is separation through a membrane, and the same lyein loosens the knot in analysis.",
+    "was": "the laboratory separation of substances by diffusion through a membrane",
+    "shift": "narrow"
   },
   {
     "word": "megalopolis",
@@ -2173,7 +2197,9 @@ export const INFER_POOL = [
     ],
     "roots": "meter, metros (mother) + polis (city)",
     "sentence": "Everything was decided in the metropolis, and the province learned of it by newspaper.",
-    "story": "Greek meter, metros, 'mother,' with polis, 'city' — the mother city, and the term is colonial before it is architectural. When a Greek city sent out settlers to found a colony, it was their metropolis, and the daughter city owed it religious observances and a certain deference for centuries afterwards; the relationship, not the size, was what the word named. Later empires used it in exactly the same way for the home country against its possessions. Today a metropolis is the chief city of a region, and the mother in it has been almost entirely forgotten."
+    "story": "Greek meter, metros, 'mother,' with polis, 'city' — the mother city, and the term is colonial before it is architectural. When a Greek city sent out settlers to found a colony, it was their metropolis, and the daughter city owed it religious observances and a certain deference for centuries afterwards; the relationship, not the size, was what the word named. Later empires used it in exactly the same way for the home country against its possessions. Today a metropolis is the chief city of a region, and the mother in it has been almost entirely forgotten.",
+    "was": "the mother city that had sent out a colony, and was owed rites by it",
+    "shift": "widen"
   },
   {
     "word": "necrophobia",
@@ -2395,6 +2421,8 @@ export const INFER_POOL = [
     ],
     "roots": "epi- (upon) + tithenai (to place)",
     "sentence": "The epithet followed him for thirty years, and the achievement that earned it was forgotten in ten.",
-    "story": "Greek epi, 'upon,' with tithenai, 'to place' — a word placed upon a name, and its technical home is the oral poetry of Homer. Swift-footed Achilles, grey-eyed Athena and the wine-dark sea are formulaic epithets, and Milman Parry showed in the 1920s that they exist to fill particular metrical positions, giving a singer composing aloud a ready phrase of the right length. They are tools of performance rather than description. The word has since gone downhill: an epithet now usually means a slur. Today an epithet is a descriptive word tied to a name, complimentary or not."
+    "story": "Greek epi, 'upon,' with tithenai, 'to place' — a word placed upon a name, and its technical home is the oral poetry of Homer. Swift-footed Achilles, grey-eyed Athena and the wine-dark sea are formulaic epithets, and Milman Parry showed in the 1920s that they exist to fill particular metrical positions, giving a singer composing aloud a ready phrase of the right length. They are tools of performance rather than description. The word has since gone downhill: an epithet now usually means a slur. Today an epithet is a descriptive word tied to a name, complimentary or not.",
+    "was": "a descriptive phrase fixed to a name, as swift-footed is to Achilles",
+    "shift": "worse"
   }
 ] satisfies InferenceWord[];
