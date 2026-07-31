@@ -1,5 +1,24 @@
 import type { DepthEntry } from "../types/content";
 
+/**
+ * The per-word prose for the gate corpus. Four things live here, each with a different job:
+ *
+ *   v  the vignette — a scene that implies the word without naming it (VIG, VIGT)
+ *   e  the epigram — one line of origin, also the masked ETY drill prompt, so it stays short
+ *   s  the sense-history — a paragraph on how the word came to mean what it means today
+ *   w  the earlier English sense, and k the kind of shift that left it. Sparse, and always
+ *      authored as a pair. Most words never shifted and carry neither.
+ *
+ * **Where the evidence is unsettled, say so.** A good deal of popular etymology is confident
+ * invention, and this corpus prefers an accurate account to a tidy one: sycophant records
+ * that nobody knows why a fig; matriarchy is a contested category, kept apart from the
+ * matriliny that is real; sophomoric names its own derivation as disputed. Never trade a
+ * hedge for a better story, and never invent a former sense for a word that did not shift.
+ *
+ * The tests in tests/content.test.ts cannot help with any of this. They check shape — length,
+ * sentence count, that a former sense does not name its own word — and a confidently wrong
+ * entry passes every one of them. This paragraph is the only thing guarding the rule.
+ */
 export const DEPTH = {
   "egoist": {
     "v": "Offered the choice of splitting the reward or keeping it, he kept it — not out of malice, just arithmetic.",

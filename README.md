@@ -51,3 +51,15 @@ npm run generate:seeds
 
 Individual recordings and their typed manifest live in `public/audio/` and
 `src/content/audio-manifest.ts`. No base64 audio bundle or runtime data sidecar is maintained.
+
+### Authoring the word prose
+
+Every headword carries a paragraph on how it came to mean what it means today, and about a
+hundred and twenty also carry the sense they used to have. Where the evidence for a
+derivation is unsettled, the entry says so rather than repeating the tidier story — much
+popular etymology is confident invention, and an accurate hedge is worth more here than a
+memorable one. The same rule bars inventing an earlier sense for a word that never shifted.
+
+`npm run check` cannot enforce this. The content tests check shape — length, sentence count,
+coverage, and that a former sense never names the word it is asking for — so a confidently
+wrong entry passes them all. See the header of `src/content/depth.ts` before editing.
