@@ -865,7 +865,9 @@ export const INFER_POOL = [
     ],
     "roots": "omnis (all) + vorare (to devour)",
     "sentence": "An omnivorous reader, she finished the timetable, the label and both sides of the leaflet.",
-    "story": "Latin omnis, 'all,' with vorare, 'to devour' — eating everything, and the compound was built for zoology, sorting animals by diet alongside the carnivore and the herbivore. The figurative use has almost overtaken it. An omnivorous reader, listener or collector takes in everything indiscriminately, and the metaphor works because reading has always been described as consumption; we devour books and digest arguments. The devouring root is the same one behind voracious. Today omnivorous means eating every kind of food, and applied to a person's appetites it is usually a compliment about range rather than a remark about dinner."
+    "story": "Latin omnis, 'all,' with vorare, 'to devour' — eating everything, and the compound was built for zoology, sorting animals by diet alongside the carnivore and the herbivore. The figurative use has almost overtaken it. An omnivorous reader, listener or collector takes in everything indiscriminately, and the metaphor works because reading has always been described as consumption; we devour books and digest arguments. The devouring root is the same one behind voracious. Today omnivorous means eating every kind of food, and applied to a person's appetites it is usually a compliment about range rather than a remark about dinner.",
+    "was": "eating both flesh and plants, as a plain fact of an animal's diet",
+    "shift": "widen"
   },
   {
     "word": "carnivorous",

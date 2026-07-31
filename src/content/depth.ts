@@ -16,7 +16,9 @@ export const DEPTH = {
   "egocentric": {
     "v": "When the office flooded, her first question was whether her desk had gotten wet.",
     "e": "ego + Latin centrum, 'center' — built on the model of geocentric: a private Ptolemaic universe with the self where the sun should be.",
-    "s": "Ego joined to Latin centrum, 'center' — the self set where the center of things should be. The word was struck in the later nineteenth century on the model of geocentric, and psychology gave it its first real work: Jean Piaget used egocentrism, without blame, for the young child who cannot yet picture the world from any viewpoint but his own. Carried out of the clinic into ordinary speech, it lost that developmental innocence and hardened into an accusation. Today egocentric means plainly self-centered — a private Ptolemaic universe with the self where the sun should be — kin to the geocentric model it was built to echo."
+    "s": "Ego joined to Latin centrum, 'center' — the self set where the center of things should be. The word was struck in the later nineteenth century on the model of geocentric, and psychology gave it its first real work: Jean Piaget used egocentrism, without blame, for the young child who cannot yet picture the world from any viewpoint but his own. Carried out of the clinic into ordinary speech, it lost that developmental innocence and hardened into an accusation. Today egocentric means plainly self-centered — a private Ptolemaic universe with the self where the sun should be — kin to the geocentric model it was built to echo.",
+    "w": "of a young child not yet able to picture the world from any other viewpoint",
+    "k": "worse"
   },
   "altruist": {
     "v": "The scholarship's donor insisted on one condition: that her name never appear anywhere near it.",
@@ -85,7 +87,9 @@ export const DEPTH = {
   "orthopedist": {
     "v": "He set the skier's fracture, pinned it, and had her walking by spring.",
     "e": "Greek orthos (straight) + paidos (child) — the first orthopedists straightened children's crooked spines and legs; the bones stayed, the children didn't.",
-    "s": "Greek orthos, 'straight,' joined to pais, 'child' — the straightening of children. The word is one man's invention: Nicolas Andry, a Paris physician, published L'Orthopédie in 1741 on correcting the deformities of the young, and gave the field an emblem still used today, a crooked sapling lashed to a straight stake. The children then quietly left. As the work grew into the surgery of bones and joints at every age, the name kept its infant half out of pure inertia. Today an orthopedist treats the skeleton entire, wearing a title that still promises to straighten a child; the orthodontist, straightening teeth, took the other half of Andry's idea."
+    "s": "Greek orthos, 'straight,' joined to pais, 'child' — the straightening of children. The word is one man's invention: Nicolas Andry, a Paris physician, published L'Orthopédie in 1741 on correcting the deformities of the young, and gave the field an emblem still used today, a crooked sapling lashed to a straight stake. The children then quietly left. As the work grew into the surgery of bones and joints at every age, the name kept its infant half out of pure inertia. Today an orthopedist treats the skeleton entire, wearing a title that still promises to straighten a child; the orthodontist, straightening teeth, took the other half of Andry's idea.",
+    "w": "one who straightened the crooked limbs and spines of children",
+    "k": "widen"
   },
   "cardiologist": {
     "v": "She frowned at the EKG strip, tapped one jagged wave, and ordered a stress test.",
@@ -228,27 +232,37 @@ export const DEPTH = {
   "incorrigible": {
     "v": "Three schools, two counselors, one probation officer — and he was picking locks again by Friday.",
     "e": "Latin in- (not) + corrigere (to set straight) — past straightening; corrigere also gives us 'correct.'",
-    "s": "Latin in-, 'not,' with corrigere, 'to set straight,' itself com plus regere, to rule or guide straight — that which cannot be straightened. It entered English as a hard word in hard institutions: first a theological verdict on the sinner past the Church's correction, then a legal category, with incorrigible rogues named in the vagrancy statutes and incorrigible offenders sent to houses of correction. The verdict was serious and the consequences were real. Today the word has gone soft in general use, an affectionate scolding for a child who will not behave, and only the law still means it the old way."
+    "s": "Latin in-, 'not,' with corrigere, 'to set straight,' itself com plus regere, to rule or guide straight — that which cannot be straightened. It entered English as a hard word in hard institutions: first a theological verdict on the sinner past the Church's correction, then a legal category, with incorrigible rogues named in the vagrancy statutes and incorrigible offenders sent to houses of correction. The verdict was serious and the consequences were real. Today the word has gone soft in general use, an affectionate scolding for a child who will not behave, and only the law still means it the old way.",
+    "w": "past the correction of the Church, and later a legal class of rogue",
+    "k": "better"
   },
   "inveterate": {
     "v": "Forty years of the same Tuesday poker game; he could no more skip it than skip breathing.",
     "e": "Latin vetus, veteris, 'old' — grown old in the habit, like a veteran grown old in service.",
-    "s": "Latin inveteratus, from in and vetus, veteris, 'old' — literally made old, grown old in something. Its first English use was medical, and precisely so: an inveterate ulcer or fever was one that had aged in the body and grown hard to shift, the physician's word for a complaint past easy remedy. The transfer from chronic illness to chronic habit followed the obvious likeness, since a habit long kept resists treatment the same way. Today an inveterate gambler is fixed by long practice rather than by disease, and the veteran, grown old in service, is the same word worn honourably."
+    "s": "Latin inveteratus, from in and vetus, veteris, 'old' — literally made old, grown old in something. Its first English use was medical, and precisely so: an inveterate ulcer or fever was one that had aged in the body and grown hard to shift, the physician's word for a complaint past easy remedy. The transfer from chronic illness to chronic habit followed the obvious likeness, since a habit long kept resists treatment the same way. Today an inveterate gambler is fixed by long practice rather than by disease, and the veteran, grown old in service, is the same word worn honourably.",
+    "w": "of an ulcer or a fever grown old in the body and hard to shift",
+    "k": "figure"
   },
   "congenital": {
     "v": "The heart murmur was there at the first examination, hours after birth.",
     "e": "Latin con + genitus, 'born with' — carried from the womb, of bodies or, figuratively, of liars.",
-    "s": "Latin congenitus, from con, 'with,' and the participle of gignere, to beget — born together with, present at the very beginning. The word is medical by birth and was coined to draw one line only: a congenital condition arrives with the child, as against one acquired by living. That is a statement about timing, not about blame. The figurative use is a nineteenth-century borrowing of the term's fatedness, and it is doing rhetorical work: to call a man a congenital liar is to say the fault was installed before he could consent to it. Today gignere's other children include progeny, genius and the genital itself."
+    "s": "Latin congenitus, from con, 'with,' and the participle of gignere, to beget — born together with, present at the very beginning. The word is medical by birth and was coined to draw one line only: a congenital condition arrives with the child, as against one acquired by living. That is a statement about timing, not about blame. The figurative use is a nineteenth-century borrowing of the term's fatedness, and it is doing rhetorical work: to call a man a congenital liar is to say the fault was installed before he could consent to it. Today gignere's other children include progeny, genius and the genital itself.",
+    "w": "present from birth rather than acquired — a statement about timing alone",
+    "k": "figure"
   },
   "chronic": {
     "v": "The cough was never dramatic and never gone — fifteen years of it, wet Novembers and dry Junes alike.",
     "e": "Greek chronos, 'time' — Time the Titan devouring his children; a chronic ailment devours slowly, on schedule.",
-    "s": "Greek chronos, 'time,' through chronikos, 'of time' — and the word arrives carrying one half of a medical pair. Greek physicians divided illness by its shape in time: acute diseases were sharp and short, chronic ones long and slow, and the distinction governed what a doctor could hope to do. Chronic was therefore a prognosis before it was a complaint. The colloquial use came later, borrowing the medical sense of something that will not resolve and applying it to lateness, complaint and every enduring nuisance. Today a chronic ailment persists over long time, and its true opposite is not mild but acute."
+    "s": "Greek chronos, 'time,' through chronikos, 'of time' — and the word arrives carrying one half of a medical pair. Greek physicians divided illness by its shape in time: acute diseases were sharp and short, chronic ones long and slow, and the distinction governed what a doctor could hope to do. Chronic was therefore a prognosis before it was a complaint. The colloquial use came later, borrowing the medical sense of something that will not resolve and applying it to lateness, complaint and every enduring nuisance. Today a chronic ailment persists over long time, and its true opposite is not mild but acute.",
+    "w": "long and slow in its course, as against the sharp and short",
+    "k": "widen"
   },
   "pathological": {
     "v": "He lied when the truth would have served him better — the habit had stopped being a choice.",
     "e": "Greek pathos, 'suffering, disease' — a fault promoted to an illness: lying as a condition, not a strategy.",
-    "s": "Greek pathos, 'suffering,' with logos — pathology being the science of disease, and pathological meaning, at first, nothing more than belonging to that science. The turn is exact and late. Around 1891 the German physician Anton Delbrück described a compulsive, purposeless lying he called pseudologia fantastica, and the pathological liar entered the language: a fault reclassified as an illness. That reclassification does two things at once, lifting blame from the liar and taking away his agency along with it. Today pathological means compulsive as if from disease, while sympathy and apathy keep the older pathos, which is feeling rather than sickness."
+    "s": "Greek pathos, 'suffering,' with logos — pathology being the science of disease, and pathological meaning, at first, nothing more than belonging to that science. The turn is exact and late. Around 1891 the German physician Anton Delbrück described a compulsive, purposeless lying he called pseudologia fantastica, and the pathological liar entered the language: a fault reclassified as an illness. That reclassification does two things at once, lifting blame from the liar and taking away his agency along with it. Today pathological means compulsive as if from disease, while sympathy and apathy keep the older pathos, which is feeling rather than sickness.",
+    "w": "belonging to the study of what disease is and how it works",
+    "k": "figure"
   },
   "unconscionable": {
     "v": "The lender's fine print took the widow's house over a debt of four hundred dollars.",
@@ -374,7 +388,9 @@ export const DEPTH = {
   "terse": {
     "v": "The whole review: 'Accurate, complete, on time.' Nothing to add, nothing wasted.",
     "e": "Latin tersus, 'wiped clean, polished' — brevity as polish, every extra word rubbed away.",
-    "s": "Latin tersus, 'wiped clean, polished,' the participle of tergere, 'to wipe' — and its earliest English use, in the seventeenth century, was unmixed praise. A terse style was a burnished one, with every superfluity rubbed off, and the compliment was about finish rather than length. Brevity came in as the means and then took over as the meaning. Something of an edge came with it, so that a terse reply may now be an abrupt or even a rude one, which the polished original never was. Today terse means brief to the point of curtness, while tergere's other survivor, the detergent, still does the literal wiping."
+    "s": "Latin tersus, 'wiped clean, polished,' the participle of tergere, 'to wipe' — and its earliest English use, in the seventeenth century, was unmixed praise. A terse style was a burnished one, with every superfluity rubbed off, and the compliment was about finish rather than length. Brevity came in as the means and then took over as the meaning. Something of an edge came with it, so that a terse reply may now be an abrupt or even a rude one, which the polished original never was. Today terse means brief to the point of curtness, while tergere's other survivor, the detergent, still does the literal wiping.",
+    "w": "polished and neatly finished in style, with every superfluity rubbed away",
+    "k": "worse"
   },
   "banal": {
     "v": "'At the end of the day, it is what it is' — the room nodded and remembered nothing.",
@@ -410,7 +426,9 @@ export const DEPTH = {
   "chauvinist": {
     "v": "No wine but his country's, no history but its victories, no fault it could ever commit.",
     "e": "Nicolas Chauvin, a (possibly legendary) soldier so fanatically devoted to Napoleon that vaudeville made him a running joke.",
-    "s": "Nicolas Chauvin was a soldier of Napoleon, wounded seventeen times and devoted to the Emperor long after devotion had stopped being sensible — and he may never have existed at all. Whether or not there was a man, there was certainly a stock character: French vaudeville of the 1830s put him on stage as a figure of fun, and chauvinisme was coined for the excessive, unreasoning patriotism he embodied. English took it in that national sense. The second turn is recent and decisive: mid-twentieth-century feminism extended the word to the male chauvinist, and that use now so dominates that the patriotic original sounds like the borrowing. Today a chauvinist is a blind partisan of his own side, whichever side that is."
+    "s": "Nicolas Chauvin was a soldier of Napoleon, wounded seventeen times and devoted to the Emperor long after devotion had stopped being sensible — and he may never have existed at all. Whether or not there was a man, there was certainly a stock character: French vaudeville of the 1830s put him on stage as a figure of fun, and chauvinisme was coined for the excessive, unreasoning patriotism he embodied. English took it in that national sense. The second turn is recent and decisive: mid-twentieth-century feminism extended the word to the male chauvinist, and that use now so dominates that the patriotic original sounds like the borrowing. Today a chauvinist is a blind partisan of his own side, whichever side that is.",
+    "w": "one whose patriotism was excessive, unreasoning and faintly comic",
+    "k": "widen"
   },
   "monomaniac": {
     "v": "Whatever the conversation began as, within five minutes it was about the canal again.",
@@ -429,7 +447,9 @@ export const DEPTH = {
   "hypochondriac": {
     "v": "A new specialist each month, a filing cabinet of clean test results, and still tonight's headache is a tumor.",
     "e": "Greek hypo + chondros, 'under the breastbone' — where ancient physicians located the organs of melancholy; imaginary illness kept the address.",
-    "s": "Greek hypochondria named an anatomical region and nothing more: hypo, 'under,' with chondros, the cartilage of the breastbone — the soft parts beneath the ribs, where the liver and spleen sit. Humoral medicine placed the origin of melancholy in exactly that space, and so a disorder was named for its supposed address rather than its symptoms. Then the theory collapsed. Black bile turned out not to exist, the organs under the ribs were cleared of the charge, and the condition was reassigned to the mind entirely — but the word kept the old street number. Today a hypochondriac is convinced of illnesses he does not have, under a name that still points beneath his ribs."
+    "s": "Greek hypochondria named an anatomical region and nothing more: hypo, 'under,' with chondros, the cartilage of the breastbone — the soft parts beneath the ribs, where the liver and spleen sit. Humoral medicine placed the origin of melancholy in exactly that space, and so a disorder was named for its supposed address rather than its symptoms. Then the theory collapsed. Black bile turned out not to exist, the organs under the ribs were cleared of the charge, and the condition was reassigned to the mind entirely — but the word kept the old street number. Today a hypochondriac is convinced of illnesses he does not have, under a name that still points beneath his ribs.",
+    "w": "suffering from a disorder of the organs lying beneath the ribs",
+    "k": "figure"
   },
   "charlatan": {
     "v": "The tonic cured nothing, but the pitch was magnificent, and the wagon was gone by dawn.",
@@ -458,7 +478,9 @@ export const DEPTH = {
   "ingenuous": {
     "v": "Asked how the vase broke, the boy said at once, 'I threw the ball inside. I'm sorry.'",
     "e": "Latin ingenuus, 'native, free-born' — the free citizen's presumed openness; its evil twin disingenuous fakes exactly that.",
-    "s": "Latin ingenuus meant freeborn — born into the citizen class rather than into slavery — and the leap from legal status to personal character was made by Roman social prejudice rather than by any change in the word. The freeborn were presumed frank, on the reasoning that only those with something to fear from their masters needed to dissemble; candour was thus read as a privilege of birth. English inherited the assumption along with the word in the sixteenth century. Today ingenuous means artlessly open, disingenuous counterfeits precisely that openness, and ingenious is a different word entirely, from ingenium, 'natural talent,' with which it is confused constantly."
+    "s": "Latin ingenuus meant freeborn — born into the citizen class rather than into slavery — and the leap from legal status to personal character was made by Roman social prejudice rather than by any change in the word. The freeborn were presumed frank, on the reasoning that only those with something to fear from their masters needed to dissemble; candour was thus read as a privilege of birth. English inherited the assumption along with the word in the sixteenth century. Today ingenuous means artlessly open, disingenuous counterfeits precisely that openness, and ingenious is a different word entirely, from ingenium, 'natural talent,' with which it is confused constantly.",
+    "w": "freeborn; belonging to the citizen class rather than to slavery",
+    "k": "figure"
   },
   "magnanimous": {
     "v": "He won the lawsuit, then quietly paid his ruined rival's legal bills.",
@@ -477,7 +499,9 @@ export const DEPTH = {
   "stoic": {
     "v": "The verdict came down against him; he nodded once, gathered his papers, and thanked the court.",
     "e": "Greek stoa, 'porch' — Zeno taught philosophy under a painted porch in Athens; the school's calm under fortune became the porch's common name.",
-    "s": "Greek stoa meant a porch or colonnade, and Zeno of Citium taught around 300 BC in the Stoa Poikile, the Painted Porch on the edge of the Athenian agora. His school took its name from that address and from nothing in the doctrine, so the philosophy of endurance is called after a piece of architecture — as the Academy is named for Plato's grove and the Lyceum for a gymnasium. English borrowed stoic in the sixteenth century. Today a stoic bears misfortune without complaint, which is a considerable shrinking of a system that covered logic, physics and ethics entire, and kept the endurance because that is the part outsiders could see."
+    "s": "Greek stoa meant a porch or colonnade, and Zeno of Citium taught around 300 BC in the Stoa Poikile, the Painted Porch on the edge of the Athenian agora. His school took its name from that address and from nothing in the doctrine, so the philosophy of endurance is called after a piece of architecture — as the Academy is named for Plato's grove and the Lyceum for a gymnasium. English borrowed stoic in the sixteenth century. Today a stoic bears misfortune without complaint, which is a considerable shrinking of a system that covered logic, physics and ethics entire, and kept the endurance because that is the part outsiders could see.",
+    "w": "a follower of the school that taught logic and physics as well as endurance",
+    "k": "narrow"
   },
   "intrepid": {
     "v": "With the rope frayed and dusk falling, she started up the last pitch anyway, hands steady.",
@@ -502,12 +526,16 @@ export const DEPTH = {
   "monogamy": {
     "v": "Fifty-one years, one ring, and both still initialed the grocery list 'us.'",
     "e": "Greek monos (one) + gamos (marriage) — one marriage at a time; the arithmetic of the heart's contracts.",
-    "s": "Greek monos, 'one,' with gamos, 'marriage' — and the one marriage it first counted was not the one you would expect. When the word entered English around 1600 it belonged to church controversy, and it meant marrying only once in a lifetime: the question was whether a widow or widower might decently remarry at all, and the monogamist was the one who did not. Counting spouses at a time rather than over a life is the later, looser sense that has entirely displaced it. Today monogamy means marriage to one person at a time, and the older meaning survives only in the theological corner it was minted for."
+    "s": "Greek monos, 'one,' with gamos, 'marriage' — and the one marriage it first counted was not the one you would expect. When the word entered English around 1600 it belonged to church controversy, and it meant marrying only once in a lifetime: the question was whether a widow or widower might decently remarry at all, and the monogamist was the one who did not. Counting spouses at a time rather than over a life is the later, looser sense that has entirely displaced it. Today monogamy means marriage to one person at a time, and the older meaning survives only in the theological corner it was minted for.",
+    "w": "marrying only once in a lifetime, and never again after a spouse's death",
+    "k": "widen"
   },
   "bigamy": {
     "v": "The second wedding was lovely; the felony was that the first marriage had never legally ended.",
     "e": "Latin bi (two) + Greek gamos (marriage) — a hybrid word for a doubled crime: two contracts running at once.",
-    "s": "Latin bi-, 'two,' bolted to Greek gamos, 'marriage' — a hybrid word, and like monogamy beside it, a word about succession before it was a word about crime. In medieval canon law a bigamist was a man who had married twice one after the other, most often a widower who remarried; the label mattered because it barred him from ordination and from claiming benefit of clergy. The felony we now mean was fixed by statute rather than by drift, when the English Bigamy Act of 1603 made a second marriage during the life of a first a capital offence. Today bigamy is the crime of marrying while already married."
+    "s": "Latin bi-, 'two,' bolted to Greek gamos, 'marriage' — a hybrid word, and like monogamy beside it, a word about succession before it was a word about crime. In medieval canon law a bigamist was a man who had married twice one after the other, most often a widower who remarried; the label mattered because it barred him from ordination and from claiming benefit of clergy. The felony we now mean was fixed by statute rather than by drift, when the English Bigamy Act of 1603 made a second marriage during the life of a first a capital offence. Today bigamy is the crime of marrying while already married.",
+    "w": "having married twice in succession, most often as a remarried widower",
+    "k": "narrow"
   },
   "polygamy": {
     "v": "The patriarch's compound housed four wives and their separate kitchens, all lawful in that province.",
@@ -697,7 +725,9 @@ export const DEPTH = {
   "culpable": {
     "v": "He didn't light the fire, but he locked the exits — the court found the deaths lay partly at his door.",
     "e": "Latin culpa, 'fault, blame' — the confessional's mea culpa, 'through my fault,' keeps the root in daily use.",
-    "s": "Latin culpa, 'fault' — kept in daily circulation by the Confiteor, where mea culpa acknowledges the fault as one's own. Roman law used the word with more precision than English does, grading wrongdoing by the state of mind behind it: dolus was intent, culpa was mere negligence, and culpa was accordingly the lesser charge. English flattened the distinction and made culpable mean blameworthy in general. Today culpable means deserving blame, and the oddest thing culpa produced is the culprit, apparently frozen out of a clerk's Anglo-French court shorthand for guilty, ready to prove it — a formula misread as a form of address."
+    "s": "Latin culpa, 'fault' — kept in daily circulation by the Confiteor, where mea culpa acknowledges the fault as one's own. Roman law used the word with more precision than English does, grading wrongdoing by the state of mind behind it: dolus was intent, culpa was mere negligence, and culpa was accordingly the lesser charge. English flattened the distinction and made culpable mean blameworthy in general. Today culpable means deserving blame, and the oddest thing culpa produced is the culprit, apparently frozen out of a clerk's Anglo-French court shorthand for guilty, ready to prove it — a formula misread as a form of address.",
+    "w": "at fault through carelessness — the lesser charge, set against deliberate intent",
+    "k": "widen"
   },
   "exculpate": {
     "v": "The security footage showed her forty miles away at the hour of the theft.",
@@ -722,17 +752,23 @@ export const DEPTH = {
   "apathy": {
     "v": "The third notice of eviction lay unopened on the mat beside the first two.",
     "e": "Greek a- (without) + pathos (feeling) — to the Stoics apatheia was freedom from passion, a virtue; English kept only the numbness.",
-    "s": "Greek a-, 'without,' with pathos, 'feeling' — and for the Stoics this was the goal of a life, not a failure of one. Apatheia meant freedom from the passions: the sage who had trained himself out of fear, grief and craving was not numb but unshakeable, and the word named an achievement. Early English use kept that philosophical sense. What ruined it was the ordinary observation that people who feel nothing usually do nothing, so the discipline collapsed into indifference and the virtue became a fault. Today apathy is a lack of feeling or concern, and the Stoic ideal it once named now needs a different word entirely."
+    "s": "Greek a-, 'without,' with pathos, 'feeling' — and for the Stoics this was the goal of a life, not a failure of one. Apatheia meant freedom from the passions: the sage who had trained himself out of fear, grief and craving was not numb but unshakeable, and the word named an achievement. Early English use kept that philosophical sense. What ruined it was the ordinary observation that people who feel nothing usually do nothing, so the discipline collapsed into indifference and the virtue became a fault. Today apathy is a lack of feeling or concern, and the Stoic ideal it once named now needs a different word entirely.",
+    "w": "freedom from passion — the settled composure a Stoic trained himself into",
+    "k": "worse"
   },
   "empathy": {
     "v": "She had buried a son too, and sat with the widow saying nothing, feeling everything.",
     "e": "Greek en + pathos, 'feeling into' — coined around 1900 to translate German Einfühlung, the act of feeling your way into another's inner world.",
-    "s": "Greek en, 'in,' with pathos, 'feeling' — a feeling-into, and the compound is a translation rather than an inheritance. German aesthetics had Einfühlung, coined by Theodor Lipps for the way a viewer projects himself into a work of art, feeling the strain in a column or the reach in an arch; Edward Titchener rendered it into English as empathy in 1909. So the word was invented to describe our relations with objects, not with people. The transfer to other minds came afterwards and has entirely taken over. Today empathy is the capacity to share another's feelings, and psychology has spent a century arguing about how it works."
+    "s": "Greek en, 'in,' with pathos, 'feeling' — a feeling-into, and the compound is a translation rather than an inheritance. German aesthetics had Einfühlung, coined by Theodor Lipps for the way a viewer projects himself into a work of art, feeling the strain in a column or the reach in an arch; Edward Titchener rendered it into English as empathy in 1909. So the word was invented to describe our relations with objects, not with people. The transfer to other minds came afterwards and has entirely taken over. Today empathy is the capacity to share another's feelings, and psychology has spent a century arguing about how it works.",
+    "w": "the projection of oneself into a painting or a building, feeling its strain",
+    "k": "figure"
   },
   "antipathy": {
     "v": "They had never exchanged a hard word, yet each crossed the street rather than share a sidewalk.",
     "e": "Greek anti + pathos, 'feeling against' — an aversion of the whole system, older than any reason for it.",
-    "s": "Greek anti, 'against,' with pathos, 'feeling' — feeling directed against something, and for two centuries the word belonged to physics as much as to temperament. Renaissance natural philosophy explained the world by sympathies and antipathies, occult forces of attraction and repulsion between substances; the loadstone and garlic were said to have a natural antipathy, as were certain animals, and this counted as an explanation. The framework did not survive the seventeenth century. The word did, keeping only its application to people. Today antipathy is a settled dislike, usually older than any reason its owner can give for it."
+    "s": "Greek anti, 'against,' with pathos, 'feeling' — feeling directed against something, and for two centuries the word belonged to physics as much as to temperament. Renaissance natural philosophy explained the world by sympathies and antipathies, occult forces of attraction and repulsion between substances; the loadstone and garlic were said to have a natural antipathy, as were certain animals, and this counted as an explanation. The framework did not survive the seventeenth century. The word did, keeping only its application to people. Today antipathy is a settled dislike, usually older than any reason its owner can give for it.",
+    "w": "an occult force of repulsion believed to act between substances",
+    "k": "figure"
   },
   "telepathy": {
     "v": "She was reaching for the phone to call her twin when it rang — her twin, again.",
@@ -754,7 +790,9 @@ export const DEPTH = {
   "megalomania": {
     "v": "The plans on his desk renamed the capital after himself and budgeted a 300-foot statue.",
     "e": "Greek megas, megalo- (great) + mania — the madness of greatness; psychiatry's old name for delusions of grandeur.",
-    "s": "Greek megas, in its combining form megalo-, 'great,' with mania, 'madness' — the madness of greatness, and another of the nineteenth century's compound diagnoses. French and German psychiatry used mégalomanie for the delusion of grandeur, the patient convinced he was an emperor or a prophet, and it sat in the textbooks beside the other manias as a recognised category. Psychiatry has long since dropped it as a diagnosis. Politics kept it. Today megalomania names a delusion of one's own greatness and is used almost entirely as invective, while megas survives more neutrally in the megaphone, the megalith and the megalopolis."
+    "s": "Greek megas, in its combining form megalo-, 'great,' with mania, 'madness' — the madness of greatness, and another of the nineteenth century's compound diagnoses. French and German psychiatry used mégalomanie for the delusion of grandeur, the patient convinced he was an emperor or a prophet, and it sat in the textbooks beside the other manias as a recognised category. Psychiatry has long since dropped it as a diagnosis. Politics kept it. Today megalomania names a delusion of one's own greatness and is used almost entirely as invective, while megas survives more neutrally in the megaphone, the megalith and the megalopolis.",
+    "w": "a clinical diagnosis: the delusion of being an emperor or a prophet",
+    "k": "widen"
   },
   "pyromania": {
     "v": "Three warehouse fires in one summer, each set by the same quiet man who stayed to watch the engines come.",
@@ -943,7 +981,9 @@ export const DEPTH = {
   "emancipate": {
     "v": "The decree was read at every courthouse: those held as property were, from that hour, free.",
     "e": "Latin e + manus + capere — 'to take out of the hand': the Roman father's formal release of a son or slave from his literal grip.",
-    "s": "Latin e, 'out of,' with manus, 'hand,' and capere, 'to take' — to take out of the hand, and every word of that was legally exact in Rome. Mancipium was ownership, the hand-taking that made a thing yours, and emancipatio was the formal ceremony by which a father released a son from patria potestas, his absolute legal power; the ritual required three fictitious sales to be performed and undone. It was paperwork, not sentiment. The political weight came later, with Catholic Emancipation in 1829 and the Emancipation Proclamation of 1863. Today to emancipate is to free from bondage or control."
+    "s": "Latin e, 'out of,' with manus, 'hand,' and capere, 'to take' — to take out of the hand, and every word of that was legally exact in Rome. Mancipium was ownership, the hand-taking that made a thing yours, and emancipatio was the formal ceremony by which a father released a son from patria potestas, his absolute legal power; the ritual required three fictitious sales to be performed and undone. It was paperwork, not sentiment. The political weight came later, with Catholic Emancipation in 1829 and the Emancipation Proclamation of 1863. Today to emancipate is to free from bondage or control.",
+    "w": "the Roman ceremony releasing a son from his father's legal power",
+    "k": "widen"
   },
   "mandate": {
     "v": "The landslide gave the new government cover to claim the voters had ordered the whole program.",
@@ -1028,7 +1068,9 @@ export const DEPTH = {
   "aversion": {
     "v": "She could not say why, but she would leave a dinner rather than share the table with cilantro.",
     "e": "Latin a + vertere, 'to turn away' — the body's swerve made into a noun; 'averse' is the leaning, aversion the settled turn.",
-    "s": "Latin a, 'away,' with vertere, 'to turn' — a turning away, and the earliest English use was physical and often transitive: one could speak of the aversion of a danger, meaning the act of turning it aside. The sense we now use, a settled dislike, is the bodily flinch made permanent and given a noun. The root's other survivors cause endless trouble. Averse means disinclined and describes a person's leaning; adverse means unfavourable and describes conditions, and they come from the same vertere with different prefixes. Today an aversion is a strong dislike, the swerve turned into a standing disposition."
+    "s": "Latin a, 'away,' with vertere, 'to turn' — a turning away, and the earliest English use was physical and often transitive: one could speak of the aversion of a danger, meaning the act of turning it aside. The sense we now use, a settled dislike, is the bodily flinch made permanent and given a noun. The root's other survivors cause endless trouble. Averse means disinclined and describes a person's leaning; adverse means unfavourable and describes conditions, and they come from the same vertere with different prefixes. Today an aversion is a strong dislike, the swerve turned into a standing disposition.",
+    "w": "the act of turning a thing away, or of turning oneself aside from it",
+    "k": "figure"
   },
   "incontrovertible": {
     "v": "The defense conceded the fingerprints, the film, and the signed receipt — there was nothing left to argue.",
@@ -1064,7 +1106,9 @@ export const DEPTH = {
   "monograph": {
     "v": "Two hundred pages on a single genus of beetle — exhaustive, definitive, and read by forty people.",
     "e": "Greek monos + graphein — writing on one thing; scholarship's deepest and narrowest well.",
-    "s": "Greek monos, 'one,' with graphein, 'to write' — a writing upon a single thing, and the word began in natural history. A nineteenth-century monograph was a treatise exhausting one genus or one family of organisms, the naturalist's undertaking to say everything currently knowable about a narrow group, and the form spread from there to every other discipline. What it names is a scope rather than a length. Today a monograph is a scholarly study of a single subject, and in much of academic life it has become the unit by which a career is measured, scholarship's deepest and narrowest well."
+    "s": "Greek monos, 'one,' with graphein, 'to write' — a writing upon a single thing, and the word began in natural history. A nineteenth-century monograph was a treatise exhausting one genus or one family of organisms, the naturalist's undertaking to say everything currently knowable about a narrow group, and the form spread from there to every other discipline. What it names is a scope rather than a length. Today a monograph is a scholarly study of a single subject, and in much of academic life it has become the unit by which a career is measured, scholarship's deepest and narrowest well.",
+    "w": "a treatise exhausting one genus or family of organisms",
+    "k": "widen"
   },
   "ascribe": {
     "v": "For a century the unsigned sonata was credited to the master; the ink finally proved it was his student's.",
@@ -1103,7 +1147,9 @@ export const DEPTH = {
   "accredit": {
     "v": "After the inspection, the academy could finally issue diplomas the state would recognize.",
     "e": "ad + credere — to supply with belief: official trust vested in an envoy, a school, a lab.",
-    "s": "Latin ad, 'to,' with credere, 'to believe' — to supply someone with belief, and the word began in diplomacy. An envoy is accredited to a foreign court, meaning he arrives carrying letters of credence that entitle him to be believed as his sovereign's voice; without them he is merely a traveller with opinions. The machinery spread from ambassadors to institutions. Schools, hospitals and laboratories are now accredited by bodies that vouch for them to strangers who cannot inspect them personally. Today to accredit is to certify officially, and the credentials involved are literally things that ask you to believe."
+    "s": "Latin ad, 'to,' with credere, 'to believe' — to supply someone with belief, and the word began in diplomacy. An envoy is accredited to a foreign court, meaning he arrives carrying letters of credence that entitle him to be believed as his sovereign's voice; without them he is merely a traveller with opinions. The machinery spread from ambassadors to institutions. Schools, hospitals and laboratories are now accredited by bodies that vouch for them to strangers who cannot inspect them personally. Today to accredit is to certify officially, and the credentials involved are literally things that ask you to believe.",
+    "w": "furnished with letters entitling an envoy to be believed at a foreign court",
+    "k": "widen"
   },
   "pseudonym": {
     "v": "The Brontë sisters published as the brothers Bell, and the reviewers praised the young men's vigor.",
@@ -1228,7 +1274,9 @@ export const DEPTH = {
   "congenial": {
     "v": "They discovered the same shelf of favorite authors and the same allergy to small talk; the friendship took an evening.",
     "e": "Latin con + genius — sharing a genius: the Roman guardian spirit each person was born with, here found matching.",
-    "s": "Latin con, 'with,' joined to genius — and the Roman genius was not a clever person but a guardian spirit, the attendant power born with each individual and present at their conception, as each place had its genius loci. To be congenial was therefore to have a matching spirit, to be accompanied by compatible powers, which is a considerably stranger idea than agreeable company. The modern sense of genius as extraordinary ability is an eighteenth-century development that has almost buried the older one. Today congenial means of kindred spirit, and it still describes a compatibility one does not have to work at."
+    "s": "Latin con, 'with,' joined to genius — and the Roman genius was not a clever person but a guardian spirit, the attendant power born with each individual and present at their conception, as each place had its genius loci. To be congenial was therefore to have a matching spirit, to be accompanied by compatible powers, which is a considerably stranger idea than agreeable company. The modern sense of genius as extraordinary ability is an eighteenth-century development that has almost buried the older one. Today congenial means of kindred spirit, and it still describes a compatibility one does not have to work at.",
+    "w": "sharing the guardian spirit a Roman was held to be born attended by",
+    "k": "figure"
   },
   "genealogy": {
     "v": "The parish registers took her line back nine generations to a blacksmith and two scandals.",

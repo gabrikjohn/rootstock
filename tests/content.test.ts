@@ -200,9 +200,11 @@ describe("runtime content", () => {
     }
     expect(unpaired).toEqual([]);
     expect(leaks).toEqual([]);
-    // Ratchets up as each batch lands. The Drill Hall only offers the focus if enough words
-    // support it, so this floor is also what keeps that menu entry worth opening.
-    expect(paired).toBeGreaterThanOrEqual(98);
+    // A floor rather than a coverage assertion, because this pair is deliberately sparse:
+    // most words never shifted, and inventing a former sense for them was never on offer.
+    // It is also what keeps the Drill Hall focus worth opening, since buildFocusPool admits
+    // only the words that support a mode. Raise it if the corpus grows; never lower it.
+    expect(paired).toBeGreaterThanOrEqual(123);
   });
 
   it("keeps similar roots symmetric and cognates meaningful", () => {
