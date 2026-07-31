@@ -51,7 +51,10 @@ export interface ProgressV2 {
 export type QuizMode =
   | "REC" | "REV" | "PAIR" | "INFER" | "DSENT" | "LIT" | "ETY" | "KIN"
   | "ROOTQ" | "ROOTS" | "ROOTT" | "COMPOSE" | "VIG" | "PROD" | "VIGT"
-  | "CLOZE" | "LITT";
+  | "CLOZE" | "LITT"
+  // The sense-shift axis: recall the word from the sense it used to carry (SENSE, and
+  // SENSET typed), or name the kind of shift that moved it (SHIFT).
+  | "SENSE" | "SENSET" | "SHIFT";
 
 export interface QuizItem {
   m: QuizMode;
@@ -166,7 +169,7 @@ export interface ForgeNowSessionState extends SessionBase {
   saved: SessionState;
 }
 
-export type FocusId = "roots" | "defs" | "ety" | "usage" | "kin" | "new" | "all";
+export type FocusId = "roots" | "defs" | "ety" | "shift" | "usage" | "kin" | "new" | "all";
 
 export interface FocusDefinition {
   id: FocusId;

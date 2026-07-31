@@ -4,6 +4,7 @@ import type {
   InferenceWord,
   RuntimeGate,
   Root,
+  ShiftKind,
   StringListMap,
   StringMap,
   Word
@@ -83,6 +84,19 @@ export class ContentCatalog {
   // the disclosure simply omits the block.
   wordStory(word: Word | DrillWord | InferenceWord): string {
     return this.wordDepth(word).s ?? word.story ?? "";
+  }
+
+  // The earlier English sense, where the word had one worth teaching. Same three-pool split
+  // as the story: DEPTH for gate words, inline for Drill Hall and inference words. "" means
+  // this word never shifted — the SENSE modes are simply not offered for it.
+  wordFormerSense(word: Word | DrillWord | InferenceWord): string {
+    return this.wordDepth(word).w ?? word.was ?? "";
+  }
+
+  // The kind of shift that carried the former sense to the current one. Authored with the
+  // former sense or not at all, so a null here and a "" above always travel together.
+  wordShiftKind(word: Word | DrillWord | InferenceWord): ShiftKind | null {
+    return this.wordDepth(word).k ?? word.shift ?? null;
   }
 
   definition(headword: string): string {

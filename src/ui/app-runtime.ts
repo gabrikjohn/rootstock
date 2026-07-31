@@ -1,4 +1,4 @@
-import { AFFIX_DEEP, COGNATES, CONFUSABLES, DEPTH, DRILL_POOL, ETYM, INFER_POOL, LEVELS, ROOT_DEEP, SIMILARS, SIMILAR_GLOSSES } from "../content";
+import { AFFIX_DEEP, COGNATES, CONFUSABLES, DEPTH, DRILL_POOL, ETYM, INFER_POOL, LEVELS, ROOT_DEEP, SHIFT_KINDS, SHIFT_LABELS, SIMILARS, SIMILAR_GLOSSES } from "../content";
 import { avoidRepeat as avoidRepeatItems, requeueMiss as requeueMissItems, roman, shuffle as shuffleValues } from "../domain/collections";
 import { deserializeQuizItem, serializeQuizItem } from "../domain/bookmarks";
 import { ContentCatalog } from "../domain/catalog";
@@ -222,6 +222,13 @@ function posOf(text:string):string|null{
 }
 function vigOf(w:Word|DrillWord):string{ return catalog.vignette(w); }
 function etyOf(w:Word|DrillWord):string{ return catalog.wordEtymology(w); }
+// The sense-shift pair. Gate words file both in DEPTH, so every consumer goes through the
+// catalog rather than reading the word — the same arrangement the vignette already uses.
+function wasOf(w:Word|DrillWord):string{ return catalog.wordFormerSense(w); }
+function shiftLabelOf(w:Word|DrillWord):string{
+  const kind=catalog.wordShiftKind(w);
+  return kind?SHIFT_LABELS[kind]:'';
+}
 function defOfWord(name:string):string{ return catalog.definition(name); }
 // Words already learned that are built from a given root. Authored cognates win;
 // otherwise use the conservative shared-form match, never a gloss coincidence.
@@ -278,7 +285,7 @@ function pairPick(maxGi:number, n:number):ConfusablePair[]{
 // attacked from different sides. Roots have only two angles, so they climb more slowly.
 const DOCKET_WORD_TIERS:readonly (readonly QuizMode[])[] = [
   ['REC','ROOTQ'],
-  ['VIG','DSENT','LIT','KIN'],
+  ['VIG','DSENT','LIT','KIN','SENSE'],
   ['VIGT','CLOZE','PROD'],
   ['COMPOSE','LITT','PROD']
 ];
@@ -801,7 +808,7 @@ function startTrial2(idx:number):void{
   pairs.forEach(p=>items.push({m:'PAIR',pair:p}));
   // Trial II is the production trial, so it opens with production. Typed items first,
   // each block shuffled, rather than one flat shuffle that can lead with a multiple choice.
-  const TYPED:ReadonlySet<QuizMode>=new Set(['PROD','VIGT','CLOZE','LITT','ROOTT']);
+  const TYPED:ReadonlySet<QuizMode>=new Set(['PROD','VIGT','CLOZE','LITT','ROOTT','SENSET']);
   const queue=[...shuffle(items.filter(i=>TYPED.has(i.m))),...shuffle(items.filter(i=>!TYPED.has(i.m)))];
   S={idx,kind:'T2',queue,debt:0,done:0,sit:{cleared:0,ahead:0},missed:[]};
   trialItem();
@@ -862,7 +869,8 @@ function renderTrialPrompt({label,gateLabel,it,w,onResolve,onNext,oneShot=false,
   const cue = session.kind==='DRILL'||session.kind==='FORGE'||session.kind==='FORGENOW';
   const view=buildPromptView({
     item:it,word:w,gates:LEVELS,inferencePool:INFER_POOL,drillWords:drillWords(),
-    random:deps.random,vignette:vigOf,literal:litOf,posOf,wordFoils,cue,rootForms,rootCue,rootAudio:rootSay
+    random:deps.random,vignette:vigOf,literal:litOf,posOf,wordFoils,cue,rootForms,rootCue,rootAudio:rootSay,
+    formerSense:wasOf,shiftLabel:shiftLabelOf
   });
   const {promptHtml,bodyHtml,typed}=view;
   if(view.compose) it._compose=view.compose;
@@ -912,7 +920,9 @@ function renderTrialPrompt({label,gateLabel,it,w,onResolve,onNext,oneShot=false,
     else if(ok){ v.className='verdict right'; v.innerHTML='Correct.'+hint;
       setTimeout(()=>{ if(S===session) onNext(); },350); }
     else {
-      const answer = it.m==='PAIR'?it.pair!.ans : it.m==='INFER'?it.inf!.def : it.m==='COMPOSE'?(it.inf||w)!.word : it.m==='ROOTQ'?'“'+it.part![1]+'”' : it.m==='ROOTS'?'“'+it.root!.gloss+'”' : it.m==='ROOTT'?it.root!.root : w!.word;
+      // SHIFT is the one word-mode whose answer is not the headword: it asks what happened
+      // to the meaning, so the correct option is the name of the shift.
+      const answer = it.m==='PAIR'?it.pair!.ans : it.m==='INFER'?it.inf!.def : it.m==='COMPOSE'?(it.inf||w)!.word : it.m==='ROOTQ'?'“'+it.part![1]+'”' : it.m==='ROOTS'?'“'+it.root!.gloss+'”' : it.m==='ROOTT'?it.root!.root : it.m==='SHIFT'?shiftLabelOf(w!) : w!.word;
       let deep='';
       if(w){
         const pd = picked && picked!==w.word ? defOfWord(picked) : '';
@@ -1246,10 +1256,10 @@ function wordView(gi:number,wi:number,q:string,backFn?:(()=>void),backLabel?:str
 const FORGE_ANGLES = 2;       // distinct angles served per weak word in a Forge run
 const FORGE_NOW_ANGLES = 2;   // angles in the on-the-spot rework after a gate miss
 function forgeAngles(w:Word):QuizItem["m"][]{
-  return getForgeModes(w,!!vigOf(w));
+  return getForgeModes(w,!!vigOf(w),!!wasOf(w)&&!!shiftLabelOf(w));
 }
-function pickAngles(w:Word,n:number):QuizItem["m"][]{ return pickForgeModes(w,!!vigOf(w),n,deps.random); }
-function reangle(f:QuizItem,w:Word):QuizItem{ return reangleForgeItem(f,w,!!vigOf(w),deps.random); }
+function pickAngles(w:Word,n:number):QuizItem["m"][]{ return pickForgeModes(w,!!vigOf(w),n,deps.random,!!wasOf(w)&&!!shiftLabelOf(w)); }
+function reangle(f:QuizItem,w:Word):QuizItem{ return reangleForgeItem(f,w,!!vigOf(w),deps.random,!!wasOf(w)&&!!shiftLabelOf(w)); }
 function weakWords():SealedWord[]{
   // Lowered threshold: a single miss now qualifies, and words linger until they
   // are answered right three times over for each miss (t.w*3 >= t.r).
@@ -1524,12 +1534,13 @@ const FOCUSES:readonly FocusDefinition[]=[
   {id:'roots',label:'Roots',blurb:'The Latin and Greek pieces themselves — each root and the sense it carries.',kind:'root',mc:['ROOTS'],hard:['ROOTT']},
   {id:'defs',label:'Definitions',blurb:'Each word against its meaning — recognized first, then produced from memory.',kind:'word',mc:['REC','REV'],hard:['PROD']},
   {id:'ety',label:'Etymology',blurb:'Where a word comes from, and the literal reading of its pieces.',kind:'word',mc:['ETY','LIT'],hard:['LITT']},
+  {id:'shift',label:'Sense-shift',blurb:'What a word used to mean, and how it moved to what it means now.',kind:'word',mc:['SENSE','SHIFT'],hard:['SENSET']},
   {id:'usage',label:'Usage',blurb:'The word alive in a sentence — the sense it takes in context.',kind:'word',mc:['DSENT','VIG'],hard:['CLOZE','VIGT']},
   {id:'kin',label:'Word families',blurb:'Words of one blood — spot the kin, then assemble them piece by piece.',kind:'word',mc:['KIN'],hard:['COMPOSE']},
   {id:'new',label:'New stock',blurb:'Advanced words the gates never taught, each built from roots you have sealed.',kind:'new'},
   {id:'all',label:'Everything',blurb:'One adaptive mix — every word and root, attacked from every side.',kind:'all'}
 ];
-const FOCUS_GLYPH:Readonly<Record<FocusId,string>>={roots:'❦',defs:'≡',ety:'❧',usage:'❝',kin:'⁂',new:'✦',all:'⌖'};
+const FOCUS_GLYPH:Readonly<Record<FocusId,string>>={roots:'❦',defs:'≡',ety:'❧',shift:'↻',usage:'❝',kin:'⁂',new:'✦',all:'⌖'};
 const FBOX=[3,4,6,9,13,18];
 
 interface SealedRoot {root:Root;gate:number}
@@ -1577,6 +1588,8 @@ function feasible(e:FocusEntry,mode:QuizMode):boolean{
     case 'VIGT': return !!vigOf(d);
     case 'LIT': case 'LITT': return d.parts.filter(p=>p[1]).length>=2;
     case 'ETY': return !!etyOf(d);
+    // All three sense-shift modes stand on the same authored pair, which most words lack.
+    case 'SENSE': case 'SENSET': case 'SHIFT': return !!wasOf(d) && !!shiftLabelOf(d);
     case 'KIN': return !!kinPick(d);
     case 'ROOTQ': return d.parts.some(p=>p[1]&&p[0].length>1);
     case 'COMPOSE': return d.parts.length>=2;
@@ -1631,13 +1644,22 @@ function mkItem(e:FocusEntry,mode:QuizMode,neighbours:readonly (Word|DrillWord)[
   }
   const d=e.d, it:QuizItem={m:mode};
   if(e.gi!=null){ it.gi=e.gi; if(e.wi!=null) it.wi=e.wi; }
-  if(mode==='PROD'||mode==='CLOZE'||mode==='VIGT'||mode==='LITT') it.drill=d;
+  if(mode==='PROD'||mode==='CLOZE'||mode==='VIGT'||mode==='LITT'||mode==='SENSET') it.drill=d;
   else if(mode==='DSENT'){
     const near=neighbours.filter(x=>x.word!==d.word)
       .sort((a,c)=>Math.abs(("b" in a?a.b:0)-("b" in d?d.b:0))-Math.abs(("b" in c?c.b:0)-("b" in d?d.b:0))).slice(0,6);
     it.opts=shuffle([d.word,...shuffle(near).slice(0,3).map(x=>x.word)]);
   }
   else if(mode==='LIT') it.opts=shuffle([d.word,...drillFoils(d,3)]);
+  else if(mode==='SENSE'){
+    // Same shape as REV: the stimulus is a meaning and the options are headwords, so the
+    // foils come from the confusability ranking rather than at random.
+    it.opts=shuffle([d.word,...drillFoils(d,3)]); }
+  else if(mode==='SHIFT'){
+    // Options are the five kinds themselves — the answer and three of the other four.
+    const right=shiftLabelOf(d);
+    const others=shuffle(SHIFT_KINDS.map(k=>SHIFT_LABELS[k]).filter(l=>l!==right)).slice(0,3);
+    it.opts=shuffle([right,...others]); }
   else if(mode==='ETY'){ const t=etyOf(d); it.masked=maskEty(t,d.word);
     it.opts=shuffle([d.word,...drillFoils(d,3,x=>!t.toLowerCase().includes(x.word.slice(0,5).toLowerCase()),true)]); }
   else if(mode==='KIN'){ it.kin=kinPick(d); const kin=it.kin;

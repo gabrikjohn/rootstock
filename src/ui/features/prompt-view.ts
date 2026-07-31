@@ -19,6 +19,10 @@ interface PromptViewOptions {
   wordFoils(word: Word | DrillWord, gateIndex: number | undefined, count: number): string[];
   // Whether typed prompts show the first-letter cue. False where production is the test.
   cue: boolean;
+  // The word's earlier sense, and the label for the kind of shift that left it. Both are
+  // resolved by the caller because gate words file them in DEPTH rather than on the word.
+  formerSense(word: Word | DrillWord): string;
+  shiftLabel(word: Word | DrillWord): string;
   rootForms(root: Root): string[];
   rootCue(root: Root): string;
   rootAudio(root: string): string;
@@ -124,6 +128,29 @@ export function buildPromptView(options: PromptViewOptions): PromptView {
         typed: false
       };
     }
+    case "SENSE": {
+      const word = requireWord(options.word, item.m);
+      const choices = requireValue(item.opts, "SENSE options");
+      return {
+        promptHtml: `<div class="q-ask">It used to mean this — which word is it now?</div><div class="q-def">“${escapeHtml(options.formerSense(word))}”</div>`,
+        bodyHtml: renderStringChoices(choices, (choice) => choice === word.word, true),
+        typed: false
+      };
+    }
+    case "SHIFT": {
+      const word = requireWord(options.word, item.m);
+      const choices = requireValue(item.opts, "SHIFT options");
+      // Naming the word costs nothing here: the question is what happened to its meaning,
+      // not which word it is, and showing both senses side by side is the whole prompt.
+      return {
+        promptHtml: `<div class="q-ask">Once, and now — what happened to the meaning?</div>`
+          + `<div class="q-word">${word.word}</div>`
+          + `<div class="q-def" style="margin-top:10px">once “${escapeHtml(options.formerSense(word))}”</div>`
+          + `<div class="q-def">now “${escapeHtml(word.def)}”</div>`,
+        bodyHtml: renderStringChoices(choices, (choice) => choice === options.shiftLabel(word), false),
+        typed: false
+      };
+    }
     case "ROOTQ": {
       const word = requireWord(options.word, item.m);
       const part = requireValue(item.part, "ROOTQ part");
@@ -199,6 +226,7 @@ export function buildPromptView(options: PromptViewOptions): PromptView {
     case "PROD":
     case "VIGT":
     case "CLOZE":
+    case "SENSET":
     case "LITT": {
       const word = requireWord(options.word, item.m);
       const vignette = options.vignette(word);
@@ -211,7 +239,9 @@ export function buildPromptView(options: PromptViewOptions): PromptView {
           ? `<div class="q-ask">Complete the sentence — exact spelling</div><div class="q-sentence">“${blankWord(word)}”</div>${cue}`
           : item.m === "LITT"
             ? `<div class="q-ask">Its pieces read, in order — type the word</div><div class="q-def" style="font-family:'IBM Plex Mono',monospace;font-size:16.5px;line-height:1.7">${options.literal(word)}</div>${cue}`
-            : `<div class="q-ask">Type the word — exact spelling</div><div class="q-def">“${word.def}”</div>${cue}`;
+            : item.m === "SENSET"
+              ? `<div class="q-ask">It used to mean this — type the word it became</div><div class="q-def">“${escapeHtml(options.formerSense(word))}”</div>${cue}`
+              : `<div class="q-ask">Type the word — exact spelling</div><div class="q-def">“${word.def}”</div>${cue}`;
       return {
         promptHtml,
         bodyHtml: '<div class="typebox"><input id="ans" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="the word…"><button class="btn" id="sub">Submit</button></div>',

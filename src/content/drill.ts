@@ -30,6 +30,8 @@ export const DRILL_POOL = [
     ],
     "ety": "From Latin altercari, to dispute with another — alter, the other fellow, is inside every quarrel.",
     "story": "Latin altercari, 'to dispute,' built on alter, 'the other' — and the Latin verb is about taking turns, since an altercatio was an exchange in which each party spoke in alternation. The quarrel is in the structure: what makes it an altercation rather than a rant is that somebody answers back. English took it in the fifteenth century for a dispute conducted entirely in words, and that is what it meant for four hundred years. Police and newspaper usage has since dragged it towards the physical, so that an altercation now often implies scuffling. Today an altercation is a heated noisy quarrel, verbal by etymology and increasingly not.",
+    "was": "a dispute conducted entirely in words, each party answering in turn",
+    "shift": "widen",
     "kin": [
       "altercate"
     ]
@@ -480,6 +482,8 @@ export const DRILL_POOL = [
     ],
     "ety": "prae (before) + scire (to know) — knowing before; the physician's prognosis is its Greek-built cousin.",
     "story": "Latin prae, 'before,' with scire, 'to know' — knowing beforehand, and the word entered English carrying a problem rather than merely a meaning. Divine prescience was the theologians' term for God's foreknowledge, and it generated one of the longest arguments in Western philosophy: if it is already known what you will choose, in what sense do you choose it. Boethius wrote the classic answer from a prison cell awaiting execution. Today prescience means foreknowledge of what will happen, usually paid as a compliment to someone who guessed well, and the Greek-built prognosis is its counterpart in medicine.",
+    "was": "the divine foreknowledge that theologians argued about",
+    "shift": "widen",
     "kin": [
       "prescient"
     ]
@@ -637,6 +641,8 @@ export const DRILL_POOL = [
     ],
     "ety": "re (back) + tacere (to be silent) — kin to taciturn, but a choice rather than a temperament: the reticent keep this silence, not all silences.",
     "story": "Latin re, 'back,' with tacere, 'to be silent' — silence held back, and the word is more particular than its neighbour taciturn. A taciturn man is quiet by constitution; a reticent one is quiet about something, keeping this silence rather than all silences, which is why reticence takes an about and taciturnity does not. That precision is currently being lost. Reticent is increasingly used to mean merely reluctant, as in reticent to invest, a use the guides still resist and the language appears to be adopting anyway. Today reticent means reluctant to speak by choice, for now.",
+    "was": "unwilling to speak about one particular thing",
+    "shift": "widen",
     "kin": [
       "taciturn",
       "reticence"
@@ -700,6 +706,8 @@ export const DRILL_POOL = [
     ],
     "ety": "ab (away) + vocare (to call) — the calling that calls you away from your calling; vox, the voice, sounds under both.",
     "story": "Latin ab, 'away,' with vocare, 'to call' — that which calls you away, and the word has inverted its own morals. An avocation was originally a distraction, the thing that pulled you off your proper business, and your vocation was the business it pulled you from; the disapproval sat squarely on the avocation. English then reversed the sympathy. The pleasant pursuit beside one's work became the more attractive of the two, and calling something an avocation now suggests a hobby rather than a dereliction. Today an avocation is a pursuit apart from one's work, and vox, the voice, sounds under both words.",
+    "was": "a distraction that called one away from proper business",
+    "shift": "better",
     "kin": [
       "vocation",
       "vociferous"
@@ -734,6 +742,8 @@ export const DRILL_POOL = [
     ],
     "ety": "con (together) + volvere (to roll) — rolled up on itself; the voluble speaker rolls on, the convoluted argument rolls inward.",
     "story": "Latin con, 'together,' with volvere, 'to roll' — rolled up on itself, and the word was a technical descriptor long before it was a complaint. Anatomy uses the convolutions of the brain for the folds of the cerebral cortex, and botany and conchology describe leaves and shells as convoluted when they are rolled inward; none of that implies any fault. The pejorative sense transfers the shape to reasoning. What is convoluted has not merely many parts but parts wound back over each other, which is why the reader loses the thread. Today convoluted means intricately coiled and hard to follow.",
+    "was": "rolled up on itself, as the folds of the brain or a shell are",
+    "shift": "figure",
     "kin": [
       "voluble",
       "convolution"
@@ -870,6 +880,8 @@ export const DRILL_POOL = [
     ],
     "ety": "apo + theos (god) — to be made a god of; Rome voted it to dead emperors — theocracy's word for a promotion.",
     "story": "Greek apo with theos, 'god' — a making into a god, and Rome ran the procedure as a matter of public administration. The Senate voted consecratio to a dead emperor, and with the vote he became divine and acquired a temple and a priesthood; Vespasian, dying in 79, is reported to have observed that he supposed he was becoming a god. The word has since been thoroughly weakened. To call something the apotheosis of its kind is now to say it is the finest example, an elevation that stops well short of a temple. Today apotheosis means elevation to the rank of a god, or merely to the top.",
+    "was": "the formal deification a Roman senate voted to a dead emperor",
+    "shift": "figure",
     "kin": [
       "theocracy",
       "apotheosize"
@@ -959,6 +971,8 @@ export const DRILL_POOL = [
     ],
     "ety": "pater (father) + -monium (state of) — the father's estate; matrimony, by the same suffix, is the mother's.",
     "story": "Latin pater, 'father,' with the ending -monium, which names a state or condition and also builds testimony, parsimony and sanctimony. The pair it forms with matrimony repays attention. The father's word names property inherited, and the mother's word names the institution of marriage itself, so Latin assigned the estate to one parent and the household to the other and wrote the division into the vocabulary. The word has since been enlarged. Today patrimony means an inheritance from one's father, and in international usage it has widened to mean cultural heritage in general, the patrimony a whole people is said to hold.",
+    "was": "the estate a man inherited from his father",
+    "shift": "widen",
     "kin": [
       "patriarchy",
       "matrimony"
@@ -1121,6 +1135,8 @@ export const DRILL_POOL = [
     ],
     "ety": "con + jurare (to swear together) — first a band bound by oath, then the oath that binds spirits; perjury swears the same verb falsely.",
     "story": "Latin con with jurare, 'to swear' — a swearing-together, and the chain of senses is one of the longest in English. It began as conspiracy, since men who swear a common oath are a plot; then it meant to entreat somebody solemnly, as if putting them under oath; then to constrain a spirit by invoking a sacred name, which is the magical sense proper; and finally the stage business of producing rabbits. English still marks the split by stress, since to conJURE someone to speak is to beg them and to CONjure a rabbit is to perform. Today to conjure is to summon as if by magic.",
+    "was": "to swear an oath together; to bind oneself with others in a plot",
+    "shift": "figure",
     "kin": [
       "perjury",
       "conjuration"
@@ -1406,6 +1422,8 @@ export const DRILL_POOL = [
     ],
     "ety": "similis (like) — likeness as a noun; verisimilitude adds verus and claims the likeness is to truth.",
     "story": "Latin similis, 'like' — likeness itself, made into a noun, and in older English the word did work that has since passed to other terms. A similitude was a comparison drawn out at length, and specifically a parable: the Authorised Version has Christ speaking in similitudes, where a modern translation would say parables. Theology used it for something weightier still, since Genesis makes man in the image and similitude of God, and centuries of argument turned on whether those two words meant the same thing. Today a similitude is a likeness or a parable, and adding verus to it produces verisimilitude, a likeness claiming to be to truth.",
+    "was": "a comparison drawn out at length; a parable",
+    "shift": "narrow",
     "kin": [
       "verisimilitude",
       "simile"
@@ -1722,6 +1740,8 @@ export const DRILL_POOL = [
     ],
     "ety": "pes, pedis (foot) — going on foot, hence prose that never leaves the ground; impede shackles the same feet.",
     "story": "Latin pes, pedis, 'foot' — going on foot, and the figurative insult is older than English. Roman critics used pedestris of prose, meaning writing that walks along the ground, in explicit contrast to poetry, which was imagined as mounted or winged; Horace calls his own conversational Satires pedestrian verse without embarrassment. The metaphor assumes a hierarchy of locomotion. What travels on foot is honest and unremarkable, what flies is inspired, and English kept the snobbery when it took the word. Today pedestrian means unimaginative and plodding, and the same foot is shackled in impede and freed in expedite.",
+    "was": "going along on foot rather than mounted or carried",
+    "shift": "figure",
     "kin": [
       "impede",
       "expedite"
@@ -1849,6 +1869,8 @@ export const DRILL_POOL = [
     ],
     "ety": "contra (against) + tempus (time) — against-the-beat, a fencing term for the ill-timed thrust, kept for life's missteps.",
     "story": "French contre, 'against,' with temps, 'time' — against the beat, and it began as a technical term in the salle. In fencing a contretemps is a thrust delivered on the wrong tempo, at the moment the opponent is also attacking, so that both are hit; dance took the word for a step made against the count. Both uses turn on timing rather than on error, which is what English preserved when it borrowed the word for a social mishap. A contretemps is not a disaster but an awkwardness caused by two things happening at once. Today it is an embarrassing mishap or clash.",
+    "was": "a fencing thrust delivered on the wrong beat, so that both are hit",
+    "shift": "figure",
     "kin": [
       "temporize",
       "temporal"
@@ -1951,6 +1973,8 @@ export const DRILL_POOL = [
     ],
     "ety": "mis (wrongly) + credere (to believe) — first the unbeliever, then, by a crusader's logic, any villain at all; credence gone bad.",
     "story": "Old French mescreant, from mis-, 'wrongly,' with credere, 'to believe' — and its first meaning was purely religious. A miscreant was an unbeliever, which in the vocabulary of the crusades meant a Muslim or a heretic, and the word was a statement about doctrine rather than about conduct. The slide that followed is the ugly part and it is worth naming: because wrong belief was assumed to entail wrong behaviour, the theological term drifted into a general word for a criminal. Today a miscreant is a villain or lawless wrongdoer, and nothing in the modern sense remembers that the original charge was heresy.",
+    "was": "an unbeliever; one who held the wrong faith",
+    "shift": "worse",
     "kin": [
       "credence",
       "credulous"
@@ -2610,6 +2634,8 @@ export const DRILL_POOL = [
     ],
     "ety": "non + describere — 'not yet described,' a naturalist's label for the unclassified, demoted to meaning unremarkable.",
     "story": "Latin non with describere, 'to write down' — not yet described, and this is the most complete reversal in the drill pool. It was a naturalist's technical label. A nondescript specimen was one not yet described in the scientific literature, meaning new to science and therefore the most exciting thing in the collecting box, the find that might carry your name. Naturalists used it as a boast. Then general usage took the word to mean lacking anything worth describing, and the sense inverted completely. Today nondescript means dull and featureless, having once meant unprecedented.",
+    "was": "not yet described by science; new to knowledge and worth the finding",
+    "shift": "worse",
     "kin": [
       "circumscribe",
       "ascribe"

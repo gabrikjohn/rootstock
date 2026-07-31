@@ -9,7 +9,9 @@ export const DEPTH = {
   "egotist": {
     "v": "Ask him about the weather and within a minute you are hearing, again, how he saved the merger.",
     "e": "The intrusive t crept in by analogy with words like dramatist — fittingly, a letter added just to make more of the self.",
-    "s": "Built on the same Latin ego, 'I,' but carrying an intrusive t that belongs to no root — slipped in by analogy with words like theist and dramatist, fittingly a letter added only to make more of the self. Addison and the essayists of the early 1700s coined egotism for a fault of style: the compulsion to keep saying I where the matter did not call for it. From that narrow rhetorical vice the sense widened to the whole disposition behind it — a man forever at the center of his own attention. Today an egotist is a self-absorbed boaster, while his near-twin egoist kept the cooler, more philosophical sense of one who simply acts from self-interest."
+    "s": "Built on the same Latin ego, 'I,' but carrying an intrusive t that belongs to no root — slipped in by analogy with words like theist and dramatist, fittingly a letter added only to make more of the self. Addison and the essayists of the early 1700s coined egotism for a fault of style: the compulsion to keep saying I where the matter did not call for it. From that narrow rhetorical vice the sense widened to the whole disposition behind it — a man forever at the center of his own attention. Today an egotist is a self-absorbed boaster, while his near-twin egoist kept the cooler, more philosophical sense of one who simply acts from self-interest.",
+    "w": "one guilty of a fault of style: saying I too often in writing",
+    "k": "widen"
   },
   "egocentric": {
     "v": "When the office flooded, her first question was whether her desk had gotten wet.",
@@ -29,7 +31,9 @@ export const DEPTH = {
   "extrovert": {
     "v": "She recharges by throwing dinner parties; an empty Saturday leaves her restless by noon.",
     "e": "Jung's counterpart term: Latin extra (outward) + vertere (to turn) — the psyche's current flowing toward people and things.",
-    "s": "Latin extra, 'outside, beyond,' with vertere, 'to turn' — the psyche turned outward, toward people and things. It is Jung's counterpart to the introvert, coined in the 1920s, and he spelled it extravert, keeping the true Latin extra. The o we now write borrowed itself from introvert for the sake of symmetry, so the common spelling records a fondness for neatness over etymology. Jung meant a direction of energy flowing outward; ordinary use narrowed that to plain sociability, and today an extrovert is simply the outgoing person who is restless alone — the reaching pole to the introvert's retreat."
+    "s": "Latin extra, 'outside, beyond,' with vertere, 'to turn' — the psyche turned outward, toward people and things. It is Jung's counterpart to the introvert, coined in the 1920s, and he spelled it extravert, keeping the true Latin extra. The o we now write borrowed itself from introvert for the sake of symmetry, so the common spelling records a fondness for neatness over etymology. Jung meant a direction of energy flowing outward; ordinary use narrowed that to plain sociability, and today an extrovert is simply the outgoing person who is restless alone — the reaching pole to the introvert's retreat.",
+    "w": "one whose psychic energy runs outward toward things, in Jung's scheme",
+    "k": "narrow"
   },
   "ambivert": {
     "v": "He works the room happily until ten, then is genuinely glad to go home to his book.",
@@ -44,7 +48,9 @@ export const DEPTH = {
   "misogynist": {
     "v": "He praised his female colleagues only in the past tense, and voted against every one of their promotions.",
     "e": "Greek misein (to hate) + gyne (woman) — the same gyne that appears, more kindly, in gynecologist.",
-    "s": "Greek misein, 'to hate,' with gyne, 'woman' — the same gyne that appears, far more kindly, in gynecologist. English drew it from Greek misogynia in the early seventeenth century, at first naming one man's private antipathy toward women. Modern usage, sharpened by a century of feminist analysis, has widened it past personal feeling toward a whole attitude of contempt or prejudice that need not announce itself as hatred at all. Today a misogynist is one hostile or prejudiced against women, the mirror of the misandrist, who is turned the same way against men."
+    "s": "Greek misein, 'to hate,' with gyne, 'woman' — the same gyne that appears, far more kindly, in gynecologist. English drew it from Greek misogynia in the early seventeenth century, at first naming one man's private antipathy toward women. Modern usage, sharpened by a century of feminist analysis, has widened it past personal feeling toward a whole attitude of contempt or prejudice that need not announce itself as hatred at all. Today a misogynist is one hostile or prejudiced against women, the mirror of the misandrist, who is turned the same way against men.",
+    "w": "one man harbouring a private antipathy toward women",
+    "k": "widen"
   },
   "ascetic": {
     "v": "A cot, one bowl, cold water at four each morning — comfort, he said, was the enemy of the work.",
@@ -124,7 +130,9 @@ export const DEPTH = {
   "optician": {
     "v": "He never examines an eye — he grinds the lenses to the prescription and fits the frames to your face.",
     "e": "From Greek optikos, 'of sight' — the craftsman of the trio: the prescription stops at his bench.",
-    "s": "Greek optikos, 'of sight,' from ops, 'eye' — and the English word began at the top rather than the bench. In the seventeenth century an optician was a student of optics, a natural philosopher of light and lenses; Newton would have answered to it. The turn was commercial: as spectacle-making became a trade in its own right, the learned title slid down to the craftsman who ground and fitted the glass, and the theory it once named went to the physicists. Today an optician fits corrective lenses and dispenses what others prescribe, while optics kept the science the word started out owning."
+    "s": "Greek optikos, 'of sight,' from ops, 'eye' — and the English word began at the top rather than the bench. In the seventeenth century an optician was a student of optics, a natural philosopher of light and lenses; Newton would have answered to it. The turn was commercial: as spectacle-making became a trade in its own right, the learned title slid down to the craftsman who ground and fitted the glass, and the theory it once named went to the physicists. Today an optician fits corrective lenses and dispenses what others prescribe, while optics kept the science the word started out owning.",
+    "w": "a natural philosopher of light and lenses — a theorist of how sight works",
+    "k": "worse"
   },
   "osteopath": {
     "v": "Fully licensed to prescribe and operate, she still begins with hands on the spine, treating the body as one connected frame.",
@@ -164,7 +172,9 @@ export const DEPTH = {
   "geologist": {
     "v": "He read the canyon wall like a page — each stripe of rock a chapter, millions of years thick.",
     "e": "Greek ge, 'earth' — the same earth-mother syllable in geometry, which began as land-measuring.",
-    "s": "Greek ge, 'earth,' worshipped as the goddess Gaia, joined to logos. The word's first English outings in the seventeenth century meant something nearly opposite to its present sense: the study of earthly as against heavenly things, a term of theology rather than of rock. It settled onto the ground itself in the late eighteenth century, and what fixed it there was James Hutton's argument that the earth's strata record an almost unimaginable depth of time. Today a geologist studies the earth and its rocks; geometry holds the same ge, and began as the far humbler business of measuring a field."
+    "s": "Greek ge, 'earth,' worshipped as the goddess Gaia, joined to logos. The word's first English outings in the seventeenth century meant something nearly opposite to its present sense: the study of earthly as against heavenly things, a term of theology rather than of rock. It settled onto the ground itself in the late eighteenth century, and what fixed it there was James Hutton's argument that the earth's strata record an almost unimaginable depth of time. Today a geologist studies the earth and its rocks; geometry holds the same ge, and began as the far humbler business of measuring a field.",
+    "w": "a student of earthly as against heavenly matters",
+    "k": "narrow"
   },
   "biologist": {
     "v": "From whale to bacterium, if it lives, it falls inside her field.",
@@ -204,12 +214,16 @@ export const DEPTH = {
   "notorious": {
     "v": "Everyone in three counties knew his name, and not one of them for a good reason.",
     "e": "Latin notus, 'known' — famous soured: known widely, and badly.",
-    "s": "Latin notus, 'known,' the participle of noscere, to get to know — and the English word began as neutral as its root. In the sixteenth century a notorious fact was simply a publicly known one, and a notorious truth was a plain one; the word carried no more judgement than notable does now. What soured it was company. The things that became widely known tended to be scandals, and after a century of that association the disapproval migrated from the news into the word itself. Today notorious means widely known for something bad, while noted and notable kept the neutrality their sibling lost."
+    "s": "Latin notus, 'known,' the participle of noscere, to get to know — and the English word began as neutral as its root. In the sixteenth century a notorious fact was simply a publicly known one, and a notorious truth was a plain one; the word carried no more judgement than notable does now. What soured it was company. The things that became widely known tended to be scandals, and after a century of that association the disapproval migrated from the news into the word itself. Today notorious means widely known for something bad, while noted and notable kept the neutrality their sibling lost.",
+    "w": "widely known or publicly acknowledged, with no blame in it at all",
+    "k": "worse"
   },
   "consummate": {
     "v": "Not one wasted motion in the forgery — the work of a master at the height of his craft.",
     "e": "Latin con + summa, 'the highest total' — brought to the very sum and summit of an art, even a bad one.",
-    "s": "Latin consummare, 'to sum up, complete,' from con and summa, the highest total — the top line of a Roman ledger, where the sum was written. To consummate a thing was to bring it to its full amount, nothing more moral than arithmetic. The adjective drifted from completed to perfected, and from perfected to supremely skilled, which is where the trouble starts: perfection is indifferent to what is being perfected. Today a consummate performer is complete in skill, and the same word will crown a consummate liar without flinching — while the verb kept a narrower duty, completing a marriage."
+    "s": "Latin consummare, 'to sum up, complete,' from con and summa, the highest total — the top line of a Roman ledger, where the sum was written. To consummate a thing was to bring it to its full amount, nothing more moral than arithmetic. The adjective drifted from completed to perfected, and from perfected to supremely skilled, which is where the trouble starts: perfection is indifferent to what is being perfected. Today a consummate performer is complete in skill, and the same word will crown a consummate liar without flinching — while the verb kept a narrower duty, completing a marriage.",
+    "w": "brought to completion; finished, with nothing said about skill",
+    "k": "better"
   },
   "incorrigible": {
     "v": "Three schools, two counselors, one probation officer — and he was picking locks again by Friday.",
@@ -239,27 +253,37 @@ export const DEPTH = {
   "unconscionable": {
     "v": "The lender's fine print took the widow's house over a debt of four hundred dollars.",
     "e": "Latin conscientia, 'inner knowledge' — a deed done as if no conscience were present in the room.",
-    "s": "Latin conscientia, 'knowing with' — con plus scire, to know — the inner witness that knows alongside you. English built conscionable from conscience in the sixteenth century by misreading the noun as though a verb lay inside it, and then found the negative far more useful than the positive. It began as a term of art: the courts of equity refused to enforce an unconscionable bargain, one so lopsided that no conscience could approve it. That legal sense is still live in contract law today, sitting alongside the general moral one, and the scire at its root is the same knowing that gives us science."
+    "s": "Latin conscientia, 'knowing with' — con plus scire, to know — the inner witness that knows alongside you. English built conscionable from conscience in the sixteenth century by misreading the noun as though a verb lay inside it, and then found the negative far more useful than the positive. It began as a term of art: the courts of equity refused to enforce an unconscionable bargain, one so lopsided that no conscience could approve it. That legal sense is still live in contract law today, sitting alongside the general moral one, and the scire at its root is the same knowing that gives us science.",
+    "w": "of a bargain so lopsided that a court of equity would not enforce it",
+    "k": "widen"
   },
   "glib": {
     "v": "He had a smooth answer for every objection before it finished being asked — none of them, on reflection, true.",
     "e": "From a Germanic root meaning 'slippery' — fluency so frictionless it slides right past sincerity.",
-    "s": "A Germanic word, kin to Dutch glibberig and German glatt, meaning slippery or smooth — and alone in this gate it has no classical pedigree at all, no Latin parts to take apart, which is why the corpus records it as a single unanalysed morpheme. Its earliest English sense in the sixteenth century was physical: a glib surface was a slick one, and ice was glib. The word then narrowed almost entirely onto speech, and in narrowing it acquired a moral charge the surfaces never carried. Today glib means smooth in speech and too smooth to trust, the fluency itself having become the fault."
+    "s": "A Germanic word, kin to Dutch glibberig and German glatt, meaning slippery or smooth — and alone in this gate it has no classical pedigree at all, no Latin parts to take apart, which is why the corpus records it as a single unanalysed morpheme. Its earliest English sense in the sixteenth century was physical: a glib surface was a slick one, and ice was glib. The word then narrowed almost entirely onto speech, and in narrowing it acquired a moral charge the surfaces never carried. Today glib means smooth in speech and too smooth to trust, the fluency itself having become the fault.",
+    "w": "smooth or slippery to the touch, as ice underfoot is",
+    "k": "figure"
   },
   "egregious": {
     "v": "Of all the blunders in the report, misspelling the client's name on the cover stood alone.",
     "e": "Latin e + grege, 'out of the flock' — once meant outstandingly good; irony marched it to outstandingly bad.",
-    "s": "Latin egregius, from e, 'out of,' and grex, gregis, 'the flock' — one who stands out from the herd, and originally a compliment. English borrowed it in the sixteenth century meaning distinguished, remarkable, conspicuously fine, and an egregious scholar was one to be envied. Within about a hundred years it had flipped to the opposite, almost certainly worn down by sarcasm: call enough scoundrels egregious in mockery and the mockery sticks to the word. Today egregious means conspicuously and outrageously bad, while the flock it left behind still grazes in gregarious, congregation and segregate."
+    "s": "Latin egregius, from e, 'out of,' and grex, gregis, 'the flock' — one who stands out from the herd, and originally a compliment. English borrowed it in the sixteenth century meaning distinguished, remarkable, conspicuously fine, and an egregious scholar was one to be envied. Within about a hundred years it had flipped to the opposite, almost certainly worn down by sarcasm: call enough scoundrels egregious in mockery and the mockery sticks to the word. Today egregious means conspicuously and outrageously bad, while the flock it left behind still grazes in gregarious, congregation and segregate.",
+    "w": "standing out from the flock; remarkably fine, distinguished, to be envied",
+    "k": "worse"
   },
   "disparage": {
     "v": "With one shrug he dismissed her thesis as 'a decent term paper.'",
     "e": "Old French desparagier, 'to marry beneath one's rank' (par, equal) — to lower something from its proper station.",
-    "s": "Old French desparagier, from des-, 'away,' and parage, 'rank or lineage,' which rests on Latin par, 'equal' — and its first English sense was strictly feudal. To disparage was to marry a ward beneath their station, a real and actionable injury, since an unequal match cost a family its standing and its heirs their inheritance. The word therefore began as a matter of blood and property rather than of speech. The turn came when the lowering stopped being a marriage and became a remark. Today to disparage is to belittle in words, though par and parity still keep the equality the offence was measured against."
+    "s": "Old French desparagier, from des-, 'away,' and parage, 'rank or lineage,' which rests on Latin par, 'equal' — and its first English sense was strictly feudal. To disparage was to marry a ward beneath their station, a real and actionable injury, since an unequal match cost a family its standing and its heirs their inheritance. The word therefore began as a matter of blood and property rather than of speech. The turn came when the lowering stopped being a marriage and became a remark. Today to disparage is to belittle in words, though par and parity still keep the equality the offence was measured against.",
+    "w": "to marry a ward beneath their rank, costing the family its standing",
+    "k": "widen"
   },
   "equivocate": {
     "v": "Asked point-blank if he'd approved the payment, he answered with a definition of 'approval.'",
     "e": "Latin aequus (equal) + vox (voice) — speaking with two equal voices at once, so neither can be pinned.",
-    "s": "Latin aequus, 'equal,' with vox, 'voice' — a word of equal voices, saying two things at once. It began as a term of logic: medieval schoolmen used aequivocatio for the fallacy of shifting a word's sense mid-argument, a technical fault with no moral charge attached. What moralised it was the Gunpowder Plot era, when Jesuit teaching on mental reservation was read in England as licence to lie under oath; Shakespeare's Porter in Macbeth is already joking about the equivocator who committed treason for God's sake. Today to equivocate is to evade the truth by ambiguity, the fallacy having hardened into a charge of bad faith."
+    "s": "Latin aequus, 'equal,' with vox, 'voice' — a word of equal voices, saying two things at once. It began as a term of logic: medieval schoolmen used aequivocatio for the fallacy of shifting a word's sense mid-argument, a technical fault with no moral charge attached. What moralised it was the Gunpowder Plot era, when Jesuit teaching on mental reservation was read in England as licence to lie under oath; Shakespeare's Porter in Macbeth is already joking about the equivocator who committed treason for God's sake. Today to equivocate is to evade the truth by ambiguity, the fallacy having hardened into a charge of bad faith.",
+    "w": "to trade on a term that carries two senses — a named fault of logic",
+    "k": "worse"
   },
   "placate": {
     "v": "He arrived with flowers, apologies, and courtside tickets, and slowly her fury cooled.",
@@ -319,7 +343,9 @@ export const DEPTH = {
   "voluble": {
     "v": "The auctioneer's patter rolled on without a breath — fluent, rapid, unstoppable.",
     "e": "Latin volvere, 'to roll' — speech that turns and rolls like a wheel; kin to revolve and volume, the rolled scroll.",
-    "s": "Latin volubilis, 'turning, rolling,' from volvere, 'to roll' — and the first English sense was literal, of anything that turned on its axis, a voluble sphere or a wheel. The metaphor that displaced it is a good one: fluent speech rolls, each word carrying the next round with it, gathering pace by its own motion. That is why voluble names an ease rather than a quantity. Today voluble means speaking in a rapid and rolling flow, and the same volvere gives revolve, evolve and volume — a volume being, before it was a book, simply a scroll rolled up."
+    "s": "Latin volubilis, 'turning, rolling,' from volvere, 'to roll' — and the first English sense was literal, of anything that turned on its axis, a voluble sphere or a wheel. The metaphor that displaced it is a good one: fluent speech rolls, each word carrying the next round with it, gathering pace by its own motion. That is why voluble names an ease rather than a quantity. Today voluble means speaking in a rapid and rolling flow, and the same volvere gives revolve, evolve and volume — a volume being, before it was a book, simply a scroll rolled up.",
+    "w": "turning or rotating freely on an axis, as a wheel or a sphere does",
+    "k": "figure"
   },
   "verbose": {
     "v": "The memo used four hundred words to reschedule a meeting.",
@@ -329,7 +355,9 @@ export const DEPTH = {
   "cogent": {
     "v": "Her three-minute argument moved the board from skeptical to unanimous.",
     "e": "Latin cogere, 'to drive together, compel' — reasoning that herds the listener to one conclusion.",
-    "s": "Latin cogere, 'to drive together,' contracted from co- and agere, 'to drive' — the verb a Roman used for herding cattle into one place. Compulsion is built into it: what is cogent does not invite agreement but rounds you up and delivers you at a conclusion with nowhere else to stand. English borrowed it in the seventeenth century meaning constraining in general, and it narrowed onto argument, which is the only thing it now drives. Today a cogent case compels by clear force of logic, and agere's other children — act, agent, agenda, exact — all keep some of the same driving."
+    "s": "Latin cogere, 'to drive together,' contracted from co- and agere, 'to drive' — the verb a Roman used for herding cattle into one place. Compulsion is built into it: what is cogent does not invite agreement but rounds you up and delivers you at a conclusion with nowhere else to stand. English borrowed it in the seventeenth century meaning constraining in general, and it narrowed onto argument, which is the only thing it now drives. Today a cogent case compels by clear force of logic, and agere's other children — act, agent, agenda, exact — all keep some of the same driving.",
+    "w": "compelling or constraining in general, not only in argument",
+    "k": "narrow"
   },
   "vociferous": {
     "v": "The gallery drowned out the referee's whistle for a full minute after the call.",
@@ -339,7 +367,9 @@ export const DEPTH = {
   "sententious": {
     "v": "'Character is destiny,' he intoned over coffee, the fourth maxim before nine o'clock.",
     "e": "Latin sententia, 'opinion, maxim' — once praise for pithiness, now the smell of the pulpit on ordinary talk.",
-    "s": "Latin sententia, 'an opinion or maxim,' from sentire, 'to feel' — and this word has turned completely around. To be sententious was once high praise: it meant a style packed with sententiae, the memorable compressed judgements that Renaissance readers copied into commonplace books, and Bacon was admired for exactly that density. The turn came when the taste changed. Once the aphorism came to seem a way of sounding wise rather than being wise, the same quality was heard as preaching, and by the nineteenth century the word had crossed the line. Today sententious means given to pompous moralising, and sentence, once simply an opinion, took the calmer road."
+    "s": "Latin sententia, 'an opinion or maxim,' from sentire, 'to feel' — and this word has turned completely around. To be sententious was once high praise: it meant a style packed with sententiae, the memorable compressed judgements that Renaissance readers copied into commonplace books, and Bacon was admired for exactly that density. The turn came when the taste changed. Once the aphorism came to seem a way of sounding wise rather than being wise, the same quality was heard as preaching, and by the nineteenth century the word had crossed the line. Today sententious means given to pompous moralising, and sentence, once simply an opinion, took the calmer road.",
+    "w": "packed with memorable maxims; admirably pithy in style",
+    "k": "worse"
   },
   "terse": {
     "v": "The whole review: 'Accurate, complete, on time.' Nothing to add, nothing wasted.",
@@ -364,12 +394,16 @@ export const DEPTH = {
   "dilettante": {
     "v": "Four lessons of cello, half a novel drafted, a kiln bought and cooling — each abandoned by June.",
     "e": "Italian dilettare, 'to delight' — one who takes the delight of an art but not its discipline; once a neutral word for an art-lover.",
-    "s": "Italian dilettante, 'one who delights,' from dilettare and behind it Latin delectare — and for a century the word was a credential rather than a slur. The Society of Dilettanti, founded in London in 1734 by gentlemen who loved and funded the arts, wore the name proudly, and to be a dilettante meant loving a thing for itself rather than for a living. The turn came with professionalism. Once expertise required training and credentials, love without discipline stopped being a mark of freedom and became a mark of shallowness. Today a dilettante is a dabbler, and amateur, which likewise means one who loves, was dragged downhill in exactly the same cart."
+    "s": "Italian dilettante, 'one who delights,' from dilettare and behind it Latin delectare — and for a century the word was a credential rather than a slur. The Society of Dilettanti, founded in London in 1734 by gentlemen who loved and funded the arts, wore the name proudly, and to be a dilettante meant loving a thing for itself rather than for a living. The turn came with professionalism. Once expertise required training and credentials, love without discipline stopped being a mark of freedom and became a mark of shallowness. Today a dilettante is a dabbler, and amateur, which likewise means one who loves, was dragged downhill in exactly the same cart.",
+    "w": "one who loves and supports the arts for their own sake",
+    "k": "worse"
   },
   "virago": {
     "v": "The landlady's bellow emptied the stairwell; grown tenants hid until the storm passed.",
     "e": "Latin vir, 'man' — literally a man-like woman; once a compliment for warrior women, curdled by centuries into a scold.",
-    "s": "Latin virago, formed from vir, 'man,' and it enters the tradition on dignified terms. Jerome used it in the Vulgate for Eve, who should be called virago because she was taken out of vir, an attempt to reproduce in Latin the Hebrew wordplay between ish and ishshah. Early English kept the honour, using virago of heroic and warlike women, Amazons and saints. Then it curdled, as words for forceful women reliably do, from warrior to scold to shrew, the strength revalued as noise. Today a virago is a loud and domineering woman, and vir's other children, virile and virtue, kept the compliment the woman lost."
+    "s": "Latin virago, formed from vir, 'man,' and it enters the tradition on dignified terms. Jerome used it in the Vulgate for Eve, who should be called virago because she was taken out of vir, an attempt to reproduce in Latin the Hebrew wordplay between ish and ishshah. Early English kept the honour, using virago of heroic and warlike women, Amazons and saints. Then it curdled, as words for forceful women reliably do, from warrior to scold to shrew, the strength revalued as noise. Today a virago is a loud and domineering woman, and vir's other children, virile and virtue, kept the compliment the woman lost.",
+    "w": "a heroic warrior woman, praised for her strength",
+    "k": "worse"
   },
   "chauvinist": {
     "v": "No wine but his country's, no history but its victories, no fault it could ever commit.",
@@ -379,12 +413,16 @@ export const DEPTH = {
   "monomaniac": {
     "v": "Whatever the conversation began as, within five minutes it was about the canal again.",
     "e": "Greek monos (one) + mania (madness) — the nineteenth century's diagnosis for minds sane everywhere but one white-hot point; Ahab is its portrait.",
-    "s": "Greek monos, 'one,' with mania, 'madness' — and unlike most of this gate the word began as a precise clinical term. Jean-Étienne Esquirol coined monomanie in French around 1810 for an insanity confined to a single subject, the patient rational in every other quarter, and the diagnosis mattered because courts used it: a man could be held mad on one point and sane on the rest. Psychiatry abandoned the category by the late nineteenth century as too crude to survive examination. Literature kept it. Today a monomaniac is anyone irrationally fixed on one idea, and Melville's Ahab, sane in all seamanship and mad in one whale, remains the portrait the word was made for."
+    "s": "Greek monos, 'one,' with mania, 'madness' — and unlike most of this gate the word began as a precise clinical term. Jean-Étienne Esquirol coined monomanie in French around 1810 for an insanity confined to a single subject, the patient rational in every other quarter, and the diagnosis mattered because courts used it: a man could be held mad on one point and sane on the rest. Psychiatry abandoned the category by the late nineteenth century as too crude to survive examination. Literature kept it. Today a monomaniac is anyone irrationally fixed on one idea, and Melville's Ahab, sane in all seamanship and mad in one whale, remains the portrait the word was made for.",
+    "w": "a patient insane on one subject alone and wholly rational on the rest",
+    "k": "widen"
   },
   "iconoclast": {
     "v": "Her first week as editor, she killed the anniversary issue, the awards banquet, and the founder's column.",
     "e": "Greek eikon (image) + klastes (breaker) — the literal smashers of icons in eighth-century Byzantium; now the smasher of cherished ideas.",
-    "s": "Greek eikon, 'image,' with klastes, 'breaker' — and for its first several centuries the word named men who broke actual images with actual hammers. Byzantine emperors of the eighth and ninth centuries ordered religious images destroyed as idolatrous, and the Iconoclasts were the party that carried out the order; the Reformation supplied a second wave of literal smashers. The figurative sense arrived in the nineteenth century, when the images to be broken became beliefs. It also changed sides. Today an iconoclast attacks cherished ideas and is usually being complimented for it — a word that started as an accusation of vandalism and ended as a term for intellectual courage."
+    "s": "Greek eikon, 'image,' with klastes, 'breaker' — and for its first several centuries the word named men who broke actual images with actual hammers. Byzantine emperors of the eighth and ninth centuries ordered religious images destroyed as idolatrous, and the Iconoclasts were the party that carried out the order; the Reformation supplied a second wave of literal smashers. The figurative sense arrived in the nineteenth century, when the images to be broken became beliefs. It also changed sides. Today an iconoclast attacks cherished ideas and is usually being complimented for it — a word that started as an accusation of vandalism and ended as a term for intellectual courage.",
+    "w": "one who smashed religious images as idolatrous",
+    "k": "better"
   },
   "hypochondriac": {
     "v": "A new specialist each month, a filing cabinet of clean test results, and still tonight's headache is a tumor.",
@@ -399,7 +437,9 @@ export const DEPTH = {
   "philistine": {
     "v": "He priced the sculpture by its weight in bronze and asked why the museum needed two floors.",
     "e": "The biblical Philistines, Israel's enemies — German students used Philister for the unenlightened townsfolk outside the university gates; Matthew Arnold aimed it at the culture-proof middle class.",
-    "s": "The Philistines of the Hebrew Bible were Israel's enemies, and for centuries the English word meant only that. The modern sense is German and traceable to an incident: after a town-and-gown brawl at Jena in which a student was killed, a preacher took his funeral text from Judges, the Philistines be upon thee, Samson — and German students thereafter called the unlettered townsfolk beyond the university gates Philister. Carlyle carried the usage into English. Matthew Arnold then aimed it, in Culture and Anarchy of 1869, at a whole class he judged prosperous, self-satisfied and immune to culture. Today a philistine is anyone indifferent or hostile to art and ideas, a biblical enemy repurposed as a social one."
+    "s": "The Philistines of the Hebrew Bible were Israel's enemies, and for centuries the English word meant only that. The modern sense is German and traceable to an incident: after a town-and-gown brawl at Jena in which a student was killed, a preacher took his funeral text from Judges, the Philistines be upon thee, Samson — and German students thereafter called the unlettered townsfolk beyond the university gates Philister. Carlyle carried the usage into English. Matthew Arnold then aimed it, in Culture and Anarchy of 1869, at a whole class he judged prosperous, self-satisfied and immune to culture. Today a philistine is anyone indifferent or hostile to art and ideas, a biblical enemy repurposed as a social one.",
+    "w": "a member of the people who were Israel's enemies in scripture",
+    "k": "figure"
   },
   "convivial": {
     "v": "His table sat twelve every Sunday, and strangers left as friends by the cheese course.",
@@ -419,12 +459,16 @@ export const DEPTH = {
   "magnanimous": {
     "v": "He won the lawsuit, then quietly paid his ruined rival's legal bills.",
     "e": "Latin magnus (great) + animus (soul) — great-souled: Aristotle's crowning virtue, rendered letter for letter from Greek megalopsychos.",
-    "s": "Latin magnus, 'great,' with animus, 'soul' — and the compound is not native Latin thinking but a loan-translation, built piece by piece to render Greek megalopsychos. Aristotle made megalopsychia the crown of the virtues in the Nicomachean Ethics: the great-souled man knows exactly what he is worth, claims it without apology, and is therefore incapable of pettiness. Latin calqued the word, English borrowed it in the sixteenth century, and it narrowed considerably on the journey. Today magnanimous means generous and free of spite, especially in victory — one branch of Aristotle's far larger virtue, with pusillanimous, the small-souled, standing where he left its opposite."
+    "s": "Latin magnus, 'great,' with animus, 'soul' — and the compound is not native Latin thinking but a loan-translation, built piece by piece to render Greek megalopsychos. Aristotle made megalopsychia the crown of the virtues in the Nicomachean Ethics: the great-souled man knows exactly what he is worth, claims it without apology, and is therefore incapable of pettiness. Latin calqued the word, English borrowed it in the sixteenth century, and it narrowed considerably on the journey. Today magnanimous means generous and free of spite, especially in victory — one branch of Aristotle's far larger virtue, with pusillanimous, the small-souled, standing where he left its opposite.",
+    "w": "great-souled in Aristotle's full sense: knowing one's worth and claiming it",
+    "k": "narrow"
   },
   "versatile": {
     "v": "She fixed the generator at noon, argued the permit at three, and played the wedding that evening.",
     "e": "Latin versare, 'to turn about' — able to turn from task to task; one more child of vertere, the great turning-root.",
-    "s": "Latin versatilis, 'able to be turned,' from versare and behind it vertere, the great turning-root of this corpus. Its first English use in the seventeenth century was mechanical, of a joint or a vane that could swing freely, and when it was first applied to people it was not a compliment at all: a versatile man was changeable, inconstant, a turncoat who would face whichever way the wind did. The word had to be rehabilitated. What rescued it was the shift from turning with circumstance to turning between tasks, one meaning disloyalty and the other competence. Today versatile is praise for range, and the suspicion it once carried has passed to fickle."
+    "s": "Latin versatilis, 'able to be turned,' from versare and behind it vertere, the great turning-root of this corpus. Its first English use in the seventeenth century was mechanical, of a joint or a vane that could swing freely, and when it was first applied to people it was not a compliment at all: a versatile man was changeable, inconstant, a turncoat who would face whichever way the wind did. The word had to be rehabilitated. What rescued it was the shift from turning with circumstance to turning between tasks, one meaning disloyalty and the other competence. Today versatile is praise for range, and the suspicion it once carried has passed to fickle.",
+    "w": "changeable and inconstant; a turncoat who faced whichever way the wind did",
+    "k": "better"
   },
   "stoic": {
     "v": "The verdict came down against him; he nodded once, gathered his papers, and thanked the court.",
@@ -464,7 +508,9 @@ export const DEPTH = {
   "polygamy": {
     "v": "The patriarch's compound housed four wives and their separate kitchens, all lawful in that province.",
     "e": "Greek polys (many) + gamos — many spouses at once, the umbrella over polygyny and its rare mirror.",
-    "s": "Greek polys, 'many,' with gamos, 'marriage' — the umbrella term, and it entered English in the sixteenth century inside a theological argument about the Old Testament patriarchs, who plainly had more than one wife apiece. Precision arrived later, from anthropology: polygyny names many wives, polyandry many husbands, and polygamy properly covers both. Popular usage has never respected the distinction and uses polygamy when it means polygyny alone, which is the far commoner arrangement. Today polygamy is the custom of having several spouses at once, a word doing duty for a category it was meant only to head."
+    "s": "Greek polys, 'many,' with gamos, 'marriage' — the umbrella term, and it entered English in the sixteenth century inside a theological argument about the Old Testament patriarchs, who plainly had more than one wife apiece. Precision arrived later, from anthropology: polygyny names many wives, polyandry many husbands, and polygamy properly covers both. Popular usage has never respected the distinction and uses polygamy when it means polygyny alone, which is the far commoner arrangement. Today polygamy is the custom of having several spouses at once, a word doing duty for a category it was meant only to head.",
+    "w": "the umbrella term for plural marriage of either kind, husbands or wives",
+    "k": "narrow"
   },
   "polyandry": {
     "v": "In the high valley, one woman traditionally married a set of brothers, keeping the farm whole.",
@@ -479,7 +525,9 @@ export const DEPTH = {
   "agoraphobia": {
     "v": "She planned her whole week around avoiding the supermarket at busy hours; the open plaza was out of the question.",
     "e": "Greek agora, 'marketplace' — fear of the open, crowded square where Athens gathered; phobos was the god Fear himself, Ares' son.",
-    "s": "Greek agora, the marketplace and civic assembly where an Athenian went to be a citizen at all, joined to phobos, 'fear,' who was a god in his own right, the son of Ares. The compound is modern and datable: Carl Westphal coined Agoraphobie in German in 1871, from cases of men seized by panic while crossing open squares. Clinical understanding has since widened it well past open spaces, to any situation from which escape would be difficult or embarrassing. Today agoraphobia is an extreme fear of public places, and its commonest form is not fear of the square but refusal to leave the house."
+    "s": "Greek agora, the marketplace and civic assembly where an Athenian went to be a citizen at all, joined to phobos, 'fear,' who was a god in his own right, the son of Ares. The compound is modern and datable: Carl Westphal coined Agoraphobie in German in 1871, from cases of men seized by panic while crossing open squares. Clinical understanding has since widened it well past open spaces, to any situation from which escape would be difficult or embarrassing. Today agoraphobia is an extreme fear of public places, and its commonest form is not fear of the square but refusal to leave the house.",
+    "w": "a panic seizing men who had to cross a wide open square",
+    "k": "widen"
   },
   "claustrophobia": {
     "v": "He took eleven flights of stairs daily rather than face the elevator's closing doors.",
@@ -559,7 +607,9 @@ export const DEPTH = {
   "circumlocution": {
     "v": "'Revenue enhancement through workforce optimization' — it took the room a minute to hear 'layoffs.'",
     "e": "Latin circum (around) + loqui (to speak) — talking in circles around the point; Dickens housed bureaucracy itself in the Circumlocution Office.",
-    "s": "Latin circum, 'around,' with loqui, 'to speak' — talking round a thing, and it began as a neutral term of rhetoric, the Latin rendering of Greek periphrasis. Saying a thing indirectly was a recognised figure with legitimate uses, for delicacy or for emphasis, and the textbooks taught it. It became purely a fault when indirection came to be read as evasion. Dickens supplied the definitive English image in Little Dorrit in 1857, with the Circumlocution Office, the department of state devoted to the art of How Not To Do It. Today circumlocution is a roundabout way of speaking, and the compliment it once received is gone entirely."
+    "s": "Latin circum, 'around,' with loqui, 'to speak' — talking round a thing, and it began as a neutral term of rhetoric, the Latin rendering of Greek periphrasis. Saying a thing indirectly was a recognised figure with legitimate uses, for delicacy or for emphasis, and the textbooks taught it. It became purely a fault when indirection came to be read as evasion. Dickens supplied the definitive English image in Little Dorrit in 1857, with the Circumlocution Office, the department of state devoted to the art of How Not To Do It. Today circumlocution is a roundabout way of speaking, and the compliment it once received is gone entirely.",
+    "w": "a recognised figure of speech: saying a thing indirectly for effect",
+    "k": "worse"
   },
   "grandiloquent": {
     "v": "He could not say 'the budget failed'; he said 'our fiscal aspirations met the headwinds of destiny.'",
@@ -574,7 +624,9 @@ export const DEPTH = {
   "colloquial": {
     "v": "The professor writes 'children'; at home he says 'the kids' — both correct, one off duty.",
     "e": "Latin con + loqui, 'to speak together' — the language of conversation; a colloquium is literally a talking-together.",
-    "s": "Latin con-, 'together,' with loqui, 'to speak' — a speaking-together, which is all a conversation is. English formed colloquial in the seventeenth century, and for a long time the word carried a verdict rather than a description: to mark an expression as colloquial in an eighteenth or nineteenth-century dictionary was to warn the reader off it, since the written language was held to be the real one and speech a careless version. Linguistics reversed the judgement. Today colloquial simply names the register of everyday conversation, no longer a demotion, and a colloquium remains literally a talking-together."
+    "s": "Latin con-, 'together,' with loqui, 'to speak' — a speaking-together, which is all a conversation is. English formed colloquial in the seventeenth century, and for a long time the word carried a verdict rather than a description: to mark an expression as colloquial in an eighteenth or nineteenth-century dictionary was to warn the reader off it, since the written language was held to be the real one and speech a careless version. Linguistics reversed the judgement. Today colloquial simply names the register of everyday conversation, no longer a demotion, and a colloquium remains literally a talking-together.",
+    "w": "a mark against an expression, warning that it was unfit for writing",
+    "k": "better"
   },
   "malediction": {
     "v": "The old woman spat on the courthouse steps and wished ruin on the judge and his line.",
@@ -614,7 +666,9 @@ export const DEPTH = {
   "litigious": {
     "v": "Fourteen suits in ten years — against the city, the florist, and twice against his own brother.",
     "e": "Latin lis, litis, 'lawsuit' — given to going to law; Rome's courts knew the type well enough to name it.",
-    "s": "Latin lis, litis, 'a lawsuit or dispute' — and the English word first described the case rather than the person. A litigious question in the sixteenth and seventeenth centuries was one that was actually at issue, a matter properly subject to legal dispute, and there was no criticism in it. The word then shifted its target from the quarrel to the quarreller, and in doing so picked up the disapproval it now carries entirely. Today litigious means prone to suing and fond of lawsuits, a description of temperament rather than of the matter in hand, and the same lis gives litigate and litigant without the sneer."
+    "s": "Latin lis, litis, 'a lawsuit or dispute' — and the English word first described the case rather than the person. A litigious question in the sixteenth and seventeenth centuries was one that was actually at issue, a matter properly subject to legal dispute, and there was no criticism in it. The word then shifted its target from the quarrel to the quarreller, and in doing so picked up the disapproval it now carries entirely. Today litigious means prone to suing and fond of lawsuits, a description of temperament rather than of the matter in hand, and the same lis gives litigate and litigant without the sneer.",
+    "w": "of a matter properly at issue and fit to be settled in court",
+    "k": "worse"
   },
   "perjury": {
     "v": "Under oath she swore she'd never seen the ledger; the prosecution then produced her signature on it.",
@@ -704,7 +758,9 @@ export const DEPTH = {
   "anachronism": {
     "v": "In the film's Roman forum, a centurion checks his wristwatch.",
     "e": "Greek ana- (backward) + chronos (time) — a thing knocked back against time's order; Shakespeare's striking clock in Julius Caesar is the textbook case.",
-    "s": "Greek ana-, 'backwards,' with chronos, 'time' — a thing set against time's order, and its first English use was narrower and drier than the modern one. In the seventeenth century an anachronism was an error in dating, the scholar's mistake of assigning an event to the wrong year, and the word belonged to chronology as a technical discipline. It widened into the familiar sense of anything out of its period. The textbook example is Shakespeare's, whose clock strikes three in Julius Caesar some fourteen centuries before mechanical clocks existed. Today an anachronism is a thing in the wrong time, whether by an author's slip or by survival past its age."
+    "s": "Greek ana-, 'backwards,' with chronos, 'time' — a thing set against time's order, and its first English use was narrower and drier than the modern one. In the seventeenth century an anachronism was an error in dating, the scholar's mistake of assigning an event to the wrong year, and the word belonged to chronology as a technical discipline. It widened into the familiar sense of anything out of its period. The textbook example is Shakespeare's, whose clock strikes three in Julius Caesar some fourteen centuries before mechanical clocks existed. Today an anachronism is a thing in the wrong time, whether by an author's slip or by survival past its age.",
+    "w": "a scholar's error in dating, assigning an event to the wrong year",
+    "k": "widen"
   },
   "chronological": {
     "v": "The biographer laid the letters out by date, and the love affair told itself in order.",
@@ -799,7 +855,9 @@ export const DEPTH = {
   "specious": {
     "v": "The pitch deck's curves all rose smoothly; only in the footnotes did the numbers quietly confess.",
     "e": "Latin species, 'appearance' — once meaning simply 'beautiful,' it soured into beauty that lies: fair-seeming, false within.",
-    "s": "Latin species, 'appearance,' from specere, 'to look' — what a thing looks like, and the English word began as a straightforward compliment. For its first century or so specious meant beautiful, handsome, pleasing to the eye, with no suggestion that the appearance was misleading; a specious building was a fine one. The souring happened through phrases like specious appearance and specious reasoning, where the word kept doing its old work of naming the surface while the context supplied the doubt about what lay under it. Today specious means plausible but false, and species itself is just a look, a kind of thing as it presents to the eye."
+    "s": "Latin species, 'appearance,' from specere, 'to look' — what a thing looks like, and the English word began as a straightforward compliment. For its first century or so specious meant beautiful, handsome, pleasing to the eye, with no suggestion that the appearance was misleading; a specious building was a fine one. The souring happened through phrases like specious appearance and specious reasoning, where the word kept doing its old work of naming the surface while the context supplied the doubt about what lay under it. Today specious means plausible but false, and species itself is just a look, a kind of thing as it presents to the eye.",
+    "w": "beautiful and pleasing to the eye, with no suggestion of deceit",
+    "k": "worse"
   },
   "symbiosis": {
     "v": "The clownfish shelters in the anemone's stinging arms and pays rent by chasing off its predators.",
@@ -824,7 +882,9 @@ export const DEPTH = {
   "mortify": {
     "v": "Halfway through the toast he realized he'd been calling the bride by his ex-wife's name.",
     "e": "Latin mors, mortis (death) + facere (to make) — literally 'to make dead'; monks mortified the flesh, and embarrassment kills a little too.",
-    "s": "Latin mors, mortis, 'death,' with facere, 'to make' — to put to death, and the word's history is a long weakening from that. Its first English sense was religious and severe: to mortify the flesh was to kill off appetite by fasting and discipline, a programme the New Testament recommends in as many words and the desert ascetics took literally. Medicine used it just as literally, mortification being the older name for gangrene, flesh actually dying on a living body. From killing the body to reddening the face is the whole distance travelled. Today to mortify is to humiliate, and embarrassment is what remains of a death."
+    "s": "Latin mors, mortis, 'death,' with facere, 'to make' — to put to death, and the word's history is a long weakening from that. Its first English sense was religious and severe: to mortify the flesh was to kill off appetite by fasting and discipline, a programme the New Testament recommends in as many words and the desert ascetics took literally. Medicine used it just as literally, mortification being the older name for gangrene, flesh actually dying on a living body. From killing the body to reddening the face is the whole distance travelled. Today to mortify is to humiliate, and embarrassment is what remains of a death.",
+    "w": "to put to death; to kill off the appetites by fasting and discipline",
+    "k": "figure"
   },
   "mortician": {
     "v": "He received the family at the door in gray, spoke softly of arrangements, and led them past the casket room.",
@@ -864,7 +924,9 @@ export const DEPTH = {
   "mandate": {
     "v": "The landslide gave the new government cover to claim the voters had ordered the whole program.",
     "e": "Latin manus + dare, 'to give into the hand' — a commission handed over; the same handing gives us 'command' and 'demand.'",
-    "s": "Latin manus, 'hand,' with dare, 'to give' — a giving into the hand, and Roman law used mandatum for a contract of agency, one man entrusting his business to another without payment. The word has since been handed around a great deal. Politics took it for the authority voters give a government, the League of Nations took it in 1919 for territories entrusted to other powers to administer, and the Church kept the oldest use of all: Maundy Thursday is named from the mandatum novum, the new commandment given at the Last Supper. Today a mandate is an authoritative command or charge."
+    "s": "Latin manus, 'hand,' with dare, 'to give' — a giving into the hand, and Roman law used mandatum for a contract of agency, one man entrusting his business to another without payment. The word has since been handed around a great deal. Politics took it for the authority voters give a government, the League of Nations took it in 1919 for territories entrusted to other powers to administer, and the Church kept the oldest use of all: Maundy Thursday is named from the mandatum novum, the new commandment given at the Last Supper. Today a mandate is an authoritative command or charge.",
+    "w": "a contract by which one man entrusted his business to another without fee",
+    "k": "widen"
   },
   "legerdemain": {
     "v": "The coin was in his fist, then behind the child's ear, then gone entirely.",
@@ -884,7 +946,9 @@ export const DEPTH = {
   "expedient": {
     "v": "Settling out of court was cheaper than being right, so they settled.",
     "e": "From expedire — what frees the feet fastest; usefulness with the ethics left as an exercise.",
-    "s": "From the same Latin expedire, 'to free the feet' — and this word began without a shadow on it. For its first centuries in English expedient meant simply advantageous, fitting, suited to the purpose, and one could recommend a course as expedient with no suggestion of having cut a corner. The shadow arrived by contrast. Once expedient was habitually set against principled and right, it absorbed the difference, so that calling a decision expedient now concedes that it was not the honourable one. Today expedient means advantageous now if not principled, with the ethics left as an exercise for the reader."
+    "s": "From the same Latin expedire, 'to free the feet' — and this word began without a shadow on it. For its first centuries in English expedient meant simply advantageous, fitting, suited to the purpose, and one could recommend a course as expedient with no suggestion of having cut a corner. The shadow arrived by contrast. Once expedient was habitually set against principled and right, it absorbed the difference, so that calling a decision expedient now concedes that it was not the honourable one. Today expedient means advantageous now if not principled, with the ethics left as an exercise for the reader.",
+    "w": "advantageous, fitting, well suited to the purpose",
+    "k": "worse"
   },
   "corporeal": {
     "v": "The estate divided cleanly: the paintings and land to one heir, the copyrights and debts to the other — only the first kind could be touched.",
@@ -914,7 +978,9 @@ export const DEPTH = {
   "animosity": {
     "v": "Twenty years after the lawsuit, the two families still used separate church doors.",
     "e": "From animus — spirit soured into settled hostility; the same breath, exhaled as ill will.",
-    "s": "From Latin animus, 'spirit' — and its first English sense was not hostility at all but spiritedness, boldness, high courage, the quality one praised in a horse or a soldier. Vigour was the whole of it. The souring came through the observation that strong spirit directed at a person is rarely friendly, so the word narrowed from energy in general to energy aimed against someone, and the courage drained out of it entirely. Today animosity is strong active hostility, the same breath as equanimity and magnanimity beside it, exhaled as ill will rather than as level-headedness or generosity."
+    "s": "From Latin animus, 'spirit' — and its first English sense was not hostility at all but spiritedness, boldness, high courage, the quality one praised in a horse or a soldier. Vigour was the whole of it. The souring came through the observation that strong spirit directed at a person is rarely friendly, so the word narrowed from energy in general to energy aimed against someone, and the courage drained out of it entirely. Today animosity is strong active hostility, the same breath as equanimity and magnanimity beside it, exhaled as ill will rather than as level-headedness or generosity.",
+    "w": "high spirit, boldness, courage of the kind praised in a horse",
+    "k": "worse"
   },
   "pusillanimous": {
     "v": "He agreed with the last person to speak, always, and signed whatever avoided a scene.",
@@ -944,7 +1010,9 @@ export const DEPTH = {
   "vertiginous": {
     "v": "From the glass floor of the tower, the street below swam and tilted.",
     "e": "Latin vertigo, 'a whirling' — vertere again, the world itself turning when it shouldn't.",
-    "s": "Latin vertigo, 'a whirling,' from vertere — and medicine keeps the word far more exactly than English does. Clinical vertigo is not a fear of heights, which is acrophobia and belongs to another gate, nor is it simple dizziness; it is the specific illusion that you or the room is spinning, produced most often by a fault in the inner ear and quite possible while lying flat in a dark room. English has drifted from the sensation to its causes. Today vertiginous usually means dizzyingly high, describing the cliff rather than the whirling it might produce."
+    "s": "Latin vertigo, 'a whirling,' from vertere — and medicine keeps the word far more exactly than English does. Clinical vertigo is not a fear of heights, which is acrophobia and belongs to another gate, nor is it simple dizziness; it is the specific illusion that you or the room is spinning, produced most often by a fault in the inner ear and quite possible while lying flat in a dark room. English has drifted from the sensation to its causes. Today vertiginous usually means dizzyingly high, describing the cliff rather than the whirling it might produce.",
+    "w": "producing the spinning sensation of a disordered inner ear",
+    "k": "figure"
   },
   "subversive": {
     "v": "The pamphlet never called for revolt; it just asked, mildly, why the ministry's numbers never added up.",
@@ -1029,7 +1097,9 @@ export const DEPTH = {
   "euthanasia": {
     "v": "The old dog could no longer stand; the vet's injection was quiet, and the family stayed in the room.",
     "e": "Greek eu + thanatos, 'a good death' — Thanatos was Death himself, twin brother of Sleep.",
-    "s": "Greek eu, 'well,' with thanatos, 'death' — a good death, and its first English use meant nothing like what it means now. Francis Bacon used it in 1605 for the physician's duty to ease a dying patient's passage, and for centuries the word named a gentle natural end rather than an induced one; the sense of deliberately causing death is a nineteenth-century development. The twentieth century then poisoned it outright, since the Nazi programme that murdered disabled people was officially called euthanasia, which is a large part of why the modern debate prefers assisted dying. Today euthanasia means a mercifully induced death, under a name that has been claimed by both sides."
+    "s": "Greek eu, 'well,' with thanatos, 'death' — a good death, and its first English use meant nothing like what it means now. Francis Bacon used it in 1605 for the physician's duty to ease a dying patient's passage, and for centuries the word named a gentle natural end rather than an induced one; the sense of deliberately causing death is a nineteenth-century development. The twentieth century then poisoned it outright, since the Nazi programme that murdered disabled people was officially called euthanasia, which is a large part of why the modern debate prefers assisted dying. Today euthanasia means a mercifully induced death, under a name that has been claimed by both sides.",
+    "w": "a gentle and easy natural death, or the care that eased the passage",
+    "k": "narrow"
   },
   "euphony": {
     "v": "The poet chose 'cellar door' for its sound alone — syllables that fall without a single hard edge.",
@@ -1049,7 +1119,9 @@ export const DEPTH = {
   "paradox": {
     "v": "'I always lie,' he said. If that's true, it's false; if false, true.",
     "e": "Greek para (contrary) + doxa — against received opinion; Zeno's arrows and liars made contradiction a philosophical tool.",
-    "s": "Greek para, 'contrary to,' with doxa, 'opinion' — against received opinion, and that was the whole of its first English meaning. A paradox in the sixteenth century was simply a statement most people would reject, and it might be perfectly consistent and even true; the word named an offence against consensus rather than against logic. The narrowing to self-contradiction came later, helped by the ancient puzzles that trade on it, Zeno's arrow that never arrives and the Cretan who says all Cretans lie. Today a paradox is a seeming self-contradiction that may yet be true, which is a much sharper instrument than the word began as."
+    "s": "Greek para, 'contrary to,' with doxa, 'opinion' — against received opinion, and that was the whole of its first English meaning. A paradox in the sixteenth century was simply a statement most people would reject, and it might be perfectly consistent and even true; the word named an offence against consensus rather than against logic. The narrowing to self-contradiction came later, helped by the ancient puzzles that trade on it, Zeno's arrow that never arrives and the Cretan who says all Cretans lie. Today a paradox is a seeming self-contradiction that may yet be true, which is a much sharper instrument than the word began as.",
+    "w": "a statement contrary to received opinion, which might be perfectly true",
+    "k": "narrow"
   },
   "perspicacious": {
     "v": "From one line in the footnotes she saw the merger was doomed, eight months before the market did.",
@@ -1129,7 +1201,9 @@ export const DEPTH = {
   "senile": {
     "v": "He asked for his brother three times at dinner; his brother had been gone ten years.",
     "e": "Latin senex, 'old man' — age itself, later narrowed to age's failures; the Senate is the same word: a council of elders.",
-    "s": "Latin senex, 'old man' — and for most of its English life the word meant nothing worse than aged. A senile year, a senile decay, the senile period of life: these were neutral descriptions of lateness, and one could speak of senile dignity without contradiction. The narrowing to mean the failures of age rather than the fact of it is a nineteenth and twentieth-century development, driven by medical usage. The root itself has kept far better company elsewhere. Today senile means showing the mental decay of age, while senex also gives the senior, the sire and the Senate, which is simply a council of old men."
+    "s": "Latin senex, 'old man' — and for most of its English life the word meant nothing worse than aged. A senile year, a senile decay, the senile period of life: these were neutral descriptions of lateness, and one could speak of senile dignity without contradiction. The narrowing to mean the failures of age rather than the fact of it is a nineteenth and twentieth-century development, driven by medical usage. The root itself has kept far better company elsewhere. Today senile means showing the mental decay of age, while senex also gives the senior, the sire and the Senate, which is simply a council of old men.",
+    "w": "belonging to old age, in the plain and neutral sense",
+    "k": "worse"
   },
   "senescent": {
     "v": "The orchard still bore fruit, but each year fewer branches woke in spring.",
@@ -1144,7 +1218,9 @@ export const DEPTH = {
   "nostalgia": {
     "v": "The smell of diesel and oranges put him instantly on the ferry dock of his childhood, aching to be nowhere else.",
     "e": "Greek nostos (homecoming) + algos (pain) — coined in 1688 as a medical diagnosis for Swiss mercenaries literally sick for home; some were discharged for it.",
-    "s": "Greek nostos, 'a homecoming,' with algos, 'pain' — the ache to return, and it began as a diagnosis with a date. Johannes Hofer, a Swiss medical student, coined it in his dissertation of 1688 for a condition observed in Swiss mercenaries serving abroad, who wasted, refused food and sometimes died of longing for their mountains; it was treated as a genuine and occasionally fatal disease, and men were discharged for it. The word has since changed its axis entirely. What was a sickness for a place has become a fondness for a time, and the cure Hofer's patients needed is no longer available."
+    "s": "Greek nostos, 'a homecoming,' with algos, 'pain' — the ache to return, and it began as a diagnosis with a date. Johannes Hofer, a Swiss medical student, coined it in his dissertation of 1688 for a condition observed in Swiss mercenaries serving abroad, who wasted, refused food and sometimes died of longing for their mountains; it was treated as a genuine and occasionally fatal disease, and men were discharged for it. The word has since changed its axis entirely. What was a sickness for a place has become a fondness for a time, and the cure Hofer's patients needed is no longer available.",
+    "w": "a diagnosed and sometimes fatal sickness of longing for one's home",
+    "k": "figure"
   },
   "soporific": {
     "v": "Two paragraphs into the annual report, the whole back row was fighting gravity.",
@@ -1184,7 +1260,9 @@ export const DEPTH = {
   "obsequious": {
     "v": "The maître d' bowed the tycoon to his table, walking backward, agreeing with everything including the weather.",
     "e": "Latin ob + sequi, 'to follow after' — the courtier glued to the great man's heels; service curdled into fawning.",
-    "s": "Latin ob, 'towards,' with sequi, 'to follow' — following close after, and for its first two centuries in English it was a compliment. Obsequious meant dutiful, compliant and attentive, the proper bearing of a servant to a master or a son to a father, and Shakespeare uses it approvingly of filial duty. The souring is a change in what we think of following. Once deference came to look like a strategy rather than a station, the same close attendance was reread as fawning, and the word turned without changing its meaning at all. Today obsequious means servile and overeager."
+    "s": "Latin ob, 'towards,' with sequi, 'to follow' — following close after, and for its first two centuries in English it was a compliment. Obsequious meant dutiful, compliant and attentive, the proper bearing of a servant to a master or a son to a father, and Shakespeare uses it approvingly of filial duty. The souring is a change in what we think of following. Once deference came to look like a strategy rather than a station, the same close attendance was reread as fawning, and the word turned without changing its meaning at all. Today obsequious means servile and overeager.",
+    "w": "dutiful and attentive, as a good servant or a devoted son",
+    "k": "worse"
   },
   "obsequies": {
     "v": "The cortege moved from the chapel to the graveside for the final rites.",

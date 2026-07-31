@@ -491,7 +491,9 @@ export const INFER_POOL = [
     ],
     "roots": "sophia (wisdom) — via sophistes, a paid teacher of clever argument",
     "sentence": "It was sophistry of a high order, and it took the committee two days to find where the floor gave way.",
-    "story": "Greek sophia, 'wisdom,' by way of sophistes, a paid teacher — and this word is the verdict of a hostile witness. The Sophists of fifth-century Athens, Protagoras and Gorgias among them, were professional teachers of rhetoric and argument, and they were serious thinkers who raised real questions about whether truth is relative to the observer. Plato despised them for charging fees and for teaching how to make the weaker case appear the stronger, and his portrait is the one that survived. Today sophistry means reasoning that is clever and deceptive, a whole profession condemned in a word by its most gifted opponent."
+    "story": "Greek sophia, 'wisdom,' by way of sophistes, a paid teacher — and this word is the verdict of a hostile witness. The Sophists of fifth-century Athens, Protagoras and Gorgias among them, were professional teachers of rhetoric and argument, and they were serious thinkers who raised real questions about whether truth is relative to the observer. Plato despised them for charging fees and for teaching how to make the weaker case appear the stronger, and his portrait is the one that survived. Today sophistry means reasoning that is clever and deceptive, a whole profession condemned in a word by its most gifted opponent.",
+    "was": "the teaching of the professional rhetoricians of Athens",
+    "shift": "worse"
   },
   {
     "word": "sophomoric",
@@ -1223,7 +1225,9 @@ export const INFER_POOL = [
     ],
     "roots": "philein (to love) + aner, andros (man)",
     "sentence": "The philanderer was charming to everyone and faithful to no one in particular.",
-    "story": "Greek philein, 'to love,' with aner, andros, 'man' — and this word arrived at its meaning by a series of accidents. Greek philandros described a woman devoted to her husband, a term of praise applied to wives. Seventeenth-century pastoral literature then used Philander as a stock name for a male lover, apparently without much attention to what it had meant, and English made a verb of the character. A word for wifely fidelity thus became a word for male infidelity. Today a philanderer is a man who trifles with women, under a name that once complimented the woman he is failing."
+    "story": "Greek philein, 'to love,' with aner, andros, 'man' — and this word arrived at its meaning by a series of accidents. Greek philandros described a woman devoted to her husband, a term of praise applied to wives. Seventeenth-century pastoral literature then used Philander as a stock name for a male lover, apparently without much attention to what it had meant, and English made a verb of the character. A word for wifely fidelity thus became a word for male infidelity. Today a philanderer is a man who trifles with women, under a name that once complimented the woman he is failing.",
+    "was": "a wife devoted to her husband — the Greek was a compliment to her",
+    "shift": "worse"
   },
   {
     "word": "Anglophile",
@@ -1271,7 +1275,9 @@ export const INFER_POOL = [
     ],
     "roots": "caelebs (Latin: unmarried)",
     "sentence": "He remained celibate for forty years, which the parish took, wrongly, to settle the other question.",
-    "story": "Latin caelebs, 'unmarried' — and the word means only that, which is a distinction worth keeping. Celibacy is the state of being unmarried; chastity is abstention from sexual relations, and for most of the word's history a celibate person was simply a single one. The sexual sense is a twentieth-century development that has now almost displaced the original. The rule that made the word famous is datable: the Second Lateran Council of 1139 made clerical marriage invalid in the Western Church. Today a celibate is one who abstains from marriage, and the other abstention is strictly a separate promise."
+    "story": "Latin caelebs, 'unmarried' — and the word means only that, which is a distinction worth keeping. Celibacy is the state of being unmarried; chastity is abstention from sexual relations, and for most of the word's history a celibate person was simply a single one. The sexual sense is a twentieth-century development that has now almost displaced the original. The rule that made the word famous is datable: the Second Lateran Council of 1139 made clerical marriage invalid in the Western Church. Today a celibate is one who abstains from marriage, and the other abstention is strictly a separate promise.",
+    "was": "unmarried, whatever else was or was not true of the person",
+    "shift": "narrow"
   },
   {
     "word": "kleptocracy",
@@ -1563,7 +1569,9 @@ export const INFER_POOL = [
     ],
     "roots": "aristos (best) + kratos (rule)",
     "sentence": "It called itself an aristocracy, which required believing that merit had been hereditary for four centuries.",
-    "story": "Greek aristos, 'best,' with kratos, 'power' — rule by the best, and Aristotle meant it as a technical term with a definition. In the Politics, aristocracy is rule by the few in the common interest, and its corrupt counterpart, rule by the same few in their own interest, is oligarchy; the distinction is entirely about whom the government serves. The word then drifted from merit to birth. Today aristocracy means government by a noble class, so a term that originally claimed excellence now names an accident of parentage, which is exactly the slide Aristotle built oligarchy to describe."
+    "story": "Greek aristos, 'best,' with kratos, 'power' — rule by the best, and Aristotle meant it as a technical term with a definition. In the Politics, aristocracy is rule by the few in the common interest, and its corrupt counterpart, rule by the same few in their own interest, is oligarchy; the distinction is entirely about whom the government serves. The word then drifted from merit to birth. Today aristocracy means government by a noble class, so a term that originally claimed excellence now names an accident of parentage, which is exactly the slide Aristotle built oligarchy to describe.",
+    "was": "rule by the best, whose claim rested on merit rather than birth",
+    "shift": "worse"
   },
   {
     "word": "pandemic",
@@ -1671,7 +1679,9 @@ export const INFER_POOL = [
     ],
     "roots": "autos (self) + opsis (sight) — a seeing for oneself",
     "sentence": "The autopsy answered the question in an hour that the inquest had spent three days approaching.",
-    "story": "Greek autos, 'self,' with opsis, 'sight' — a seeing for oneself, and the word does not mean what almost everyone takes it to mean. Nothing in it refers to death. An autopsy in Greek was first-hand observation of any kind, the knowledge you have because you were there and looked, as against what you were told, and the sense survives in phrases like a political autopsy of an election. Medicine narrowed it. Today an autopsy is the examination of a corpse, and the precise word for that is necropsy, which puts the dead where the self is standing."
+    "story": "Greek autos, 'self,' with opsis, 'sight' — a seeing for oneself, and the word does not mean what almost everyone takes it to mean. Nothing in it refers to death. An autopsy in Greek was first-hand observation of any kind, the knowledge you have because you were there and looked, as against what you were told, and the sense survives in phrases like a political autopsy of an election. Medicine narrowed it. Today an autopsy is the examination of a corpse, and the precise word for that is necropsy, which puts the dead where the self is standing.",
+    "was": "first-hand observation; the knowledge you have because you looked yourself",
+    "shift": "narrow"
   },
   {
     "word": "juridical",
@@ -2335,7 +2345,9 @@ export const INFER_POOL = [
     ],
     "roots": "epi- (upon) + graphein (to write)",
     "sentence": "The epigram took four words to say what the speech had failed to say in twenty minutes.",
-    "story": "Greek epi, 'upon,' with graphein, 'to write' — writing upon something, and it began as an inscription cut into stone, the same origin as epigraph. Brevity was imposed by the material before it became a literary virtue: a mason charges by the letter and a monument has one face, so the form had to be short, and what was short had to be pointed. The Greek Anthology and then Martial made a genre of the constraint. Today an epigram is a short pointed witty saying, and its compression is a property of stone that outlived the stone."
+    "story": "Greek epi, 'upon,' with graphein, 'to write' — writing upon something, and it began as an inscription cut into stone, the same origin as epigraph. Brevity was imposed by the material before it became a literary virtue: a mason charges by the letter and a monument has one face, so the form had to be short, and what was short had to be pointed. The Greek Anthology and then Martial made a genre of the constraint. Today an epigram is a short pointed witty saying, and its compression is a property of stone that outlived the stone.",
+    "was": "an inscription cut into stone on a monument or a statue base",
+    "shift": "figure"
   },
   {
     "word": "epitaph",

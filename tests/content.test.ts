@@ -13,6 +13,7 @@ import {
   INFER_POOL,
   LEVELS,
   ROOT_DEEP,
+  SHIFT_KINDS,
   SIMILARS
 } from "../src/content";
 import { AUDIO_MANIFEST } from "../src/content/audio-manifest";
@@ -170,6 +171,38 @@ describe("runtime content", () => {
     // Inference words were authored without the example sentence the study card renders.
     // All of them have one now, so the card never falls back to omitting the line.
     expect(inferenceWords.filter((word) => !word.sentence).map((word) => word.word)).toEqual([]);
+  });
+
+  it("authors the sense-shift pair so the SENSE prompt stays answerable", () => {
+    const catalog = new ContentCatalog(LEVELS, DRILL_POOL, DEPTH, ROOT_DEEP, ETYM, COGNATES);
+    const inferenceWords: readonly InferenceWord[] = INFER_POOL;
+    const pool = [...gateWords, ...DRILL_POOL, ...inferenceWords];
+    const unpaired: string[] = [];
+    const leaks: string[] = [];
+    let paired = 0;
+    for (const word of pool) {
+      const former = catalog.wordFormerSense(word);
+      const kind = catalog.wordShiftKind(word);
+      // The two are authored together or not at all: a former sense with no kind cannot be
+      // asked about, and a kind with no former sense has nothing to show.
+      if (Boolean(former) !== Boolean(kind)) { unpaired.push(word.word); continue; }
+      if (!former || !kind) continue;
+      paired += 1;
+      expect(SHIFT_KINDS, word.word).toContain(kind);
+      expect(former.length, word.word).toBeGreaterThanOrEqual(40);
+      expect(former.length, word.word).toBeLessThanOrEqual(160);
+      // If the earlier sense is the current one there was no shift worth drilling.
+      expect(former.trim().toLowerCase(), word.word).not.toBe(word.def.trim().toLowerCase());
+      // SENSE shows this line and asks the learner to name the word, so the line must not
+      // contain it. The vignettes already satisfy the identical rule, 240 out of 240.
+      const stem = word.word.toLowerCase().slice(0, Math.max(4, word.word.length - 3));
+      if (former.toLowerCase().includes(stem)) leaks.push(word.word);
+    }
+    expect(unpaired).toEqual([]);
+    expect(leaks).toEqual([]);
+    // Ratchets up as each batch lands. The Drill Hall only offers the focus if enough words
+    // support it, so this floor is also what keeps that menu entry worth opening.
+    expect(paired).toBeGreaterThanOrEqual(58);
   });
 
   it("keeps similar roots symmetric and cognates meaningful", () => {
