@@ -63,6 +63,10 @@ previews.
 
 ## Compatibility contracts
 
+`RootstockWebView` leaves `ignoresViewportScaleLimits` at its `false` default, so the page's
+`maximum-scale=1, user-scalable=no` viewport holds and the bundled app cannot be pinched or
+double-tapped to a new scale. Setting it to `true` would silently restore browser zoom.
+
 Do not rename `rootstock_v2`, `rootstock_v2_bak`, or `rootstock_theme_v1`, change the v2 backup
 format, or alter the request shapes without migration coverage. Supported preview parameters are
 `theme`, `etym`, `burnt`, and `dev`. A host can change the visible theme with:

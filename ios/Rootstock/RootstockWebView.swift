@@ -10,6 +10,9 @@ struct RootstockWebView: UIViewRepresentable {
     func makeUIView(context: Context) -> WKWebView {
         let configuration = WKWebViewConfiguration()
         configuration.defaultWebpagePreferences.allowsContentJavaScript = true
+        // The page's viewport asks not to be scaled. This is already the WKWebView default, but
+        // the app is only locked into one perspective for as long as it stays false.
+        configuration.ignoresViewportScaleLimits = false
         configuration.userContentController.add(context.coordinator, name: "rootstock")
 
         let webView = WKWebView(frame: .zero, configuration: configuration)

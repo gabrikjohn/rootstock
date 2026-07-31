@@ -15,7 +15,9 @@
     --mono:'IBM Plex Mono',ui-monospace,monospace;
   }
   *{box-sizing:border-box;margin:0;padding:0}
-  html{-webkit-text-size-adjust:100%}
+  /* manipulation drops the double-tap-to-zoom gesture (and its 300ms click delay) everywhere,
+     including the browsers that ignore the viewport scale limits. Panning and scrolling stay. */
+  html{-webkit-text-size-adjust:100%;touch-action:manipulation}
   body{background:var(--parch);color:var(--ink);font-family:var(--ui);line-height:1.55;min-height:100vh}
   .wrap{max-width:560px;margin:0 auto;padding:0 clamp(14px,4.5vw,26px) 40px}
 
