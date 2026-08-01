@@ -9,7 +9,11 @@ Rootstock remains an offline, framework-free web application. The maintained sou
   inference, drill, etymology, depth, cognates, similars, IPA, and audio metadata have dedicated
   modules.
 - `src/domain/` contains deterministic learning rules. Time, random numbers, and storage enter
-  through interfaces in `src/platform/`.
+  through interfaces in `src/platform/`. The Review Docket is released once a day, at
+  `DOCKET_RELEASE_HOUR` on the device's own clock: every due date is rounded to a release, each
+  release serves `DOCKET_DAILY_SIZE` words (a thin day borrowing its shortfall from the words due
+  within `DOCKET_LOOKAHEAD_MS`), and the release whose sitting has been worked is recorded so the
+  docket cannot open twice in a day.
 - `src/ui/` owns rendering and application coordination. `AppController` injects platform
   dependencies into the runtime; each screen family has a dedicated typed feature module.
 - `public/` contains offline assets. Pronunciations are individual MP3 files and are never embedded
@@ -20,7 +24,8 @@ Rootstock remains an offline, framework-free web application. The maintained sou
 The only app-owned global is `window.RS_setEntitlement`. Host-provided `window.webkit` and
 `window.RootstockNative` bridge endpoints remain compatibility inputs; content and engine data are
 never published as globals. The StoreKit request messages and the `rootstock_v2`,
-`rootstock_v2_bak`, and `rootstock_theme_v1` storage contracts remain unchanged.
+`rootstock_v2_bak`, and `rootstock_theme_v1` storage contracts remain unchanged; `rootstock_v2`
+gained one optional field, `docketDay`, which older saves simply lack.
 
 ## Development and releases
 

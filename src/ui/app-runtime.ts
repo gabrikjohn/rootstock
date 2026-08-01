@@ -4,9 +4,9 @@ import { deserializeQuizItem, serializeQuizItem } from "../domain/bookmarks";
 import { ContentCatalog } from "../domain/catalog";
 import { pickConfusables } from "../domain/confusables";
 import {
-  forgeModes as getForgeModes,
   pickForgeModes,
   reangleForgeItem,
+  trialReworkModes,
   weakWords as selectWeakWords
 } from "../domain/forge";
 import {
@@ -27,7 +27,7 @@ import { deserializeProgress, serializeProgress } from "../domain/persistence";
 import { canAccessGate, temperUnlock as calculateTemperUnlock } from "../domain/progression";
 import { normalizeRoot, rootForms as getRootForms, rootMatches } from "../domain/roots";
 import type { DocketSummary } from "../domain/scheduling";
-import { DOCKET_SESSION_CAP, docketBlocks, docketSummary, initialReview, retiresFromDocket, scheduleReview, selectDocketSitting, tierOf } from "../domain/scheduling";
+import { DOCKET_RELEASE_HOUR, DOCKET_ROOT_TIERS, DOCKET_WORD_TIERS, docketBlocks, docketCleared, docketRelease, docketSittingSize, docketSummary, initialReview, retiresFromDocket, scheduleReview, selectDocketSitting, tierOf } from "../domain/scheduling";
 import { BAR_FORMS, barComposition, buildBarItems, buildTrialOneItems, selectInference } from "../domain/sessions";
 import type { AppDependencies } from "../platform/contracts";
 import { ProgressStore } from "../platform/progress-store";
@@ -280,16 +280,8 @@ function pairPick(maxGi:number, n:number):ConfusablePair[]{
 }
 
 /* ---- Review Docket (Leitner) ---- */
-// Retrieval banks by difficulty tier: recognize → read in context → produce → assemble.
-// A bank rather than one fixed mode per tier, so a word met twice at the same tier is
-// attacked from different sides. Roots have only two angles, so they climb more slowly.
-const DOCKET_WORD_TIERS:readonly (readonly QuizMode[])[] = [
-  ['REC','ROOTQ'],
-  ['VIG','DSENT','LIT','KIN','SENSE'],
-  ['VIGT','CLOZE','PROD'],
-  ['COMPOSE','LITT','PROD']
-];
-const DOCKET_ROOT_TIERS:readonly (readonly QuizMode[])[] = [['ROOTS'],['ROOTS'],['ROOTT'],['ROOTT']];
+// The retrieval banks live in src/domain/scheduling.ts, where a test can hold them to the
+// rule that neither the Docket nor a gate trial asks what a word used to mean.
 
 function enqueueGateReview(gi:number):void{
   const now=deps.clock.now();
@@ -336,11 +328,21 @@ function docketItem(e:FocusEntry,mode:QuizMode):QuizItem{
 // Due count and longest-waiting due date in one pass. home() re-renders every second
 // while a gate tempers, so the docket is counted once per render, not twice.
 function docket():DocketSummary{ return docketSummary(P.review, deps.clock.now()); }
-// Does the docket bar progression? The home card nudges whenever anything is due,
-// but the gates, the Bar, and the Drill Hall only lock once the backlog outgrows a
-// single sitting or a word has sat unanswered for a week. Two due words used to
-// hold the entire app hostage; now they only ask.
-function docketDebt(d:DocketSummary):boolean{ return docketBlocks(d.due, d.oldestDue, deps.clock.now()); }
+// One sitting per release. Once the day's docket has been worked through it stays shut
+// until the next release, however many words the calendar sends in the meantime.
+function docketOpen():boolean{ return !docketCleared(P.docketDay, deps.clock.now()); }
+// Stamp the day as worked. Called when a sitting empties, never on abandoning one —
+// leaving mid-sitting must leave the docket open to come back to.
+function closeDocketDay():void{ P.docketDay = docketRelease(deps.clock.now()); save(); }
+// The hour the Docket opens, written the way a sentence would say it.
+function releaseLabel():string{ return (DOCKET_RELEASE_HOUR%12||12)+(DOCKET_RELEASE_HOUR<12?' am':' pm'); }
+// Does the docket bar progression? The home card nudges once a day, but the gates,
+// the Bar, and the Drill Hall only lock once the backlog outgrows a single sitting or
+// a word has sat unanswered for a week — and never once the day's sitting is done,
+// which is what keeps a backlog from locking the app for the rest of the day.
+function docketDebt(d:DocketSummary):boolean{
+  return docketOpen() && docketBlocks(d.due, d.oldestDue, deps.clock.now());
+}
 
 // The controller owns a single mutable session at a time. Each session constructor
 // below writes its own shape; feature renderers and domain helpers remain fully typed.
@@ -439,18 +441,17 @@ function membersAction(idx:number):PrimaryAction{
   return {kicker:'Members \u2726', label:'Gate '+rom(gate.id)+' \u00b7 '+gate.title,
           sub:'Open every gate to continue', fn:()=>enterGate(idx)};
 }
-function primaryAction(due:number, debtBlocks:boolean):PrimaryAction{
+function primaryAction(sitting:number, debtBlocks:boolean):PrimaryAction{
   const mk=P.mark;
   if(mk && markFresh(mk) && LEVELS[mk.idx]){ const gate=gateAt(mk.idx); const g=G(gate.id);
     if(!g.sealed && markUsable(mk,g))
       return gateLocked(mk.idx) ? membersAction(mk.idx)
         : {kicker:'Resume', label:'Gate '+rom(gate.id)+' \u00b7 '+gate.title, sub:'Pick up where you left off', fn:()=>enterGate(mk.idx)};
   }
-  // Above the cap the sitting serves only part of the backlog; promise what the tap delivers.
-  if(due>0) return {kicker:'Review', label:'The Review Docket',
-    sub: due>DOCKET_SESSION_CAP
-      ? DOCKET_SESSION_CAP+' of '+due+' this sitting'
-      : due+' word'+(due>1?'s':'')+' ready for recall',
+  // The tile promises the sitting, not the backlog behind it: what the tap delivers is
+  // the same count every day.
+  if(sitting>0) return {kicker:'Review', label:'The Review Docket',
+    sub: sitting+' word'+(sitting>1?'s':'')+" · today's sitting",
     fn:startReview};
   for(let idx=0; idx<LEVELS.length; idx++){
     const gate=gateAt(idx);
@@ -462,11 +463,11 @@ function primaryAction(due:number, debtBlocks:boolean):PrimaryAction{
       if(left>0) return {kicker:'Tempering', label:'Gate '+rom(gate.id)+' is setting', sub:'Trial II opens in '+fmtDur(left), fn:null};
       return {kicker:'Trial II', label:'Gate '+rom(gate.id)+' \u00b7 '+gate.title, sub:'Typed production \u2014 seal the gate', fn:()=>enterGate(idx)};
     }
-    if(debtBlocks) return {kicker:'Review', label:'Clear the Docket first', sub:'Due words gate the next opening', fn:startReview};
+    if(debtBlocks) return {kicker:'Review', label:'Clear the Docket first', sub:"Today's sitting gates the next opening", fn:startReview};
     return {kicker: idx===0?'Begin':'Next Gate', label:'Gate '+rom(gate.id)+' \u00b7 '+gate.title, sub:gate.theme, fn:()=>enterGate(idx)};
   }
   if(P.bar.passed) return {kicker:'Admitted \u2726', label:'The Drill Hall stands open', sub:'Adaptive drilling on the advanced stock \u2014 for as long as you like', fn:startDrill};
-  if(debtBlocks) return {kicker:'Review', label:'The Review Docket', sub:'Clear the docket, then the Bar sits open', fn:startReview};
+  if(debtBlocks) return {kicker:'Review', label:'The Review Docket', sub:"Work today's sitting, then the Bar sits open", fn:startReview};
   if(P.bar.lockedUntil>deps.clock.now()) return {kicker:'The Bar', label:'Doors locked', sub:'Reopens in '+fmtDur(P.bar.lockedUntil-deps.clock.now()), fn:null};
   return {kicker:'The Bar', label:'The Bar sits open', sub:BAR_SIZE+' items \u00b7 '+BAR_PASS+' to pass \u00b7 form '+rom((P.bar.form??0)+1), fn:startBar};
 }
@@ -477,7 +478,10 @@ function home():void{
   stopClock(); S=null; P=load();
   const sealedCt = LEVELS.filter(l=>G(l.id).sealed).length;
   const summary = docket();
-  const due = summary.due;
+  const open = docketOpen();
+  // The day's sitting is a fixed count, and it is zero once the day has been worked
+  // through — the backlog behind it never reopens the docket before the next release.
+  const sitting = open ? docketSittingSize(summary) : 0;
   const debtBlocks = docketDebt(summary);
 
   const currentIdx = previewFlag("burnt") ? LEVELS.findIndex((l,i)=> !G(l.id).sealed && (i===0 || G(gateAt(i-1).id).sealed)) : -1;
@@ -514,7 +518,7 @@ function home():void{
 
   touchStreak();
   const lexCount = lexEntries().length;
-  const pa = primaryAction(due, debtBlocks);
+  const pa = primaryAction(sitting, debtBlocks);
   const hr = new Date().getHours();
   const greeting = hr<5?'Burning the midnight oil':hr<12?'Good morning':hr<17?'Good afternoon':'Good evening';
   const sealPct = Math.round(sealedCt/LEVELS.length*100);
@@ -535,7 +539,13 @@ function home():void{
     session,
     sealedCount:sealedCt,
     gateCount:LEVELS.length,
-    docketDue:due,
+    docket:{
+      count:sitting,
+      // Say so plainly when the sitting is behind us, rather than silently dropping the
+      // card and leaving the day looking like it never had a docket at all.
+      cleared: !open && Object.keys(P.review).length>0,
+      opensAt:releaseLabel()
+    },
     forgeCount:weakWords().length,
     gates:gateCards,
     bar:{enabled:barReady&&!barLocked&&!P.bar.passed,passScore:BAR_PASS,status:barStatus},
@@ -557,12 +567,15 @@ function home():void{
 }
 
 /* ================= REVIEW DOCKET SESSION ================= */
-// One sitting at a time. selectDocketSitting takes the most overdue words first and
-// caps the batch, so a long absence is worked off in rounds instead of one wall of
-// items. Clearing a round drops the remainder under the blocking threshold, which is
-// what reopens the gates — so the cap is a stopping point, never a lockout.
+// One sitting a day, of one size. selectDocketSitting takes the most overdue words
+// first, cuts the batch to the daily size, and tops a thin day up from the next
+// releases — so a long absence is worked off a day at a time instead of in one wall of
+// items, and a quiet day still asks for a full sitting. Finishing it closes the docket
+// until the next release and lifts the block, so the size is a stopping point, never a
+// lockout.
 function startReview():void{
   stopClock();
+  if(!docketOpen()) return home();
   const keys = selectDocketSitting(P.review, deps.clock.now(), deps.random);
   if(!keys.length) return home();
   // Placeholders: reviewItem() builds the real item when the key reaches the head of the
@@ -574,8 +587,10 @@ function startReview():void{
 function reviewItem():void{
   const session=requireSession("DOCKET");
   if(session.queue.length===0){
-    save();
-    // Anything still due was held back by the sitting cap, not left unanswered — say so
+    // The day is done: the docket shuts until the next release rather than reopening on
+    // whatever the calendar sends next.
+    closeDocketDay();
+    // Anything still due was held back by the daily size, not left unanswered — say so
     // plainly rather than claiming the docket is clear when it isn't.
     const left = docket().due;
     const sealed = session.retired
@@ -583,8 +598,8 @@ function reviewItem():void{
       : '';
     sealScreen({seal:'⚖',title:left?'Sitting Cleared':'Docket Cleared',score:(session.debt?session.debt+' lapses reset':'no lapses'),
       note:(left
-        ? `${left} word${left>1?'s':''} still due — the Docket is there whenever you want another sitting. Lapsed words return in about a day; the rest climb the calendar.`
-        : 'Every due word answered. Lapsed words return in about a day; the rest climb the calendar.')+sealed,
+        ? `${left} word${left>1?'s':''} still waiting — they join the next sitting at ${releaseLabel()}. Lapsed words return in about a day; the rest climb the calendar.`
+        : `Today's sitting is done. The Docket opens again at ${releaseLabel()}; lapsed words return in about a day, the rest climb the calendar.`)+sealed,
       actions:'<button class="btn" id="h2">Return to the gates</button>'});
     requiredButton("h2").onclick=home;
     return;
@@ -808,7 +823,9 @@ function startTrial2(idx:number):void{
   pairs.forEach(p=>items.push({m:'PAIR',pair:p}));
   // Trial II is the production trial, so it opens with production. Typed items first,
   // each block shuffled, rather than one flat shuffle that can lead with a multiple choice.
-  const TYPED:ReadonlySet<QuizMode>=new Set(['PROD','VIGT','CLOZE','LITT','ROOTT','SENSET']);
+  // SENSET is deliberately absent: a trial never asks what a word used to mean, so
+  // listing it here would describe an order for items this queue cannot hold.
+  const TYPED:ReadonlySet<QuizMode>=new Set(['PROD','VIGT','CLOZE','LITT','ROOTT']);
   const queue=[...shuffle(items.filter(i=>TYPED.has(i.m))),...shuffle(items.filter(i=>!TYPED.has(i.m)))];
   S={idx,kind:'T2',queue,debt:0,done:0,sit:{cleared:0,ahead:0},missed:[]};
   trialItem();
@@ -987,8 +1004,8 @@ function trialDone():void{
   const isLast=allSealed();
   sealScreen({seal:rom(lv.id),title:'Gate Sealed',
     score:'queue cleared · '+(session.debt?session.debt+' penalty reps paid':'no errors'),
-    note: (isLast?`All ${LEVELS.length} gates are sealed. Clear the Docket, then the Bar sits open — fifty items, one attempt.`
-               :'Gate '+rom(lv.id)+' is sealed and its words enter the Review Docket. The next gate opens once the Docket is clear.') + (newDrill?' '+newDrill+' advanced word'+(newDrill>1?'s':'')+' enter the Drill Hall.':'') + weakLine,
+    note: (isLast?`All ${LEVELS.length} gates are sealed. Work today's sitting in the Docket, then the Bar sits open — fifty items, one attempt.`
+               :'Gate '+rom(lv.id)+' is sealed and its words enter the Review Docket, which opens once a day at '+releaseLabel()+'. The next gate opens once the day\'s sitting is done.') + (newDrill?' '+newDrill+' advanced word'+(newDrill>1?'s':'')+' enter the Drill Hall.':'') + weakLine,
     actions:`<button class="btn" id="h2">Return to the gates</button>`});
   requiredButton('h2').onclick=home;
 }
@@ -1249,15 +1266,15 @@ function wordView(gi:number,wi:number,q:string,backFn?:(()=>void),backLabel?:str
 }
 
 /* ================= THE FORGE ================= */
-/* A missed word can be reworked from several angles, not one. forgeAngles lists
+/* A missed word can be reworked from several angles, not one. forgeModes lists
    every drill facet a given word can support; the Forge draws a spread of them
    per word, and each penalty rep re-picks a fresh angle so a miss is met from a
    new direction rather than the same failed prompt. */
 const FORGE_ANGLES = 2;       // distinct angles served per weak word in a Forge run
 const FORGE_NOW_ANGLES = 2;   // angles in the on-the-spot rework after a gate miss
-function forgeAngles(w:Word):QuizItem["m"][]{
-  return getForgeModes(w,!!vigOf(w),!!wasOf(w)&&!!shiftLabelOf(w));
-}
+// The rework offered mid-trial is part of the trial: no sense-shift angles, whatever the
+// word happens to support. The Forge proper, opened from home, keeps them.
+function reworkAngles(w:Word):QuizItem["m"][]{ return trialReworkModes(w,!!vigOf(w)); }
 function pickAngles(w:Word,n:number):QuizItem["m"][]{ return pickForgeModes(w,!!vigOf(w),n,deps.random,!!wasOf(w)&&!!shiftLabelOf(w)); }
 function reangle(f:QuizItem,w:Word):QuizItem{ return reangleForgeItem(f,w,!!vigOf(w),deps.random,!!wasOf(w)&&!!shiftLabelOf(w)); }
 function weakWords():SealedWord[]{
@@ -1306,7 +1323,7 @@ function forgeItem():void{
    failed), after which control returns to the gate exactly where it was left. */
 function forgeNow(gi:number,wi:number,skipMode:QuizItem["m"],resume:()=>void):void{
   const w=wordAt(gi,wi);
-  const modes=shuffle(forgeAngles(w).filter(m=>m!==skipMode)).slice(0,FORGE_NOW_ANGLES);
+  const modes=shuffle(reworkAngles(w).filter(m=>m!==skipMode)).slice(0,FORGE_NOW_ANGLES);
   if(!modes.length) return resume();
   if(!S) throw new Error("Forge rework requires a resumable session");
   S={kind:'FORGENOW', queue:modes.map(m=>({gi,wi,m})), pos:0, debt:0, resume, saved:S};

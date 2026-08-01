@@ -1,4 +1,5 @@
 import { describe, expect, it } from "vitest";
+import type { QuizMode } from "../src/types/state";
 import { CONFUSABLES, DRILL_POOL, INFER_POOL, LEVELS } from "../src/content";
 import { avoidRepeat, requeueMiss, roman, shuffle } from "../src/domain/collections";
 import { ContentCatalog } from "../src/domain/catalog";
@@ -12,6 +13,7 @@ import {
   forgeModes,
   pickForgeModes,
   reangleForgeItem,
+  trialReworkModes,
   weakWords
 } from "../src/domain/forge";
 import {
@@ -37,11 +39,21 @@ import { canAccessGate, TEMPER_MIN_MS, temperUnlock } from "../src/domain/progre
 import { normalizeRoot, rootForms, rootMatches, splitRootEntry } from "../src/domain/roots";
 import {
   DAY_MS,
-  DOCKET_SESSION_CAP,
+  DOCKET_DAILY_SIZE,
+  DOCKET_LOOKAHEAD_MS,
+  DOCKET_RELEASE_HOUR,
+  DOCKET_ROOT_TIERS,
   DOCKET_TIERS,
+  DOCKET_WORD_TIERS,
+  SENSE_SHIFT_MODES,
   docketBlocks,
+  docketCleared,
+  docketDue,
+  docketRelease,
+  docketSittingSize,
   docketSummary,
   fuzzInterval,
+  nextDocketRelease,
   selectDocketSitting,
   tierOf,
   initialReview,
@@ -87,14 +99,22 @@ describe("entitlement", () => {
   });
 });
 
+// Local wall-clock timestamps: the release hour is the device's own, so the tests build
+// their moments the same way the app reads them.
+const at = (year: number, month: number, day: number, hour: number, minute = 0): number =>
+  new Date(year, month, day, hour, minute).getTime();
+const release = (year: number, month: number, day: number): number =>
+  at(year, month, day, DOCKET_RELEASE_HOUR);
+
 describe("Leitner scheduling", () => {
   it("advances, caps, and resets review boxes from an injected clock value", () => {
-    const now = 1_000;
+    const now = at(2026, 4, 12, 9, 30);
     const flat = { next: () => 0.5 };
-    const rung = (box: number) => now + REVIEW_INTERVALS[box]!;
-    expect(initialReview(now, flat)).toEqual({ box: 0, tier: 0, due: rung(0) });
+    // Every rung lands on a release: a day's interval from Tuesday morning is Wednesday's
+    // docket, not Wednesday morning.
+    expect(initialReview(now, flat)).toEqual({ box: 0, tier: 0, due: release(2026, 4, 13) });
     expect(scheduleReview({ box: 0, due: 0 }, true, now, flat))
-      .toEqual({ box: 1, tier: 1, due: rung(1) });
+      .toEqual({ box: 1, tier: 1, due: release(2026, 4, 15) });
     const top = REVIEW_INTERVALS.length - 1;
     expect(scheduleReview({ box: top, due: 0 }, true, now, flat).box).toBe(top);
     expect(scheduleReview({ box: top, due: 0 }, false, now, flat).box).toBe(0);
@@ -143,13 +163,22 @@ describe("Leitner scheduling", () => {
     expect(fuzzInterval(base, { next: () => 1 }))
       .toBe(Math.round(base * (REVIEW_FUZZ_MIN + REVIEW_FUZZ_RANGE)));
 
-    // Ten words enrolled by one sealed gate at the same instant must not share a due date.
+    // Rounding to a release deliberately gathers a gate's first cohort into one docket —
+    // the daily size, not the fuzz, is what now spreads that load. Further up the ladder
+    // the fuzz still fans a cohort across days, so the long rungs never clump.
     let step = 0;
     const spread = { next: () => (step++ % 10) / 10 };
-    const dues = new Set(
+    const firstRung = new Set(
       Array.from({ length: 10 }, () => initialReview(now, spread).due)
     );
-    expect(dues.size).toBe(10);
+    expect(firstRung.size).toBe(1);
+
+    const top = REVIEW_INTERVALS.length - 1;
+    step = 0;
+    const longRung = new Set(
+      Array.from({ length: 10 }, () => scheduleReview({ box: top, due: 0 }, true, now, spread).due)
+    );
+    expect(longRung.size).toBe(10);
 
     // The ladder must stay ordered: no fuzzed rung may overtake the one above it.
     REVIEW_INTERVALS.forEach((interval, box) => {
@@ -160,51 +189,130 @@ describe("Leitner scheduling", () => {
     });
   });
 
-  it("serves one capped sitting, most overdue first", () => {
-    const now = 100 * DAY_MS;
-    // 30 words, staggered: "w0" is the most overdue, "w29" the freshest.
+  it("opens once a day, at the release hour on the device's clock", () => {
+    // Mid-morning: today's docket is the one that opened at dawn, and the next is tomorrow's.
+    const morning = at(2026, 4, 12, 9, 30);
+    expect(docketRelease(morning)).toBe(release(2026, 4, 12));
+    expect(nextDocketRelease(morning)).toBe(release(2026, 4, 13));
+
+    // Before the hour, the standing docket is still yesterday's — the day turns at the
+    // release, not at midnight.
+    const beforeDawn = at(2026, 4, 12, 5, 0);
+    expect(docketRelease(beforeDawn)).toBe(release(2026, 4, 11));
+    expect(nextDocketRelease(beforeDawn)).toBe(release(2026, 4, 12));
+
+    // On the hour itself the new docket is open, and "next" has moved on to tomorrow.
+    expect(docketRelease(release(2026, 4, 12))).toBe(release(2026, 4, 12));
+    expect(nextDocketRelease(release(2026, 4, 12))).toBe(release(2026, 4, 13));
+  });
+
+  it("rounds every due date to a release, never sooner than the next one", () => {
+    const morning = at(2026, 4, 12, 9, 30);
+    // A timer that elapses at teatime tomorrow is asked for at tomorrow's release.
+    expect(docketDue(at(2026, 4, 13, 16, 0), morning)).toBe(release(2026, 4, 13));
+    // One that elapses just before a release rounds back to it, not past it.
+    expect(docketDue(at(2026, 4, 13, 5, 30), morning)).toBe(release(2026, 4, 13));
+    // And a rung short enough to expire inside today's docket still waits for the next
+    // one: nothing answered in a sitting can rejoin the sitting it came from.
+    expect(docketDue(at(2026, 4, 12, 20, 0), morning)).toBe(release(2026, 4, 13));
+    expect(docketDue(morning - DAY_MS, morning)).toBe(release(2026, 4, 13));
+  });
+
+  it("serves the same-sized sitting every day, oldest first", () => {
+    const now = at(2026, 4, 12, 9, 30);
+    // 30 words released, staggered: "w0" has waited longest, "w29" is the freshest.
     const review = Object.fromEntries(
       Array.from({ length: 30 }, (_, index) => [
         `w${index}`,
-        { box: 0, due: now - (30 - index) * 1_000 }
+        { box: 0, due: release(2026, 4, 12) - (30 - index) * DAY_MS }
       ])
     );
 
     expect(selectDocketSitting({}, now, zeroRandom)).toEqual([]);
 
     const sitting = selectDocketSitting(review, now, zeroRandom);
-    expect(sitting).toHaveLength(DOCKET_SESSION_CAP);
-    // The cap must take the oldest, not an arbitrary slice: the 10 freshest stay behind.
+    expect(sitting).toHaveLength(DOCKET_DAILY_SIZE);
+    // The size must take the oldest, not an arbitrary slice: the 10 freshest stay behind.
     const held = new Set(sitting);
-    for (let index = 0; index < DOCKET_SESSION_CAP; index += 1) {
+    for (let index = 0; index < DOCKET_DAILY_SIZE; index += 1) {
       expect(held.has(`w${index}`), `w${index} should be served`).toBe(true);
     }
-    for (let index = DOCKET_SESSION_CAP; index < 30; index += 1) {
+    for (let index = DOCKET_DAILY_SIZE; index < 30; index += 1) {
       expect(held.has(`w${index}`), `w${index} should be held back`).toBe(false);
     }
 
-    // Under the cap, everything due is served; nothing not yet due ever is.
-    const few = { a: { box: 0, due: now - 1 }, b: { box: 0, due: now - 2 }, later: { box: 0, due: now + 1 } };
-    expect(selectDocketSitting(few, now, zeroRandom).sort()).toEqual(["a", "b"]);
+    // A word timed for later today is not part of today's docket: it was not released.
+    const sameDay = {
+      a: { box: 0, due: release(2026, 4, 12) },
+      b: { box: 0, due: release(2026, 4, 11) },
+      dusk: { box: 0, due: at(2026, 4, 12, 20, 0) }
+    };
+    expect(selectDocketSitting(sameDay, now, zeroRandom, 2).sort()).toEqual(["a", "b"]);
   });
 
-  it("summarizes the docket in one pass", () => {
-    const now = 100 * DAY_MS;
-    const review = {
-      old: { box: 0, due: now - 5 * DAY_MS },
-      recent: { box: 1, due: now - 1 },
-      future: { box: 2, due: now + DAY_MS }
+  it("tops a thin day up from the next releases so the count holds steady", () => {
+    const now = at(2026, 4, 12, 9, 30);
+    const review: Record<string, { box: number; due: number }> = {
+      due1: { box: 0, due: release(2026, 4, 11) },
+      due2: { box: 0, due: release(2026, 4, 12) }
     };
-    expect(docketSummary(review, now)).toEqual({ due: 2, oldestDue: now - 5 * DAY_MS });
-    expect(docketSummary({}, now)).toEqual({ due: 0, oldestDue: null });
-    expect(docketSummary({ future: review.future }, now)).toEqual({ due: 0, oldestDue: null });
+    for (let index = 0; index < 30; index += 1) {
+      review[`soon${index}`] = { box: 1, due: release(2026, 4, 13) + index };
+    }
+    // Parked months out: the shortfall is borrowed from the days next door, never from these.
+    review.far = { box: 5, due: release(2026, 4, 12) + DOCKET_LOOKAHEAD_MS + DAY_MS };
+
+    const sitting = selectDocketSitting(review, now, zeroRandom);
+    expect(sitting).toHaveLength(DOCKET_DAILY_SIZE);
+    expect(sitting).toContain("due1");
+    expect(sitting).toContain("due2");
+    expect(sitting).not.toContain("far");
+
+    // Borrowing tops a sitting up; it never conjures one out of a day with nothing due.
+    const noneDue = { soon: { box: 1, due: release(2026, 4, 13) } };
+    expect(selectDocketSitting(noneDue, now, zeroRandom)).toEqual([]);
+
+    // A day whose whole neighbourhood is thin simply serves what there is.
+    const thin = { a: { box: 0, due: release(2026, 4, 12) }, b: { box: 1, due: release(2026, 4, 13) } };
+    expect(selectDocketSitting(thin, now, zeroRandom).sort()).toEqual(["a", "b"]);
+  });
+
+  it("summarizes the docket against the day's release, in one pass", () => {
+    const now = at(2026, 4, 12, 9, 30);
+    const review = {
+      old: { box: 0, due: release(2026, 4, 5) },
+      today: { box: 1, due: release(2026, 4, 12) },
+      tomorrow: { box: 2, due: release(2026, 4, 13) },
+      far: { box: 3, due: release(2026, 4, 20) }
+    };
+    expect(docketSummary(review, now)).toEqual({ due: 2, ahead: 1, oldestDue: release(2026, 4, 5) });
+    expect(docketSummary({}, now)).toEqual({ due: 0, ahead: 0, oldestDue: null });
+    expect(docketSummary({ far: review.far }, now)).toEqual({ due: 0, ahead: 0, oldestDue: null });
+
+    // The sitting is the same number of words whatever the backlog behind it.
+    expect(docketSittingSize({ due: 100, ahead: 0, oldestDue: 1 })).toBe(DOCKET_DAILY_SIZE);
+    expect(docketSittingSize({ due: 3, ahead: 40, oldestDue: 1 })).toBe(DOCKET_DAILY_SIZE);
+    expect(docketSittingSize({ due: 3, ahead: 2, oldestDue: 1 })).toBe(5);
+    expect(docketSittingSize({ due: 0, ahead: 50, oldestDue: null })).toBe(0);
+  });
+
+  it("shuts the docket for the rest of the day once its sitting is worked", () => {
+    const now = at(2026, 4, 12, 9, 30);
+    expect(docketCleared(undefined, now)).toBe(false);
+    // Yesterday's stamp is spent; today's shuts the docket however much falls due after it.
+    expect(docketCleared(release(2026, 4, 11), now)).toBe(false);
+    expect(docketCleared(release(2026, 4, 12), now)).toBe(true);
+    expect(docketCleared(release(2026, 4, 12), at(2026, 4, 12, 23, 45))).toBe(true);
+    // Before dawn the next day still belongs to the worked docket; the release reopens it.
+    expect(docketCleared(release(2026, 4, 12), at(2026, 4, 13, 5, 0))).toBe(true);
+    expect(docketCleared(release(2026, 4, 12), at(2026, 4, 13, 6, 0))).toBe(false);
   });
 
   it("bars progression only on a real docket backlog", () => {
     const now = 100 * DAY_MS;
     expect(docketBlocks(0, null, now)).toBe(false);
-    expect(docketBlocks(DOCKET_SESSION_CAP, now - DAY_MS, now)).toBe(false);
-    expect(docketBlocks(DOCKET_SESSION_CAP + 1, now - DAY_MS, now)).toBe(true);
+    expect(docketBlocks(DOCKET_DAILY_SIZE, now - DAY_MS, now)).toBe(false);
+    expect(docketBlocks(DOCKET_DAILY_SIZE + 1, now - DAY_MS, now)).toBe(true);
     expect(docketBlocks(1, now - 7 * DAY_MS, now)).toBe(true);
     expect(docketBlocks(1, now - 6 * DAY_MS, now)).toBe(false);
   });
@@ -525,6 +633,39 @@ describe("Forge selection", () => {
     const entry = { w: LEVELS[0]!.words[0]!, gi: 0, wi: 0 };
     expect(weakWords([entry], { "0-0": { r: 3, w: 1 } })).toEqual([entry]);
     expect(weakWords([entry], { "0-0": { r: 4, w: 1 } })).toEqual([]);
+  });
+});
+
+describe("the required path", () => {
+  // What a word used to mean is a fair question for a learner who went looking for it —
+  // the Sense-shift focus in the Drill Hall, or the Forge opened from home. It is a poor
+  // one to meet unbidden on the path everyone walks, where a miss resets a word's
+  // calendar and grows the very backlog the Docket exists to work off. Nothing below may
+  // ask it; the content stays authored, and the places that ask for it are chosen.
+  const senseShift = <T extends { m: QuizMode }>(items: readonly T[]): T[] =>
+    items.filter((item) => SENSE_SHIFT_MODES.has(item.m));
+
+  it("never asks a gate trial, the Bar, or the Docket what a word used to mean", () => {
+    const banks = [...DOCKET_WORD_TIERS, ...DOCKET_ROOT_TIERS].flat();
+    expect(banks.filter((mode) => SENSE_SHIFT_MODES.has(mode))).toEqual([]);
+
+    const gate = LEVELS[0]!;
+    const trial = buildTrialOneItems(gate, 0, () => ["a", "b", "c", "d"], INFER_POOL.slice(0, 2));
+    expect(senseShift(trial)).toEqual([]);
+
+    const words = Array.from({ length: 240 }, (_, index) => ({ gi: 0, wi: index }));
+    expect(senseShift(buildBarItems(words, CONFUSABLES, INFER_POOL, zeroRandom))).toEqual([]);
+  });
+
+  it("withholds the axis from the mid-trial rework while the Forge keeps it", () => {
+    // A word that supports the axis: the rework declines it anyway, because that rework
+    // happens inside a trial.
+    const word = LEVELS[0]!.words[0]!;
+    expect(forgeModes(word, true, true).filter((mode) => SENSE_SHIFT_MODES.has(mode)))
+      .toEqual(["SENSE", "SENSET", "SHIFT"]);
+    expect(trialReworkModes(word, true).filter((mode) => SENSE_SHIFT_MODES.has(mode))).toEqual([]);
+    // Everything else the word supports survives the withholding.
+    expect(trialReworkModes(word, true)).toEqual(forgeModes(word, true, false));
   });
 });
 
