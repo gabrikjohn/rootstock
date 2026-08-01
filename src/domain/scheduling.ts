@@ -1,5 +1,5 @@
 import type { RandomSource } from "../platform/contracts";
-import type { ReviewProgress } from "../types/state";
+import type { QuizMode, ReviewProgress } from "../types/state";
 import { shuffle } from "./collections";
 
 export interface DocketSummary {
@@ -23,6 +23,26 @@ export const DOCKET_TIERS = 4;
 export function tierOf(review: ReviewProgress): number {
   return review.tier ?? Math.min(review.box, DOCKET_TIERS - 1);
 }
+
+/* ---- What the Docket is allowed to ask ----
+   Retrieval banks by difficulty tier: recognize → read in context → produce → assemble.
+   A bank rather than one fixed mode per tier, so a word met twice at the same tier is
+   attacked from different sides. Roots have only two angles, so they climb more slowly.
+
+   No bank holds a sense-shift mode. Asking what a word used to mean is a fair question
+   for a learner who chose it — the Sense-shift focus in the Drill Hall — and a poor one
+   to meet unbidden on the required path, where a miss resets the calendar and grows the
+   very backlog the Docket exists to work off. The trials hold to the same rule, which is
+   why the mid-trial rework is built from TRIAL_REWORK modes rather than the Forge's own. */
+export const SENSE_SHIFT_MODES: ReadonlySet<QuizMode> = new Set<QuizMode>(["SENSE", "SENSET", "SHIFT"]);
+
+export const DOCKET_WORD_TIERS: readonly (readonly QuizMode[])[] = [
+  ["REC", "ROOTQ"],
+  ["VIG", "DSENT", "LIT", "KIN"],
+  ["VIGT", "CLOZE", "PROD"],
+  ["COMPOSE", "LITT", "PROD"]
+];
+export const DOCKET_ROOT_TIERS: readonly (readonly QuizMode[])[] = [["ROOTS"], ["ROOTS"], ["ROOTT"], ["ROOTT"]];
 
 /* ---- One release a day ----
    The Docket used to open whenever a word's fuzzed timer happened to elapse, so it

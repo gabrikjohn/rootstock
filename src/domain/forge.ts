@@ -28,6 +28,16 @@ export function forgeModes(
   return modes;
 }
 
+/**
+ * The angles for the on-the-spot rework that fires when a word is missed inside a gate
+ * trial. It is the Forge's mode list with the sense-shift axis withheld: that rework
+ * happens mid-trial, and a trial never asks what a word used to mean. The Forge opened
+ * from home is a place the learner chose to be, so it keeps the full list.
+ */
+export function trialReworkModes(word: Word, hasVignette: boolean): QuizMode[] {
+  return forgeModes(word, hasVignette, false);
+}
+
 export function pickForgeModes(
   word: Word,
   hasVignette: boolean,

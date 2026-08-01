@@ -1,4 +1,5 @@
 import { describe, expect, it } from "vitest";
+import type { QuizMode } from "../src/types/state";
 import { CONFUSABLES, DRILL_POOL, INFER_POOL, LEVELS } from "../src/content";
 import { avoidRepeat, requeueMiss, roman, shuffle } from "../src/domain/collections";
 import { ContentCatalog } from "../src/domain/catalog";
@@ -12,6 +13,7 @@ import {
   forgeModes,
   pickForgeModes,
   reangleForgeItem,
+  trialReworkModes,
   weakWords
 } from "../src/domain/forge";
 import {
@@ -40,7 +42,10 @@ import {
   DOCKET_DAILY_SIZE,
   DOCKET_LOOKAHEAD_MS,
   DOCKET_RELEASE_HOUR,
+  DOCKET_ROOT_TIERS,
   DOCKET_TIERS,
+  DOCKET_WORD_TIERS,
+  SENSE_SHIFT_MODES,
   docketBlocks,
   docketCleared,
   docketDue,
@@ -628,6 +633,39 @@ describe("Forge selection", () => {
     const entry = { w: LEVELS[0]!.words[0]!, gi: 0, wi: 0 };
     expect(weakWords([entry], { "0-0": { r: 3, w: 1 } })).toEqual([entry]);
     expect(weakWords([entry], { "0-0": { r: 4, w: 1 } })).toEqual([]);
+  });
+});
+
+describe("the required path", () => {
+  // What a word used to mean is a fair question for a learner who went looking for it —
+  // the Sense-shift focus in the Drill Hall, or the Forge opened from home. It is a poor
+  // one to meet unbidden on the path everyone walks, where a miss resets a word's
+  // calendar and grows the very backlog the Docket exists to work off. Nothing below may
+  // ask it; the content stays authored, and the places that ask for it are chosen.
+  const senseShift = <T extends { m: QuizMode }>(items: readonly T[]): T[] =>
+    items.filter((item) => SENSE_SHIFT_MODES.has(item.m));
+
+  it("never asks a gate trial, the Bar, or the Docket what a word used to mean", () => {
+    const banks = [...DOCKET_WORD_TIERS, ...DOCKET_ROOT_TIERS].flat();
+    expect(banks.filter((mode) => SENSE_SHIFT_MODES.has(mode))).toEqual([]);
+
+    const gate = LEVELS[0]!;
+    const trial = buildTrialOneItems(gate, 0, () => ["a", "b", "c", "d"], INFER_POOL.slice(0, 2));
+    expect(senseShift(trial)).toEqual([]);
+
+    const words = Array.from({ length: 240 }, (_, index) => ({ gi: 0, wi: index }));
+    expect(senseShift(buildBarItems(words, CONFUSABLES, INFER_POOL, zeroRandom))).toEqual([]);
+  });
+
+  it("withholds the axis from the mid-trial rework while the Forge keeps it", () => {
+    // A word that supports the axis: the rework declines it anyway, because that rework
+    // happens inside a trial.
+    const word = LEVELS[0]!.words[0]!;
+    expect(forgeModes(word, true, true).filter((mode) => SENSE_SHIFT_MODES.has(mode)))
+      .toEqual(["SENSE", "SENSET", "SHIFT"]);
+    expect(trialReworkModes(word, true).filter((mode) => SENSE_SHIFT_MODES.has(mode))).toEqual([]);
+    // Everything else the word supports survives the withholding.
+    expect(trialReworkModes(word, true)).toEqual(forgeModes(word, true, false));
   });
 });
 

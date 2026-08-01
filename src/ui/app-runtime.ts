@@ -4,9 +4,9 @@ import { deserializeQuizItem, serializeQuizItem } from "../domain/bookmarks";
 import { ContentCatalog } from "../domain/catalog";
 import { pickConfusables } from "../domain/confusables";
 import {
-  forgeModes as getForgeModes,
   pickForgeModes,
   reangleForgeItem,
+  trialReworkModes,
   weakWords as selectWeakWords
 } from "../domain/forge";
 import {
@@ -27,7 +27,7 @@ import { deserializeProgress, serializeProgress } from "../domain/persistence";
 import { canAccessGate, temperUnlock as calculateTemperUnlock } from "../domain/progression";
 import { normalizeRoot, rootForms as getRootForms, rootMatches } from "../domain/roots";
 import type { DocketSummary } from "../domain/scheduling";
-import { DOCKET_RELEASE_HOUR, docketBlocks, docketCleared, docketRelease, docketSittingSize, docketSummary, initialReview, retiresFromDocket, scheduleReview, selectDocketSitting, tierOf } from "../domain/scheduling";
+import { DOCKET_RELEASE_HOUR, DOCKET_ROOT_TIERS, DOCKET_WORD_TIERS, docketBlocks, docketCleared, docketRelease, docketSittingSize, docketSummary, initialReview, retiresFromDocket, scheduleReview, selectDocketSitting, tierOf } from "../domain/scheduling";
 import { BAR_FORMS, barComposition, buildBarItems, buildTrialOneItems, selectInference } from "../domain/sessions";
 import type { AppDependencies } from "../platform/contracts";
 import { ProgressStore } from "../platform/progress-store";
@@ -280,16 +280,8 @@ function pairPick(maxGi:number, n:number):ConfusablePair[]{
 }
 
 /* ---- Review Docket (Leitner) ---- */
-// Retrieval banks by difficulty tier: recognize → read in context → produce → assemble.
-// A bank rather than one fixed mode per tier, so a word met twice at the same tier is
-// attacked from different sides. Roots have only two angles, so they climb more slowly.
-const DOCKET_WORD_TIERS:readonly (readonly QuizMode[])[] = [
-  ['REC','ROOTQ'],
-  ['VIG','DSENT','LIT','KIN','SENSE'],
-  ['VIGT','CLOZE','PROD'],
-  ['COMPOSE','LITT','PROD']
-];
-const DOCKET_ROOT_TIERS:readonly (readonly QuizMode[])[] = [['ROOTS'],['ROOTS'],['ROOTT'],['ROOTT']];
+// The retrieval banks live in src/domain/scheduling.ts, where a test can hold them to the
+// rule that neither the Docket nor a gate trial asks what a word used to mean.
 
 function enqueueGateReview(gi:number):void{
   const now=deps.clock.now();
@@ -831,7 +823,9 @@ function startTrial2(idx:number):void{
   pairs.forEach(p=>items.push({m:'PAIR',pair:p}));
   // Trial II is the production trial, so it opens with production. Typed items first,
   // each block shuffled, rather than one flat shuffle that can lead with a multiple choice.
-  const TYPED:ReadonlySet<QuizMode>=new Set(['PROD','VIGT','CLOZE','LITT','ROOTT','SENSET']);
+  // SENSET is deliberately absent: a trial never asks what a word used to mean, so
+  // listing it here would describe an order for items this queue cannot hold.
+  const TYPED:ReadonlySet<QuizMode>=new Set(['PROD','VIGT','CLOZE','LITT','ROOTT']);
   const queue=[...shuffle(items.filter(i=>TYPED.has(i.m))),...shuffle(items.filter(i=>!TYPED.has(i.m)))];
   S={idx,kind:'T2',queue,debt:0,done:0,sit:{cleared:0,ahead:0},missed:[]};
   trialItem();
@@ -1272,15 +1266,15 @@ function wordView(gi:number,wi:number,q:string,backFn?:(()=>void),backLabel?:str
 }
 
 /* ================= THE FORGE ================= */
-/* A missed word can be reworked from several angles, not one. forgeAngles lists
+/* A missed word can be reworked from several angles, not one. forgeModes lists
    every drill facet a given word can support; the Forge draws a spread of them
    per word, and each penalty rep re-picks a fresh angle so a miss is met from a
    new direction rather than the same failed prompt. */
 const FORGE_ANGLES = 2;       // distinct angles served per weak word in a Forge run
 const FORGE_NOW_ANGLES = 2;   // angles in the on-the-spot rework after a gate miss
-function forgeAngles(w:Word):QuizItem["m"][]{
-  return getForgeModes(w,!!vigOf(w),!!wasOf(w)&&!!shiftLabelOf(w));
-}
+// The rework offered mid-trial is part of the trial: no sense-shift angles, whatever the
+// word happens to support. The Forge proper, opened from home, keeps them.
+function reworkAngles(w:Word):QuizItem["m"][]{ return trialReworkModes(w,!!vigOf(w)); }
 function pickAngles(w:Word,n:number):QuizItem["m"][]{ return pickForgeModes(w,!!vigOf(w),n,deps.random,!!wasOf(w)&&!!shiftLabelOf(w)); }
 function reangle(f:QuizItem,w:Word):QuizItem{ return reangleForgeItem(f,w,!!vigOf(w),deps.random,!!wasOf(w)&&!!shiftLabelOf(w)); }
 function weakWords():SealedWord[]{
@@ -1329,7 +1323,7 @@ function forgeItem():void{
    failed), after which control returns to the gate exactly where it was left. */
 function forgeNow(gi:number,wi:number,skipMode:QuizItem["m"],resume:()=>void):void{
   const w=wordAt(gi,wi);
-  const modes=shuffle(forgeAngles(w).filter(m=>m!==skipMode)).slice(0,FORGE_NOW_ANGLES);
+  const modes=shuffle(reworkAngles(w).filter(m=>m!==skipMode)).slice(0,FORGE_NOW_ANGLES);
   if(!modes.length) return resume();
   if(!S) throw new Error("Forge rework requires a resumable session");
   S={kind:'FORGENOW', queue:modes.map(m=>({gi,wi,m})), pos:0, debt:0, resume, saved:S};
