@@ -27,6 +27,15 @@ export interface HomeBarCard {
   status: HomeCardStatus;
 }
 
+export interface HomeDocketCard {
+  /** Words in today's sitting — the same number every day, and zero once it is worked. */
+  count: number;
+  /** Today's sitting is behind us; show the card spent rather than dropping it. */
+  cleared: boolean;
+  /** The hour the next sitting opens, already written out ("6 am"). */
+  opensAt: string;
+}
+
 export interface HomeDrillStat {
   enabled: boolean;
   visible: boolean;
@@ -43,7 +52,7 @@ interface HomeScreenOptions {
   session: HomeSession;
   sealedCount: number;
   gateCount: number;
-  docketDue: number;
+  docket: HomeDocketCard;
   forgeCount: number;
   gates: readonly HomeGateCard[];
   bar: HomeBarCard;
@@ -75,11 +84,17 @@ export function renderHome(options: HomeScreenOptions): void {
   cards += `<button class="lvl-card bar-card" ${options.bar.enabled ? "" : "disabled"} id="bar-btn">
     <div class="lvl-num" style="color:var(--gild)">☙</div>
     <div class="lvl-body"><h3>The Bar</h3><p>Fifty items: thirty produced from memory, five confusable pairs, and fifteen words you have never seen — read from their roots alone. ${options.bar.passScore} to pass; fail and a different form opens after eight hours.</p></div>${renderStatus(options.bar.status)}</button>`;
-  const docketHtml = options.docketDue > 0
+  const docketHtml = options.docket.count > 0
     ? `<button class="lvl-card" style="border-left-color:var(--ox-bright);padding:10px 16px" id="docket-btn">
       <div class="lvl-num" style="color:var(--ox-bright);font-size:18px;min-width:42px">⚖</div>
       <div class="lvl-body"><h3 style="font-size:16px">The Review Docket</h3></div>
-      <span class="lvl-seal" style="color:var(--ox)">${options.docketDue} due</span></button>`
+      <span class="lvl-seal" style="color:var(--ox)">${options.docket.count} to review</span></button>`
+    : options.docket.cleared
+    ? `<button class="lvl-card" style="border-left-color:var(--ox-bright);padding:10px 16px" disabled id="docket-done">
+      <div class="lvl-num" style="color:var(--ox-bright);font-size:18px;min-width:42px">⚖</div>
+      <div class="lvl-body"><h3 style="font-size:16px">The Review Docket</h3>
+      <p>Next sitting at ${options.docket.opensAt}</p></div>
+      <span class="lvl-seal done">Cleared ✦</span></button>`
     : "";
   const forgeHtml = options.forgeCount > 0
     ? `<button class="lvl-card" id="forge-btn">

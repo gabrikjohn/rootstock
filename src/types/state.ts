@@ -46,6 +46,9 @@ export interface ProgressV2 {
   onboarded?: boolean;
   lastActive?: number;
   streak?: number;
+  // The release moment of the last docket day worked through. One sitting per release:
+  // once this reaches the current release the Docket stays shut until the next one.
+  docketDay?: number;
 }
 
 export type QuizMode =

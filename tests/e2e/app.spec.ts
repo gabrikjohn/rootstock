@@ -237,7 +237,9 @@ test("serves a due review and advances its Leitner box", async ({ page }) => {
 
 test("nudges on a small docket but only bars progression on a backlog", async ({ page }) => {
   const dueReview = (count: number) => {
-    const due = Date.now() - 60 * 60 * 1000;
+    // Released two dockets ago: the docket only counts what a release has handed over,
+    // so an hour-old due date would still be waiting for tomorrow morning.
+    const due = Date.now() - 2 * 24 * 60 * 60 * 1000;
     const review: Record<string, { box: number; due: number }> = {};
     for (let index = 0; index < count; index += 1) {
       review[`${Math.floor(index / 10)}-${index % 10}`] = { box: 0, due };
@@ -274,15 +276,19 @@ test("nudges on a small docket but only bars progression on a backlog", async ({
   await expect(page.locator("#drill-btn")).toContainText("Docket first");
 });
 
-test("caps a docket sitting and leaves the remainder for the next one", async ({ page }) => {
+test("serves one sitting a day and shuts the docket once it is worked", async ({ page }) => {
   test.setTimeout(60_000);
-  const due = Date.now() - 60 * 60 * 1000;
+  const due = Date.now() - 2 * 24 * 60 * 60 * 1000;
   const review: Record<string, { box: number; due: number }> = {};
   for (let index = 0; index < 25; index += 1) {
     review[`${Math.floor(index / 10)}-${index % 10}`] = { box: 0, due: due - index };
   }
+  // Seeded once: the reload below re-runs this script, and the worked docket must
+  // survive it.
   await page.addInitScript((fixture) => {
-    localStorage.setItem("rootstock_v2", JSON.stringify(fixture));
+    if (!localStorage.getItem("rootstock_v2")) {
+      localStorage.setItem("rootstock_v2", JSON.stringify(fixture));
+    }
     localStorage.setItem("rootstock_sub", JSON.stringify({
       source: "dev",
       active: true,
@@ -292,22 +298,29 @@ test("caps a docket sitting and leaves the remainder for the next one", async ({
   }, { ...admittedProgress, review });
 
   await page.goto("/");
-  // 25 due is over the cap, so the CTA promises a sitting rather than the whole backlog.
-  await expect(page.locator(".session-meta")).toHaveText("20 of 25 this sitting");
+  // 25 released is more than a day's sitting, so the CTA promises the sitting rather
+  // than the backlog behind it.
+  await expect(page.locator(".session-meta")).toHaveText("20 words · today's sitting");
   await page.locator("#cta").click();
   await expect(page.locator(".queue-meta span").first()).toHaveText("20 in queue");
 
   for (let index = 0; index < 20; index += 1) await answerChoiceAndWait(page);
 
   await expect(page.getByText("Sitting Cleared")).toBeVisible();
-  await expect(page.getByText(/5 words still due/)).toBeVisible();
+  await expect(page.getByText(/5 words still waiting/)).toBeVisible();
   await page.locator("#h2").click();
 
-  // 25 → 5 remaining drops back under the blocking threshold, so the way forward reopens.
+  // Working the day's sitting reopens the way forward and shuts the Docket until the
+  // next release — the remaining 5 do not reopen it for a second sitting today.
   await expect(page.locator("#drill-btn")).toBeEnabled();
-  await expect(page.locator("#cta")).toContainText("5 words ready for recall");
-  await page.locator("#cta").click();
-  await expect(page.locator(".queue-meta span").first()).toHaveText("5 in queue");
+  await expect(page.locator("#docket-btn")).toHaveCount(0);
+  await expect(page.locator("#docket-done")).toContainText("Next sitting at 6 am");
+  await expect(page.locator(".session-title")).not.toHaveText("The Review Docket");
+
+  // And it stays shut across a restart, not merely for this render.
+  await page.reload();
+  await expect(page.locator("#docket-done")).toBeVisible();
+  await expect(page.locator("#docket-btn")).toHaveCount(0);
 });
 
 test("retires a word that has climbed the whole ladder", async ({ page }) => {
